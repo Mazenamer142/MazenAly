@@ -5,318 +5,434 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mazen Ali Abdallah Abdelazeem | Business Intelligence & Data Analyst</title>
 <meta name="description" content="Business Intelligence & Data Analyst based in Cairo, Egypt. SQL, Python, Power BI and Tableau, backed by business analysis and hands-on product building. Open to remote roles and opportunities in the UAE, Saudi Arabia and Qatar.">
-<meta name="theme-color" content="#0b0f17">
+<meta name="theme-color" content="#f3eee3">
 <meta property="og:title" content="Mazen Ali Abdallah Abdelazeem | Business Intelligence & Data Analyst">
 <meta property="og:description" content="Turning business questions into data-driven decisions and practical digital solutions.">
 <meta property="og:type" content="website">
-<!-- Inline SVG favicon: no external file needed -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0f17'/%3E%3Cpath d='M14 46V18l18 18 18-18v28' fill='none' stroke='%232dd4bf' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'%3E%3Crect width='16' height='16' fill='%231b1915'/%3E%3Crect x='2' y='3' width='2' height='10' fill='%23ff6a2b'/%3E%3Crect x='4' y='4' width='2' height='3' fill='%23ff6a2b'/%3E%3Crect x='6' y='6' width='2' height='3' fill='%23ff6a2b'/%3E%3Crect x='8' y='4' width='2' height='3' fill='%23ff6a2b'/%3E%3Crect x='10' y='3' width='2' height='10' fill='%23ff6a2b'/%3E%3C/svg%3E">
+
+<script>
+/* Pre-paint flags. "js-intro" hides the hero until the intro finishes.
+   It is only set when the visitor has not asked for reduced motion. */
+(function () {
+  var d = document.documentElement;
+  d.classList.remove('no-js');
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce) {
+    d.classList.add('js-intro', 'locked');
+    /* Safety net: if anything fails, reveal the page after 12s. */
+    setTimeout(function () { d.classList.remove('js-intro', 'locked'); }, 12000);
+  }
+})();
+</script>
 
 <style>
 /* ==================== DESIGN TOKENS ====================
-   Change the palette here and the whole site follows. */
+   Change the palette here and the whole site (including the pixel art) follows. */
 :root {
-  --background: #0b0f17;
-  --background-alt: #0e1420;
-  --surface: #131a27;
-  --surface-hover: #182133;
-  --text-primary: #eef2f8;
-  --text-secondary: #9aa6ba;
-  --text-muted: #6b778c;
-  --accent: #2dd4bf;            /* main accent (teal) */
-  --accent-strong: #14b8a6;
-  --accent-soft: rgba(45, 212, 191, .12);
-  --accent-2: #f5b942;          /* secondary accent (amber), used sparingly */
-  --border: rgba(154, 166, 186, .16);
-  --border-strong: rgba(154, 166, 186, .3);
-  --shadow: 0 18px 40px -20px rgba(0, 0, 0, .7);
-  --radius: 16px;
-  --radius-sm: 10px;
-  --maxw: 1160px;
-  --nav-h: 68px;
+  --bg: #f3eee3;
+  --bg-2: #eae2d0;
+  --surface: #fffaf0;
+  --ink: #1b1915;
+  --ink-2: #4a463d;
+  --muted: #807a6b;
+  --accent: #ff6a2b;              /* main accent (orange) */
+  --accent-soft: rgba(255, 106, 43, .14);
+  --tea: #2f9e8f;                 /* data accent (teal) */
+  --tea-soft: rgba(47, 158, 143, .16);
+  --yel: #ffc93c;
+  /* pixel art palette */
+  --body: #e7dcc6; --body-2: #cdbf9f; --desk: #d9a86c; --desk-hi: #ecc38c;
+  --leaf: #4a9a4f; --screen: #1d2529;
+
+  --line: 2px solid var(--ink);
+  --hard: 4px 4px 0 var(--ink);
+  --hard-lg: 6px 6px 0 var(--ink);
+  --radius: 12px;
+  --maxw: 1200px;
+  --nav-h: 64px;
   --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
   --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 12px); -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 16px); -webkit-text-size-adjust: 100%; }
+html.locked { overflow: hidden; }
 body {
-  margin: 0; background: var(--background); color: var(--text-primary);
-  font-family: var(--font-sans); line-height: 1.65; font-size: 1rem;
-  overflow-x: hidden; -webkit-font-smoothing: antialiased;
+  margin: 0; color: var(--ink); font-family: var(--font-sans); line-height: 1.6; font-size: 1rem;
+  background-color: var(--bg);
+  background-image: radial-gradient(rgba(27, 25, 21, .09) 1px, transparent 1px);
+  background-size: 22px 22px;
+  overflow-x: hidden; overflow-x: clip; -webkit-font-smoothing: antialiased;
 }
-img, svg { max-width: 100%; display: block; }
+img, svg, canvas { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
-ul { margin: 0; padding: 0; list-style: none; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
 h1, h2, h3, h4, p { margin: 0; }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
-.skip-link { position: absolute; left: -999px; top: 8px; background: var(--accent); color: #04211d; padding: 8px 14px; border-radius: 8px; z-index: 200; font-weight: 600; }
+button { font: inherit; color: inherit; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+.skip-link { position: absolute; left: -999px; top: 8px; background: var(--accent); color: var(--ink); padding: 8px 14px; border: var(--line); border-radius: 8px; z-index: 2000; font-weight: 700; }
 .skip-link:focus { left: 8px; }
+.container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(18px, 4vw, 36px); }
 
-.container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(18px, 4vw, 32px); }
-section { padding: clamp(64px, 9vw, 112px) 0; position: relative; }
-.section-alt { background: var(--background-alt); border-block: 1px solid var(--border); }
+/* pixel colour classes (used by generated SVG sprites) */
+.c-ink { fill: var(--ink); } .c-cream { fill: var(--surface); } .c-acc { fill: var(--accent); }
+.c-tea { fill: var(--tea); } .c-yel { fill: var(--yel); } .c-body { fill: var(--body); }
+.c-body2 { fill: var(--body-2); } .c-desk { fill: var(--desk); } .c-deskhi { fill: var(--desk-hi); }
+.c-leaf { fill: var(--leaf); } .c-steam { fill: var(--muted); }
+.spr svg { width: 100%; height: auto; }
 
-/* ---------- Section headings ---------- */
-.eyebrow { font-family: var(--font-mono); font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
-.section-head { max-width: 720px; margin-bottom: clamp(32px, 5vw, 56px); }
-.section-head h2 { font-size: clamp(1.9rem, 4vw, 2.7rem); line-height: 1.15; letter-spacing: -.02em; font-weight: 700; }
-.section-head p { margin-top: 14px; color: var(--text-secondary); font-size: clamp(1rem, 1.6vw, 1.15rem); }
-
-/* ---------- Buttons ---------- */
+/* ---------- Buttons: chunky pixel style ---------- */
 .btn {
-  display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; border-radius: 999px;
-  font-weight: 600; font-size: .95rem; border: 1px solid transparent; cursor: pointer;
-  transition: transform .2s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 13px 22px;
+  font-weight: 700; font-size: .95rem; border: var(--line); border-radius: 10px; cursor: pointer;
+  background: var(--surface); box-shadow: var(--hard);
+  transition: transform .15s ease, box-shadow .15s ease, background .2s ease;
 }
-.btn-primary { background: var(--accent); color: #04211d; }
-.btn-primary:hover { background: #5eead4; transform: translateY(-2px); box-shadow: 0 10px 24px -10px var(--accent); }
-.btn-secondary { border-color: var(--border-strong); color: var(--text-primary); background: transparent; }
-.btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+.btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+.btn:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--ink); }
+.btn-primary { background: var(--accent); }
+.btn svg { width: 18px; height: 18px; fill: currentColor; flex: none; }
 
-/* ---------- Navigation ---------- */
+/* ---------- Scroll progress ---------- */
+.progress { position: fixed; inset: 0 0 auto 0; height: 5px; z-index: 1100; background: transparent; pointer-events: none; }
+.progress i { display: block; height: 100%; width: 100%; background: var(--accent); transform-origin: 0 50%; transform: scaleX(0); border-right: 2px solid var(--ink); }
+
+/* ==================== NAVIGATION ==================== */
 .nav {
-  position: fixed; inset: 0 0 auto 0; height: var(--nav-h); z-index: 100;
-  background: rgba(11, 15, 23, .72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid transparent; transition: border-color .3s ease;
+  position: fixed; inset: 0 0 auto 0; height: var(--nav-h); z-index: 800;
+  background: rgba(243, 238, 227, .82); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 2px solid transparent; transition: transform .7s cubic-bezier(.2, .8, .2, 1), border-color .3s;
 }
-.nav.scrolled { border-color: var(--border); }
+.nav.scrolled { border-bottom-color: var(--ink); }
 .nav .container { height: 100%; display: flex; align-items: center; justify-content: space-between; }
-.brand { font-weight: 700; letter-spacing: -.01em; display: flex; align-items: center; gap: 10px; }
-.brand-mark { width: 30px; height: 30px; border-radius: 9px; background: var(--accent-soft); border: 1px solid var(--accent); display: grid; place-items: center; color: var(--accent); font-size: .85rem; font-family: var(--font-mono); }
-.nav-links { display: flex; gap: 4px; }
-.nav-links a { padding: 8px 14px; border-radius: 999px; color: var(--text-secondary); font-size: .93rem; font-weight: 500; transition: color .2s, background .2s; }
-.nav-links a:hover { color: var(--text-primary); background: var(--surface); }
-.nav-links a.active { color: var(--accent); background: var(--accent-soft); }
-.nav-toggle { display: none; background: none; border: 1px solid var(--border-strong); color: var(--text-primary); width: 42px; height: 42px; border-radius: 10px; cursor: pointer; }
-.nav-toggle span, .nav-toggle span::before, .nav-toggle span::after { display: block; width: 18px; height: 2px; background: currentColor; margin: auto; position: relative; transition: transform .25s, background .25s; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -.01em; }
+.brand-mark { width: 30px; height: 30px; background: var(--ink); border-radius: 6px; padding: 5px; }
+.menu { display: flex; align-items: center; gap: 6px; }
+.menu a, .menu button.mlink {
+  position: relative; padding: 8px 16px; font-weight: 650; font-size: .95rem; background: none; border: 0; cursor: pointer; border-radius: 8px;
+}
+.menu a::after, .menu button.mlink::after { content: ""; position: absolute; left: 16px; right: 16px; bottom: 4px; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: 0 50%; transition: transform .3s; }
+.menu a:hover::after, .menu button.mlink:hover::after { transform: scaleX(1); }
+.menu .btn-nav { border: var(--line); background: var(--accent); box-shadow: 3px 3px 0 var(--ink); margin-left: 6px; }
+.menu .btn-nav::after { display: none; }
+.menu .btn-nav:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+.nav-toggle { display: none; width: 44px; height: 44px; border: var(--line); background: var(--surface); border-radius: 10px; cursor: pointer; box-shadow: 3px 3px 0 var(--ink); }
+.nav-toggle span, .nav-toggle span::before, .nav-toggle span::after { display: block; width: 18px; height: 2px; background: var(--ink); margin: auto; position: relative; transition: transform .25s, background .25s; }
 .nav-toggle span::before, .nav-toggle span::after { content: ""; position: absolute; left: 0; }
 .nav-toggle span::before { top: -6px; } .nav-toggle span::after { top: 6px; }
 .nav-toggle[aria-expanded="true"] span { background: transparent; }
 .nav-toggle[aria-expanded="true"] span::before { transform: translateY(6px) rotate(45deg); }
 .nav-toggle[aria-expanded="true"] span::after { transform: translateY(-6px) rotate(-45deg); }
+.js-intro:not(.ready) .nav { transform: translateY(-110%); }
+
+/* ==================== INTRO OVERLAY ==================== */
+#intro { position: fixed; inset: 0; z-index: 900; background: var(--bg); display: none; transition: opacity .9s ease; }
+#intro::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(rgba(27, 25, 21, .13) 1.5px, transparent 1.5px); background-size: 28px 28px; }
+.js-intro #intro { display: block; }
+#intro.leaving { opacity: 0; pointer-events: none; }
+.intro-cap { position: absolute; left: 0; right: 0; text-align: center; font-family: var(--font-mono); font-size: clamp(.8rem, 2vw, 1rem); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; transition: opacity .4s; }
+.intro-cap .dots::after { content: ""; animation: dots 1.2s steps(4) infinite; }
+@keyframes dots { 0% { content: ""; } 25% { content: "."; } 50% { content: ".."; } 75% { content: "..."; } }
+.intro-bar { width: min(260px, 60vw); height: 18px; border: var(--line); background: var(--surface); margin: 14px auto 0; padding: 2px; }
+.intro-bar i { display: block; height: 100%; width: 0; background: var(--accent); }
+#intro.leaving .intro-cap { opacity: 0; }
+.intro-skip { position: absolute; right: clamp(16px, 3vw, 32px); bottom: clamp(16px, 3vw, 32px); padding: 9px 16px; font-family: var(--font-mono); font-size: .8rem; }
 
 /* ==================== HERO ==================== */
-.hero { min-height: 100vh; min-height: 100svh; display: flex; align-items: center; padding: calc(var(--nav-h) + 48px) 0 72px; overflow: hidden; }
-.hero::before {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background:
-    radial-gradient(700px 420px at 85% 15%, rgba(45, 212, 191, .10), transparent 65%),
-    radial-gradient(600px 400px at 0% 100%, rgba(245, 185, 66, .05), transparent 65%);
-}
-.hero::after { /* faint grid */
-  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5;
-  background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: radial-gradient(ellipse at 70% 30%, #000 0%, transparent 65%);
-  mask-image: radial-gradient(ellipse at 70% 30%, #000 0%, transparent 65%);
-}
-.hero .container { position: relative; z-index: 1; display: grid; grid-template-columns: 1.25fr .9fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
-.hero-name { font-size: clamp(1rem, 1.6vw, 1.15rem); color: var(--text-secondary); font-weight: 500; margin-bottom: 14px; }
-.hero h1 { font-size: clamp(2.3rem, 6vw, 4.1rem); line-height: 1.06; letter-spacing: -.03em; font-weight: 750; }
-.hero h1 .accent { color: var(--accent); }
-.hero-title { margin-top: 18px; font-family: var(--font-mono); font-size: clamp(.9rem, 1.6vw, 1.05rem); color: var(--accent); }
-.hero-lead { margin-top: 22px; font-size: clamp(1.05rem, 1.8vw, 1.25rem); color: var(--text-secondary); max-width: 34em; }
-.hero-meta { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px 16px; color: var(--text-secondary); font-size: .92rem; }
-.hero-meta li { display: inline-flex; align-items: center; gap: 8px; }
-.hero-meta li + li::before { content: ""; width: 4px; height: 4px; border-radius: 50%; background: var(--text-muted); }
-.hero-cta { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 14px; }
-.socials { margin-top: 30px; display: flex; gap: 12px; }
-.icon-link { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 12px; border: 1px solid var(--border-strong); color: var(--text-secondary); transition: color .2s, border-color .2s, transform .2s, background .2s; }
-.icon-link:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); transform: translateY(-2px); }
+.hero { padding: calc(var(--nav-h) + clamp(28px, 6vw, 64px)) 0 clamp(48px, 7vw, 88px); position: relative; }
+.hero .container { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(28px, 5vw, 72px); align-items: center; }
+.hero-copy { position: relative; z-index: 2; }
+.status { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: .78rem; font-weight: 700; padding: 7px 14px; border: var(--line); border-radius: 999px; background: var(--surface); }
+.status i { width: 9px; height: 9px; background: var(--tea); border-radius: 50%; animation: pulse 1.6s infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(47, 158, 143, .6); } 100% { box-shadow: 0 0 0 10px rgba(47, 158, 143, 0); } }
+.hero-role { margin-top: 22px; font-family: var(--font-mono); font-weight: 700; color: var(--accent); font-size: clamp(.85rem, 1.5vw, 1rem); letter-spacing: .02em; }
+.hero h1 { margin-top: 6px; font-size: clamp(3rem, 8.6vw, 6.6rem); line-height: .98; letter-spacing: -.045em; font-weight: 850; }
+.hero h1 .hl { position: relative; white-space: nowrap; }
+.hero h1 .hl::after { content: ""; position: absolute; left: 0; right: 0; bottom: .06em; height: .16em; background: var(--accent); z-index: -1; transform: scaleX(0); transform-origin: 0 50%; transition: transform .8s .9s cubic-bezier(.2, .8, .2, 1); }
+.ready .hero h1 .hl::after, html:not(.js-intro) .hero h1 .hl::after { transform: scaleX(1); }
+.w { display: inline-block; overflow: hidden; vertical-align: bottom; padding: 0 .04em .12em; margin: 0 -.04em -.12em; }
+.w > span { display: inline-block; transition: transform .9s cubic-bezier(.2, .9, .2, 1); transition-delay: calc(var(--i) * 90ms + .1s); }
+.js-intro:not(.ready) .w > span { transform: translateY(110%); }
+.hero-lead { margin-top: 22px; max-width: 30em; font-size: clamp(1.1rem, 1.9vw, 1.35rem); color: var(--ink-2); font-weight: 500; }
+.hero-name { margin-top: 10px; font-size: .9rem; color: var(--muted); font-family: var(--font-mono); }
+.summary { margin-top: 24px; display: grid; gap: 10px; max-width: 36em; }
+.summary li { display: flex; gap: 12px; align-items: flex-start; font-size: .98rem; color: var(--ink-2); }
+.summary li::before { content: ""; flex: none; width: 10px; height: 10px; margin-top: .55em; background: var(--accent); border: 2px solid var(--ink); }
+.summary strong { color: var(--ink); }
+.hero-cta { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 14px; }
+.socials { margin-top: 26px; display: flex; gap: 12px; }
+.icon-link { width: 46px; height: 46px; display: grid; place-items: center; border: var(--line); border-radius: 10px; background: var(--surface); box-shadow: 3px 3px 0 var(--ink); transition: transform .15s, box-shadow .15s, background .2s; }
+.icon-link:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--ink); background: var(--accent); }
 .icon-link svg { width: 20px; height: 20px; fill: currentColor; }
+.h-item { transition: opacity .8s ease, transform .8s cubic-bezier(.2, .8, .2, 1); transition-delay: calc(var(--i, 0) * 110ms + .35s); }
+.js-intro:not(.ready) .h-item { opacity: 0; transform: translateY(26px); }
 
-/* Hero visual: illustrative pipeline panel (no fake numbers) */
-.hero-panel { background: linear-gradient(160deg, rgba(19, 26, 39, .9), rgba(19, 26, 39, .55)); border: 1px solid var(--border); border-radius: 20px; padding: 26px; box-shadow: var(--shadow); backdrop-filter: blur(10px); }
-.hero-panel h2 { font-family: var(--font-mono); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 18px; font-weight: 500; }
-.hp-step { display: flex; align-items: center; gap: 14px; padding: 12px 14px; border-radius: 12px; }
-.hp-step + .hp-step { margin-top: 6px; }
-.hp-step .n { flex: none; width: 28px; height: 28px; border-radius: 8px; display: grid; place-items: center; font-family: var(--font-mono); font-size: .75rem; background: var(--accent-soft); color: var(--accent); }
-.hp-step strong { display: block; font-size: .95rem; font-weight: 600; }
-.hp-step span.s { font-size: .82rem; color: var(--text-secondary); }
-.hp-step.last { background: var(--accent-soft); border: 1px solid rgba(45, 212, 191, .3); }
+/* hero art */
+.hero-art { position: relative; }
+.stage { position: relative; width: 100%; max-width: 600px; margin: 0 auto; padding: 4% 0; }
+.pc-wrap { position: relative; width: 100%; transform-origin: 50% 50%; }
+.pc-wrap.flying { z-index: 1000; will-change: transform; }
+.pc-wrap svg { width: 100%; height: auto; }
+.pc-screen { position: absolute; left: 26.5625%; top: 16.6667%; width: 46.875%; height: 33.3333%; overflow: hidden; }
+.pc-screen canvas { width: 100%; height: 100%; image-rendering: pixelated; image-rendering: crisp-edges; image-rendering: pixelated; }
+.pc-screen::after { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, rgba(255, 255, 255, .12) 0 28%, transparent 28% 100%); pointer-events: none; }
+.steam { animation: steam 2.4s ease-in-out infinite; }
+.steam.s2 { animation-delay: .8s; } .steam.s3 { animation-delay: 1.6s; }
+@keyframes steam { 0% { opacity: 0; transform: translateY(2px); } 40% { opacity: .9; } 100% { opacity: 0; transform: translateY(-3px); } }
+.led { animation: blink 2s steps(2) infinite; }
+@keyframes blink { 50% { opacity: .25; } }
 
-/* ==================== CARDS (shared) ==================== */
-.grid { display: grid; gap: 24px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
-.grid-2 { grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); }
-.card {
-  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-  overflow: hidden; display: flex; flex-direction: column;
-  transition: transform .3s ease, border-color .3s ease, background .3s ease, box-shadow .3s ease;
-}
-.card:hover { transform: translateY(-4px); border-color: var(--border-strong); background: var(--surface-hover); box-shadow: var(--shadow); }
+.float { position: absolute; z-index: 3; will-change: transform; transition: opacity .8s, scale .8s cubic-bezier(.3, 1.4, .5, 1); transition-delay: calc(var(--i, 0) * 120ms + .9s); }
+.js-intro:not(.ready) .float { opacity: 0; scale: .4; }
+.float .bob { animation: bob 4.5s ease-in-out infinite; animation-delay: var(--bd, 0s); }
+@keyframes bob { 50% { transform: translateY(-9px); } }
+.float .spr { width: clamp(34px, 5.5vw, 54px); }
+.chip { display: inline-block; padding: 6px 12px; background: var(--surface); border: var(--line); border-radius: 8px; box-shadow: 3px 3px 0 var(--ink); font-family: var(--font-mono); font-size: .78rem; font-weight: 800; white-space: nowrap; }
+.chip.acc { background: var(--accent); } .chip.tea { background: var(--tea); color: var(--surface); }
+.f1 { left: -2%; top: 4%; } .f2 { right: 0; top: 0; } .f3 { left: -3%; top: 34%; }
+.f4 { right: -1%; bottom: 26%; } .f5 { left: 22%; top: -3%; } .f6 { right: 14%; bottom: 8%; } .f7 { left: 4%; bottom: 3%; }
+
+/* ==================== MARQUEE ==================== */
+.marquee { border-block: var(--line); background: var(--ink); color: var(--surface); overflow: hidden; padding: 14px 0; transform: rotate(-1deg); margin: 0 -2vw; }
+.marquee + .marquee { background: var(--accent); color: var(--ink); transform: rotate(.8deg); margin-top: -6px; }
+.mq-track { display: flex; width: max-content; will-change: transform; }
+.mq-track span { font-family: var(--font-mono); font-weight: 800; font-size: clamp(.95rem, 2vw, 1.2rem); letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; display: inline-flex; align-items: center; }
+.mq-track span::after { content: ""; width: 10px; height: 10px; background: var(--accent); margin: 0 clamp(18px, 3vw, 34px); flex: none; }
+.marquee + .marquee .mq-track span::after { background: var(--ink); }
+
+/* ==================== SHARED SECTION BITS ==================== */
+section { position: relative; }
+.eyebrow { font-family: var(--font-mono); font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 800; color: var(--accent); display: inline-flex; gap: 10px; align-items: center; }
+.eyebrow::before { content: ""; width: 12px; height: 12px; background: var(--accent); border: 2px solid var(--ink); }
+.section-title { margin-top: 12px; font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.04; letter-spacing: -.035em; font-weight: 850; }
+.section-sub { margin-top: 12px; color: var(--ink-2); font-size: clamp(1rem, 1.7vw, 1.2rem); max-width: 36em; }
+
+/* scroll-reveal system (JS adds .in) */
+.rv { opacity: 0; transition: opacity .8s ease, transform .8s cubic-bezier(.2, .8, .2, 1), filter .8s ease; }
+.rv[data-a="up"], .rv:not([data-a]) { transform: translateY(34px); }
+.rv[data-a="left"] { transform: translateX(-46px); }
+.rv[data-a="right"] { transform: translateX(46px); }
+.rv[data-a="zoom"] { transform: scale(.88); }
+.rv[data-a="blur"] { transform: translateY(20px); filter: blur(8px); }
+.rv.in { opacity: 1; transform: none; filter: none; }
+.no-js .rv { opacity: 1; transform: none; }
+
+/* ==================== PROJECTS AREA + TABS ==================== */
+#work { padding: clamp(64px, 9vw, 110px) 0 clamp(64px, 9vw, 110px); }
+.tabbar { position: sticky; top: var(--nav-h); z-index: 600; padding: 12px 0; margin-top: 30px; background: linear-gradient(var(--bg) 82%, rgba(243, 238, 227, 0)); }
+.tabs { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; padding: 6px; border: var(--line); border-radius: 14px; background: var(--surface); box-shadow: var(--hard); }
+.tab { position: relative; z-index: 1; border: 0; background: none; padding: 13px 10px; border-radius: 9px; cursor: pointer; font-weight: 750; color: var(--ink-2); display: flex; align-items: center; justify-content: center; gap: 9px; transition: color .25s; text-align: center; line-height: 1.2; }
+.tab .n { font-family: var(--font-mono); font-size: .72rem; opacity: .55; }
+.tab:hover { color: var(--ink); }
+.tab[aria-selected="true"] { color: var(--ink); }
+.tab-ind { position: absolute; left: 0; top: 0; z-index: 0; border-radius: 9px; background: var(--accent); border: var(--line); transition: transform .5s cubic-bezier(.3, 1.35, .5, 1), width .5s cubic-bezier(.3, 1.35, .5, 1), height .3s; }
+.panels { margin-top: 24px; min-height: 60vh; }
+.panel { will-change: transform, opacity; }
+
+/* cards */
+.grid { display: grid; gap: 26px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); }
+.grid-2 { grid-template-columns: repeat(auto-fill, minmax(min(100%, 460px), 1fr)); }
+.card { background: var(--surface); border: var(--line); border-radius: var(--radius); box-shadow: var(--hard); overflow: hidden; display: flex; flex-direction: column; transition: transform .2s ease, box-shadow .2s ease; }
+.card:hover { transform: translate(-3px, -3px); box-shadow: var(--hard-lg); }
 .card-body { padding: 24px; display: flex; flex-direction: column; gap: 14px; flex: 1; }
-.card h3 { font-size: 1.25rem; letter-spacing: -.01em; line-height: 1.25; }
-.card .oneliner { color: var(--accent); font-size: .92rem; font-weight: 500; }
-.card p { color: var(--text-secondary); font-size: .95rem; }
+.card h3 { font-size: 1.3rem; letter-spacing: -.02em; line-height: 1.2; }
+.card .oneliner { color: var(--accent); font-weight: 750; font-size: .95rem; filter: brightness(.86); }
+.card p { color: var(--ink-2); font-size: .96rem; }
 .tags { display: flex; flex-wrap: wrap; gap: 8px; }
-.tag { font-size: .75rem; padding: 4px 11px; border-radius: 999px; border: 1px solid var(--border-strong); color: var(--text-secondary); background: rgba(154, 166, 186, .05); white-space: nowrap; }
-.tag.tool { border-color: rgba(45, 212, 191, .35); color: var(--accent); background: var(--accent-soft); }
-.card-label { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: -4px; }
-.focus-list { display: grid; gap: 6px; font-size: .9rem; color: var(--text-secondary); }
+.tag { font-family: var(--font-mono); font-size: .72rem; font-weight: 700; padding: 4px 10px; border: 2px solid var(--ink); border-radius: 6px; background: var(--bg); white-space: nowrap; }
+.tag.tool { background: var(--tea-soft); }
+.card-label { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 800; color: var(--muted); }
+.questions { border-top: 2px dashed rgba(27, 25, 21, .25); padding-top: 14px; }
+.questions .card-label { margin-bottom: 8px; }
+.focus-list { display: grid; gap: 6px; font-size: .92rem; color: var(--ink-2); }
 .focus-list li { padding-left: 18px; position: relative; }
-.focus-list li::before { content: ""; position: absolute; left: 0; top: .68em; width: 8px; height: 1.5px; background: var(--accent); }
-.card-actions { margin-top: auto; padding-top: 6px; display: flex; flex-wrap: wrap; gap: 10px 18px; }
-.link-arrow { font-weight: 600; font-size: .92rem; color: var(--accent); display: inline-flex; gap: 6px; align-items: center; }
-.link-arrow.ghost { color: var(--text-secondary); }
+.focus-list li::before { content: ""; position: absolute; left: 0; top: .55em; width: 8px; height: 8px; background: var(--accent); border: 1.5px solid var(--ink); }
+.card-actions { margin-top: auto; padding-top: 6px; display: flex; flex-wrap: wrap; gap: 10px 20px; }
+.link-arrow { font-weight: 800; font-size: .93rem; display: inline-flex; gap: 6px; align-items: center; border-bottom: 3px solid var(--accent); padding-bottom: 1px; }
+.link-arrow.ghost { border-bottom-color: var(--ink); }
 .link-arrow span { transition: transform .2s; }
-.link-arrow:hover span { transform: translateX(4px); }
-.link-arrow.ghost:hover { color: var(--text-primary); }
-.link-arrow[aria-disabled="true"] { opacity: .55; pointer-events: none; }
-.pending-note { font-size: .78rem; color: var(--text-muted); font-family: var(--font-mono); }
-
-/* Project image / visual placeholder (works with or without an <img>) */
-.card-visual {
-  position: relative; aspect-ratio: 16 / 9; background:
-    linear-gradient(135deg, rgba(45, 212, 191, .10), rgba(245, 185, 66, .05)), var(--background-alt);
-  border-bottom: 1px solid var(--border); display: grid; place-items: center; overflow: hidden;
-}
+.link-arrow:hover span { transform: translateX(5px); }
+.link-arrow[aria-disabled="true"] { opacity: .45; pointer-events: none; border-bottom-style: dashed; }
+.pending-note { font-size: .74rem; color: var(--muted); font-family: var(--font-mono); font-weight: 600; }
+.card-visual { position: relative; aspect-ratio: 16 / 8; border-bottom: var(--line); display: grid; place-items: center; overflow: hidden;
+  background: linear-gradient(135deg, var(--accent-soft), var(--tea-soft)), var(--bg-2); }
+.card-visual::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(rgba(27, 25, 21, .14) 1px, transparent 1px); background-size: 14px 14px; }
 .card-visual img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; }
 .card-visual img[src=""], .card-visual img:not([src]) { display: none; }
-.ph { display: flex; flex-direction: column; align-items: center; gap: 10px; color: var(--text-muted); font-family: var(--font-mono); font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; }
-.ph-bars { display: flex; align-items: flex-end; gap: 6px; height: 46px; }
-.ph-bars i { width: 12px; border-radius: 3px 3px 0 0; background: var(--accent); opacity: .5; }
-.ph-bars i:nth-child(1) { height: 40%; } .ph-bars i:nth-child(2) { height: 65%; } .ph-bars i:nth-child(3) { height: 50%; } .ph-bars i:nth-child(4) { height: 85%; } .ph-bars i:nth-child(5) { height: 60%; }
-.ph-doc { width: 54px; height: 46px; border: 1.5px solid var(--accent); border-radius: 6px; opacity: .55; position: relative; }
-.ph-doc::before, .ph-doc::after { content: ""; position: absolute; left: 8px; right: 8px; height: 2px; background: var(--accent); }
-.ph-doc::before { top: 12px; } .ph-doc::after { top: 22px; box-shadow: 0 10px 0 var(--accent); right: 18px; }
-.ph-mark { font-size: 2rem; font-weight: 700; color: var(--accent); opacity: .7; letter-spacing: -.02em; text-transform: none; font-family: var(--font-sans); }
+.card-visual .spr { width: clamp(64px, 14%, 96px); position: relative; transition: transform .35s cubic-bezier(.3, 1.6, .5, 1); }
+.card:hover .card-visual .spr { transform: scale(1.15) rotate(-4deg); }
+.ph-label { position: absolute; left: 12px; bottom: 10px; font-family: var(--font-mono); font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 700; z-index: 1; }
+.card.slot { background: transparent; border-style: dashed; box-shadow: none; }
+.card.slot:hover { transform: none; box-shadow: none; }
+.card.slot .card-visual { background: none; border-bottom-style: dashed; aspect-ratio: 16 / 6; }
+.slot-inner { position: relative; text-align: center; padding: 24px; color: var(--muted); display: grid; gap: 4px; font-size: .9rem; }
+.slot-inner strong { color: var(--ink); }
 
-/* Empty slot styling (Project 3 / 4) */
-.card.slot { background: transparent; border-style: dashed; border-color: var(--border-strong); }
-.card.slot:hover { transform: none; box-shadow: none; background: transparent; border-color: var(--accent); }
-.card.slot .card-visual { background: none; border-bottom-style: dashed; }
-.slot-inner { color: var(--text-muted); text-align: center; padding: 28px; font-size: .9rem; display: grid; gap: 6px; }
-.slot-inner strong { color: var(--text-secondary); font-weight: 600; }
+/* ---------- Panel 1: CV & snapshots ---------- */
+.cv-layout { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(24px, 4vw, 44px); align-items: start; }
+.cv { background: var(--surface); border: var(--line); border-radius: var(--radius); box-shadow: var(--hard); overflow: hidden; }
+.cv-top { padding: clamp(22px, 3vw, 32px); background: var(--ink); color: var(--surface); display: flex; flex-wrap: wrap; gap: 14px 24px; justify-content: space-between; align-items: flex-end; }
+.cv-top h3 { font-size: clamp(1.4rem, 3vw, 1.9rem); letter-spacing: -.03em; line-height: 1.1; }
+.cv-top p { color: rgba(255, 250, 240, .75); font-size: .92rem; margin-top: 4px; }
+.cv-top .btn { box-shadow: 3px 3px 0 var(--accent); color: var(--ink); padding: 10px 16px; font-size: .88rem; }
+.cv-top .btn[aria-disabled="true"] { opacity: .6; pointer-events: none; }
+.cv-body { padding: clamp(20px, 3vw, 32px); display: grid; gap: 28px; }
+.cv-sec h4 { font-family: var(--font-mono); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 800; color: var(--accent); display: flex; align-items: center; gap: 12px; margin-bottom: 12px; filter: brightness(.9); }
+.cv-sec h4::after { content: ""; flex: 1; height: 2px; background: var(--ink); opacity: .15; }
+.cv-item + .cv-item { margin-top: 16px; }
+.cv-item .row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; align-items: baseline; }
+.cv-item h5 { margin: 0; font-size: 1.05rem; letter-spacing: -.01em; }
+.cv-item .when { font-family: var(--font-mono); font-size: .8rem; color: var(--muted); font-weight: 700; }
+.cv-item .where { color: var(--ink-2); font-size: .94rem; }
+.cv-item p { color: var(--ink-2); font-size: .94rem; margin-top: 4px; }
+.gpa { display: inline-flex; align-items: baseline; gap: 8px; margin-top: 8px; padding: 6px 12px; border: var(--line); border-radius: 8px; background: var(--yel); font-weight: 800; }
+.gpa small { font-weight: 600; font-family: var(--font-mono); font-size: .75rem; }
+.pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.pill { padding: 6px 14px; border: 2px solid var(--ink); border-radius: 999px; font-size: .86rem; font-weight: 650; background: var(--bg); transition: background .2s, transform .2s; }
+.pill:hover { background: var(--accent); transform: translateY(-2px); }
+.skill-block + .skill-block { margin-top: 14px; }
+.skill-block .card-label { margin-bottom: 8px; display: block; }
+.snap-col h3 { font-size: 1.4rem; letter-spacing: -.02em; }
+.snap-col > p { color: var(--ink-2); margin: 6px 0 20px; }
+.snaps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.snap { display: flex; flex-direction: column; text-align: left; background: var(--surface); border: var(--line); border-radius: 12px; box-shadow: 3px 3px 0 var(--ink); cursor: pointer; overflow: hidden; padding: 0; transition: transform .2s, box-shadow .2s; }
+.snap:hover { transform: translate(-3px, -3px) rotate(-.6deg); box-shadow: 6px 6px 0 var(--ink); }
+.snap .thumb { aspect-ratio: 16 / 10; display: grid; place-items: center; border-bottom: var(--line); background: var(--tea-soft); position: relative; }
+.snap:nth-child(2n) .thumb { background: var(--accent-soft); }
+.snap:nth-child(3n) .thumb { background: rgba(255, 201, 60, .3); }
+.snap .thumb .spr { width: 34%; transition: transform .3s cubic-bezier(.3, 1.6, .5, 1); }
+.snap:hover .thumb .spr { transform: scale(1.18) rotate(5deg); }
+.snap .meta { padding: 12px 14px 14px; }
+.snap .meta b { display: block; font-size: 1rem; letter-spacing: -.01em; }
+.snap .meta span { display: block; font-size: .8rem; color: var(--muted); line-height: 1.35; margin-top: 2px; }
+.snap .meta em { display: inline-block; margin-top: 8px; font-style: normal; font-family: var(--font-mono); font-size: .72rem; font-weight: 800; color: var(--accent); filter: brightness(.85); }
 
-/* ==================== VENTURES ==================== */
-.venture .avatar { width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; font-weight: 700; color: var(--accent); background: var(--accent-soft); border: 1px solid rgba(45, 212, 191, .3); font-size: 1.1rem; }
+/* ---------- Ventures ---------- */
 .venture-top { display: flex; align-items: center; gap: 14px; }
 .venture-top h3 { margin-bottom: 2px; }
 .venture-top .oneliner { line-height: 1.35; }
-.status { font-size: .72rem; font-family: var(--font-mono); color: var(--text-muted); }
+.avatar { flex: none; width: 46px; height: 46px; border: var(--line); border-radius: 10px; display: grid; place-items: center; font-weight: 850; background: var(--yel); }
 
-/* ==================== DATA ANALYSIS: pipeline ==================== */
-.pipeline { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; margin-bottom: clamp(36px, 5vw, 56px); border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); overflow: hidden; }
-.pipe-step { padding: 20px 18px; position: relative; }
-.pipe-step + .pipe-step { border-left: 1px solid var(--border); }
-.pipe-step:not(:last-child)::after { content: "→"; position: absolute; right: -9px; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; border-radius: 50%; background: var(--background); border: 1px solid var(--border-strong); color: var(--accent); font-size: .7rem; display: grid; place-items: center; z-index: 2; line-height: 1; }
-.pipe-step .n { font-family: var(--font-mono); font-size: .7rem; color: var(--accent); }
-.pipe-step h3 { font-size: .98rem; margin: 6px 0 4px; }
-.pipe-step p { font-size: .8rem; color: var(--text-secondary); line-height: 1.5; }
-.pipe-step:last-child { background: var(--accent-soft); }
+/* ---------- Data pipeline ---------- */
+.pipeline { position: relative; display: grid; grid-template-columns: repeat(6, 1fr); border: var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--hard); overflow: hidden; margin-bottom: 34px; }
+.pipe-step { position: relative; padding: 20px 16px; transition: background .5s; transition-delay: calc(var(--i) * .28s + .3s); }
+.pipe-step + .pipe-step { border-left: 2px solid var(--ink); }
+.pipeline.in .pipe-step { background: var(--accent-soft); }
+.pipeline.in .pipe-step:last-child { background: var(--accent); }
+.pipe-step .n { font-family: var(--font-mono); font-size: .72rem; font-weight: 800; color: var(--muted); }
+.pipe-step h3 { font-size: 1rem; margin: 6px 0 4px; letter-spacing: -.01em; }
+.pipe-step p { font-size: .8rem; color: var(--ink-2); line-height: 1.45; }
+.packet { position: absolute; left: 0; top: 0; height: 6px; width: 6px; background: var(--ink); z-index: 2; opacity: 0; }
+.pipeline.in .packet { animation: packet 4.5s .5s linear infinite; }
+@keyframes packet { 0% { left: 0; opacity: 1; } 95% { opacity: 1; } 100% { left: calc(100% - 6px); opacity: 0; } }
+.pipe-line { position: absolute; left: 0; right: 0; top: 0; height: 6px; background: repeating-linear-gradient(90deg, var(--ink) 0 6px, transparent 6px 12px); opacity: .18; }
 
-.questions { border-top: 1px solid var(--border); padding-top: 14px; }
-.questions .card-label { margin-bottom: 8px; }
-
-/* ==================== BUSINESS ANALYSIS ==================== */
-.ba-split { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: clamp(36px, 5vw, 56px); }
-.panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: clamp(22px, 3vw, 32px); }
-.panel h3 { font-size: 1.15rem; margin-bottom: 4px; }
-.panel .sub { color: var(--text-secondary); font-size: .92rem; margin-bottom: 20px; }
-.panel .card-label { margin-bottom: 10px; }
-.bridge { margin-top: -8px; margin-bottom: clamp(36px, 5vw, 56px); padding: 22px 26px; border-left: 3px solid var(--accent); background: var(--accent-soft); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; color: var(--text-primary); font-size: clamp(1rem, 1.6vw, 1.1rem); }
-.subhead { font-size: 1.15rem; margin-bottom: 20px; font-weight: 650; }
-
-/* ==================== SKILLS ==================== */
-.skill-groups { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
-.skill-group { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; transition: border-color .3s, transform .3s; }
-.skill-group:hover { border-color: var(--border-strong); transform: translateY(-3px); }
-.skill-group h3 { font-size: 1.05rem; margin-bottom: 4px; }
-.skill-group .sub { font-size: .88rem; color: var(--text-secondary); margin-bottom: 18px; }
-.pills { display: flex; flex-wrap: wrap; gap: 10px; }
-.pill { padding: 8px 16px; border-radius: 999px; font-size: .9rem; border: 1px solid var(--border-strong); background: rgba(154, 166, 186, .05); color: var(--text-primary); transition: border-color .2s, color .2s, background .2s; }
-.pill:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
-
-/* ==================== ABOUT ==================== */
-.about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(32px, 5vw, 64px); align-items: start; }
-.about-text p { color: var(--text-secondary); font-size: clamp(1rem, 1.5vw, 1.1rem); }
-.about-text p + p { margin-top: 18px; }
-.about-text strong { color: var(--text-primary); font-weight: 600; }
-.facts { display: grid; gap: 16px; }
-.fact { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 22px; }
-.fact .k { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--text-muted); }
-.fact .v { margin-top: 4px; font-weight: 600; }
-.fact .d { color: var(--text-secondary); font-size: .88rem; margin-top: 2px; }
+/* ---------- Business analysis panels ---------- */
+.ba-split { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-bottom: 30px; }
+.panel-box { background: var(--surface); border: var(--line); border-radius: var(--radius); box-shadow: var(--hard); padding: clamp(22px, 3vw, 30px); }
+.panel-box h3 { font-size: 1.2rem; letter-spacing: -.02em; }
+.panel-box .sub { color: var(--ink-2); font-size: .94rem; margin: 4px 0 18px; }
+.panel-box .card-label { display: block; margin-bottom: 10px; }
+.bridge { margin-bottom: 40px; padding: 22px 26px; border: var(--line); border-radius: var(--radius); background: var(--yel); box-shadow: var(--hard); font-weight: 650; font-size: clamp(1rem, 1.7vw, 1.15rem); }
+.subhead { font-size: 1.25rem; margin-bottom: 20px; letter-spacing: -.02em; }
+.panel-head { margin-bottom: 30px; }
+.panel-head h3 { font-size: clamp(1.5rem, 3.2vw, 2.1rem); letter-spacing: -.03em; line-height: 1.1; }
+.panel-head p { margin-top: 8px; color: var(--ink-2); font-size: 1.05rem; max-width: 36em; }
 
 /* ==================== CONTACT ==================== */
-.contact { text-align: center; }
-.contact-box { max-width: 760px; margin: 0 auto; padding: clamp(36px, 6vw, 64px) clamp(20px, 4vw, 48px); border: 1px solid var(--border); border-radius: 24px; background: radial-gradient(500px 240px at 50% 0%, rgba(45, 212, 191, .10), transparent 70%), var(--surface); }
-.contact h2 { font-size: clamp(1.9rem, 4.5vw, 3rem); letter-spacing: -.02em; line-height: 1.12; }
-.contact p.lead { margin: 16px auto 0; max-width: 34em; color: var(--text-secondary); font-size: clamp(1rem, 1.6vw, 1.15rem); }
-.contact-links { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
-.contact-links .btn { min-width: 150px; justify-content: center; }
-.contact-links .btn svg { width: 18px; height: 18px; fill: currentColor; }
-.contact .avail { margin-top: 26px; color: var(--text-muted); font-size: .88rem; }
-
-footer { border-top: 1px solid var(--border); padding: 28px 0; color: var(--text-muted); font-size: .85rem; }
+.contact { background: var(--ink); color: var(--surface); padding: clamp(72px, 10vw, 130px) 0; overflow: hidden; }
+.contact::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(rgba(255, 250, 240, .09) 1.5px, transparent 1.5px); background-size: 26px 26px; }
+.contact .container { position: relative; }
+.contact .eyebrow { color: var(--accent); }
+.contact h2 { margin-top: 14px; font-size: clamp(2.4rem, 7.4vw, 5.6rem); line-height: .98; letter-spacing: -.045em; font-weight: 850; max-width: 12em; }
+.contact h2 .hl { color: var(--accent); }
+.contact .lead { margin-top: 20px; color: rgba(255, 250, 240, .75); font-size: clamp(1.05rem, 1.8vw, 1.3rem); max-width: 30em; }
+.contact-cards { margin-top: 44px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px; }
+.c-card { display: flex; flex-direction: column; gap: 6px; padding: 24px 26px; background: var(--surface); color: var(--ink); border: 2px solid var(--surface); border-radius: var(--radius); box-shadow: 5px 5px 0 var(--accent); transition: transform .2s, box-shadow .2s; }
+.c-card:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0 var(--accent); }
+.c-card .card-label { color: var(--muted); }
+.c-card b { font-size: clamp(1.1rem, 2.4vw, 1.5rem); letter-spacing: -.02em; word-break: break-word; }
+.c-card em { font-style: normal; font-family: var(--font-mono); font-size: .8rem; font-weight: 800; color: var(--accent); margin-top: 6px; filter: brightness(.85); }
+.contact-links { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 14px; }
+.contact-links .btn { box-shadow: 4px 4px 0 var(--accent); background: var(--surface); color: var(--ink); border-color: var(--surface); }
+.contact-links .btn:hover { box-shadow: 6px 6px 0 var(--accent); }
+.contact .avail { margin-top: 30px; font-family: var(--font-mono); font-size: .82rem; color: rgba(255, 250, 240, .55); }
+.contact-sprite { position: absolute; right: clamp(16px, 6vw, 90px); top: clamp(30px, 8vw, 90px); width: clamp(50px, 9vw, 110px); }
+footer { background: var(--ink); color: rgba(255, 250, 240, .55); border-top: 1px solid rgba(255, 250, 240, .15); padding: 24px 0; font-size: .85rem; font-family: var(--font-mono); }
 footer .container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
-
-/* ==================== REVEAL ANIMATION ==================== */
-.reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; transition-delay: var(--d, 0s); }
-.reveal.in { opacity: 1; transform: none; }
-/* If JS is unavailable, everything stays visible */
-.no-js .reveal { opacity: 1; transform: none; }
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
-  .reveal { opacity: 1; transform: none; }
-}
 
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 980px) {
   .hero .container { grid-template-columns: 1fr; }
-  .hero { min-height: auto; }
+  .hero-art { order: -1; }
+  .stage { max-width: 440px; }
+  .cv-layout, .ba-split { grid-template-columns: 1fr; }
   .pipeline { grid-template-columns: repeat(3, 1fr); }
   .pipe-step:nth-child(4) { border-left: 0; }
-  .pipe-step:nth-child(n+4) { border-top: 1px solid var(--border); }
-  .pipe-step:nth-child(3)::after { display: none; }
-  .about-grid, .ba-split { grid-template-columns: 1fr; }
+  .pipe-step:nth-child(n+4) { border-top: 2px solid var(--ink); }
 }
 @media (max-width: 820px) {
   .nav-toggle { display: block; }
-  .nav-links {
-    position: fixed; top: var(--nav-h); left: 0; right: 0; flex-direction: column; gap: 2px;
-    padding: 14px clamp(18px, 4vw, 32px) 22px; background: rgba(11, 15, 23, .97); border-bottom: 1px solid var(--border);
-    transform: translateY(-12px); opacity: 0; visibility: hidden; transition: opacity .25s, transform .25s, visibility .25s;
-  }
-  .nav-links.open { transform: none; opacity: 1; visibility: visible; }
-  .nav-links a { padding: 13px 14px; font-size: 1rem; }
+  .menu { position: fixed; top: var(--nav-h); left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 4px; padding: 16px clamp(18px, 4vw, 36px) 24px; background: var(--bg); border-bottom: var(--line); transform: translateY(-14px); opacity: 0; visibility: hidden; transition: opacity .25s, transform .25s, visibility .25s; }
+  .menu.open { transform: none; opacity: 1; visibility: visible; }
+  .menu a, .menu button.mlink { text-align: left; padding: 14px 10px; font-size: 1.1rem; }
+  .menu .btn-nav { margin: 8px 0 0; }
 }
-@media (max-width: 560px) {
-  .pipeline { grid-template-columns: 1fr; }
-  .pipe-step + .pipe-step { border-left: 0; border-top: 1px solid var(--border); }
-  .pipe-step:nth-child(n+4) { border-top: 1px solid var(--border); }
-  .pipe-step::after { display: none !important; }
-  .hero-cta .btn { flex: 1 1 100%; justify-content: center; }
-  .hero-meta li + li::before { display: none; }
-  .hero-meta { flex-direction: column; gap: 4px; }
+@media (max-width: 640px) {
+  .tabs { grid-template-columns: 1fr 1fr; }
+  .tab { padding: 12px 6px; font-size: .88rem; }
+  .pipeline { grid-template-columns: 1fr 1fr; }
+  .pipe-step { border-left: 0 !important; border-top: 2px solid var(--ink); }
+  .pipe-step:nth-child(-n+2) { border-top: 0; }
+  .pipe-step:nth-child(2n) { border-left: 2px solid var(--ink) !important; }
+  .hero-cta .btn { flex: 1 1 100%; }
+  .snaps { grid-template-columns: 1fr 1fr; gap: 12px; }
   .grid, .grid-2 { grid-template-columns: 1fr; }
+  .f5, .f7 { display: none; }
+  .contact-sprite { display: none; }
+}
+
+/* ==================== REDUCED MOTION ==================== */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; transition-delay: 0s !important; }
+  .rv, .h-item { opacity: 1 !important; transform: none !important; filter: none !important; }
+  .w > span { transform: none !important; }
+  .float { opacity: 1 !important; scale: 1 !important; }
+  .marquee { transform: none; }
 }
 </style>
 </head>
 
 <body>
-<script>document.documentElement.classList.remove('no-js')</script>
 <a class="skip-link" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><i id="progress"></i></div>
+
+<!-- ==================== INTRO (pixel PC searches for data, then flies into the hero) ==================== -->
+<div id="intro" aria-hidden="true">
+  <div class="intro-cap" id="introCap">
+    <div id="introText">booting up<span class="dots"></span></div>
+    <div class="intro-bar"><i id="introBar"></i></div>
+  </div>
+  <button class="btn intro-skip" id="introSkip" type="button" tabindex="-1">Skip intro →</button>
+</div>
 
 <!-- ==================== NAVIGATION ==================== -->
-<header class="nav" id="top">
+<header class="nav" id="nav">
   <div class="container">
-    <a href="#home" class="brand" aria-label="Mazen Ali Abdallah Abdelazeem, home">
-      <span class="brand-mark" aria-hidden="true">MA</span>
+    <a href="#home" class="brand" aria-label="Mazen Abdelazeem, home">
+      <span class="brand-mark spr" data-sprite="logo"></span>
       <span>Mazen Abdelazeem</span>
     </a>
-    <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="menu"><span></span></button>
     <nav aria-label="Main navigation">
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#ventures">Ventures</a></li>
-        <li><a href="#data-analysis">Data Analysis</a></li>
-        <li><a href="#business-analysis">Business Analysis</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
+      <ul class="menu" id="menu">
+        <!-- MENU: Projects / CV / Contact -->
+        <li><button class="mlink" type="button" data-nav="projects">Projects</button></li>
+        <li><button class="mlink" type="button" data-nav="cv">CV</button></li>
+        <li><a class="btn-nav btn" href="#contact" data-nav="contact">Contact</a></li>
       </ul>
     </nav>
   </div>
@@ -327,19 +443,27 @@ footer .container { display: flex; flex-wrap: wrap; justify-content: space-betwe
 <!-- ==================== HERO SECTION ==================== -->
 <section class="hero" id="home" aria-labelledby="hero-title">
   <div class="container">
-    <div>
-      <p class="hero-name reveal">Mazen Ali Abdallah Abdelazeem</p>
-      <h1 id="hero-title" class="reveal" style="--d:.08s">Turning business questions into <span class="accent">data-driven decisions</span> and practical digital solutions.</h1>
-      <p class="hero-title reveal" style="--d:.16s">Business Intelligence &amp; Data Analyst</p>
-      <p class="hero-lead reveal" style="--d:.22s">I define the problem with the business, analyse the data with SQL and Python, report it in Power BI and Tableau, and I have built and shipped products of my own.</p>
-      <ul class="hero-meta reveal" style="--d:.28s" aria-label="Location and availability">
-        <li>Cairo, Egypt</li><li>Open to Remote</li><li>UAE</li><li>Saudi Arabia</li><li>Qatar</li>
+
+    <div class="hero-copy">
+      <p class="status h-item" style="--i:0"><i></i> Open to remote · UAE · Saudi Arabia · Qatar</p>
+      <p class="hero-role h-item" style="--i:1">Business Intelligence &amp; Data Analyst</p>
+      <h1 id="hero-title" data-split>Hello, I'm <span class="hl">Mazen.</span></h1>
+      <p class="hero-name h-item" style="--i:3">Mazen Ali Abdallah Abdelazeem · Cairo, Egypt</p>
+      <p class="hero-lead h-item" style="--i:4">I turn business questions into data-driven decisions and practical digital solutions.</p>
+
+      <!-- PROFESSIONAL SUMMARY (edit freely) -->
+      <ul class="summary h-item" style="--i:5">
+        <li><span><strong>B.Sc. Business Information Systems</strong>, AASTMT Cairo. GPA 3.75/4.0, Excellent with Honours (July 2026).</span></li>
+        <li><span><strong>Teaching Assistant</strong> for AI in Business at AASTMT Cairo.</span></li>
+        <li><span>I work with <strong>SQL, Python, Power BI and Tableau</strong>, and I start from the business requirement, not the chart.</span></li>
+        <li><span>I have <strong>built and shipped my own products</strong>, from an e-commerce brand to a clinic SaaS.</span></li>
       </ul>
-      <div class="hero-cta reveal" style="--d:.34s">
-        <a class="btn btn-primary" href="#data-analysis">View My Work <span aria-hidden="true">→</span></a>
-        <a class="btn btn-secondary" href="#contact">Contact Me</a>
+
+      <div class="hero-cta h-item" style="--i:6">
+        <button class="btn btn-primary" type="button" data-nav="projects">View Projects <span aria-hidden="true">→</span></button>
+        <a class="btn" href="#contact" data-nav="contact">Contact Me</a>
       </div>
-      <div class="socials reveal" style="--d:.4s">
+      <div class="socials h-item" style="--i:7">
         <!-- EDIT LINKEDIN LINK HERE -->
         <a class="icon-link" href="https://linkedin.com/in/mazen-amerr" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
@@ -351,431 +475,522 @@ footer .container { display: flex; flex-wrap: wrap; justify-content: space-betwe
       </div>
     </div>
 
-    <!-- Illustrative "how I work" panel: no data, no fake metrics -->
-    <aside class="hero-panel reveal" style="--d:.2s" aria-label="How I approach a problem">
-      <h2>How I approach a problem</h2>
-      <div class="hp-step"><span class="n">01</span><div><strong>Understand the question</strong><span class="s">Stakeholders, goals, constraints</span></div></div>
-      <div class="hp-step"><span class="n">02</span><div><strong>Define what to measure</strong><span class="s">KPIs, business rules, data sources</span></div></div>
-      <div class="hp-step"><span class="n">03</span><div><strong>Analyse the data</strong><span class="s">SQL, Python, Excel</span></div></div>
-      <div class="hp-step"><span class="n">04</span><div><strong>Build the view</strong><span class="s">Power BI, Tableau dashboards</span></div></div>
-      <div class="hp-step last"><span class="n">05</span><div><strong>Recommend an action</strong><span class="s">Insights the business can use</span></div></div>
-    </aside>
+    <!-- Pixel PC scene. The intro scales this element up, then flies it back to this spot. -->
+    <div class="hero-art">
+      <div class="stage" id="stage">
+        <div class="pc-wrap" id="pcWrap">
+          <div id="pcSvg"></div>
+          <div class="pc-screen"><canvas id="screen" width="60" height="32" aria-label="Pixel monitor showing a dashboard being built" role="img"></canvas></div>
+        </div>
+        <!-- floating pixel icons (parallax on scroll and mouse) -->
+        <div class="float f1" data-depth="18" data-speed=".06" style="--i:0"><div class="bob spr" data-sprite="mag"></div></div>
+        <div class="float f2" data-depth="-14" data-speed=".1" style="--i:1"><div class="bob spr" data-sprite="bars" style="--bd:.6s"></div></div>
+        <div class="float f3" data-depth="22" data-speed=".14" style="--i:2"><div class="bob spr" data-sprite="db" style="--bd:1.2s"></div></div>
+        <div class="float f4" data-depth="-20" data-speed=".05" style="--i:3"><div class="bob spr" data-sprite="spark" style="--bd:.3s"></div></div>
+        <div class="float f5" data-depth="12" data-speed=".08" style="--i:4"><div class="bob" style="--bd:.9s"><span class="chip acc">SQL</span></div></div>
+        <div class="float f6" data-depth="-24" data-speed=".12" style="--i:5"><div class="bob" style="--bd:1.5s"><span class="chip tea">Power BI</span></div></div>
+        <div class="float f7" data-depth="16" data-speed=".09" style="--i:6"><div class="bob" style="--bd:2s"><span class="chip">Python</span></div></div>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- ==================== VENTURES ==================== -->
-<section id="ventures" class="section-alt" aria-labelledby="ventures-title">
+<!-- ==================== MARQUEES (scroll-reactive) ==================== -->
+<div class="marquee" aria-hidden="true"><div class="mq-track" data-dir="-1"><span>SQL</span><span>Python</span><span>Power BI</span><span>Tableau</span><span>Excel</span><span>KPIs</span><span>Dashboards</span><span>SQL</span><span>Python</span><span>Power BI</span><span>Tableau</span><span>Excel</span><span>KPIs</span><span>Dashboards</span></div></div>
+<div class="marquee" aria-hidden="true"><div class="mq-track" data-dir="1"><span>Requirements</span><span>Stakeholders</span><span>User Stories</span><span>Process Mapping</span><span>Node.js</span><span>Supabase</span><span>PostgreSQL</span><span>Requirements</span><span>Stakeholders</span><span>User Stories</span><span>Process Mapping</span><span>Node.js</span><span>Supabase</span><span>PostgreSQL</span></div></div>
+
+<!-- ==================== PROJECTS AREA: FOUR SECTIONS AS SWAPPING TABS ==================== -->
+<section id="work" aria-labelledby="work-title">
   <div class="container">
-    <div class="section-head reveal">
-      <p class="eyebrow">01 · Ventures</p>
-      <h2 id="ventures-title">Ventures</h2>
-      <p>Products I have founded, built and shipped. They are where I learned how the technical and business sides of a digital product fit together.</p>
+    <div class="rv" data-a="blur">
+      <p class="eyebrow">Projects &amp; CV</p>
+      <h2 class="section-title" id="work-title">Pick a section.</h2>
+      <p class="section-sub">Four views of the same work: my CV with project snapshots, the web ventures I built, and the data and business analysis side.</p>
     </div>
 
-    <div class="grid grid-2">
-
-      <!-- VENTURE CARD: SEIRA -->
-      <!-- Source for description: the public store https://seira.shop -->
-      <article class="card venture reveal">
-        <div class="card-body">
-          <div class="venture-top">
-            <div class="avatar" aria-hidden="true">S</div>
-            <div><h3>Seira</h3><p class="oneliner">Live e-commerce brand, built end to end.</p></div>
-          </div>
-          <div class="tags">
-            <!-- EDIT VENTURE TAGS HERE -->
-            <span class="tag tool">E-commerce</span><span class="tag tool">Admin Panel</span><span class="tag tool">Dashboards</span><span class="tag tool">Live Product</span>
-          </div>
-          <p><!-- EDIT SEIRA DESCRIPTION HERE -->Seira is a live e-commerce business selling beach essentials in Egypt, and I built it end to end: the customer storefront, the back office behind it and the reporting on top. The store runs in Egyptian pounds with an Arabic option. The admin panel and dashboards are what let the business run day to day, not just look good online.</p>
-          <div class="questions"><p class="card-label">Highlights</p><ul class="focus-list"><li>Live storefront: car seat covers, head shades, beach racket sets</li><li>Complex admin panel for running the business behind the store</li><li>Dashboards for tracking the business</li><li>Built end to end, from product decisions to launch</li></ul></div>
-          
-          <div class="card-actions">
-            <!-- EDIT PROJECT LIVE LINK HERE -->
-            <a class="link-arrow" href="https://seira.shop" target="_blank" rel="noopener noreferrer">View Project <span aria-hidden="true">→</span></a>
-          </div>
-        </div>
-      </article>
-
-      <!-- VENTURE CARD: CAREHUBS -->
-      <!-- Source for description: the public product site https://www.carehubs.tech/ -->
-      <article class="card venture reveal" style="--d:.08s">
-        <div class="card-body">
-          <div class="venture-top">
-            <div class="avatar" aria-hidden="true">C</div>
-            <div><h3>CareHubs</h3><p class="oneliner">Multi-tenant clinic management SaaS for MENA clinics.</p></div>
-          </div>
-          <div class="tags">
-            <!-- EDIT VENTURE TAGS HERE -->
-            <span class="tag tool">SaaS</span><span class="tag tool">Multi-tenant</span><span class="tag tool">Node.js</span><span class="tag tool">Supabase</span><span class="tag tool">PostgreSQL</span>
-          </div>
-          <p><!-- EDIT CAREHUBS DESCRIPTION HERE -->A clinic management and online booking platform built for clinics in the MENA region, with Arabic and English support. It brings scheduling, patient records, invoicing and patient communication into one system, with each clinic running as its own tenant on a shared platform.</p>
-          <div class="card-actions">
-            <!-- EDIT PROJECT LIVE LINK HERE -->
-            <a class="link-arrow" href="https://www.carehubs.tech/" target="_blank" rel="noopener noreferrer">View Project <span aria-hidden="true">→</span></a>
-          </div>
-        </div>
-      </article>
-
-      <!-- VENTURE CARD: GEMS -->
-      <!-- Source for description: the product's own page description at https://gems-711y.onrender.com/ (hosted on a free tier, so first load can be slow) -->
-      <article class="card venture reveal" style="--d:.16s">
-        <div class="card-body">
-          <div class="venture-top">
-            <div class="avatar" aria-hidden="true">G</div>
-            <div><h3>Gems</h3><p class="oneliner">Real-time football card game for online rooms.</p></div>
-          </div>
-          <div class="tags">
-            <!-- EDIT VENTURE TAGS HERE -->
-            <span class="tag tool">Multiplayer</span><span class="tag tool">Real-time</span><span class="tag tool">Next.js</span><span class="tag tool">TypeScript</span>
-          </div>
-          <p><!-- EDIT GEMS DESCRIPTION HERE -->Gems is a football card game played in real time with friends in online rooms. It has several game modes, so the same room mechanics support different ways to play. I built it as a web app that runs in the browser with nothing to install.</p>
-          <div class="questions"><p class="card-label">Highlights</p><ul class="focus-list"><li>Online rooms: players join together and play live</li><li>Multiple game modes</li><li>Real-time multiplayer play with friends</li><li>Web-based, built with Next.js and TypeScript</li></ul></div>
-          
-          <div class="card-actions">
-            <!-- EDIT PROJECT LIVE LINK HERE -->
-            <a class="link-arrow" href="https://gems-711y.onrender.com/" target="_blank" rel="noopener noreferrer">View Project <span aria-hidden="true">→</span></a>
-          </div>
-        </div>
-      </article>
-
-      <!-- VENTURE CARD: SMARTSECURE -->
-      <!-- Source: the app repos (Flutter frontend + Node.js/Express/Supabase backend) and https://smartsecure-website.vercel.app.
-           The marketing site quotes city/locker/rating figures; they are deliberately NOT repeated here. -->
-      <article class="card venture reveal" style="--d:.24s">
-        <div class="card-body">
-          <div class="venture-top">
-            <div class="avatar" aria-hidden="true">SS</div>
-            <div><h3>SmartSecure</h3><p class="oneliner">Smart locker booking app: find, book and unlock. My graduation project.</p></div>
-          </div>
-          <div class="tags">
-            <!-- EDIT VENTURE TAGS HERE -->
-            <span class="tag tool">Graduation Project</span><span class="tag tool">Flutter</span><span class="tag tool">Node.js</span><span class="tag tool">Supabase</span><span class="tag tool">PostgreSQL</span>
-          </div>
-          <p><!-- EDIT SMARTSECURE DESCRIPTION HERE -->SmartSecure was my graduation project: a full-stack platform where users find a locker on a live map, book it by the hour or day, and unlock it with a one-time code or QR scan. I designed the data model and business rules, then built the Flutter app, the REST API and an admin side for the operator. It is a working end-to-end system rather than a mock-up.</p>
-          <div class="questions"><p class="card-label">Highlights</p><ul class="focus-list"><li>Live locker map with location-based search and directions</li><li>Bookings with overlap checks, extension, cancellation and delegated access</li><li>Wallet top-up and locker pricing by size, per hour and per day</li><li>OTP and QR unlock flow, plus in-app notifications and automatic overdue handling</li><li>Admin tools: stats, analytics, users, lockers, locations and pricing</li><li>Role-based access (customer, admin, technician), JWT auth, English, Arabic and French</li></ul></div>
-          <div class="card-actions">
-            <!-- EDIT PROJECT LIVE LINK HERE -->
-            <a class="link-arrow" href="https://smartsecure-website.vercel.app" target="_blank" rel="noopener noreferrer">View Project <span aria-hidden="true">→</span></a>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ==================== DATA ANALYSIS ==================== -->
-<section id="data-analysis" class="section-alt" aria-labelledby="da-title">
-  <div class="container">
-    <div class="section-head reveal">
-      <p class="eyebrow">02 · Data Analysis</p>
-      <h2 id="da-title">Data Analysis</h2>
-      <p>From raw data to business insight.</p>
-    </div>
-
-    <!-- Pipeline storytelling strip -->
-    <ol class="pipeline reveal" aria-label="Analysis workflow" style="list-style:none;margin-left:0;padding-left:0">
-      <li class="pipe-step"><span class="n">01</span><h3>Raw Data</h3><p>Sources, files, tables</p></li>
-      <li class="pipe-step"><span class="n">02</span><h3>SQL / Python</h3><p>Clean, join, transform</p></li>
-      <li class="pipe-step"><span class="n">03</span><h3>Analysis</h3><p>Explore, test, segment</p></li>
-      <li class="pipe-step"><span class="n">04</span><h3>BI Dashboard</h3><p>Power BI, Tableau</p></li>
-      <li class="pipe-step"><span class="n">05</span><h3>Business Insights</h3><p>What the data says</p></li>
-      <li class="pipe-step"><span class="n">06</span><h3>Recommendations</h3><p>What to do next</p></li>
-    </ol>
-
-    <!--
-      HOW TO ADD A DATA ANALYSIS PROJECT
-      1. Copy any <article class="card project reveal"> ... </article> block below.
-      2. Paste it right after the last project (or over an "ADD NEW PROJECT HERE" slot).
-      3. Edit the title, problem, tags, description, questions, image path and links.
-    -->
-    <div class="grid grid-2" id="da-projects">
-
-      <!-- DATA ANALYSIS PROJECT 1 (flagship project: replace all placeholder text) -->
-      <article class="card project reveal">
-        <div class="card-visual">
-          <!-- EDIT PROJECT IMAGE PATH HERE: e.g. assets/images/flagship-project.png (delete the src to show the placeholder) -->
-          <img src="" alt="Dashboard screenshot for the flagship data analysis project" loading="lazy" onerror="this.remove()">
-          <div class="ph"><div class="ph-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>Dashboard preview</div>
-        </div>
-        <div class="card-body">
-          <p class="card-label">Flagship project</p>
-          <h3>Flagship Data Analysis Project <span class="pending-note">[title to be added]</span></h3>
-          <p><strong style="color:var(--text-primary);font-weight:600">Business problem:</strong> Describe the business question this project set out to answer in one sentence.</p>
-          <div class="tags">
-            <!-- EDIT PROJECT TOOL TAGS HERE -->
-            <span class="tag tool">SQL</span><span class="tag tool">Python</span><span class="tag tool">Power BI</span>
-          </div>
-          <p>Short description of the dataset, the approach and the outcome. To be added once the project is finalised.</p>
-          <div class="questions">
-            <p class="card-label">Key analytical questions</p>
-            <ul class="focus-list">
-              <li>Question 1 to be added</li>
-              <li>Question 2 to be added</li>
-              <li>Question 3 to be added</li>
-            </ul>
-          </div>
-          <div class="card-actions">
-            <!-- EDIT PROJECT LIVE LINK HERE (replace href="#" with the live dashboard URL) -->
-            <a class="link-arrow" href="#" aria-disabled="true" tabindex="-1">View Project <span aria-hidden="true">→</span></a>
-            <!-- EDIT PROJECT GITHUB LINK HERE (replace href="#" with the repository URL) -->
-            <a class="link-arrow ghost" href="#" aria-disabled="true" tabindex="-1">GitHub <span aria-hidden="true">→</span></a>
-          </div>
-        </div>
-      </article>
-
-      <!-- DATA ANALYSIS PROJECT 2 (second project: replace all placeholder text) -->
-      <article class="card project reveal" style="--d:.08s">
-        <div class="card-visual">
-          <!-- EDIT PROJECT IMAGE PATH HERE: e.g. assets/images/second-project.png -->
-          <img src="" alt="Dashboard screenshot for the second data analysis project" loading="lazy" onerror="this.remove()">
-          <div class="ph"><div class="ph-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>Dashboard preview</div>
-        </div>
-        <div class="card-body">
-          <p class="card-label">Project 2</p>
-          <h3>Second Data Analysis Project <span class="pending-note">[title to be added]</span></h3>
-          <p><strong style="color:var(--text-primary);font-weight:600">Business problem:</strong> Describe the business question this project set out to answer in one sentence.</p>
-          <div class="tags">
-            <!-- EDIT PROJECT TOOL TAGS HERE -->
-            <span class="tag tool">SQL</span><span class="tag tool">Python</span><span class="tag tool">Tableau</span>
-          </div>
-          <p>Short description of the dataset, the approach and the outcome. To be added once the project is finalised.</p>
-          <div class="questions">
-            <p class="card-label">Key analytical questions</p>
-            <ul class="focus-list">
-              <li>Question 1 to be added</li>
-              <li>Question 2 to be added</li>
-              <li>Question 3 to be added</li>
-            </ul>
-          </div>
-          <div class="card-actions">
-            <!-- EDIT PROJECT LIVE LINK HERE -->
-            <a class="link-arrow" href="#" aria-disabled="true" tabindex="-1">View Project <span aria-hidden="true">→</span></a>
-            <!-- EDIT PROJECT GITHUB LINK HERE -->
-            <a class="link-arrow ghost" href="#" aria-disabled="true" tabindex="-1">GitHub <span aria-hidden="true">→</span></a>
-          </div>
-        </div>
-      </article>
-
-      <!-- DATA ANALYSIS PROJECT 3 - ADD NEW PROJECT HERE -->
-      <!-- To use this slot: replace the whole <article class="card project slot"> block with a copy of Project 1 or 2 above. -->
-      <article class="card project slot reveal" style="--d:.16s" aria-label="Empty slot for a future data analysis project">
-        <div class="card-visual"><div class="slot-inner"><strong>Project 3</strong>Reserved for a future project (e.g. sales analysis, taxi trips, campaign analysis)</div></div>
-      </article>
-
-      <!-- DATA ANALYSIS PROJECT 4 - ADD NEW PROJECT HERE -->
-      <!-- To use this slot: replace the whole <article class="card project slot"> block with a copy of Project 1 or 2 above. -->
-      <article class="card project slot reveal" style="--d:.24s" aria-label="Empty slot for a future data analysis project">
-        <div class="card-visual"><div class="slot-inner"><strong>Project 4</strong>Reserved for a future project</div></div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ==================== BUSINESS ANALYSIS ==================== -->
-<section id="business-analysis" aria-labelledby="ba-title">
-  <div class="container">
-    <div class="section-head reveal">
-      <p class="eyebrow">03 · Business Analysis</p>
-      <h2 id="ba-title">Business Analysis</h2>
-      <p>Understanding the problem before building the solution.</p>
-    </div>
-
-    <div class="ba-split">
-      <div class="panel reveal">
-        <h3>Business side</h3>
-        <p class="sub">Getting from a vague request to a clear, agreed definition of what needs to be built.</p>
-        <p class="card-label">Skills</p>
-        <div class="pills">
-          <span class="pill">Requirements Gathering</span><span class="pill">Requirements Documentation</span>
-          <span class="pill">Stakeholder Analysis</span><span class="pill">User Stories</span>
-          <span class="pill">Acceptance Criteria</span><span class="pill">Business Rules</span>
-          <span class="pill">Process Mapping</span><span class="pill">AS-IS / TO-BE Analysis</span>
-          <span class="pill">Use Cases</span><span class="pill">Functional Requirements</span>
-          <span class="pill">Non-Functional Requirements</span>
-        </div>
-      </div>
-      <div class="panel reveal" style="--d:.1s">
-        <h3>Analytical side</h3>
-        <p class="sub">Turning those requirements into something measurable and useful for decisions.</p>
-        <p class="card-label">Where it connects</p>
-        <div class="pills">
-          <span class="pill">Data Analysis</span><span class="pill">KPI Definition</span>
-          <span class="pill">Dashboards</span><span class="pill">Process Improvement</span>
-          <span class="pill">Business Intelligence</span><span class="pill">Decision Support</span>
-        </div>
+    <div class="tabbar rv" data-a="zoom" id="tabbar">
+      <div class="tabs" role="tablist" aria-label="Portfolio sections" id="tabs">
+        <span class="tab-ind" id="tabInd" aria-hidden="true"></span>
+        <button class="tab" role="tab" id="tab-cv" aria-controls="panel-cv" aria-selected="true"><span class="n">01</span>CV &amp; Snapshots</button>
+        <button class="tab" role="tab" id="tab-ventures" aria-controls="panel-ventures" aria-selected="false" tabindex="-1"><span class="n">02</span>Web Ventures</button>
+        <button class="tab" role="tab" id="tab-data" aria-controls="panel-data" aria-selected="false" tabindex="-1"><span class="n">03</span>Data Analysis</button>
+        <button class="tab" role="tab" id="tab-ba" aria-controls="panel-ba" aria-selected="false" tabindex="-1"><span class="n">04</span>Business Analysis</button>
       </div>
     </div>
 
-    <p class="bridge reveal">I don't stop at documents. I use business analysis to understand the problem, define what success looks like, and then build the analytical or digital solution around it.</p>
+    <div class="panels" id="panels">
 
-    <h3 class="subhead reveal">Business analysis projects</h3>
+      <!-- ============ PANEL 1: CV & SNAPSHOTS ============ -->
+      <div class="panel" id="panel-cv" role="tabpanel" aria-labelledby="tab-cv">
+        <div class="cv-layout">
 
-    <!--
-      HOW TO ADD A BUSINESS ANALYSIS PROJECT
-      Copy an <article class="card project reveal"> block, paste it in the grid, and edit the text, image path and links.
-    -->
-    <div class="grid grid-2" id="ba-projects">
+          <div class="cv rv" id="cv" data-a="left">
+            <div class="cv-top">
+              <div>
+                <h3>Mazen Ali Abdallah Abdelazeem</h3>
+                <p>Business Intelligence &amp; Data Analyst · Cairo, Egypt</p>
+              </div>
+              <!-- EDIT CV PDF LINK HERE (put your file at assets/Mazen-CV.pdf, then set href and remove aria-disabled) -->
+              <a class="btn" href="#" aria-disabled="true" tabindex="-1">Download PDF <span aria-hidden="true">↓</span></a>
+            </div>
+            <div class="cv-body">
+              <div class="cv-sec">
+                <h4>Profile</h4>
+                <p style="color:var(--ink-2)">Business Information Systems graduate combining business knowledge with data analytics and technology. I turn business problems into measurable insights and practical solutions, and I have built and shipped my own digital products.</p>
+              </div>
+              <div class="cv-sec">
+                <h4>Education</h4>
+                <div class="cv-item">
+                  <div class="row"><h5>B.Sc. Business Information Systems</h5><span class="when">July 2026</span></div>
+                  <p class="where">Arab Academy for Science, Technology &amp; Maritime Transport (AASTMT), Cairo</p>
+                  <span class="gpa">GPA <b data-count="3.75" data-dec="2">3.75</b> / 4.0 <small>Excellent with Honours</small></span>
+                </div>
+              </div>
+              <div class="cv-sec">
+                <h4>Experience</h4>
+                <div class="cv-item">
+                  <div class="row"><h5>Teaching Assistant</h5><span class="when"><!-- EDIT DATES HERE -->Current</span></div>
+                  <p class="where">AASTMT Cairo · AI in Business course</p>
+                </div>
+                <div class="cv-item">
+                  <div class="row"><h5>Founder &amp; Product Builder</h5><span class="when"><!-- EDIT DATES HERE -->Ventures</span></div>
+                  <p class="where">Seira · CareHubs · Gems · SmartSecure</p>
+                  <p>Built and shipped web products end to end, from requirements and data model to the live product.</p>
+                </div>
+              </div>
+              <div class="cv-sec">
+                <h4>Skills</h4>
+                <div class="skill-block"><span class="card-label">Business Intelligence &amp; Analytics</span>
+                  <div class="pills"><span class="pill">Power BI</span><span class="pill">Tableau</span><span class="pill">SQL</span><span class="pill">Python</span><span class="pill">Excel</span></div></div>
+                <div class="skill-block"><span class="card-label">Business Analysis</span>
+                  <div class="pills"><span class="pill">Business Analysis</span><span class="pill">Requirements Engineering</span><span class="pill">User Stories</span><span class="pill">Stakeholder Analysis</span><span class="pill">Process Mapping</span><span class="pill">Business Process Analysis</span></div></div>
+                <div class="skill-block"><span class="card-label">Product &amp; Technology</span>
+                  <div class="pills"><span class="pill">Node.js</span><span class="pill">Supabase</span><span class="pill">PostgreSQL</span></div></div>
+              </div>
+              <div class="cv-sec">
+                <h4>Availability</h4>
+                <p style="color:var(--ink-2)">Cairo, Egypt. Open to remote roles and opportunities in the UAE, Saudi Arabia and Qatar.</p>
+              </div>
+            </div>
+          </div>
 
-      <!-- BUSINESS ANALYSIS PROJECT 1 -->
-      <article class="card project reveal">
-        <div class="card-visual">
-          <!-- EDIT PROJECT IMAGE PATH HERE: e.g. assets/images/ba-project-1.png -->
-          <img src="" alt="Process map or requirements document preview for business analysis project 1" loading="lazy" onerror="this.remove()">
-          <div class="ph"><div class="ph-doc" aria-hidden="true"></div>Requirements / process map</div>
+          <div class="snap-col" id="snapshots">
+            <div class="rv" data-a="right">
+              <h3>Project snapshots</h3>
+              <p>A quick look at everything. Click a tile to open it.</p>
+            </div>
+            <div class="snaps">
+              <!-- SNAPSHOT TILES: copy a tile to add one. Live links open the product; buttons jump to a section. -->
+              <a class="snap rv" data-a="zoom" href="https://seira.shop" target="_blank" rel="noopener noreferrer">
+                <span class="thumb"><span class="spr" data-sprite="bag"></span></span>
+                <span class="meta"><b>Seira</b><span>Live e-commerce, built end to end</span><em>Live site ↗</em></span>
+              </a>
+              <a class="snap rv" data-a="zoom" href="https://www.carehubs.tech/" target="_blank" rel="noopener noreferrer">
+                <span class="thumb"><span class="spr" data-sprite="cross"></span></span>
+                <span class="meta"><b>CareHubs</b><span>Clinic management SaaS for MENA</span><em>Live site ↗</em></span>
+              </a>
+              <a class="snap rv" data-a="zoom" href="https://gems-711y.onrender.com/" target="_blank" rel="noopener noreferrer">
+                <span class="thumb"><span class="spr" data-sprite="gem"></span></span>
+                <span class="meta"><b>Gems</b><span>Real-time football card game</span><em>Play ↗</em></span>
+              </a>
+              <a class="snap rv" data-a="zoom" href="https://smartsecure-website.vercel.app" target="_blank" rel="noopener noreferrer">
+                <span class="thumb"><span class="spr" data-sprite="lock"></span></span>
+                <span class="meta"><b>SmartSecure</b><span>Smart locker booking, graduation project</span><em>Website ↗</em></span>
+              </a>
+              <button class="snap rv" data-a="zoom" type="button" data-tab="2">
+                <span class="thumb"><span class="spr" data-sprite="bars"></span></span>
+                <span class="meta"><b>Data Analysis</b><span>SQL, Python and BI dashboards</span><em>Open section →</em></span>
+              </button>
+              <button class="snap rv" data-a="zoom" type="button" data-tab="3">
+                <span class="thumb"><span class="spr" data-sprite="flow"></span></span>
+                <span class="meta"><b>Business Analysis</b><span>Requirements and process work</span><em>Open section →</em></span>
+              </button>
+            </div>
+          </div>
+
         </div>
-        <div class="card-body">
-          <p class="card-label">Project 1</p>
-          <h3>Business Analysis Project 1 <span class="pending-note">[title to be added]</span></h3>
-          <p>Short description of the business problem, the stakeholders involved and the deliverables produced. To be added.</p>
-          <div class="tags">
-            <!-- EDIT PROJECT TAGS HERE -->
-            <span class="tag tool">Requirements</span><span class="tag tool">Process Mapping</span><span class="tag">User Stories</span>
+      </div>
+
+      <!-- ============ PANEL 2: WEB VENTURES ============ -->
+      <div class="panel" id="panel-ventures" role="tabpanel" aria-labelledby="tab-ventures" hidden>
+        <div class="panel-head rv" data-a="blur">
+          <h3>Web ventures</h3>
+          <p>Products I have founded, built and shipped. They are where I learned how the technical and business sides of a digital product fit together.</p>
+        </div>
+        <div class="grid grid-2">
+
+          <!-- VENTURE CARD: SEIRA -->
+          <!-- Source for description: the public store https://seira.shop -->
+          <article class="card venture rv" data-a="up">
+            <div class="card-visual">
+              <!-- EDIT PROJECT IMAGE PATH HERE (optional): e.g. assets/images/seira.png -->
+              <img src="" alt="Seira storefront screenshot" loading="lazy" onerror="this.remove()">
+              <span class="spr" data-sprite="bag"></span>
+            </div>
+            <div class="card-body">
+              <div class="venture-top">
+                <div class="avatar" aria-hidden="true">S</div>
+                <div><h3>Seira</h3><p class="oneliner">Live e-commerce brand, built end to end.</p></div>
+              </div>
+              <div class="tags">
+                <!-- EDIT VENTURE TAGS HERE -->
+                <span class="tag tool">E-commerce</span><span class="tag tool">Admin Panel</span><span class="tag tool">Dashboards</span><span class="tag tool">Live Product</span>
+              </div>
+              <p><!-- EDIT SEIRA DESCRIPTION HERE -->Seira is a live e-commerce business selling beach essentials in Egypt, and I built it end to end: the customer storefront, the back office behind it and the reporting on top. The store runs in Egyptian pounds with an Arabic option. The admin panel and dashboards are what let the business run day to day, not just look good online.</p>
+              <div class="questions"><p class="card-label">Highlights</p><ul class="focus-list"><li>Live storefront: car seat covers, head shades, beach racket sets</li><li>Complex admin panel for running the business behind the store</li><li>Dashboards for tracking the business</li><li>Built end to end, from product decisions to launch</li></ul></div>
+              <div class="card-actions">
+                <!-- EDIT PROJECT LIVE LINK HERE -->
+                <a class="link-arrow" href="https://seira.shop" target="_blank" rel="noopener noreferrer">View Project <span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- VENTURE CARD: CAREHUBS -->
+          <!-- Source for description: the public product site https://www.carehubs.tech/ -->
+          <article class="card venture rv" data-a="up">
+            <div class="card-visual">
+              <!-- EDIT PROJECT IMAGE PATH HERE (optional): e.g. assets/images/carehubs.png -->
+              <img src="" alt="CareHubs dashboard screenshot" loading="lazy" onerror="this.remove()">
+              <span class="spr" data-sprite="cross"></span>
+            </div>
+            <div class="card-body">
+              <div class="venture-top">
+                <div class="avatar" aria-hidden="true">C</div>
+                <div><h3>CareHubs</h3><p class="oneliner">Multi-tenant clinic management SaaS for MENA clinics.</p></div>
+              </div>
+              <div class="tags">
+                <!-- EDIT VENTURE TAGS HERE -->
+                <span class="tag tool">SaaS</span><span class="tag tool">Multi-tenant</span><span class="tag tool">Node.js</span><span class="tag tool">Supabase</span><span class="tag tool">PostgreSQL</span>
+              </div>
+              <p><!-- EDIT CAREHUBS DESCRIPTION HERE -->A clinic management and online booking platform built for clinics in the MENA region, with Arabic and English support. It brings scheduling, patient records, invoicing and patient communication into one system, with each clinic running as its own tenant on a shared platform.</p>
+              <div class="card-actions">
+                <!-- EDIT PROJECT LIVE LINK HERE -->
+                <a class="link-arrow" href="https://www.carehubs.tech/" target="_blank" rel="noopener noreferrer">View Project <span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- VENTURE CARD: GEMS -->
+          <!-- Source for description: the product's own page description at https://gems-711y.onrender.com/ (free hosting tier, so first load can be slow) -->
+          <article class="card venture rv" data-a="up">
+            <div class="card-visual">
+              <!-- EDIT PROJECT IMAGE PATH HERE (optional): e.g. assets/images/gems.png -->
+              <img src="" alt="Gems game screenshot" loading="lazy" onerror="this.remove()">
+              <span class="spr" data-sprite="gem"></span>
+            </div>
+            <div class="card-body">
+              <div class="venture-top">
+                <div class="avatar" aria-hidden="true">G</div>
+                <div><h3>Gems</h3><p class="oneliner">Real-time football card game for online rooms.</p></div>
+              </div>
+              <div class="tags">
+                <!-- EDIT VENTURE TAGS HERE -->
+                <span class="tag tool">Multiplayer</span><span class="tag tool">Real-time</span><span class="tag tool">Next.js</span><span class="tag tool">TypeScript</span>
+              </div>
+              <p><!-- EDIT GEMS DESCRIPTION HERE -->Gems is a football card game played in real time with friends in online rooms. It has several game modes, so the same room mechanics support different ways to play. I built it as a web app that runs in the browser with nothing to install.</p>
+              <div class="questions"><p class="card-label">Highlights</p><ul class="focus-list"><li>Online rooms: players join together and play live</li><li>Multiple game modes</li><li>Real-time multiplayer play with friends</li><li>Web-based, built with Next.js and TypeScript</li></ul></div>
+              <div class="card-actions">
+                <!-- EDIT PROJECT LIVE LINK HERE -->
+                <a class="link-arrow" href="https://gems-711y.onrender.com/" target="_blank" rel="noopener noreferrer">View Project <span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- VENTURE CARD: SMARTSECURE -->
+          <!-- Source: the app repos (Flutter frontend + Node.js/Express/Supabase backend) and https://smartsecure-website.vercel.app.
+               The marketing site quotes city/locker/rating figures; they are deliberately NOT repeated here. -->
+          <article class="card venture rv" data-a="up">
+            <div class="card-visual">
+              <!-- EDIT PROJECT IMAGE PATH HERE (optional): e.g. assets/images/smartsecure.png -->
+              <img src="" alt="SmartSecure app screenshot" loading="lazy" onerror="this.remove()">
+              <span class="spr" data-sprite="lock"></span>
+            </div>
+            <div class="card-body">
+              <div class="venture-top">
+                <div class="avatar" aria-hidden="true">SS</div>
+                <div><h3>SmartSecure</h3><p class="oneliner">Smart locker booking app: find, book and unlock. My graduation project.</p></div>
+              </div>
+              <div class="tags">
+                <!-- EDIT VENTURE TAGS HERE -->
+                <span class="tag tool">Graduation Project</span><span class="tag tool">Flutter</span><span class="tag tool">Node.js</span><span class="tag tool">Supabase</span><span class="tag tool">PostgreSQL</span>
+              </div>
+              <p><!-- EDIT SMARTSECURE DESCRIPTION HERE -->SmartSecure was my graduation project: a full-stack platform where users find a locker on a live map, book it by the hour or day, and unlock it with a one-time code or QR scan. I designed the data model and business rules, then built the Flutter app, the REST API and an admin side for the operator. It is a working end-to-end system rather than a mock-up.</p>
+              <div class="questions"><p class="card-label">Highlights</p><ul class="focus-list"><li>Live locker map with location-based search and directions</li><li>Bookings with overlap checks, extension, cancellation and delegated access</li><li>Wallet top-up and locker pricing by size, per hour and per day</li><li>OTP and QR unlock flow, plus in-app notifications and automatic overdue handling</li><li>Admin tools: stats, analytics, users, lockers, locations and pricing</li><li>Role-based access (customer, admin, technician), JWT auth, English, Arabic and French</li></ul></div>
+              <div class="card-actions">
+                <!-- EDIT PROJECT LIVE LINK HERE -->
+                <a class="link-arrow" href="https://smartsecure-website.vercel.app" target="_blank" rel="noopener noreferrer">View Project <span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ============ PANEL 3: DATA ANALYSIS ============ -->
+      <div class="panel" id="panel-data" role="tabpanel" aria-labelledby="tab-data" hidden>
+        <div class="panel-head rv" data-a="blur">
+          <h3>Data Analysis</h3>
+          <p>From raw data to business insight.</p>
+        </div>
+
+        <ol class="pipeline rv" data-a="zoom" aria-label="Analysis workflow">
+          <span class="pipe-line" aria-hidden="true"></span><span class="packet" aria-hidden="true"></span>
+          <li class="pipe-step" style="--i:0"><span class="n">01</span><h3>Raw Data</h3><p>Sources, files, tables</p></li>
+          <li class="pipe-step" style="--i:1"><span class="n">02</span><h3>SQL / Python</h3><p>Clean, join, transform</p></li>
+          <li class="pipe-step" style="--i:2"><span class="n">03</span><h3>Analysis</h3><p>Explore, test, segment</p></li>
+          <li class="pipe-step" style="--i:3"><span class="n">04</span><h3>BI Dashboard</h3><p>Power BI, Tableau</p></li>
+          <li class="pipe-step" style="--i:4"><span class="n">05</span><h3>Business Insights</h3><p>What the data says</p></li>
+          <li class="pipe-step" style="--i:5"><span class="n">06</span><h3>Recommendations</h3><p>What to do next</p></li>
+        </ol>
+
+        <!--
+          HOW TO ADD A DATA ANALYSIS PROJECT
+          1. Copy any <article class="card project rv"> ... </article> block below.
+          2. Paste it right after the last project (or over an "ADD NEW PROJECT HERE" slot).
+          3. Edit the title, problem, tags, description, questions, image path and links.
+        -->
+        <div class="grid grid-2" id="da-projects">
+
+          <!-- DATA ANALYSIS PROJECT 1 (flagship project: replace all placeholder text) -->
+          <article class="card project rv" data-a="up">
+            <div class="card-visual">
+              <!-- EDIT PROJECT IMAGE PATH HERE: e.g. assets/images/flagship-project.png (delete the src to show the placeholder) -->
+              <img src="" alt="Dashboard screenshot for the flagship data analysis project" loading="lazy" onerror="this.remove()">
+              <span class="spr" data-sprite="bars"></span><span class="ph-label">Dashboard preview</span>
+            </div>
+            <div class="card-body">
+              <p class="card-label">Flagship project</p>
+              <h3>Flagship Data Analysis Project <span class="pending-note">[title to be added]</span></h3>
+              <p><strong style="color:var(--ink)">Business problem:</strong> Describe the business question this project set out to answer in one sentence.</p>
+              <div class="tags">
+                <!-- EDIT PROJECT TOOL TAGS HERE -->
+                <span class="tag tool">SQL</span><span class="tag tool">Python</span><span class="tag tool">Power BI</span>
+              </div>
+              <p>Short description of the dataset, the approach and the outcome. To be added once the project is finalised.</p>
+              <div class="questions">
+                <p class="card-label">Key analytical questions</p>
+                <ul class="focus-list">
+                  <li>Question 1 to be added</li>
+                  <li>Question 2 to be added</li>
+                  <li>Question 3 to be added</li>
+                </ul>
+              </div>
+              <div class="card-actions">
+                <!-- EDIT PROJECT LIVE LINK HERE (replace href="#" with the live dashboard URL) -->
+                <a class="link-arrow" href="#" aria-disabled="true" tabindex="-1">View Project <span aria-hidden="true">→</span></a>
+                <!-- EDIT PROJECT GITHUB LINK HERE (replace href="#" with the repository URL) -->
+                <a class="link-arrow ghost" href="#" aria-disabled="true" tabindex="-1">GitHub <span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- DATA ANALYSIS PROJECT 2 (second project: replace all placeholder text) -->
+          <article class="card project rv" data-a="up">
+            <div class="card-visual">
+              <!-- EDIT PROJECT IMAGE PATH HERE: e.g. assets/images/second-project.png -->
+              <img src="" alt="Dashboard screenshot for the second data analysis project" loading="lazy" onerror="this.remove()">
+              <span class="spr" data-sprite="bars"></span><span class="ph-label">Dashboard preview</span>
+            </div>
+            <div class="card-body">
+              <p class="card-label">Project 2</p>
+              <h3>Second Data Analysis Project <span class="pending-note">[title to be added]</span></h3>
+              <p><strong style="color:var(--ink)">Business problem:</strong> Describe the business question this project set out to answer in one sentence.</p>
+              <div class="tags">
+                <!-- EDIT PROJECT TOOL TAGS HERE -->
+                <span class="tag tool">SQL</span><span class="tag tool">Python</span><span class="tag tool">Tableau</span>
+              </div>
+              <p>Short description of the dataset, the approach and the outcome. To be added once the project is finalised.</p>
+              <div class="questions">
+                <p class="card-label">Key analytical questions</p>
+                <ul class="focus-list">
+                  <li>Question 1 to be added</li>
+                  <li>Question 2 to be added</li>
+                  <li>Question 3 to be added</li>
+                </ul>
+              </div>
+              <div class="card-actions">
+                <!-- EDIT PROJECT LIVE LINK HERE -->
+                <a class="link-arrow" href="#" aria-disabled="true" tabindex="-1">View Project <span aria-hidden="true">→</span></a>
+                <!-- EDIT PROJECT GITHUB LINK HERE -->
+                <a class="link-arrow ghost" href="#" aria-disabled="true" tabindex="-1">GitHub <span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- DATA ANALYSIS PROJECT 3 - ADD NEW PROJECT HERE -->
+          <!-- To use this slot: replace the whole <article class="card project slot"> block with a copy of Project 1 or 2 above. -->
+          <article class="card project slot rv" data-a="up" aria-label="Empty slot for a future data analysis project">
+            <div class="card-visual"><div class="slot-inner"><strong>Project 3</strong>Reserved for a future project (e.g. sales analysis, taxi trips, campaign analysis)</div></div>
+          </article>
+
+          <!-- DATA ANALYSIS PROJECT 4 - ADD NEW PROJECT HERE -->
+          <!-- To use this slot: replace the whole <article class="card project slot"> block with a copy of Project 1 or 2 above. -->
+          <article class="card project slot rv" data-a="up" aria-label="Empty slot for a future data analysis project">
+            <div class="card-visual"><div class="slot-inner"><strong>Project 4</strong>Reserved for a future project</div></div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- ============ PANEL 4: BUSINESS ANALYSIS ============ -->
+      <div class="panel" id="panel-ba" role="tabpanel" aria-labelledby="tab-ba" hidden>
+        <div class="panel-head rv" data-a="blur">
+          <h3>Business Analysis</h3>
+          <p>Understanding the problem before building the solution.</p>
+        </div>
+
+        <div class="ba-split">
+          <div class="panel-box rv" data-a="left">
+            <h3>Business side</h3>
+            <p class="sub">Getting from a vague request to a clear, agreed definition of what needs to be built.</p>
+            <span class="card-label">Skills</span>
+            <div class="pills">
+              <span class="pill">Requirements Gathering</span><span class="pill">Requirements Documentation</span>
+              <span class="pill">Stakeholder Analysis</span><span class="pill">User Stories</span>
+              <span class="pill">Acceptance Criteria</span><span class="pill">Business Rules</span>
+              <span class="pill">Process Mapping</span><span class="pill">AS-IS / TO-BE Analysis</span>
+              <span class="pill">Use Cases</span><span class="pill">Functional Requirements</span>
+              <span class="pill">Non-Functional Requirements</span>
+            </div>
           </div>
-          <div class="questions">
-            <p class="card-label">Key focus</p>
-            <ul class="focus-list">
-              <li>Focus area 1 to be added</li>
-              <li>Focus area 2 to be added</li>
-            </ul>
-          </div>
-          <div class="card-actions">
-            <!-- EDIT PROJECT LIVE LINK HERE (e.g. link to the document or case study) -->
-            <a class="link-arrow" href="#" aria-disabled="true" tabindex="-1">View Project <span aria-hidden="true">→</span></a>
-            <!-- EDIT PROJECT GITHUB LINK HERE -->
-            <a class="link-arrow ghost" href="#" aria-disabled="true" tabindex="-1">GitHub <span aria-hidden="true">→</span></a>
+          <div class="panel-box rv" data-a="right">
+            <h3>Analytical side</h3>
+            <p class="sub">Turning those requirements into something measurable and useful for decisions.</p>
+            <span class="card-label">Where it connects</span>
+            <div class="pills">
+              <span class="pill">Data Analysis</span><span class="pill">KPI Definition</span>
+              <span class="pill">Dashboards</span><span class="pill">Process Improvement</span>
+              <span class="pill">Business Intelligence</span><span class="pill">Decision Support</span>
+            </div>
           </div>
         </div>
-      </article>
 
-      <!-- BUSINESS ANALYSIS PROJECT 2 -->
-      <article class="card project reveal" style="--d:.08s">
-        <div class="card-visual">
-          <!-- EDIT PROJECT IMAGE PATH HERE: e.g. assets/images/ba-project-2.png -->
-          <img src="" alt="Process map or requirements document preview for business analysis project 2" loading="lazy" onerror="this.remove()">
-          <div class="ph"><div class="ph-doc" aria-hidden="true"></div>Requirements / process map</div>
+        <p class="bridge rv" data-a="zoom">I don't stop at documents. I use business analysis to understand the problem, define what success looks like, and then build the analytical or digital solution around it.</p>
+
+        <h3 class="subhead rv">Business analysis projects</h3>
+
+        <!--
+          HOW TO ADD A BUSINESS ANALYSIS PROJECT
+          Copy an <article class="card project rv"> block, paste it in the grid, and edit the text, image path and links.
+        -->
+        <div class="grid grid-2" id="ba-projects">
+
+          <!-- BUSINESS ANALYSIS PROJECT 1 -->
+          <article class="card project rv" data-a="up">
+            <div class="card-visual">
+              <!-- EDIT PROJECT IMAGE PATH HERE: e.g. assets/images/ba-project-1.png -->
+              <img src="" alt="Process map or requirements document preview for business analysis project 1" loading="lazy" onerror="this.remove()">
+              <span class="spr" data-sprite="flow"></span><span class="ph-label">Requirements / process map</span>
+            </div>
+            <div class="card-body">
+              <p class="card-label">Project 1</p>
+              <h3>Business Analysis Project 1 <span class="pending-note">[title to be added]</span></h3>
+              <p>Short description of the business problem, the stakeholders involved and the deliverables produced. To be added.</p>
+              <div class="tags">
+                <!-- EDIT PROJECT TAGS HERE -->
+                <span class="tag tool">Requirements</span><span class="tag tool">Process Mapping</span><span class="tag">User Stories</span>
+              </div>
+              <div class="questions">
+                <p class="card-label">Key focus</p>
+                <ul class="focus-list">
+                  <li>Focus area 1 to be added</li>
+                  <li>Focus area 2 to be added</li>
+                </ul>
+              </div>
+              <div class="card-actions">
+                <!-- EDIT PROJECT LIVE LINK HERE (e.g. link to the document or case study) -->
+                <a class="link-arrow" href="#" aria-disabled="true" tabindex="-1">View Project <span aria-hidden="true">→</span></a>
+                <!-- EDIT PROJECT GITHUB LINK HERE -->
+                <a class="link-arrow ghost" href="#" aria-disabled="true" tabindex="-1">GitHub <span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- BUSINESS ANALYSIS PROJECT 2 -->
+          <article class="card project rv" data-a="up">
+            <div class="card-visual">
+              <!-- EDIT PROJECT IMAGE PATH HERE: e.g. assets/images/ba-project-2.png -->
+              <img src="" alt="Process map or requirements document preview for business analysis project 2" loading="lazy" onerror="this.remove()">
+              <span class="spr" data-sprite="flow"></span><span class="ph-label">Requirements / process map</span>
+            </div>
+            <div class="card-body">
+              <p class="card-label">Project 2</p>
+              <h3>Business Analysis Project 2 <span class="pending-note">[title to be added]</span></h3>
+              <p>Short description of the business problem, the stakeholders involved and the deliverables produced. To be added.</p>
+              <div class="tags">
+                <!-- EDIT PROJECT TAGS HERE -->
+                <span class="tag tool">AS-IS / TO-BE</span><span class="tag tool">KPIs</span><span class="tag">Use Cases</span>
+              </div>
+              <div class="questions">
+                <p class="card-label">Key focus</p>
+                <ul class="focus-list">
+                  <li>Focus area 1 to be added</li>
+                  <li>Focus area 2 to be added</li>
+                </ul>
+              </div>
+              <div class="card-actions">
+                <!-- EDIT PROJECT LIVE LINK HERE -->
+                <a class="link-arrow" href="#" aria-disabled="true" tabindex="-1">View Project <span aria-hidden="true">→</span></a>
+                <!-- EDIT PROJECT GITHUB LINK HERE -->
+                <a class="link-arrow ghost" href="#" aria-disabled="true" tabindex="-1">GitHub <span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- BUSINESS ANALYSIS PROJECT 3 - ADD NEW PROJECT HERE -->
+          <!-- To use this slot: replace the whole <article class="card project slot"> block with a copy of Project 1 or 2 above. -->
+          <article class="card project slot rv" data-a="up" aria-label="Empty slot for a future business analysis project">
+            <div class="card-visual"><div class="slot-inner"><strong>Project 3</strong>Reserved for a future business analysis project</div></div>
+          </article>
+
+          <!-- BUSINESS ANALYSIS PROJECT 4 - ADD NEW PROJECT HERE -->
+          <!-- To use this slot: replace the whole <article class="card project slot"> block with a copy of Project 1 or 2 above. -->
+          <article class="card project slot rv" data-a="up" aria-label="Empty slot for a future business analysis project">
+            <div class="card-visual"><div class="slot-inner"><strong>Project 4</strong>Reserved for a future business analysis project</div></div>
+          </article>
+
         </div>
-        <div class="card-body">
-          <p class="card-label">Project 2</p>
-          <h3>Business Analysis Project 2 <span class="pending-note">[title to be added]</span></h3>
-          <p>Short description of the business problem, the stakeholders involved and the deliverables produced. To be added.</p>
-          <div class="tags">
-            <!-- EDIT PROJECT TAGS HERE -->
-            <span class="tag tool">AS-IS / TO-BE</span><span class="tag tool">KPIs</span><span class="tag">Use Cases</span>
-          </div>
-          <div class="questions">
-            <p class="card-label">Key focus</p>
-            <ul class="focus-list">
-              <li>Focus area 1 to be added</li>
-              <li>Focus area 2 to be added</li>
-            </ul>
-          </div>
-          <div class="card-actions">
-            <!-- EDIT PROJECT LIVE LINK HERE -->
-            <a class="link-arrow" href="#" aria-disabled="true" tabindex="-1">View Project <span aria-hidden="true">→</span></a>
-            <!-- EDIT PROJECT GITHUB LINK HERE -->
-            <a class="link-arrow ghost" href="#" aria-disabled="true" tabindex="-1">GitHub <span aria-hidden="true">→</span></a>
-          </div>
-        </div>
-      </article>
-
-      <!-- BUSINESS ANALYSIS PROJECT 3 - ADD NEW PROJECT HERE -->
-      <!-- To use this slot: replace the whole <article class="card project slot"> block with a copy of Project 1 or 2 above. -->
-      <article class="card project slot reveal" style="--d:.16s" aria-label="Empty slot for a future business analysis project">
-        <div class="card-visual"><div class="slot-inner"><strong>Project 3</strong>Reserved for a future business analysis project</div></div>
-      </article>
-
-      <!-- BUSINESS ANALYSIS PROJECT 4 - ADD NEW PROJECT HERE -->
-      <!-- To use this slot: replace the whole <article class="card project slot"> block with a copy of Project 1 or 2 above. -->
-      <article class="card project slot reveal" style="--d:.24s" aria-label="Empty slot for a future business analysis project">
-        <div class="card-visual"><div class="slot-inner"><strong>Project 4</strong>Reserved for a future business analysis project</div></div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ==================== SKILLS ==================== -->
-<section id="skills" aria-labelledby="skills-title">
-  <div class="container">
-    <div class="section-head reveal">
-      <p class="eyebrow">Toolkit</p>
-      <h2 id="skills-title">Skills</h2>
-      <p>The tools and methods I use, grouped by what they are for.</p>
-    </div>
-    <div class="skill-groups">
-      <div class="skill-group reveal">
-        <h3>Business Intelligence &amp; Analytics</h3>
-        <p class="sub">Analysing data and presenting it clearly.</p>
-        <div class="pills"><span class="pill">Power BI</span><span class="pill">Tableau</span><span class="pill">SQL</span><span class="pill">Python</span><span class="pill">Excel</span></div>
       </div>
-      <div class="skill-group reveal" style="--d:.08s">
-        <h3>Business Analysis</h3>
-        <p class="sub">Defining the problem and the requirements.</p>
-        <div class="pills"><span class="pill">Business Analysis</span><span class="pill">Requirements Engineering</span><span class="pill">User Stories</span><span class="pill">Stakeholder Analysis</span><span class="pill">Process Mapping</span><span class="pill">Business Process Analysis</span></div>
-      </div>
-      <div class="skill-group reveal" style="--d:.16s">
-        <h3>Product &amp; Technology</h3>
-        <p class="sub">Building and shipping working products.</p>
-        <div class="pills"><span class="pill">Node.js</span><span class="pill">Supabase</span><span class="pill">PostgreSQL</span></div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ==================== ABOUT ==================== -->
-<section id="about" class="section-alt" aria-labelledby="about-title">
-  <div class="container">
-    <div class="section-head reveal">
-      <p class="eyebrow">04 · About</p>
-      <h2 id="about-title">About</h2>
-    </div>
-    <div class="about-grid">
-      <div class="about-text reveal">
-        <p>I come from a <strong>Business Information Systems</strong> background, which means I was trained to look at a business, its processes and its data at the same time. I like turning a business problem into something measurable, then into a practical solution.</p>
-        <p>My focus is <strong>data and BI</strong>: SQL and Python for the analysis, Power BI and Tableau for making it useful to the people who decide. I'm also a <strong>Teaching Assistant</strong> for the AI in Business course at AASTMT Cairo, which keeps me explaining ideas clearly.</p>
-        <p>Outside of analysis, I build products. Founding and shipping my own ventures gave me an entrepreneurial mindset and a practical understanding of what it takes to get from requirement to a working system.</p>
-      </div>
-      <div class="facts reveal" style="--d:.1s">
-        <div class="fact"><p class="k">Education</p><p class="v">B.Sc. Business Information Systems</p><p class="d">AASTMT, Cairo · July 2026</p></div>
-        <div class="fact"><p class="k">Result</p><p class="v">GPA 3.75 / 4.0</p><p class="d">Excellent with Honours</p></div>
-        <div class="fact"><p class="k">Current role</p><p class="v">Teaching Assistant</p><p class="d">AI in Business · AASTMT Cairo</p></div>
-        <div class="fact"><p class="k">Based in</p><p class="v">Cairo, Egypt</p><p class="d">Open to remote, UAE, Saudi Arabia and Qatar</p></div>
-      </div>
-    </div>
+    </div><!-- /panels -->
   </div>
 </section>
 
 <!-- ==================== CONTACT ==================== -->
 <section id="contact" class="contact" aria-labelledby="contact-title">
+  <span class="contact-sprite spr" data-sprite="spark" aria-hidden="true"></span>
   <div class="container">
-    <div class="contact-box reveal">
-      <p class="eyebrow">05 · Contact</p>
-      <h2 id="contact-title">Let’s build something useful.</h2>
-      <p class="lead">For opportunities, collaborations, or interesting projects, get in touch.</p>
-      <div class="contact-links">
-        <!-- EDIT EMAIL ADDRESS HERE (change it in both the href and the visible text) -->
-        <a class="btn btn-primary" href="mailto:Mazenamer.work@gmail.com">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A2.5 2.5 0 0 1 4.5 3h15A2.5 2.5 0 0 1 22 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 18.5v-13zm2.3.2 7.7 6.1 7.7-6.1H4.3zM20 7.9l-7.4 5.9a1 1 0 0 1-1.2 0L4 7.9v10.6c0 .3.2.5.5.5h15c.3 0 .5-.2.5-.5V7.9z"/></svg>
-          Mazenamer.work@gmail.com
-        </a>
-        <!-- EDIT PHONE NUMBER HERE (change it in both the href and the visible text) -->
-        <a class="btn btn-secondary" href="tel:+201226585489">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1L6.6 10.8z"/></svg>
-          +20 122 658 5489
-        </a>
-        <a class="btn btn-secondary" href="https://linkedin.com/in/mazen-amerr" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
-          LinkedIn
-        </a>
-        <a class="btn btn-secondary" href="https://github.com/mazenamer142" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.27 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
-          GitHub
-        </a>
-      </div>
-      <p class="avail">Cairo, Egypt · Open to remote, UAE, Saudi Arabia and Qatar</p>
+    <p class="eyebrow rv">Contact</p>
+    <h2 id="contact-title" data-split>Let’s build something <span class="hl">useful.</span></h2>
+    <p class="lead rv" data-a="blur">For opportunities, collaborations, or interesting projects, get in touch.</p>
+
+    <div class="contact-cards">
+      <!-- EDIT EMAIL ADDRESS HERE (change it in both the href and the visible text) -->
+      <a class="c-card rv" data-a="left" href="mailto:Mazenamer.work@gmail.com">
+        <span class="card-label">Email</span>
+        <b>Mazenamer.work@gmail.com</b>
+        <em>Write to me →</em>
+      </a>
+      <!-- EDIT PHONE NUMBER HERE (change it in both the href and the visible text) -->
+      <a class="c-card rv" data-a="right" href="tel:+201226585489">
+        <span class="card-label">Phone</span>
+        <b>+20 122 658 5489</b>
+        <em>Call me →</em>
+      </a>
     </div>
+
+    <div class="contact-links rv" data-a="up">
+      <a class="btn" href="https://linkedin.com/in/mazen-amerr" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+        LinkedIn
+      </a>
+      <a class="btn" href="https://github.com/mazenamer142" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.27 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z"/></svg>
+        GitHub
+      </a>
+    </div>
+    <p class="avail rv">Cairo, Egypt · Open to remote, UAE, Saudi Arabia and Qatar</p>
   </div>
 </section>
 
@@ -792,55 +1007,376 @@ footer .container { display: flex; flex-wrap: wrap; justify-content: space-betwe
 (function () {
   'use strict';
 
-  // Footer year
-  var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+  var root = document.documentElement;
+  var body = document.body;
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function (s, c) { return (c || document).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+  try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (e) {}
 
-  // Mobile navigation
-  var toggle = document.querySelector('.nav-toggle');
-  var links = document.getElementById('nav-links');
-  function setMenu(open) {
-    links.classList.toggle('open', open);
-    toggle.setAttribute('aria-expanded', String(open));
+  /* ==================== PIXEL SPRITES ==================== */
+  /* Each sprite is an ASCII grid. '.' = empty. Letters map to palette classes (c-*). */
+  var PAL = { '#': 'ink', 'w': 'cream', 'o': 'acc', 't': 'tea', 'y': 'yel' };
+  var SPR = {
+    logo: ['#.....#', '##...##', '#o#.#o#', '#.o#o.#', '#..o..#', '#.....#', '#.....#'],
+    mag: ['..####....', '.#wwww#...', '#wwwwww#..', '#wwwwww#..', '#wwwwww#..', '.#wwww#...', '..####.o..', '.......oo.', '........oo'],
+    bars: ['#.........', '#.........', '#....oo...', '#....oo...', '#....oo.yy', '#.tt.oo.yy', '#.tt.oo.yy', '#.tt.oo.yy', '#.tt.oo.yy', '##########'],
+    db: ['..######..', '.#wwwwww#.', '.########.', '.#tttttt#.', '.#tttttt#.', '.########.', '.#tttttt#.', '.#tttttt#.', '..######..'],
+    spark: ['...y...', '...y...', '..yyy..', 'yyyyyyy', '..yyy..', '...y...', '...y...'],
+    bag: ['...####.....', '..#....#....', '..#....#....', '.##########.', '.#oooooooo#.', '.#oooooooo#.', '.#oooooooo#.', '.#oooooooo#.', '.#oooooooo#.', '.##########.'],
+    cross: ['.##########.', '.#wwwwwwww#.', '.#wwwttwww#.', '.#wwwttwww#.', '.#wttttttw#.', '.#wttttttw#.', '.#wwwttwww#.', '.#wwwttwww#.', '.#wwwwwwww#.', '.##########.'],
+    gem: ['..########..', '.#oowwwwoo#.', '#oooowwoooo#', '#oooooooooo#', '.#oooooooo#.', '..#oooooo#..', '...#oooo#...', '....#oo#....', '.....##.....'],
+    lock: ['...######...', '..#......#..', '..#......#..', '..#......#..', '.##########.', '.#tttttttt#.', '.#ttt##ttt#.', '.#ttt##ttt#.', '.#tttttttt#.', '.##########.'],
+    flow: ['####....####', '#ww#....#ww#', '####....####', '...#....#...', '...######...', '.....##.....', '..########..', '..#oooooo#..', '..#oooooo#..', '..########..']
+  };
+  function spriteSVG(rows) {
+    var out = '', w = rows[0].length, h = rows.length;
+    rows.forEach(function (row, y) {
+      var x = 0;
+      while (x < row.length) {
+        var ch = row.charAt(x);
+        if (ch === '.') { x++; continue; }
+        var e = x; while (e < row.length && row.charAt(e) === ch) e++;
+        out += '<rect x="' + x + '" y="' + y + '" width="' + (e - x) + '" height="1" class="c-' + PAL[ch] + '"/>';
+        x = e;
+      }
+    });
+    return '<svg viewBox="0 0 ' + w + ' ' + h + '" shape-rendering="crispEdges" aria-hidden="true">' + out + '</svg>';
   }
-  toggle.addEventListener('click', function () { setMenu(!links.classList.contains('open')); });
-  links.addEventListener('click', function (e) { if (e.target.tagName === 'A') setMenu(false); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { setMenu(false); toggle.focus(); } });
+  $$('[data-sprite]').forEach(function (el) { var s = SPR[el.getAttribute('data-sprite')]; if (s) el.innerHTML = spriteSVG(s); });
+  /* the logo sprite should read light on the dark mark */
+  $$('.brand-mark .c-ink').forEach(function (r) { r.setAttribute('class', 'c-cream'); });
 
-  // Nav border on scroll
-  var nav = document.querySelector('.nav');
-  function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 8); }
-  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  /* ==================== PIXEL PC SCENE ==================== */
+  (function buildPC() {
+    var R = [];
+    function r(x, y, w, h, c, extra) { R.push('<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" class="c-' + c + (extra ? ' ' + extra : '') + '"/>'); }
+    /* desk */
+    r(0, 43, 64, 5, 'desk'); r(0, 43, 64, 1, 'deskhi'); r(0, 47, 64, 1, 'ink');
+    /* monitor */
+    r(13, 3, 38, 1, 'ink'); r(12, 4, 40, 28, 'ink'); r(13, 32, 38, 1, 'ink');
+    r(13, 4, 38, 27, 'body'); r(13, 30, 38, 1, 'body2');
+    r(16, 7, 32, 18, 'ink');              /* bezel; the live <canvas> covers x17..46, y8..23 */
+    r(31, 27, 2, 1, 'acc', 'led'); r(15, 28, 6, 1, 'body2'); r(43, 28, 6, 1, 'body2');
+    /* stand */
+    r(27, 33, 1, 4, 'ink'); r(36, 33, 1, 4, 'ink'); r(28, 33, 8, 4, 'body'); r(29, 33, 6, 1, 'body2');
+    r(22, 37, 20, 3, 'ink'); r(23, 37, 18, 2, 'body');
+    /* keyboard + mouse */
+    r(14, 40, 30, 3, 'ink'); r(15, 40, 28, 2, 'body');
+    for (var x = 16; x < 42; x += 2) { r(x, 40, 1, 1, 'body2'); r(x + 1, 41, 1, 1, 'body2'); }
+    r(48, 41, 4, 2, 'ink'); r(49, 41, 2, 1, 'body');
+    /* mug + steam */
+    r(55, 37, 6, 6, 'ink'); r(56, 38, 4, 4, 'acc'); r(61, 39, 2, 3, 'ink');
+    r(56, 34, 1, 2, 'steam', 'steam'); r(58, 32, 1, 2, 'steam', 'steam s2'); r(57, 30, 1, 2, 'steam', 'steam s3');
+    /* plant */
+    r(2, 38, 8, 5, 'ink'); r(3, 39, 6, 3, 'acc');
+    r(5, 30, 2, 8, 'leaf'); r(2, 32, 3, 2, 'leaf'); r(7, 30, 3, 2, 'leaf'); r(8, 34, 3, 2, 'leaf'); r(3, 28, 2, 2, 'leaf');
+    $('#pcSvg').innerHTML = '<svg viewBox="0 0 64 48" shape-rendering="crispEdges" role="img" aria-label="Pixel art desk with a computer, a plant and a mug">' + R.join('') + '</svg>';
+  })();
 
-  // Placeholder links (href="#" + aria-disabled) shouldn't jump the page
-  document.querySelectorAll('a[aria-disabled="true"]').forEach(function (a) {
-    a.addEventListener('click', function (e) { e.preventDefault(); });
+  /* ==================== PIXEL MONITOR (canvas 60x32) ==================== */
+  var cvs = $('#screen'), ctx = cvs.getContext('2d');
+  function cssVar(n, f) { var v = getComputedStyle(root).getPropertyValue(n).trim(); return v || f; }
+  var C = { bg: cssVar('--screen', '#1d2529'), bar: '#2a343a', row: '#3a464d', text: cssVar('--surface', '#fffaf0'), acc: cssVar('--accent', '#ff6a2b'), tea: cssVar('--tea', '#2f9e8f'), yel: cssVar('--yel', '#ffc93c') };
+  function px(x, y, w, h, c) { ctx.fillStyle = c; ctx.fillRect(Math.round(x), Math.round(y), Math.round(w), Math.round(h)); }
+  var FONT = { D: ['##.', '#.#', '#.#', '#.#', '##.'], A: ['.#.', '#.#', '###', '#.#', '#.#'], T: ['###', '.#.', '.#.', '.#.', '.#.'] };
+  function glyph(ch, x, y, c) { var g = FONT[ch]; for (var j = 0; j < 5; j++) for (var i = 0; i < 3; i++) if (g[j].charAt(i) === '#') px(x + i, y + j, 1, 1, c); }
+  var MAG = ['.####...', '#....#..', '#....#..', '#....#..', '.####o..', '......o.', '.......o'];
+  function sprite(rows, x, y, map) { rows.forEach(function (row, j) { for (var i = 0; i < row.length; i++) { var ch = row.charAt(i); if (ch !== '.') px(x + i, y + j, 1, 1, map[ch]); } }); }
+  function titleBar() { px(0, 0, 60, 5, C.bar); px(3, 2, 2, 2, C.acc); px(6, 2, 2, 2, C.yel); px(9, 2, 2, 2, C.tea); }
+  var BARS = [.35, .5, .42, .62, .55, .78, .7, .92, .85, 1];
+  function ease(t) { t = Math.max(0, Math.min(1, t)); return 1 - Math.pow(1 - t, 3); }
+
+  /* finished dashboard; g = growth 0..1, t = time in ms for the idle wobble */
+  function drawDash(t, g) {
+    px(0, 0, 60, 32, C.bg); titleBar();
+    var tiles = [[3, .8, C.tea], [22, .55, C.acc], [41, .9, C.yel]];
+    tiles.forEach(function (k, i) {
+      var a = ease(g * 1.4 - i * .25);
+      px(k[0], 7, 16, 7, C.bar); px(k[0] + 2, 9, 6, 1, C.row);
+      px(k[0] + 2, 11, 12 * k[1] * a, 2, k[2]);
+    });
+    var tops = [];
+    for (var i = 0; i < BARS.length; i++) {
+      var wob = g >= 1 ? Math.sin(t / 700 + i * .9) * .05 : 0;
+      var h = Math.max(0, 13 * (BARS[i] + wob) * ease(g * 1.6 - i * .07));
+      var x = 4 + i * 5.4;
+      px(x, 30 - h, 3, h, i === BARS.length - 1 ? C.acc : C.tea);
+      tops.push([x + 1, 30 - h]);
+    }
+    px(3, 30, 54, 1, C.row);
+    if (g > .55) { /* trend line over the bars */
+      var n = Math.floor((g - .55) / .45 * (tops.length - 1)); n = Math.min(n, tops.length - 1);
+      for (var k = 0; k < n; k++) {
+        var a = tops[k], b = tops[k + 1], steps = 6;
+        for (var s = 0; s <= steps; s++) px(a[0] + (b[0] - a[0]) * s / steps, a[1] - 2 + (b[1] - a[1]) * s / steps, 1, 1, C.text);
+      }
+      if (n > 0) px(tops[n][0] - 1, tops[n][1] - 3, 3, 3, C.acc);
+    }
+  }
+  /* search phase; pt = ms since intro start */
+  function drawSearch(pt) {
+    px(0, 0, 60, 32, C.bg); titleBar();
+    px(3, 7, 54, 8, C.bar); px(3, 7, 54, 1, C.acc); px(3, 14, 54, 1, C.acc); px(3, 7, 1, 8, C.acc); px(56, 7, 1, 8, C.acc);
+    px(6, 9, 3, 3, C.text); px(8, 11, 1, 1, C.bar); px(9, 12, 2, 2, C.text); /* search icon */
+    var typed = Math.max(0, Math.min(4, Math.floor((pt - 300) / 180)));
+    'DATA'.slice(0, typed).split('').forEach(function (ch, i) { glyph(ch, 14 + i * 4, 9, C.text); });
+    if (Math.floor(pt / 260) % 2 === 0) px(14 + typed * 4, 9, 1, 5, C.acc);
+    var scan = Math.max(0, Math.min(1, (pt - 1000) / 1600)), rows = 4, lens = [42, 34, 46, 30];
+    for (var i = 0; i < rows; i++) {
+      var y = 18 + i * 3.4, hit = scan * rows > i + .4, cur = Math.floor(scan * rows) === i && scan < 1;
+      px(4, y, 2, 2, hit ? C.acc : C.row);
+      px(8, y, lens[i], 2, hit ? C.tea : C.row);
+      if (cur) px(8, y, lens[i], 2, C.yel);
+    }
+    if (pt > 1000) { sprite(MAG, 44 - Math.sin(scan * 6) * 3, 16 + scan * 10, { '#': C.text, 'o': C.acc }); }
+  }
+  var TL = { scanEnd: 2700, wipeStart: 2600, wipeEnd: 3100, growStart: 2900, growEnd: 3900, fly: 4300 };
+  function frameIntro(pt) {
+    if (pt < TL.wipeStart) { drawSearch(pt); return; }
+    if (pt < TL.wipeEnd) {
+      drawSearch(pt);
+      var wx = (pt - TL.wipeStart) / (TL.wipeEnd - TL.wipeStart) * 60;
+      ctx.save(); ctx.beginPath(); ctx.rect(0, 0, wx, 32); ctx.clip(); drawDash(pt, 0); ctx.restore();
+      px(wx, 0, 1, 32, C.acc); return;
+    }
+    drawDash(pt, (pt - TL.growStart) / (TL.growEnd - TL.growStart));
+  }
+
+  /* ==================== INTRO SEQUENCE ==================== */
+  var pcWrap = $('#pcWrap'), intro = $('#intro'), cap = $('#introCap'), capText = $('#introText'), bar = $('#introBar');
+  var mode = 'idle', introStart = 0, done = false, heroVisible = true;
+  var msgs = [[0, 'booting up'], [1000, 'searching for data'], [2600, 'building the dashboard'], [3900, 'insight found']];
+
+  function placeIntro() {
+    pcWrap.style.transition = 'none'; pcWrap.style.transform = 'none';
+    var rc = pcWrap.getBoundingClientRect();
+    var targetW = Math.min(innerWidth * .86, 640, innerHeight * 1.05);
+    var s = targetW / rc.width;
+    var shiftY = -Math.min(40, innerHeight * .05);
+    var dx = innerWidth / 2 - (rc.left + rc.width / 2);
+    var dy = innerHeight / 2 - (rc.top + rc.height / 2) + shiftY;
+    pcWrap.style.transform = 'translate(' + dx + 'px,' + dy + 'px) scale(' + s + ')';
+    cap.style.top = (innerHeight / 2 + shiftY + rc.height * s / 2 + 22) + 'px';
+  }
+  function cleanupIntro() {
+    pcWrap.classList.remove('flying'); pcWrap.style.transition = ''; pcWrap.style.transform = '';
+    intro.style.display = 'none'; root.classList.remove('locked', 'js-intro'); body.classList.add('ready'); root.classList.add('ready');
+    mode = 'dash';
+  }
+  function finishIntro(instant) {
+    if (done) return; done = true;
+    window.removeEventListener('resize', placeIntro);
+    if (instant || reduce) { cleanupIntro(); return; }
+    capText.innerHTML = 'insight found'; bar.style.width = '100%';
+    pcWrap.style.transition = 'transform 1.3s cubic-bezier(.65,0,.2,1)';
+    pcWrap.style.transform = 'translate(0,0) scale(1)';
+    intro.classList.add('leaving');
+    setTimeout(function () { body.classList.add('ready'); root.classList.add('ready'); }, 650);
+    var ended = false;
+    function end() { if (ended) return; ended = true; cleanupIntro(); }
+    pcWrap.addEventListener('transitionend', function (e) { if (e.target === pcWrap) end(); });
+    setTimeout(end, 1700);
+  }
+  function startIntro() {
+    if (reduce) { drawDash(0, 1); finishIntro(true); return; }
+    window.scrollTo(0, 0);
+    pcWrap.classList.add('flying'); placeIntro();
+    window.addEventListener('resize', placeIntro);
+    mode = 'intro'; introStart = performance.now();
+    $('#introSkip').addEventListener('click', function () { finishIntro(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !done) finishIntro(false); });
+  }
+
+  var lastMsg = -1;
+  function loop(now) {
+    if (mode === 'intro') {
+      var pt = now - introStart;
+      frameIntro(pt);
+      for (var i = msgs.length - 1; i >= 0; i--) if (pt >= msgs[i][0]) { if (i !== lastMsg) { lastMsg = i; capText.innerHTML = msgs[i][1] + (i < 3 ? '<span class="dots"></span>' : ''); } break; }
+      bar.style.width = Math.min(100, pt / TL.fly * 100) + '%';
+      if (pt >= TL.fly) finishIntro(false);
+    } else if (mode === 'dash' && heroVisible && !reduce) {
+      drawDash(now, 1);
+    }
+    requestAnimationFrame(loop);
+  }
+  if ('IntersectionObserver' in window) { new IntersectionObserver(function (en) { heroVisible = en[0].isIntersecting; }, { threshold: 0 }).observe($('#stage')); }
+  drawSearch(0);
+  requestAnimationFrame(loop);
+  if (root.classList.contains('js-intro')) startIntro(); else { drawDash(0, 1); mode = 'dash'; body.classList.add('ready'); }
+
+  /* ==================== WORD-SPLIT HEADINGS ==================== */
+  $$('[data-split]').forEach(function (h) {
+    var i = 0;
+    (function walk(node) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (n) {
+        if (n.nodeType === 3) {
+          var frag = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(function (part) {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(' ')); return; }
+            var w = document.createElement('span'); w.className = 'w';
+            var s = document.createElement('span'); s.textContent = part; s.style.setProperty('--i', i++);
+            w.appendChild(s); frag.appendChild(w);
+          });
+          node.replaceChild(frag, n);
+        } else if (n.nodeType === 1 && n.className.indexOf('w') === -1) { walk(n); }
+      });
+    })(h);
+    /* headings outside the hero animate on scroll instead of on "ready" */
+    if (!h.closest('.hero')) {
+      $$('.w > span', h).forEach(function (s) { s.style.transform = 'translateY(110%)'; });
+      h.setAttribute('data-wordscroll', '');
+    }
   });
 
-  // Fade / slide-in on scroll
-  var items = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    items.forEach(function (el) { io.observe(el); });
-  } else { items.forEach(function (el) { el.classList.add('in'); }); }
-
-  // Active nav link
-  var ids = ['home', 'ventures', 'data-analysis', 'business-analysis', 'about', 'contact'];
-  var sections = ids.map(function (id) { return document.getElementById(id); }).filter(Boolean);
-  var navLinks = {};
-  links.querySelectorAll('a').forEach(function (a) { navLinks[a.getAttribute('href').slice(1)] = a; });
-  function setActive() {
-    var pos = window.scrollY + 140, current = 'home';
-    sections.forEach(function (s) { if (s.offsetTop <= pos) current = s.id; });
-    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) current = 'contact';
-    Object.keys(navLinks).forEach(function (k) {
-      var on = k === current;
-      navLinks[k].classList.toggle('active', on);
-      if (on) navLinks[k].setAttribute('aria-current', 'true'); else navLinks[k].removeAttribute('aria-current');
-    });
+  /* ==================== SCROLL REVEALS ==================== */
+  var revealIO = null;
+  function countUp(el) {
+    var to = parseFloat(el.getAttribute('data-count')), dec = +el.getAttribute('data-dec') || 0, t0 = performance.now(), d = 1400;
+    if (reduce) { el.textContent = to.toFixed(dec); return; }
+    (function step(now) { var p = Math.min(1, (now - t0) / d); el.textContent = (to * (1 - Math.pow(1 - p, 3))).toFixed(dec); if (p < 1) requestAnimationFrame(step); })(t0);
   }
-  window.addEventListener('scroll', setActive, { passive: true }); setActive();
+  if ('IntersectionObserver' in window && !reduce) {
+    revealIO = new IntersectionObserver(function (entries) {
+      var idx = 0;
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var el = en.target;
+        if (el.hasAttribute('data-wordscroll')) {
+          $$('.w > span', el).forEach(function (s, i) { s.style.transition = 'transform .9s cubic-bezier(.2,.9,.2,1) ' + (i * 90) + 'ms'; s.style.transform = 'none'; });
+          var hl = $('.hl', el); if (hl) hl.classList.add('drawn');
+        } else {
+          el.style.transitionDelay = Math.min(idx * 80, 400) + 'ms'; idx++;
+          el.classList.add('in');
+          var cn = $('[data-count]', el); if (cn) countUp(cn);
+          if (el.hasAttribute('data-count')) countUp(el);
+        }
+        revealIO.unobserve(el);
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -70px 0px' });
+  }
+  function observeReveals(scope) {
+    var list = $$('.rv, [data-wordscroll]', scope);
+    if (!revealIO) { list.forEach(function (el) { el.classList.add('in'); }); $$('[data-count]', scope).forEach(countUp); return; }
+    list.forEach(function (el) { revealIO.observe(el); });
+  }
+  function resetReveals(scope) {
+    $$('.rv', scope).forEach(function (el) { el.style.transitionDelay = '0ms'; el.classList.remove('in'); });
+    $$('[data-count]', scope).forEach(function (el) { el.textContent = (0).toFixed(+el.getAttribute('data-dec') || 0); });
+    $$('[data-wordscroll] .w > span', scope).forEach(function (s) { s.style.transition = 'none'; s.style.transform = 'translateY(110%)'; });
+    void scope.offsetWidth;
+  }
+  /* the contact heading's highlight bar */
+  var cst = document.createElement('style');
+  cst.textContent = '.contact h2 .hl{position:relative;white-space:nowrap}.contact h2 .hl::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.14em;background:var(--accent);transform:scaleX(0);transform-origin:0 50%;transition:transform .8s .6s cubic-bezier(.2,.8,.2,1);z-index:0}.contact h2 .hl.drawn::after{transform:scaleX(1)}.contact h2 .w>span{position:relative;z-index:1}.contact h2 .hl{color:var(--surface)}' + (reduce ? '.contact h2 .hl::after{transform:scaleX(1)}' : '');
+  document.head.appendChild(cst);
+  /* non-hero split headings must be visible without IntersectionObserver */
+  if (!revealIO) { $$('[data-wordscroll] .w > span').forEach(function (s) { s.style.transform = 'none'; }); }
+
+  /* observe everything that is visible now; hidden panels are observed when they open */
+  $$('.rv, [data-wordscroll]').forEach(function (el) { if (!el.closest('.panel[hidden]')) { if (revealIO) revealIO.observe(el); else el.classList.add('in'); } });
+  if (!revealIO) $$('[data-count]').forEach(countUp);
+
+  /* ==================== SECTION SWAP (TABS) ==================== */
+  var tabs = $$('[role="tab"]'), panelIds = tabs.map(function (t) { return t.getAttribute('aria-controls'); });
+  var panels = panelIds.map(function (id) { return document.getElementById(id); });
+  var ind = $('#tabInd'), current = 0, busy = false, pending = null;
+  function placeInd(instant) {
+    var t = tabs[current];
+    if (instant) ind.style.transition = 'none';
+    ind.style.width = t.offsetWidth + 'px'; ind.style.height = t.offsetHeight + 'px';
+    ind.style.transform = 'translate(' + t.offsetLeft + 'px,' + t.offsetTop + 'px)';
+    if (instant) { void ind.offsetWidth; ind.style.transition = ''; }
+  }
+  function scrollToPanels() {
+    var top = $('#work').getBoundingClientRect().top + window.scrollY + $('#work-title').offsetHeight + 40;
+    var tabbarTop = $('#tabbar').getBoundingClientRect().top + window.scrollY;
+    if (window.scrollY > tabbarTop - 80) window.scrollTo({ top: Math.max(0, tabbarTop - 70), behavior: reduce ? 'auto' : 'smooth' });
+  }
+  function openTab(i, opts) {
+    opts = opts || {};
+    if (busy) { pending = [i, opts]; return; }
+    if (i === current) { if (opts.after) opts.after(); return; }
+    var dir = i > current ? 1 : -1, out = panels[current], inn = panels[i];
+    tabs.forEach(function (t, k) { t.setAttribute('aria-selected', k === i); t.tabIndex = k === i ? 0 : -1; });
+    current = i; placeInd();
+    if (opts.scroll !== false) scrollToPanels();
+    function show() {
+      out.hidden = true; inn.hidden = false;
+      resetReveals(inn);
+      if (!reduce && inn.animate) {
+        inn.animate([{ opacity: 0, transform: 'translateX(' + (60 * dir) + 'px) scale(.985)', filter: 'blur(8px)' }, { opacity: 1, transform: 'none', filter: 'blur(0)' }], { duration: 520, easing: 'cubic-bezier(.2,.8,.2,1)' });
+      }
+      observeReveals(inn);
+      busy = false;
+      if (opts.after) opts.after();
+      if (pending) { var p = pending; pending = null; openTab(p[0], p[1]); }
+    }
+    busy = true;
+    if (reduce || !out.animate) { show(); return; }
+    var a = out.animate([{ opacity: 1, transform: 'none', filter: 'blur(0)' }, { opacity: 0, transform: 'translateX(' + (-50 * dir) + 'px) scale(.98)', filter: 'blur(8px)' }], { duration: 260, easing: 'ease-in', fill: 'forwards' });
+    a.onfinish = function () { a.cancel(); show(); };
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { openTab(i); });
+    t.addEventListener('keydown', function (e) {
+      var n = null;
+      if (e.key === 'ArrowRight') n = (current + 1) % tabs.length;
+      else if (e.key === 'ArrowLeft') n = (current - 1 + tabs.length) % tabs.length;
+      else if (e.key === 'Home') n = 0; else if (e.key === 'End') n = tabs.length - 1;
+      if (n !== null) { e.preventDefault(); openTab(n, { scroll: false }); tabs[n].focus(); }
+    });
+  });
+  $$('[data-tab]').forEach(function (b) { b.addEventListener('click', function () { openTab(+b.getAttribute('data-tab')); }); });
+  window.addEventListener('resize', function () { placeInd(true); });
+  placeInd(true);
+  setTimeout(function () { placeInd(true); }, 400);
+
+  /* ==================== MENU ==================== */
+  var toggle = $('#navToggle'), menu = $('#menu');
+  function setMenu(open) { menu.classList.toggle('open', open); toggle.setAttribute('aria-expanded', String(open)); }
+  toggle.addEventListener('click', function () { setMenu(!menu.classList.contains('open')); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+  function smoothTo(sel) { var el = $(sel); if (el) el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }
+  $$('[data-nav]').forEach(function (el) {
+    el.addEventListener('click', function (e) {
+      var k = el.getAttribute('data-nav'); setMenu(false);
+      if (k === 'contact') { e.preventDefault(); smoothTo('#contact'); }
+      else if (k === 'projects') { e.preventDefault(); openTab(0, { scroll: false, after: function () { smoothTo('#snapshots'); } }); if (current === 0) smoothTo('#snapshots'); }
+      else if (k === 'cv') { e.preventDefault(); openTab(0, { scroll: false, after: function () { smoothTo('#cv'); } }); if (current === 0) smoothTo('#cv'); }
+    });
+  });
+  $('.brand').addEventListener('click', function (e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
+  $$('a[aria-disabled="true"]').forEach(function (a) { a.addEventListener('click', function (e) { e.preventDefault(); }); });
+  $('#year').textContent = new Date().getFullYear();
+
+  /* ==================== SCROLL EFFECTS: progress, nav, parallax, marquee ==================== */
+  var progress = $('#progress'), nav = $('#nav'), floats = $$('.float'), mqs = $$('.mq-track');
+  var mx = 0, my = 0, lastY = window.scrollY, vel = 0;
+  var mqX = mqs.map(function () { return 0; });
+  document.addEventListener('pointermove', function (e) { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; }, { passive: true });
+  function tick() {
+    var y = window.scrollY, max = document.documentElement.scrollHeight - innerHeight;
+    progress.style.transform = 'scaleX(' + (max > 0 ? y / max : 0) + ')';
+    nav.classList.toggle('scrolled', y > 8);
+    vel += ((y - lastY) - vel) * .15; lastY = y;
+    if (!reduce) {
+      floats.forEach(function (f) {
+        var s = +f.getAttribute('data-speed'), d = +f.getAttribute('data-depth');
+        f.style.transform = 'translate3d(' + (mx * d) + 'px,' + (my * d - y * s) + 'px,0)';
+      });
+      mqs.forEach(function (m, i) {
+        var dir = +m.getAttribute('data-dir'), half = m.scrollWidth / 2;
+        mqX[i] += dir * (.6 + Math.min(Math.abs(vel) * .35, 10));
+        if (mqX[i] <= -half) mqX[i] += half; if (mqX[i] > 0) mqX[i] -= half;
+        m.style.transform = 'translate3d(' + mqX[i] + 'px,0,0)';
+      });
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
 })();
 </script>
 </body>
