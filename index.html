@@ -525,7 +525,7 @@ footer .container { display: flex; flex-wrap: wrap; justify-content: space-betwe
   <div class="pc-wrap" id="pcWrap">
     <div class="pc-bob">
       <div id="pcSvg"></div>
-      <div class="pc-screen"><canvas id="screen" width="60" height="32" aria-label="Pixel laptop showing a dashboard being built" role="img"></canvas></div>
+      <div class="pc-screen"><canvas id="screen" width="96" height="50" aria-label="Pixel laptop showing a dashboard being built" role="img"></canvas></div>
     </div>
   </div>
 </section>
@@ -1231,79 +1231,116 @@ footer .container { display: flex; flex-wrap: wrap; justify-content: space-betwe
     setTile(); window.addEventListener('resize', setTile);
   })();
 
-  /* ==================== PIXEL MONITOR (canvas 60x32) ==================== */
-  var cvs = $('#screen'), ctx = cvs.getContext('2d');
-  function cssVar(n, f) { var v = getComputedStyle(root).getPropertyValue(n).trim(); return v || f; }
+  /* ==================== PIXEL MONITOR (canvas 96x50) ==================== */
+  var cvs = $('#screen'), ctx = cvs.getContext('2d'), CW = 96, CH = 50;
   var C = { bg: '#0f2238', bar: '#1b3552', row: '#2b4a6b', text: '#ffffff', acc: '#ffc83d', tea: '#4fb848', yel: '#7cc6ff' };
   function px(x, y, w, h, c) { ctx.fillStyle = c; ctx.fillRect(Math.round(x), Math.round(y), Math.round(w), Math.round(h)); }
-  var FONT = { D: ['##.', '#.#', '#.#', '#.#', '##.'], A: ['.#.', '#.#', '###', '#.#', '#.#'], T: ['###', '.#.', '.#.', '.#.', '.#.'] };
-  function glyph(ch, x, y, c) { var g = FONT[ch]; for (var j = 0; j < 5; j++) for (var i = 0; i < 3; i++) if (g[j].charAt(i) === '#') px(x + i, y + j, 1, 1, c); }
+  /* 3x5 pixel font (uppercase + a little punctuation) */
+  var FONT = {
+    A: '.#.|#.#|###|#.#|#.#', B: '##.|#.#|##.|#.#|##.', C: '.##|#..|#..|#..|.##', D: '##.|#.#|#.#|#.#|##.', E: '###|#..|##.|#..|###',
+    F: '###|#..|##.|#..|#..', G: '.##|#..|#.#|#.#|.##', H: '#.#|#.#|###|#.#|#.#', I: '###|.#.|.#.|.#.|###', J: '..#|..#|..#|#.#|.#.',
+    K: '#.#|#.#|##.|#.#|#.#', L: '#..|#..|#..|#..|###', M: '#.#|###|###|#.#|#.#', N: '##.|#.#|#.#|#.#|#.#', O: '.#.|#.#|#.#|#.#|.#.',
+    P: '##.|#.#|##.|#..|#..', Q: '.#.|#.#|#.#|##.|.##', R: '##.|#.#|##.|#.#|#.#', S: '.##|#..|.#.|..#|##.', T: '###|.#.|.#.|.#.|.#.',
+    U: '#.#|#.#|#.#|#.#|###', V: '#.#|#.#|#.#|#.#|.#.', W: '#.#|#.#|###|###|#.#', X: '#.#|#.#|.#.|#.#|#.#', Y: '#.#|#.#|.#.|.#.|.#.',
+    Z: '###|..#|.#.|#..|###', ',': '...|...|...|.#.|#..', "'": '.#.|.#.|...|...|...', '.': '...|...|...|...|.#.', '-': '...|...|###|...|...', ' ': '...|...|...|...|...'
+  };
+  function glyph(ch, x, y, c) {
+    var g = FONT[ch]; if (!g) return; var rows = g.split('|');
+    for (var j = 0; j < 5; j++) for (var i = 0; i < 3; i++) if (rows[j].charAt(i) === '#') px(x + i, y + j, 1, 1, c);
+  }
+  function drawText(str, x, y, c) { for (var i = 0; i < str.length; i++) glyph(str.charAt(i), x + i * 4, y, c); }
   var MAG = ['.####...', '#....#..', '#....#..', '#....#..', '.####o..', '......o.', '.......o'];
   function sprite(rows, x, y, map) { rows.forEach(function (row, j) { for (var i = 0; i < row.length; i++) { var ch = row.charAt(i); if (ch !== '.') px(x + i, y + j, 1, 1, map[ch]); } }); }
-  function titleBar() { px(0, 0, 60, 5, C.bar); px(3, 2, 2, 2, C.acc); px(6, 2, 2, 2, C.yel); px(9, 2, 2, 2, C.tea); }
-  var BARS = [.35, .5, .42, .62, .55, .78, .7, .92, .85, 1];
+  function titleBar() { px(0, 0, CW, 6, C.bar); px(4, 2, 2, 2, C.acc); px(8, 2, 2, 2, C.yel); px(12, 2, 2, 2, C.tea); }
+  var BARS = [.3, .42, .36, .55, .48, .66, .58, .74, .68, .86, .78, .94, .88, 1];
   function ease(t) { t = Math.max(0, Math.min(1, t)); return 1 - Math.pow(1 - t, 3); }
 
   /* finished dashboard; g = growth 0..1, t = time in ms for the idle wobble */
   function drawDash(t, g) {
-    px(0, 0, 60, 32, C.bg); titleBar();
-    var tiles = [[3, .8, C.tea], [22, .55, C.acc], [41, .9, C.yel]];
-    tiles.forEach(function (k, i) {
+    px(0, 0, CW, CH, C.bg); titleBar();
+    [[4, .8, C.tea], [34, .55, C.acc], [64, .9, C.yel]].forEach(function (k, i) {
       var a = ease(g * 1.4 - i * .25);
-      px(k[0], 7, 16, 7, C.bar); px(k[0] + 2, 9, 6, 1, C.row);
-      px(k[0] + 2, 11, 12 * k[1] * a, 2, k[2]);
+      px(k[0], 9, 28, 11, C.bar); px(k[0] + 3, 12, 10, 1, C.row); px(k[0] + 3, 15, 22 * k[1] * a, 3, k[2]);
     });
-    var tops = [];
-    for (var i = 0; i < BARS.length; i++) {
+    var base = 46, maxH = 21, n = BARS.length, step = (CW - 10) / n, tops = [];
+    for (var i = 0; i < n; i++) {
       var wob = g >= 1 ? Math.sin(t / 700 + i * .9) * .05 : 0;
-      var h = Math.max(0, 13 * (BARS[i] + wob) * ease(g * 1.6 - i * .07));
-      var x = 4 + i * 5.4;
-      px(x, 30 - h, 3, h, i === BARS.length - 1 ? C.acc : C.tea);
-      tops.push([x + 1, 30 - h]);
+      var h = Math.max(0, maxH * (BARS[i] + wob) * ease(g * 1.6 - i * .06)), x = 5 + i * step;
+      px(x, base - h, 4, h, i === n - 1 ? C.acc : C.tea); tops.push([x + 2, base - h]);
     }
-    px(3, 30, 54, 1, C.row);
+    px(4, base, CW - 8, 1, C.row);
     if (g > .55) { /* trend line over the bars */
-      var n = Math.floor((g - .55) / .45 * (tops.length - 1)); n = Math.min(n, tops.length - 1);
-      for (var k = 0; k < n; k++) {
-        var a = tops[k], b = tops[k + 1], steps = 6;
-        for (var s = 0; s <= steps; s++) px(a[0] + (b[0] - a[0]) * s / steps, a[1] - 2 + (b[1] - a[1]) * s / steps, 1, 1, C.text);
+      var m = Math.min(Math.floor((g - .55) / .45 * (n - 1)), n - 1);
+      for (var k = 0; k < m; k++) {
+        var p = tops[k], q = tops[k + 1];
+        for (var s = 0; s <= 7; s++) px(p[0] + (q[0] - p[0]) * s / 7, p[1] - 2 + (q[1] - p[1]) * s / 7, 1, 1, C.text);
       }
-      if (n > 0) px(tops[n][0] - 1, tops[n][1] - 3, 3, 3, C.acc);
+      if (m > 0) px(tops[m][0] - 1, tops[m][1] - 3, 3, 3, C.acc);
     }
   }
-  /* search phase; pt = ms since intro start */
-  function drawSearch(pt) {
-    px(0, 0, 60, 32, C.bg); titleBar();
-    px(3, 7, 54, 8, C.bar); px(3, 7, 54, 1, C.acc); px(3, 14, 54, 1, C.acc); px(3, 7, 1, 8, C.acc); px(56, 7, 1, 8, C.acc);
-    px(6, 9, 3, 3, C.text); px(8, 11, 1, 1, C.bar); px(9, 12, 2, 2, C.text); /* search icon */
-    var typed = Math.max(0, Math.min(4, Math.floor((pt - 300) / 180)));
-    'DATA'.slice(0, typed).split('').forEach(function (ch, i) { glyph(ch, 14 + i * 4, 9, C.text); });
-    if (Math.floor(pt / 260) % 2 === 0) px(14 + typed * 4, 9, 1, 5, C.acc);
-    var scan = Math.max(0, Math.min(1, (pt - 1000) / 1600)), rows = 4, lens = [42, 34, 46, 30];
-    for (var i = 0; i < rows; i++) {
-      var y = 18 + i * 3.4, hit = scan * rows > i + .4, cur = Math.floor(scan * rows) === i && scan < 1;
-      px(4, y, 2, 2, hit ? C.acc : C.row);
-      px(8, y, lens[i], 2, hit ? C.tea : C.row);
-      if (cur) px(8, y, lens[i], 2, C.yel);
+
+  /* typing terminal: st = { text, hp (hold progress 0..1, -1 = none), caret, seed, progress } */
+  function drawTerminal(st) {
+    px(0, 0, CW, CH, C.bg); titleBar();
+    px(4, 9, 88, 11, C.bar); px(4, 9, 88, 1, C.acc); px(4, 19, 88, 1, C.acc); px(4, 9, 1, 11, C.acc); px(91, 9, 1, 11, C.acc);
+    px(8, 12, 3, 3, C.text); px(10, 14, 1, 1, C.bar); px(11, 15, 2, 2, C.text); /* search icon */
+    drawText(st.text, 17, 12, C.text);
+    if (st.caret) px(17 + st.text.length * 4, 11, 1, 7, C.acc);
+    for (var i = 0; i < 4; i++) { /* result rows, highlighted as the magnifier passes */
+      var y = 24 + i * 5, len = 28 + ((st.seed * 37 + i * 23) % 52);
+      var hit = st.hp >= 0 && st.hp * 4 > i + .4, cur = st.hp >= 0 && st.hp < 1 && Math.floor(st.hp * 4) === i;
+      px(4, y, 3, 3, hit ? C.acc : C.row); px(10, y, len, 3, hit ? C.tea : C.row);
+      if (cur) px(10, y, len, 3, C.yel);
     }
-    if (pt > 1000) { sprite(MAG, 44 - Math.sin(scan * 6) * 3, 16 + scan * 10, { '#': C.text, 'o': C.acc }); }
+    if (st.hp >= 0 && st.hp < 1) sprite(MAG, 66 - Math.sin(st.hp * 6) * 4, 22 + st.hp * 16, { '#': C.text, 'o': C.acc });
+    px(4, 47, 88, 2, C.bar); px(4, 47, 88 * st.progress, 2, C.acc);
   }
-  var TL = { scanEnd: 2700, wipeStart: 2600, wipeEnd: 3100, growStart: 2900, growEnd: 3900, fly: 4300 };
-  function frameIntro(pt) {
-    if (pt < TL.wipeStart) { drawSearch(pt); return; }
-    if (pt < TL.wipeEnd) {
-      drawSearch(pt);
-      var wx = (pt - TL.wipeStart) / (TL.wipeEnd - TL.wipeStart) * 60;
-      ctx.save(); ctx.beginPath(); ctx.rect(0, 0, wx, 32); ctx.clip(); drawDash(pt, 0); ctx.restore();
-      px(wx, 0, 1, 32, C.acc); return;
+
+  /* what the laptop types while the page loads: keywords from my work, then a greeting */
+  var PH_CORE = ['DATA', 'SQL QUERIES', 'POWER BI', 'PYTHON', 'DASHBOARDS'];
+  var PH_MORE = ['KPIS', 'TABLEAU', 'PROCESS MAPS', 'REQUIREMENTS'];   /* only used if loading takes longer */
+  var PH_FINAL = "HELLO, I'M MAZEN";
+  var TY = { per: 52, hold: 420, erase: 22, finalHold: 650 }, TL = { wipe: 500, growStart: 300, grow: 1000, fly: 1500 };
+  var eng = null, phraseCount = 0, moreIdx = 0, loaded = document.readyState === 'complete', wipeAt = 0;
+  window.addEventListener('load', function () { loaded = true; });
+  function nextPhrase(now) {
+    var text, kind = 'normal';
+    if (phraseCount < PH_CORE.length) text = PH_CORE[phraseCount];
+    else if (loaded || now - introStart > 9000) { text = PH_FINAL; kind = 'final'; }
+    else text = PH_MORE[moreIdx++ % PH_MORE.length];
+    eng = { text: text, t0: now, kind: kind, seed: phraseCount + 1 }; phraseCount++;
+  }
+  function engState(now) {
+    var e = eng, t = now - e.t0, L = e.text.length, tt = L * TY.per, fin = e.kind === 'final';
+    var th = fin ? TY.finalHold : TY.hold, te = fin ? 0 : L * TY.erase, text, hp = -1;
+    if (t < tt) text = e.text.slice(0, Math.floor(t / TY.per));
+    else if (t < tt + th) { text = e.text; hp = fin ? 1 : (t - tt) / th; }
+    else if (t < tt + th + te) text = e.text.slice(0, Math.max(0, L - Math.floor((t - tt - th) / TY.erase)));
+    else return null;
+    return { text: text, hp: hp, caret: Math.floor(now / 260) % 2 === 0, seed: e.seed };
+  }
+  function frameIntro(now) {
+    var pt = now - introStart;
+    if (!wipeAt) {
+      if (!eng) nextPhrase(now);
+      var st = engState(now);
+      if (!st) { if (eng.kind === 'final') wipeAt = now; else { nextPhrase(now); st = engState(now); } }
+      if (!wipeAt) { st.progress = Math.min(.94, pt / 6800); drawTerminal(st); return; }
     }
-    drawDash(pt, (pt - TL.growStart) / (TL.growEnd - TL.growStart));
+    var wt = now - wipeAt;
+    if (wt < TL.wipe) {
+      drawTerminal({ text: PH_FINAL, hp: 1, caret: false, seed: 9, progress: 1 });
+      var wx = wt / TL.wipe * CW;
+      ctx.save(); ctx.beginPath(); ctx.rect(0, 0, wx, CH); ctx.clip(); drawDash(now, 0); ctx.restore();
+      px(wx, 0, 1, CH, C.acc); return;
+    }
+    drawDash(now, (wt - TL.growStart) / TL.grow);
   }
 
   /* ==================== INTRO SEQUENCE ==================== */
   var pcWrap = $('#pcWrap'), intro = $('#intro'), cap = $('#introCap'), capText = $('#introText'), bar = $('#introBar');
   var mode = 'idle', introStart = 0, done = false, heroVisible = true;
-  var msgs = [[0, 'booting up'], [1000, 'searching for data'], [2600, 'building the dashboard'], [3900, 'insight found']];
+  var MSGS = ['booting up', 'searching for data', 'building the dashboard'];
 
   function placeIntro() {
     pcWrap.style.transition = 'none'; pcWrap.style.transform = 'none';
@@ -1324,7 +1361,8 @@ footer .container { display: flex; flex-wrap: wrap; justify-content: space-betwe
   function finishIntro(instant) {
     if (done) return; done = true;
     window.removeEventListener('resize', placeIntro);
-    if (instant || reduce) { cleanupIntro(); return; }
+    if (instant || reduce) { drawDash(0, 1); cleanupIntro(); return; }
+    drawDash(0, 1);
     capText.innerHTML = 'insight found'; bar.style.width = '100%';
     pcWrap.style.transition = 'transform 1.3s cubic-bezier(.65,0,.2,1)';
     pcWrap.style.transform = 'translate(0,0) scale(1)';
@@ -1347,19 +1385,21 @@ footer .container { display: flex; flex-wrap: wrap; justify-content: space-betwe
 
   var lastMsg = -1;
   function loop(now) {
-    if (mode === 'intro') {
+    if (mode === 'intro' && !done) {
       var pt = now - introStart;
-      frameIntro(pt);
-      for (var i = msgs.length - 1; i >= 0; i--) if (pt >= msgs[i][0]) { if (i !== lastMsg) { lastMsg = i; capText.innerHTML = msgs[i][1] + (i < 3 ? '<span class="dots"></span>' : ''); } break; }
-      bar.style.width = Math.min(100, pt / TL.fly * 100) + '%';
-      if (pt >= TL.fly) finishIntro(false);
+      frameIntro(now);
+      var mi = phraseCount === 0 ? 0 : (wipeAt ? 2 : 1);
+      if (mi !== lastMsg) { lastMsg = mi; capText.innerHTML = MSGS[mi] + '<span class="dots"></span>'; }
+      bar.style.width = (wipeAt ? 100 : Math.min(94, pt / 6800 * 100)) + '%';
+      if (wipeAt && now - wipeAt >= TL.fly) finishIntro(false);
+      else if (pt > 16000) finishIntro(false);
     } else if (mode === 'dash' && heroVisible && !reduce) {
       drawDash(now, 1);
     }
     requestAnimationFrame(loop);
   }
   if ('IntersectionObserver' in window) { new IntersectionObserver(function (en) { heroVisible = en[0].isIntersecting; }, { threshold: 0 }).observe($('#pcWrap')); }
-  drawSearch(0);
+  drawTerminal({ text: '', hp: -1, caret: true, seed: 1, progress: 0 });
   requestAnimationFrame(loop);
   if (root.classList.contains('js-intro')) startIntro(); else { drawDash(0, 1); mode = 'dash'; body.classList.add('ready'); }
 
