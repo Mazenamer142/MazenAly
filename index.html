@@ -439,20 +439,20 @@ footer .container { display: flex; flex-wrap: wrap; justify-content: space-betwe
       </article>
 
       <!-- VENTURE CARD: SMARTSECURE -->
-      <!-- Link: https://smartsecure-website.vercel.app. Its marketing site quotes city/locker/rating figures; they are deliberately NOT repeated here because it is a concept. -->
+      <!-- Source: the app repos (Flutter frontend + Node.js/Express/Supabase backend) and https://smartsecure-website.vercel.app.
+           The marketing site quotes city/locker/rating figures; they are deliberately NOT repeated here. -->
       <article class="card venture reveal" style="--d:.24s">
         <div class="card-body">
           <div class="venture-top">
             <div class="avatar" aria-hidden="true">SS</div>
-            <div><h3>SmartSecure</h3><p class="oneliner">Smart locker booking platform, my graduation project.</p></div>
+            <div><h3>SmartSecure</h3><p class="oneliner">Smart locker booking app: find, book and unlock. My graduation project.</p></div>
           </div>
           <div class="tags">
             <!-- EDIT VENTURE TAGS HERE -->
-            <span class="tag tool">Graduation Project</span><span class="tag tool">Booking</span><span class="tag tool">Payments / Wallet</span><span class="tag tool">Locker Hardware</span><span class="tag tool">Admin</span>
+            <span class="tag tool">Graduation Project</span><span class="tag tool">Flutter</span><span class="tag tool">Node.js</span><span class="tag tool">Supabase</span><span class="tag tool">PostgreSQL</span>
           </div>
-          <p><!-- EDIT SMARTSECURE DESCRIPTION HERE -->SmartSecure was my graduation project: a platform for booking and managing smart lockers digitally. It joins the parts a locker service needs, from user reservations and locker locations to payments and an administration side, with connected locker hardware. It was where I practised turning requirements into a working system across software, operations and hardware.</p>
-          <div class="questions"><p class="card-label">Highlights</p><ul class="focus-list"><li>Digital locker reservations</li><li>Locker and location management</li><li>Payments and wallet functionality</li><li>Administration for operators</li><li>Connected locker hardware</li></ul></div>
-          
+          <p><!-- EDIT SMARTSECURE DESCRIPTION HERE -->SmartSecure was my graduation project: a full-stack platform where users find a locker on a live map, book it by the hour or day, and unlock it with a one-time code or QR scan. I designed the data model and business rules, then built the Flutter app, the REST API and an admin side for the operator. It is a working end-to-end system rather than a mock-up.</p>
+          <div class="questions"><p class="card-label">Highlights</p><ul class="focus-list"><li>Live locker map with location-based search and directions</li><li>Bookings with overlap checks, extension, cancellation and delegated access</li><li>Wallet top-up and locker pricing by size, per hour and per day</li><li>OTP and QR unlock flow, plus in-app notifications and automatic overdue handling</li><li>Admin tools: stats, analytics, users, lockers, locations and pricing</li><li>Role-based access (customer, admin, technician), JWT auth, English, Arabic and French</li></ul></div>
           <div class="card-actions">
             <!-- EDIT PROJECT LIVE LINK HERE -->
             <a class="link-arrow" href="https://smartsecure-website.vercel.app" target="_blank" rel="noopener noreferrer">View Project <span aria-hidden="true">→</span></a>
