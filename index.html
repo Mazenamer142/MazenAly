@@ -159,7 +159,7 @@ button { font: inherit; color: inherit; }
 .nav.scrolled .brand-mark { background: var(--ink); border-color: var(--ink); }
 
 /* ==================== HERO: pixel landscape ==================== */
-.hero { position: relative; min-height: max(100svh, 700px); padding: calc(var(--nav-h) + clamp(30px, 5vw, 60px)) 0 40px; color: #fff; }
+.hero { position: relative; overflow-x: clip; min-height: max(100svh, 700px); padding: calc(var(--nav-h) + clamp(30px, 5vw, 60px)) 0 40px; color: #fff; }
 .sky, .scene { position: absolute; pointer-events: none; overflow: hidden; }
 .sky { inset: -24px -24px 0 -24px; background: #1a86e6 center / 100% 100% no-repeat; image-rendering: pixelated; }
 .cloudwrap { position: absolute; inset: 0; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent 0, transparent 30%, #000 58%); mask-image: linear-gradient(90deg, transparent 0, transparent 30%, #000 58%); }
@@ -225,6 +225,7 @@ button { font: inherit; color: inherit; }
 .pc-screen::after { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, rgba(255, 255, 255, .13) 0 26%, transparent 26% 100%); pointer-events: none; }
 
 /* ==================== MARQUEE ==================== */
+.mq-wrap { overflow-x: clip; padding: 6px 0; }
 .marquee { border-block: var(--line); background: var(--ink); color: var(--surface); overflow: hidden; padding: 14px 0; transform: rotate(-1deg); margin: 0 -2vw; }
 .marquee + .marquee { background: var(--accent); color: var(--ink); transform: rotate(.8deg); margin-top: -6px; }
 .mq-track { display: flex; width: max-content; will-change: transform; }
@@ -250,11 +251,12 @@ section { position: relative; }
 .no-js .rv { opacity: 1; transform: none; }
 
 /* ==================== PROJECTS AREA + TABS ==================== */
-#work { padding: clamp(64px, 9vw, 110px) 0 clamp(64px, 9vw, 110px); }
+#work { padding: clamp(64px, 9vw, 110px) 0 clamp(64px, 9vw, 110px); overflow-x: clip; }
 .tabbar { position: sticky; top: var(--nav-h); z-index: 600; padding: 12px 0; margin-top: 30px; background: linear-gradient(var(--bg) 82%, rgba(234, 243, 252, 0)); }
 .tabs { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; padding: 6px; border: var(--line); border-radius: 14px; background: var(--surface); box-shadow: var(--hard); }
 .tab { position: relative; z-index: 1; border: 0; background: none; padding: 13px 10px; border-radius: 9px; cursor: pointer; font-weight: 750; color: var(--ink-2); display: flex; align-items: center; justify-content: center; gap: 9px; transition: color .25s; text-align: center; line-height: 1.2; }
 .tab .n { font-family: var(--font-mono); font-size: .72rem; opacity: .55; }
+.t-s { display: none; }
 .tab:hover { color: var(--ink); }
 .tab[aria-selected="true"] { color: var(--ink); }
 .tab-ind { position: absolute; left: 0; top: 0; z-index: 0; border-radius: 9px; background: var(--accent); border: var(--line); transition: transform .5s cubic-bezier(.3, 1.35, .5, 1), width .5s cubic-bezier(.3, 1.35, .5, 1), height .3s; }
@@ -317,7 +319,7 @@ section { position: relative; }
 .cv-item .when { font-family: var(--font-mono); font-size: .8rem; color: var(--muted); font-weight: 700; }
 .cv-item .where { color: var(--ink-2); font-size: .94rem; }
 .cv-item p { color: var(--ink-2); font-size: .94rem; margin-top: 4px; }
-.gpa { display: inline-flex; align-items: baseline; gap: 8px; margin-top: 8px; padding: 6px 12px; border: var(--line); border-radius: 8px; background: var(--yel); font-weight: 800; }
+.gpa { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; margin-top: 8px; padding: 6px 12px; border: var(--line); border-radius: 8px; background: var(--yel); font-weight: 800; }
 .gpa small { font-weight: 600; font-family: var(--font-mono); font-size: .75rem; }
 .pills { display: flex; flex-wrap: wrap; gap: 8px; }
 .pill { padding: 6px 14px; border: 2px solid var(--ink); border-radius: 999px; font-size: .86rem; font-weight: 650; background: var(--bg); transition: background .2s, transform .2s; }
@@ -397,6 +399,7 @@ footer .container { display: flex; flex-wrap: wrap; justify-content: space-betwe
 @media (max-width: 980px) {
   .hero { padding-bottom: clamp(300px, 70vw, 420px); }
   .cloudwrap { -webkit-mask-image: none; mask-image: none; opacity: .5; }
+  .sky, #intro { background-image: linear-gradient(#1774dc 0%, #1d82e6 18%, #2b95ee 38%, #44aaf3 58%, #6cc0f7 78%, #9ad8fb 100%) !important; }
   .tasks { position: relative; right: auto; top: auto; width: calc(100% - clamp(36px, 8vw, 72px)); max-width: 560px; margin: 26px auto 0; grid-template-columns: 1fr 1fr; transform: none; }
   .task.on { transform: none; }
   .pc-wrap { left: 50%; width: clamp(240px, 62vw, 380px); margin-left: calc(clamp(240px, 62vw, 380px) / -2); bottom: 14px; }
@@ -415,8 +418,11 @@ footer .container { display: flex; flex-wrap: wrap; justify-content: space-betwe
   .menu .btn-nav { margin: 8px 0 0; background: var(--accent); }
 }
 @media (max-width: 640px) {
-  .tabs { grid-template-columns: 1fr 1fr; }
-  .tab { padding: 12px 6px; font-size: .88rem; }
+  .tabbar { padding: 8px 0; margin-top: 22px; }
+  .tabs { gap: 3px; padding: 4px; }
+  .tab { padding: 12px 2px; font-size: .82rem; }
+  .tab .n, .t-l { display: none; }
+  .t-s { display: inline; }
   .pipeline { grid-template-columns: 1fr 1fr; }
   .pipe-step { border-left: 0 !important; border-top: 2px solid var(--ink); }
   .pipe-step:nth-child(-n+2) { border-top: 0; }
@@ -525,8 +531,10 @@ footer .container { display: flex; flex-wrap: wrap; justify-content: space-betwe
 </section>
 
 <!-- ==================== MARQUEES (scroll-reactive) ==================== -->
-<div class="marquee" aria-hidden="true"><div class="mq-track" data-dir="-1"><span>SQL</span><span>Python</span><span>Power BI</span><span>Tableau</span><span>Excel</span><span>KPIs</span><span>Dashboards</span><span>SQL</span><span>Python</span><span>Power BI</span><span>Tableau</span><span>Excel</span><span>KPIs</span><span>Dashboards</span></div></div>
-<div class="marquee" aria-hidden="true"><div class="mq-track" data-dir="1"><span>Requirements</span><span>Stakeholders</span><span>User Stories</span><span>Process Mapping</span><span>Node.js</span><span>Supabase</span><span>PostgreSQL</span><span>Requirements</span><span>Stakeholders</span><span>User Stories</span><span>Process Mapping</span><span>Node.js</span><span>Supabase</span><span>PostgreSQL</span></div></div>
+<div class="mq-wrap" aria-hidden="true">
+<div class="marquee"><div class="mq-track" data-dir="-1"><span>SQL</span><span>Python</span><span>Power BI</span><span>Tableau</span><span>Excel</span><span>KPIs</span><span>Dashboards</span><span>SQL</span><span>Python</span><span>Power BI</span><span>Tableau</span><span>Excel</span><span>KPIs</span><span>Dashboards</span></div></div>
+<div class="marquee"><div class="mq-track" data-dir="1"><span>Requirements</span><span>Stakeholders</span><span>User Stories</span><span>Process Mapping</span><span>Node.js</span><span>Supabase</span><span>PostgreSQL</span><span>Requirements</span><span>Stakeholders</span><span>User Stories</span><span>Process Mapping</span><span>Node.js</span><span>Supabase</span><span>PostgreSQL</span></div></div>
+</div>
 
 <!-- ==================== PROJECTS AREA: FOUR SECTIONS AS SWAPPING TABS ==================== -->
 <section id="work" aria-labelledby="work-title">
@@ -540,10 +548,10 @@ footer .container { display: flex; flex-wrap: wrap; justify-content: space-betwe
     <div class="tabbar rv" data-a="zoom" id="tabbar">
       <div class="tabs" role="tablist" aria-label="Portfolio sections" id="tabs">
         <span class="tab-ind" id="tabInd" aria-hidden="true"></span>
-        <button class="tab" role="tab" id="tab-cv" aria-controls="panel-cv" aria-selected="true"><span class="n">01</span>CV &amp; Snapshots</button>
-        <button class="tab" role="tab" id="tab-ventures" aria-controls="panel-ventures" aria-selected="false" tabindex="-1"><span class="n">02</span>Web Ventures</button>
-        <button class="tab" role="tab" id="tab-data" aria-controls="panel-data" aria-selected="false" tabindex="-1"><span class="n">03</span>Data Analysis</button>
-        <button class="tab" role="tab" id="tab-ba" aria-controls="panel-ba" aria-selected="false" tabindex="-1"><span class="n">04</span>Business Analysis</button>
+        <button class="tab" role="tab" id="tab-cv" aria-controls="panel-cv" aria-selected="true"><span class="n">01</span><span class="t-l">CV &amp; Snapshots</span><span class="t-s">CV</span></button>
+        <button class="tab" role="tab" id="tab-ventures" aria-controls="panel-ventures" aria-selected="false" tabindex="-1"><span class="n">02</span><span class="t-l">Web Ventures</span><span class="t-s">Ventures</span></button>
+        <button class="tab" role="tab" id="tab-data" aria-controls="panel-data" aria-selected="false" tabindex="-1"><span class="n">03</span><span class="t-l">Data Analysis</span><span class="t-s">Data</span></button>
+        <button class="tab" role="tab" id="tab-ba" aria-controls="panel-ba" aria-selected="false" tabindex="-1"><span class="n">04</span><span class="t-l">Business Analysis</span><span class="t-s">Business</span></button>
       </div>
     </div>
 
