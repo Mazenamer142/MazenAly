@@ -18,7 +18,7 @@ Open `index.html` in a browser, or run `npx serve .`
 Or from the CLI: `npx vercel --prod`.
 
 ## Case studies
-Three data analysis + business analysis projects live in `projects/` (`maven-toys`, `coffee-shop`, `video-games`). Each has SQL, a Python check, summary data, and a documents package. The coffee shop and video game pages are built in the browser from the JSON blocks `#proj-coffee` and `#proj-games` in `index.html`.
+Four projects live in `projects/`: `maven-toys`, `coffee-shop` and `video-games` (data analysis + business analysis) and `baby-names` (data analysis only). Each has SQL, a Python check and summary data. The coffee shop, video game and baby names pages are built in the browser from the JSON blocks `#proj-coffee`, `#proj-games` and `#proj-names` in `index.html`. The baby names explorer loads `assets/data/baby-names.json`.
 
 ## Adding a Power BI dashboard
 1. Publish the report (Power BI: File, Embed report, Publish to web) or a Tableau Public view.
