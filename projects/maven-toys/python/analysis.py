@@ -181,8 +181,7 @@ def main(data_dir: Path):
     inventory_raw.to_sql("inventory", con, index=False)
     sales_raw.to_sql("sales", con, index=False)
     checks = run_sql_file(con, "00_clean_and_model.sql")
-    dq_sql = dict(zip(checks[0].check_name, checks[0].result))
-    assert dq_sql["sales rows"] == dq["sale_lines"] and dq_sql["duplicate sale_id"] == 0 and dq_sql["orphan store_id"] == 0
+    assert int(checks[0].iloc[0, 0]) == dq["sale_lines"] and int(checks[1].iloc[0, 0]) == 0 and int(checks[3].iloc[0, 0]) == 0, "SQL vs pandas: data checks"
 
     s01 = run_sql_file(con, "01_kpi_overview.sql")
     assert int(s01[0].revenue[0]) == overview["revenue"] and int(s01[0].profit[0]) == overview["profit"], "SQL vs pandas: headline totals"

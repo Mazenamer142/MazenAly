@@ -1,61 +1,53 @@
--- =====================================================================
--- 00 | CLEAN + MODEL
--- Source: Maven Analytics "Maven Toys" (Mexico toy store chain) - public dataset
--- Assumes the 4 CSVs were imported as tables named: products, stores, inventory, sales
--- Dialect: written for SQLite; notes flag what to change for MySQL / PostgreSQL / SQL Server.
--- =====================================================================
+-- 00 clean the raw tables and build the tables the other scripts use
+-- (I imported the 4 csv files as products, stores, inventory and sales. written in sqlite)
 
--- ---- Data quality checks (all should return 0 unless noted) ----------
-SELECT 'sales rows'                     AS check_name, COUNT(*)                                        AS result FROM sales
-UNION ALL SELECT 'duplicate sale_id',        COUNT(*) - COUNT(DISTINCT Sale_ID)                          FROM sales
-UNION ALL SELECT 'null units',               COUNT(*)                                                    FROM sales WHERE Units IS NULL
-UNION ALL SELECT 'orphan product_id',        COUNT(*)                                                    FROM sales WHERE Product_ID NOT IN (SELECT Product_ID FROM products)
-UNION ALL SELECT 'orphan store_id',          COUNT(*)                                                    FROM sales WHERE Store_ID   NOT IN (SELECT Store_ID   FROM stores)
-UNION ALL SELECT 'inventory rows (of 1750 possible store x product pairs)', COUNT(*)                     FROM inventory;
+-- checks first, these should all be 0 except the counts
+select count(*) as sales_rows from sales;
+select count(*) - count(distinct sale_id) as duplicate_sale_ids from sales;
+select count(*) as orphan_products from sales where product_id not in (select product_id from products);
+select count(*) as orphan_stores from sales where store_id not in (select store_id from stores);
+select count(*) as inventory_rows from inventory;
 
--- ---- Dimensions ------------------------------------------------------
--- Cost and price arrive as text like '$9.99 ' (dollar sign + trailing space) -> cast to numbers.
-DROP TABLE IF EXISTS dim_product;
-CREATE TABLE dim_product AS
-SELECT Product_ID                                                        AS product_id,
-       Product_Name                                                      AS product_name,
-       Product_Category                                                  AS category,
-       CAST(REPLACE(REPLACE(TRIM(Product_Cost),  '$', ''), ',', '') AS REAL) AS unit_cost,
-       CAST(REPLACE(REPLACE(TRIM(Product_Price), '$', ''), ',', '') AS REAL) AS unit_price
-FROM products;
+-- cost and price are stored as text like '$9.99 ' so remove the $ and spaces
+drop table if exists dim_product;
+create table dim_product as
+select product_id as product_id,
+  product_name as product_name,
+  product_category as category,
+  cast(replace(replace(trim(product_cost), '$', ''), ',', '') as real) as unit_cost,
+  cast(replace(replace(trim(product_price), '$', ''), ',', '') as real) as unit_price
+from products;
 
--- The source spells the capital 'Cuidad de Mexico' in Store_City but 'Ciudad de Mexico' in Store_Name -> standardise.
-DROP TABLE IF EXISTS dim_store;
-CREATE TABLE dim_store AS
-SELECT Store_ID        AS store_id,
-       Store_Name      AS store_name,
-       CASE WHEN Store_City = 'Cuidad de Mexico' THEN 'Ciudad de Mexico' ELSE Store_City END AS city,
-       Store_Location  AS location_type,
-       Store_Open_Date AS open_date
-FROM stores;
+-- mexico city is spelled 'Cuidad' in the city column but 'Ciudad' in the store name, fixed it
+drop table if exists dim_store;
+create table dim_store as
+select store_id as store_id,
+  store_name as store_name,
+  case when store_city = 'Cuidad de Mexico' then 'Ciudad de Mexico' else store_city end as city,
+  store_location as location_type,
+  store_open_date as open_date
+from stores;
 
--- ---- Fact table: one row per sale line, with money columns pre-computed ---
--- Dates are ISO text (YYYY-MM-DD). SUBSTR(...) works in SQLite/MySQL/PostgreSQL; use SUBSTRING(...) in SQL Server.
-DROP TABLE IF EXISTS fact_sales;
-CREATE TABLE fact_sales AS
-SELECT s.Sale_ID                                   AS sale_id,
-       s.Date                                      AS sale_date,
-       SUBSTR(s.Date, 1, 7)                        AS year_month,
-       CAST(SUBSTR(s.Date, 1, 4) AS INTEGER)       AS year,
-       CAST(SUBSTR(s.Date, 6, 2) AS INTEGER)       AS month_num,
-       s.Store_ID                                  AS store_id,
-       s.Product_ID                                AS product_id,
-       s.Units                                     AS units,
-       s.Units * p.unit_price                      AS revenue,
-       s.Units * p.unit_cost                       AS cost,
-       s.Units * (p.unit_price - p.unit_cost)      AS profit
-FROM sales s
-JOIN dim_product p ON p.product_id = s.Product_ID;
+-- main table, one row per sale with revenue, cost and profit
+drop table if exists fact_sales;
+create table fact_sales as
+select s.sale_id as sale_id,
+  s.date as sale_date,
+  substr(s.date, 1, 7) as year_month,
+  cast(substr(s.date, 1, 4) as integer) as year,
+  cast(substr(s.date, 6, 2) as integer) as month_num,
+  s.store_id as store_id,
+  s.product_id as product_id,
+  s.units as units,
+  s.units * p.unit_price as revenue,
+  s.units * p.unit_cost as cost,
+  s.units * (p.unit_price - p.unit_cost) as profit
+from sales s
+join dim_product p on p.product_id = s.product_id;
 
-CREATE INDEX idx_fact_store   ON fact_sales(store_id);
-CREATE INDEX idx_fact_product ON fact_sales(product_id);
-CREATE INDEX idx_fact_month   ON fact_sales(year_month);
+create index idx_fact_store on fact_sales(store_id);
+create index idx_fact_product on fact_sales(product_id);
 
-DROP TABLE IF EXISTS fact_inventory;
-CREATE TABLE fact_inventory AS
-SELECT Store_ID AS store_id, Product_ID AS product_id, Stock_On_Hand AS stock_on_hand FROM inventory;
+drop table if exists fact_inventory;
+create table fact_inventory as
+select store_id as store_id, product_id as product_id, stock_on_hand as stock_on_hand from inventory;

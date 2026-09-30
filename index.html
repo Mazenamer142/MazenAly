@@ -1297,7 +1297,7 @@ html.modal-open { overflow: hidden; }
     <section class="cs cr" id="sec-sql">
       <p class="kicker">Look at the code</p>
       <h3>The SQL behind every number</h3>
-      <p class="txt">Nothing here is hidden. These are the six scripts I ran, in order. Open one to read it, copy it, or download all of them. They are written for SQLite, and the comments inside show what to change for MySQL, PostgreSQL or SQL Server.</p>
+      <p class="txt">These are the six scripts behind the numbers, in the order they run. Open one to read it, copy it, or download all of them. They are written for SQLite; the one date function that differs in MySQL is marked in the script.</p>
       <div class="sql-tools"><button class="btn" type="button" id="sql-dl">Download all SQL (.sql)</button><span class="sql-note">The Python script that checks them is in the project folder on GitHub.</span></div>
       <div class="sqlbox" id="sql-list"></div>
     </section>
@@ -1412,275 +1412,254 @@ html.modal-open { overflow: hidden; }
 <script type="application/json" id="maven-data">{"overview":{"sale_lines":829262,"first_day":"2022-01-01","last_day":"2023-09-30","stores":50,"products":35,"revenue":14444572,"cost":10430543,"profit":4014029,"units":1090565,"margin_pct":27.8},"growth":{"revenue_growth_pct":30.9,"profit_growth_pct":16.0,"margin_2022":29.5,"margin_2023":26.2,"revenue_2022":5320116,"revenue_2023":6962074,"profit_2022":1572037,"profit_2023":1824242},"data_quality":{"sale_lines":829262,"duplicate_sale_id":0,"null_cells_in_sales":0,"orphan_product_id":0,"orphan_store_id":0,"inventory_rows":1593,"inventory_rows_possible":1750},"inventory":{"stock_value_at_cost":300210,"stockout_pairs":77,"store_product_pairs":1593,"stockout_rate_pct":4.8,"est_profit_at_risk_per_30d":9685,"slow_pairs":50,"capital_tied_up":15177,"pairs_missing_from_inventory":157,"missing_pairs_with_sales":41},"fri_sun_share_pct":51.0,"monthly":[{"m":"2022-01","revenue":542555,"margin":30.8},{"m":"2022-02","revenue":541352,"margin":29.9},{"m":"2022-03","revenue":589485,"margin":29.5},{"m":"2022-04","revenue":681073,"margin":27.9},{"m":"2022-05","revenue":672370,"margin":27.8},{"m":"2022-06","revenue":661980,"margin":28.7},{"m":"2022-07","revenue":556034,"margin":31.8},{"m":"2022-08","revenue":489423,"margin":32.5},{"m":"2022-09","revenue":585844,"margin":28.4},{"m":"2022-10","revenue":623874,"margin":28.7},{"m":"2022-11","revenue":661304,"margin":29.2},{"m":"2022-12","revenue":877204,"margin":28.1},{"m":"2023-01","revenue":747196,"margin":27.4},{"m":"2023-02","revenue":722632,"margin":26.2},{"m":"2023-03","revenue":883516,"margin":26.2},{"m":"2023-04","revenue":827691,"margin":26.0},{"m":"2023-05","revenue":825319,"margin":25.5},{"m":"2023-06","revenue":808299,"margin":25.6},{"m":"2023-07","revenue":828349,"margin":25.3},{"m":"2023-08","revenue":660877,"margin":26.5},{"m":"2023-09","revenue":658194,"margin":27.4}],"category":[{"name":"Toys","rev_share":35.3,"profit_share":26.9,"margin":21.2,"profit_change_pct":6.0},{"name":"Electronics","rev_share":15.6,"profit_share":24.9,"margin":44.6,"profit_change_pct":-39.0},{"name":"Art & Crafts","rev_share":18.7,"profit_share":18.8,"margin":27.8,"profit_change_pct":232.0},{"name":"Games","rev_share":15.4,"profit_share":16.8,"margin":30.3,"profit_change_pct":13.0},{"name":"Sports & Outdoors","rev_share":15.0,"profit_share":12.6,"margin":23.3,"profit_change_pct":36.0}],"product_top":[{"name":"Colorbuds","profit":834944,"margin":53.4,"profit_share":20.8,"revenue":1564476},{"name":"Action Figure","profit":347748,"margin":37.5,"profit_share":8.7,"revenue":926748},{"name":"Lego Bricks","profit":298685,"margin":12.5,"profit_share":7.4,"revenue":2388883},{"name":"Deck Of Cards","profit":252102,"margin":42.9,"profit_share":6.3,"revenue":587398},{"name":"Glass Marbles","profit":187590,"margin":45.5,"profit_share":4.7,"revenue":412323},{"name":"Barrel O' Slime","profit":183326,"margin":50.1,"profit_share":4.6,"revenue":365735},{"name":"Kids Makeup Kit","profit":146598,"margin":30.0,"profit_share":3.7,"revenue":488416},{"name":"Nerf Gun","profit":132715,"margin":25.0,"profit_share":3.3,"revenue":530595}],"pareto":{"top5_profit_share_pct":47.9,"top10_profit_share_pct":65.6},"profit_change":[{"name":"Colorbuds","change":-263848},{"name":"Action Figure","change":-51438},{"name":"Kids Makeup Kit","change":-26520},{"name":"Dart Gun","change":-23516},{"name":"Mr. Potatohead","change":31475},{"name":"Nerf Gun","change":52205},{"name":"Gamer Headphones","change":56088},{"name":"Etch A Sketch","change":96270},{"name":"Magic Sand","change":108238},{"name":"Barrel O' Slime","change":111802}],"bridge":[{"name":"Colorbuds","pp":-2.68},{"name":"Magic Sand","pp":-2.12},{"name":"Dino Egg","pp":-0.42},{"name":"Action Figure","pp":-0.32},{"name":"Lego Bricks","pp":0.31},{"name":"Splash Balls","pp":0.43},{"name":"Etch A Sketch","pp":0.53},{"name":"Barrel O' Slime","pp":0.64}],"location":[{"type":"Airport","stores":3,"profit_per_store":126016,"profit_share":9.4},{"type":"Downtown","stores":29,"profit_per_store":77542,"profit_share":56.0},{"type":"Commercial","stores":12,"profit_per_store":77239,"profit_share":23.1},{"type":"Residential","stores":6,"profit_per_store":76731,"profit_share":11.5}],"top_stores":[{"name":"Maven Toys Ciudad de Mexico 2","type":"Airport","profit":169856},{"name":"Maven Toys Guadalajara 3","type":"Airport","profit":121571},{"name":"Maven Toys Ciudad de Mexico 1","type":"Downtown","profit":111296},{"name":"Maven Toys Monterrey 2","type":"Downtown","profit":106783},{"name":"Maven Toys Toluca 1","type":"Downtown","profit":104612}],"weekday":[{"d":"Mon","revenue":1531130},{"d":"Tue","revenue":1637492},{"d":"Wed","revenue":1732069},{"d":"Thu","revenue":2183642},{"d":"Fri","revenue":2750302},{"d":"Sat","revenue":2860194},{"d":"Sun","revenue":1749744}],"stockouts":[{"name":"Playfoam","stores":13,"risk30":2830,"margin":64},{"name":"Action Figure","stores":5,"risk30":1130,"margin":38},{"name":"Etch A Sketch","stores":7,"risk30":1130,"margin":48},{"name":"Mini Ping Pong Set","stores":6,"risk30":987,"margin":30},{"name":"Hot Wheels 5-Pack","stores":12,"risk30":709,"margin":33},{"name":"Animal Figures","stores":3,"risk30":669,"margin":23}],"lego":{"revenue":2388883,"margin":12.5,"profit_share":7.4}}</script>
 <!-- SQL scripts shown on the case study page. Source files: projects/maven-toys/sql/. Edit here or there. -->
 <script type="text/plain" id="sql-0" data-file="00_clean_and_model.sql" data-title="Clean and model" data-desc="Fixes the text prices, standardises the city name and builds the tables every other script uses.">
--- =====================================================================
--- 00 | CLEAN + MODEL
--- Source: Maven Analytics "Maven Toys" (Mexico toy store chain) - public dataset
--- Assumes the 4 CSVs were imported as tables named: products, stores, inventory, sales
--- Dialect: written for SQLite; notes flag what to change for MySQL / PostgreSQL / SQL Server.
--- =====================================================================
+-- 00 clean the raw tables and build the tables the other scripts use
+-- (I imported the 4 csv files as products, stores, inventory and sales. written in sqlite)
 
--- ---- Data quality checks (all should return 0 unless noted) ----------
-SELECT 'sales rows'                     AS check_name, COUNT(*)                                        AS result FROM sales
-UNION ALL SELECT 'duplicate sale_id',        COUNT(*) - COUNT(DISTINCT Sale_ID)                          FROM sales
-UNION ALL SELECT 'null units',               COUNT(*)                                                    FROM sales WHERE Units IS NULL
-UNION ALL SELECT 'orphan product_id',        COUNT(*)                                                    FROM sales WHERE Product_ID NOT IN (SELECT Product_ID FROM products)
-UNION ALL SELECT 'orphan store_id',          COUNT(*)                                                    FROM sales WHERE Store_ID   NOT IN (SELECT Store_ID   FROM stores)
-UNION ALL SELECT 'inventory rows (of 1750 possible store x product pairs)', COUNT(*)                     FROM inventory;
+-- checks first, these should all be 0 except the counts
+select count(*) as sales_rows from sales;
+select count(*) - count(distinct sale_id) as duplicate_sale_ids from sales;
+select count(*) as orphan_products from sales where product_id not in (select product_id from products);
+select count(*) as orphan_stores from sales where store_id not in (select store_id from stores);
+select count(*) as inventory_rows from inventory;
 
--- ---- Dimensions ------------------------------------------------------
--- Cost and price arrive as text like '$9.99 ' (dollar sign + trailing space) -> cast to numbers.
-DROP TABLE IF EXISTS dim_product;
-CREATE TABLE dim_product AS
-SELECT Product_ID                                                        AS product_id,
-       Product_Name                                                      AS product_name,
-       Product_Category                                                  AS category,
-       CAST(REPLACE(REPLACE(TRIM(Product_Cost),  '$', ''), ',', '') AS REAL) AS unit_cost,
-       CAST(REPLACE(REPLACE(TRIM(Product_Price), '$', ''), ',', '') AS REAL) AS unit_price
-FROM products;
+-- cost and price are stored as text like '$9.99 ' so remove the $ and spaces
+drop table if exists dim_product;
+create table dim_product as
+select product_id as product_id,
+  product_name as product_name,
+  product_category as category,
+  cast(replace(replace(trim(product_cost), '$', ''), ',', '') as real) as unit_cost,
+  cast(replace(replace(trim(product_price), '$', ''), ',', '') as real) as unit_price
+from products;
 
--- The source spells the capital 'Cuidad de Mexico' in Store_City but 'Ciudad de Mexico' in Store_Name -> standardise.
-DROP TABLE IF EXISTS dim_store;
-CREATE TABLE dim_store AS
-SELECT Store_ID        AS store_id,
-       Store_Name      AS store_name,
-       CASE WHEN Store_City = 'Cuidad de Mexico' THEN 'Ciudad de Mexico' ELSE Store_City END AS city,
-       Store_Location  AS location_type,
-       Store_Open_Date AS open_date
-FROM stores;
+-- mexico city is spelled 'Cuidad' in the city column but 'Ciudad' in the store name, fixed it
+drop table if exists dim_store;
+create table dim_store as
+select store_id as store_id,
+  store_name as store_name,
+  case when store_city = 'Cuidad de Mexico' then 'Ciudad de Mexico' else store_city end as city,
+  store_location as location_type,
+  store_open_date as open_date
+from stores;
 
--- ---- Fact table: one row per sale line, with money columns pre-computed ---
--- Dates are ISO text (YYYY-MM-DD). SUBSTR(...) works in SQLite/MySQL/PostgreSQL; use SUBSTRING(...) in SQL Server.
-DROP TABLE IF EXISTS fact_sales;
-CREATE TABLE fact_sales AS
-SELECT s.Sale_ID                                   AS sale_id,
-       s.Date                                      AS sale_date,
-       SUBSTR(s.Date, 1, 7)                        AS year_month,
-       CAST(SUBSTR(s.Date, 1, 4) AS INTEGER)       AS year,
-       CAST(SUBSTR(s.Date, 6, 2) AS INTEGER)       AS month_num,
-       s.Store_ID                                  AS store_id,
-       s.Product_ID                                AS product_id,
-       s.Units                                     AS units,
-       s.Units * p.unit_price                      AS revenue,
-       s.Units * p.unit_cost                       AS cost,
-       s.Units * (p.unit_price - p.unit_cost)      AS profit
-FROM sales s
-JOIN dim_product p ON p.product_id = s.Product_ID;
+-- main table, one row per sale with revenue, cost and profit
+drop table if exists fact_sales;
+create table fact_sales as
+select s.sale_id as sale_id,
+  s.date as sale_date,
+  substr(s.date, 1, 7) as year_month,
+  cast(substr(s.date, 1, 4) as integer) as year,
+  cast(substr(s.date, 6, 2) as integer) as month_num,
+  s.store_id as store_id,
+  s.product_id as product_id,
+  s.units as units,
+  s.units * p.unit_price as revenue,
+  s.units * p.unit_cost as cost,
+  s.units * (p.unit_price - p.unit_cost) as profit
+from sales s
+join dim_product p on p.product_id = s.product_id;
 
-CREATE INDEX idx_fact_store   ON fact_sales(store_id);
-CREATE INDEX idx_fact_product ON fact_sales(product_id);
-CREATE INDEX idx_fact_month   ON fact_sales(year_month);
+create index idx_fact_store on fact_sales(store_id);
+create index idx_fact_product on fact_sales(product_id);
 
-DROP TABLE IF EXISTS fact_inventory;
-CREATE TABLE fact_inventory AS
-SELECT Store_ID AS store_id, Product_ID AS product_id, Stock_On_Hand AS stock_on_hand FROM inventory;
+drop table if exists fact_inventory;
+create table fact_inventory as
+select store_id as store_id, product_id as product_id, stock_on_hand as stock_on_hand from inventory;
 </script>
 <script type="text/plain" id="sql-1" data-file="01_kpi_overview.sql" data-title="Headline KPIs" data-desc="Revenue, profit and margin overall and by month.">
--- =====================================================================
--- 01 | HEADLINE KPIs
--- Question: how big is the business, and how profitable?
--- =====================================================================
-SELECT COUNT(*)                                        AS sale_lines,
-       MIN(sale_date)                                  AS first_day,
-       MAX(sale_date)                                  AS last_day,
-       SUM(units)                                      AS units,
-       ROUND(SUM(revenue), 0)                          AS revenue,
-       ROUND(SUM(cost), 0)                             AS cost,
-       ROUND(SUM(profit), 0)                           AS profit,
-       ROUND(100.0 * SUM(profit) / SUM(revenue), 1)    AS margin_pct
-FROM fact_sales;
+-- 01 overall numbers
 
--- Monthly trend: revenue, profit and margin (margin is kept on its own chart, never on a dual axis)
-SELECT year_month,
-       ROUND(SUM(revenue), 0)                          AS revenue,
-       ROUND(SUM(profit), 0)                           AS profit,
-       ROUND(100.0 * SUM(profit) / SUM(revenue), 1)    AS margin_pct
-FROM fact_sales
-GROUP BY year_month
-ORDER BY year_month;
+select count(*) as sale_lines,
+  min(sale_date) as first_day,
+  max(sale_date) as last_day,
+  sum(units) as units,
+  round(sum(revenue)) as revenue,
+  round(sum(cost)) as cost,
+  round(sum(profit)) as profit,
+  round(sum(profit) * 100.0 / sum(revenue), 1) as margin_pct
+from fact_sales;
+
+-- by month
+select year_month,
+  round(sum(revenue)) as revenue,
+  round(sum(profit)) as profit,
+  round(sum(profit) * 100.0 / sum(revenue), 1) as margin_pct
+from fact_sales
+group by year_month
+order by year_month;
 </script>
 <script type="text/plain" id="sql-2" data-file="02_category_and_product_mix.sql" data-title="Category and product mix" data-desc="Where the revenue and the profit come from, with shares and a Pareto ranking.">
--- =====================================================================
--- 02 | WHERE DOES THE MONEY (AND THE PROFIT) COME FROM?
--- =====================================================================
+-- 02 where the revenue and profit come from
 
--- Category: revenue share vs profit share (window function for the shares)
-SELECT p.category,
-       ROUND(SUM(f.revenue), 0)                                                    AS revenue,
-       ROUND(SUM(f.profit), 0)                                                     AS profit,
-       ROUND(100.0 * SUM(f.profit) / SUM(f.revenue), 1)                            AS margin_pct,
-       ROUND(100.0 * SUM(f.revenue) / SUM(SUM(f.revenue)) OVER (), 1)              AS revenue_share_pct,
-       ROUND(100.0 * SUM(f.profit)  / SUM(SUM(f.profit))  OVER (), 1)              AS profit_share_pct
-FROM fact_sales f
-JOIN dim_product p ON p.product_id = f.product_id
-GROUP BY p.category
-ORDER BY profit DESC;
+-- by category
+select p.category,
+  round(sum(f.revenue)) as revenue,
+  round(sum(f.profit)) as profit,
+  round(sum(f.profit) * 100.0 / sum(f.revenue), 1) as margin_pct,
+  round(sum(f.revenue) * 100.0 / (select sum(revenue) from fact_sales), 1) as revenue_share_pct,
+  round(sum(f.profit) * 100.0 / (select sum(profit) from fact_sales), 1) as profit_share_pct
+from fact_sales f
+join dim_product p on p.product_id = f.product_id
+group by p.category
+order by profit desc;
 
--- Product: ranked by profit, with margin and cumulative profit share (Pareto)
-SELECT p.product_name,
-       p.category,
-       ROUND(SUM(f.revenue), 0)                                                    AS revenue,
-       ROUND(SUM(f.profit), 0)                                                     AS profit,
-       ROUND(100.0 * SUM(f.profit) / SUM(f.revenue), 1)                            AS margin_pct,
-       ROUND(100.0 * SUM(f.profit) / SUM(SUM(f.profit)) OVER (), 1)                AS profit_share_pct,
-       ROUND(100.0 * SUM(SUM(f.profit)) OVER (ORDER BY SUM(f.profit) DESC)
-                   / SUM(SUM(f.profit)) OVER (), 1)                                AS cumulative_profit_pct
-FROM fact_sales f
-JOIN dim_product p ON p.product_id = f.product_id
-GROUP BY p.product_id, p.product_name, p.category
-ORDER BY profit DESC;
+-- by product, biggest profit first
+select p.product_name,
+  p.category,
+  round(sum(f.revenue)) as revenue,
+  round(sum(f.profit)) as profit,
+  round(sum(f.profit) * 100.0 / sum(f.revenue), 1) as margin_pct,
+  round(sum(f.profit) * 100.0 / (select sum(profit) from fact_sales), 1) as profit_share_pct
+from fact_sales f
+join dim_product p on p.product_id = f.product_id
+group by p.product_id, p.product_name, p.category
+order by profit desc;
 </script>
 <script type="text/plain" id="sql-3" data-file="03_growth_and_margin_bridge.sql" data-title="Growth and the margin bridge" data-desc="The like-for-like Jan-Sep comparison and each product's contribution to the margin change.">
--- =====================================================================
--- 03 | GROWTH WITHOUT PROFIT: like-for-like Jan-Sep 2023 vs Jan-Sep 2022
--- The data ends 30 Sep 2023, so we compare the same nine months of each year.
--- =====================================================================
+-- 03 growth vs profit
+-- the data stops on 30 sep 2023 so i compare jan-sep of both years
 
--- 3a. Like-for-like totals
-SELECT year,
-       ROUND(SUM(revenue), 0)                          AS revenue,
-       ROUND(SUM(profit), 0)                           AS profit,
-       ROUND(100.0 * SUM(profit) / SUM(revenue), 1)    AS margin_pct
-FROM fact_sales
-WHERE month_num <= 9
-GROUP BY year
-ORDER BY year;
+select year,
+  round(sum(revenue)) as revenue,
+  round(sum(profit)) as profit,
+  round(sum(profit) * 100.0 / sum(revenue), 1) as margin_pct
+from fact_sales
+where month_num <= 9
+group by year
+order by year;
 
--- 3b. Product-level change in profit (dollars), Jan-Sep 2022 -> Jan-Sep 2023
-SELECT p.product_name,
-       p.category,
-       ROUND(SUM(CASE WHEN f.year = 2022 THEN f.profit ELSE 0 END), 0)             AS profit_2022,
-       ROUND(SUM(CASE WHEN f.year = 2023 THEN f.profit ELSE 0 END), 0)             AS profit_2023,
-       ROUND(SUM(CASE WHEN f.year = 2023 THEN f.profit ELSE 0 END)
-           - SUM(CASE WHEN f.year = 2022 THEN f.profit ELSE 0 END), 0)             AS profit_change,
-       SUM(CASE WHEN f.year = 2022 THEN f.units ELSE 0 END)                        AS units_2022,
-       SUM(CASE WHEN f.year = 2023 THEN f.units ELSE 0 END)                        AS units_2023
-FROM fact_sales f
-JOIN dim_product p ON p.product_id = f.product_id
-WHERE f.month_num <= 9
-GROUP BY p.product_id, p.product_name, p.category
-ORDER BY profit_change;
+-- profit change per product (jan-sep 2022 vs jan-sep 2023)
+select p.product_name,
+  p.category,
+  round(sum(case when f.year = 2022 then f.profit else 0 end)) as profit_2022,
+  round(sum(case when f.year = 2023 then f.profit else 0 end)) as profit_2023,
+  round(sum(case when f.year = 2023 then f.profit else 0 end) - sum(case when f.year = 2022 then f.profit else 0 end)) as profit_change,
+  sum(case when f.year = 2022 then f.units else 0 end) as units_2022,
+  sum(case when f.year = 2023 then f.units else 0 end) as units_2023
+from fact_sales f
+join dim_product p on p.product_id = f.product_id
+where f.month_num <= 9
+group by p.product_id, p.product_name, p.category
+order by profit_change;
 
--- 3c. Margin bridge (mix effect). Prices and costs are single fixed values per product in this data,
--- so every product's margin is constant - the blended margin can ONLY move because the sales MIX moved.
---   contribution_pp = (revenue share 2023 - revenue share 2022) x (product margin - blended margin 2022)
--- and the contributions add up exactly to the change in blended margin (percentage points).
-WITH by_product AS (
-    SELECT f.product_id,
-           SUM(CASE WHEN f.year = 2022 THEN f.revenue ELSE 0 END) AS rev22,
-           SUM(CASE WHEN f.year = 2023 THEN f.revenue ELSE 0 END) AS rev23,
-           SUM(CASE WHEN f.year = 2022 THEN f.profit  ELSE 0 END) AS prof22
-    FROM fact_sales f
-    WHERE f.month_num <= 9
-    GROUP BY f.product_id
-), totals AS (
-    SELECT SUM(rev22) AS t22, SUM(rev23) AS t23, SUM(prof22) / SUM(rev22) AS blended22 FROM by_product
+-- margin bridge
+-- each product has one price and one cost, so its margin never changes.
+-- that means the overall margin only moves when the mix of what we sell changes.
+-- contribution = (share of revenue 2023 - share 2022) * (product margin - overall margin 2022)
+with by_product as (
+  select product_id,
+    sum(case when year = 2022 then revenue else 0 end) as rev22,
+    sum(case when year = 2023 then revenue else 0 end) as rev23,
+    sum(case when year = 2022 then profit else 0 end) as prof22
+  from fact_sales
+  where month_num <= 9
+  group by product_id
+),
+totals as (
+  select sum(rev22) as t22, sum(rev23) as t23, sum(prof22) / sum(rev22) as margin22
+  from by_product
 )
-SELECT p.product_name,
-       ROUND(100.0 * b.rev22 / t.t22, 2)                                                        AS rev_share_2022_pct,
-       ROUND(100.0 * b.rev23 / t.t23, 2)                                                        AS rev_share_2023_pct,
-       ROUND(100.0 * (p.unit_price - p.unit_cost) / p.unit_price, 1)                            AS product_margin_pct,
-       ROUND(100.0 * (b.rev23 / t.t23 - b.rev22 / t.t22)
-                   * ((p.unit_price - p.unit_cost) / p.unit_price - t.blended22), 2)            AS contribution_pp
-FROM by_product b
-CROSS JOIN totals t
-JOIN dim_product p ON p.product_id = b.product_id
-ORDER BY contribution_pp;
+select p.product_name,
+  round(b.rev22 * 100.0 / t.t22, 2) as rev_share_2022_pct,
+  round(b.rev23 * 100.0 / t.t23, 2) as rev_share_2023_pct,
+  round((p.unit_price - p.unit_cost) * 100.0 / p.unit_price, 1) as product_margin_pct,
+  round(100.0 * (b.rev23 / t.t23 - b.rev22 / t.t22) * ((p.unit_price - p.unit_cost) / p.unit_price - t.margin22), 2) as contribution_pp
+from by_product b
+cross join totals t
+join dim_product p on p.product_id = b.product_id
+order by contribution_pp;
 </script>
 <script type="text/plain" id="sql-4" data-file="04_store_and_location.sql" data-title="Stores and locations" data-desc="Profit per store by location type, top and bottom stores, weekday pattern.">
--- =====================================================================
--- 04 | STORES AND LOCATION TYPES
--- Question: is "Downtown = 56% of profit" a location effect, or just "29 of the 50 stores"?
--- =====================================================================
+-- 04 stores and location types
+-- downtown has the most profit but it also has 29 of the 50 stores, so look at profit per store
 
--- Profit per store by location type (normalises for how many stores each type has)
-SELECT s.location_type,
-       COUNT(DISTINCT s.store_id)                                         AS stores,
-       ROUND(SUM(f.revenue), 0)                                           AS revenue,
-       ROUND(SUM(f.profit), 0)                                            AS profit,
-       ROUND(SUM(f.profit)  / COUNT(DISTINCT s.store_id), 0)              AS profit_per_store,
-       ROUND(SUM(f.revenue) / COUNT(DISTINCT s.store_id), 0)              AS revenue_per_store,
-       ROUND(100.0 * SUM(f.profit) / SUM(SUM(f.profit)) OVER (), 1)       AS profit_share_pct
-FROM fact_sales f
-JOIN dim_store s ON s.store_id = f.store_id
-GROUP BY s.location_type
-ORDER BY profit_per_store DESC;
+select s.location_type,
+  count(distinct s.store_id) as stores,
+  round(sum(f.revenue)) as revenue,
+  round(sum(f.profit)) as profit,
+  round(sum(f.profit) / count(distinct s.store_id)) as profit_per_store,
+  round(sum(f.revenue) / count(distinct s.store_id)) as revenue_per_store,
+  round(sum(f.profit) * 100.0 / (select sum(profit) from fact_sales), 1) as profit_share_pct
+from fact_sales f
+join dim_store s on s.store_id = f.store_id
+group by s.location_type
+order by profit_per_store desc;
 
--- Top and bottom 5 stores by profit
-WITH store_profit AS (
-    SELECT s.store_name, s.city, s.location_type,
-           ROUND(SUM(f.revenue), 0) AS revenue, ROUND(SUM(f.profit), 0) AS profit,
-           ROW_NUMBER() OVER (ORDER BY SUM(f.profit) DESC) AS rank_desc,
-           ROW_NUMBER() OVER (ORDER BY SUM(f.profit) ASC)  AS rank_asc
-    FROM fact_sales f JOIN dim_store s ON s.store_id = f.store_id
-    GROUP BY s.store_id, s.store_name, s.city, s.location_type
-)
-SELECT store_name, city, location_type, revenue, profit
-FROM store_profit
-WHERE rank_desc <= 5 OR rank_asc <= 5
-ORDER BY profit DESC;
+-- top 5 stores
+select s.store_name, s.city, s.location_type, round(sum(f.profit)) as profit
+from fact_sales f
+join dim_store s on s.store_id = f.store_id
+group by s.store_id, s.store_name, s.city, s.location_type
+order by profit desc
+limit 5;
 
--- Weekday pattern (0 = Sunday in SQLite's strftime('%w'); use DAYOFWEEK() in MySQL, EXTRACT(DOW ...) in PostgreSQL)
-SELECT CASE CAST(strftime('%w', sale_date) AS INTEGER)
-            WHEN 0 THEN 'Sun' WHEN 1 THEN 'Mon' WHEN 2 THEN 'Tue' WHEN 3 THEN 'Wed'
-            WHEN 4 THEN 'Thu' WHEN 5 THEN 'Fri' ELSE 'Sat' END      AS weekday,
-       ROUND(SUM(revenue), 0)                                       AS revenue
-FROM fact_sales
-GROUP BY strftime('%w', sale_date)
-ORDER BY strftime('%w', sale_date);
+-- bottom 5 stores
+select s.store_name, s.city, s.location_type, round(sum(f.profit)) as profit
+from fact_sales f
+join dim_store s on s.store_id = f.store_id
+group by s.store_id, s.store_name, s.city, s.location_type
+order by profit asc
+limit 5;
+
+-- revenue by weekday (strftime is sqlite, in mysql use dayofweek())
+select case cast(strftime('%w', sale_date) as integer)
+    when 0 then 'Sun' when 1 then 'Mon' when 2 then 'Tue' when 3 then 'Wed'
+    when 4 then 'Thu' when 5 then 'Fri' else 'Sat' end as weekday,
+  round(sum(revenue)) as revenue
+from fact_sales
+group by strftime('%w', sale_date)
+order by strftime('%w', sale_date);
 </script>
 <script type="text/plain" id="sql-5" data-file="05_inventory_and_stockouts.sql" data-title="Inventory and stockouts" data-desc="Stock value, stockouts, estimated profit at risk, slow stock and data gaps.">
--- =====================================================================
--- 05 | INVENTORY: stockouts and slow stock
--- The inventory table is a single snapshot (stock on hand today), not a history.
--- So the "lost profit" below is an ESTIMATE: a stocked-out product is assumed to keep selling at
--- the store's average daily profit for that product over the last 90 days of the data.
--- =====================================================================
+-- 05 inventory
+-- inventory is only one snapshot (stock today), there is no history.
+-- so the lost profit here is an estimate: i assume a product that is out of stock would keep
+-- selling at that store's average daily profit from the last 90 days of data.
 
--- 5a. Snapshot KPIs
-SELECT ROUND(SUM(i.stock_on_hand * p.unit_cost), 0)                                   AS stock_value_at_cost,
-       SUM(CASE WHEN i.stock_on_hand = 0 THEN 1 ELSE 0 END)                           AS stockout_pairs,
-       COUNT(*)                                                                       AS store_product_pairs,
-       ROUND(100.0 * SUM(CASE WHEN i.stock_on_hand = 0 THEN 1 ELSE 0 END) / COUNT(*), 1) AS stockout_rate_pct
-FROM fact_inventory i
-JOIN dim_product p ON p.product_id = i.product_id;
+select round(sum(i.stock_on_hand * p.unit_cost)) as stock_value_at_cost,
+  sum(case when i.stock_on_hand = 0 then 1 else 0 end) as stockout_pairs,
+  count(*) as store_product_pairs,
+  round(sum(case when i.stock_on_hand = 0 then 1 else 0 end) * 100.0 / count(*), 1) as stockout_rate_pct
+from fact_inventory i
+join dim_product p on p.product_id = i.product_id;
 
--- 5b. Recent daily sales rate per store x product (last 90 days of data: 2023-07-03 .. 2023-09-30)
-DROP TABLE IF EXISTS recent_rate;
-CREATE TABLE recent_rate AS
-SELECT store_id, product_id,
-       SUM(profit) / 90.0 AS daily_profit,
-       SUM(units)  / 90.0 AS daily_units
-FROM fact_sales
-WHERE sale_date >= '2023-07-03'
-GROUP BY store_id, product_id;
+-- daily sales rate per store and product, last 90 days (3 jul to 30 sep 2023)
+drop table if exists recent_rate;
+create table recent_rate as
+select store_id, product_id,
+  sum(profit) / 90.0 as daily_profit,
+  sum(units) / 90.0 as daily_units
+from fact_sales
+where sale_date >= '2023-07-03'
+group by store_id, product_id;
 
--- 5c. Which products are out of stock, and what is that likely costing per 30 days?
-SELECT p.product_name,
-       p.category,
-       COUNT(*)                                                    AS stores_out_of_stock,
-       ROUND(SUM(COALESCE(r.daily_profit, 0)) * 30, 0)             AS est_profit_at_risk_per_30d,
-       ROUND(100.0 * (p.unit_price - p.unit_cost) / p.unit_price, 0) AS margin_pct
-FROM fact_inventory i
-JOIN dim_product p ON p.product_id = i.product_id
-LEFT JOIN recent_rate r ON r.store_id = i.store_id AND r.product_id = i.product_id
-WHERE i.stock_on_hand = 0
-GROUP BY p.product_id, p.product_name, p.category, p.unit_price, p.unit_cost
-ORDER BY est_profit_at_risk_per_30d DESC;
+-- which products are out of stock and what it might cost per 30 days
+select p.product_name,
+  p.category,
+  count(*) as stores_out_of_stock,
+  round(sum(coalesce(r.daily_profit, 0)) * 30) as est_profit_at_risk_per_30d,
+  round((p.unit_price - p.unit_cost) * 100.0 / p.unit_price) as margin_pct
+from fact_inventory i
+join dim_product p on p.product_id = i.product_id
+left join recent_rate r on r.store_id = i.store_id and r.product_id = i.product_id
+where i.stock_on_hand = 0
+group by p.product_id, p.product_name, p.category, p.unit_price, p.unit_cost
+order by est_profit_at_risk_per_30d desc;
 
--- 5d. Slow stock: more than 180 days of cover at the recent selling rate
-SELECT COUNT(*)                                            AS slow_pairs,
-       ROUND(SUM(i.stock_on_hand * p.unit_cost), 0)        AS capital_tied_up
-FROM fact_inventory i
-JOIN dim_product p ON p.product_id = i.product_id
-JOIN recent_rate r ON r.store_id = i.store_id AND r.product_id = i.product_id
-WHERE r.daily_units > 0 AND i.stock_on_hand / r.daily_units > 180;
+-- slow stock: more than 180 days of stock at the recent selling rate
+select count(*) as slow_pairs,
+  round(sum(i.stock_on_hand * p.unit_cost)) as capital_tied_up
+from fact_inventory i
+join dim_product p on p.product_id = i.product_id
+join recent_rate r on r.store_id = i.store_id and r.product_id = i.product_id
+where r.daily_units > 0 and i.stock_on_hand / r.daily_units > 180;
 
--- 5e. Coverage gap: store x product pairs missing from the inventory table
-SELECT COUNT(*) AS pairs_missing_from_inventory,
-       SUM(CASE WHEN EXISTS (SELECT 1 FROM fact_sales f WHERE f.store_id = st.store_id AND f.product_id = pr.product_id) THEN 1 ELSE 0 END) AS of_which_have_sales
-FROM dim_store st
-CROSS JOIN dim_product pr
-WHERE NOT EXISTS (SELECT 1 FROM fact_inventory i WHERE i.store_id = st.store_id AND i.product_id = pr.product_id);
+-- store + product pairs that are missing from the inventory table
+select count(*) as pairs_missing_from_inventory,
+  sum(case when exists (select 1 from fact_sales f where f.store_id = st.store_id and f.product_id = pr.product_id) then 1 else 0 end) as of_which_have_sales
+from dim_store st
+cross join dim_product pr
+where not exists (select 1 from fact_inventory i where i.store_id = st.store_id and i.product_id = pr.product_id);
 </script>
 <!-- Business analysis documents: plain markdown, rendered on the page. Source files live in projects/maven-toys/docs/. Edit here or there. -->
 <script type="text/plain" id="md-scope">
@@ -2852,7 +2831,7 @@ Slow stock capital = SUMX ( FILTER ( StoreProduct, StoreProduct[Daily_Units_90d]
   /* ---------- SQL viewer: the six scripts, readable on the page ---------- */
   var KW = 'SELECT|FROM|WHERE|GROUP BY|ORDER BY|LEFT JOIN|CROSS JOIN|JOIN|ON|AS|WITH|CASE|WHEN|THEN|ELSE|END|UNION ALL|CREATE TABLE|CREATE INDEX|DROP TABLE|IF EXISTS|OVER|DESC|ASC|AND|OR|NOT|IN|EXISTS|DISTINCT|NULL|IS|BETWEEN|LIKE|LIMIT|INTEGER|REAL';
   var FN = 'SUM|COUNT|ROUND|CAST|REPLACE|TRIM|SUBSTR|MIN|MAX|COALESCE|ROW_NUMBER|strftime';
-  var reKW = new RegExp('\\b(' + KW + ')\\b', 'g'), reFN = new RegExp('\\b(' + FN + ')(?=\\s*\\()', 'g');
+  var reKW = new RegExp('\\b(' + KW + ')\\b', 'gi'), reFN = new RegExp('\\b(' + FN + ')(?=\\s*\\()', 'gi');
   function hlSql(src) {
     return src.split('\n').map(function (line) {
       var i = line.indexOf('--'), code = i < 0 ? line : line.slice(0, i), com = i < 0 ? '' : line.slice(i);

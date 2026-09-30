@@ -1,29 +1,25 @@
--- =====================================================================
--- 02 | WHERE DOES THE MONEY (AND THE PROFIT) COME FROM?
--- =====================================================================
+-- 02 where the revenue and profit come from
 
--- Category: revenue share vs profit share (window function for the shares)
-SELECT p.category,
-       ROUND(SUM(f.revenue), 0)                                                    AS revenue,
-       ROUND(SUM(f.profit), 0)                                                     AS profit,
-       ROUND(100.0 * SUM(f.profit) / SUM(f.revenue), 1)                            AS margin_pct,
-       ROUND(100.0 * SUM(f.revenue) / SUM(SUM(f.revenue)) OVER (), 1)              AS revenue_share_pct,
-       ROUND(100.0 * SUM(f.profit)  / SUM(SUM(f.profit))  OVER (), 1)              AS profit_share_pct
-FROM fact_sales f
-JOIN dim_product p ON p.product_id = f.product_id
-GROUP BY p.category
-ORDER BY profit DESC;
+-- by category
+select p.category,
+  round(sum(f.revenue)) as revenue,
+  round(sum(f.profit)) as profit,
+  round(sum(f.profit) * 100.0 / sum(f.revenue), 1) as margin_pct,
+  round(sum(f.revenue) * 100.0 / (select sum(revenue) from fact_sales), 1) as revenue_share_pct,
+  round(sum(f.profit) * 100.0 / (select sum(profit) from fact_sales), 1) as profit_share_pct
+from fact_sales f
+join dim_product p on p.product_id = f.product_id
+group by p.category
+order by profit desc;
 
--- Product: ranked by profit, with margin and cumulative profit share (Pareto)
-SELECT p.product_name,
-       p.category,
-       ROUND(SUM(f.revenue), 0)                                                    AS revenue,
-       ROUND(SUM(f.profit), 0)                                                     AS profit,
-       ROUND(100.0 * SUM(f.profit) / SUM(f.revenue), 1)                            AS margin_pct,
-       ROUND(100.0 * SUM(f.profit) / SUM(SUM(f.profit)) OVER (), 1)                AS profit_share_pct,
-       ROUND(100.0 * SUM(SUM(f.profit)) OVER (ORDER BY SUM(f.profit) DESC)
-                   / SUM(SUM(f.profit)) OVER (), 1)                                AS cumulative_profit_pct
-FROM fact_sales f
-JOIN dim_product p ON p.product_id = f.product_id
-GROUP BY p.product_id, p.product_name, p.category
-ORDER BY profit DESC;
+-- by product, biggest profit first
+select p.product_name,
+  p.category,
+  round(sum(f.revenue)) as revenue,
+  round(sum(f.profit)) as profit,
+  round(sum(f.profit) * 100.0 / sum(f.revenue), 1) as margin_pct,
+  round(sum(f.profit) * 100.0 / (select sum(profit) from fact_sales), 1) as profit_share_pct
+from fact_sales f
+join dim_product p on p.product_id = f.product_id
+group by p.product_id, p.product_name, p.category
+order by profit desc;

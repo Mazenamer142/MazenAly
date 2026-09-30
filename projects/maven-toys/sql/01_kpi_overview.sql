@@ -1,22 +1,20 @@
--- =====================================================================
--- 01 | HEADLINE KPIs
--- Question: how big is the business, and how profitable?
--- =====================================================================
-SELECT COUNT(*)                                        AS sale_lines,
-       MIN(sale_date)                                  AS first_day,
-       MAX(sale_date)                                  AS last_day,
-       SUM(units)                                      AS units,
-       ROUND(SUM(revenue), 0)                          AS revenue,
-       ROUND(SUM(cost), 0)                             AS cost,
-       ROUND(SUM(profit), 0)                           AS profit,
-       ROUND(100.0 * SUM(profit) / SUM(revenue), 1)    AS margin_pct
-FROM fact_sales;
+-- 01 overall numbers
 
--- Monthly trend: revenue, profit and margin (margin is kept on its own chart, never on a dual axis)
-SELECT year_month,
-       ROUND(SUM(revenue), 0)                          AS revenue,
-       ROUND(SUM(profit), 0)                           AS profit,
-       ROUND(100.0 * SUM(profit) / SUM(revenue), 1)    AS margin_pct
-FROM fact_sales
-GROUP BY year_month
-ORDER BY year_month;
+select count(*) as sale_lines,
+  min(sale_date) as first_day,
+  max(sale_date) as last_day,
+  sum(units) as units,
+  round(sum(revenue)) as revenue,
+  round(sum(cost)) as cost,
+  round(sum(profit)) as profit,
+  round(sum(profit) * 100.0 / sum(revenue), 1) as margin_pct
+from fact_sales;
+
+-- by month
+select year_month,
+  round(sum(revenue)) as revenue,
+  round(sum(profit)) as profit,
+  round(sum(profit) * 100.0 / sum(revenue), 1) as margin_pct
+from fact_sales
+group by year_month
+order by year_month;

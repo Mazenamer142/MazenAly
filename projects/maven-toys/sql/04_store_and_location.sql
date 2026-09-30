@@ -1,40 +1,39 @@
--- =====================================================================
--- 04 | STORES AND LOCATION TYPES
--- Question: is "Downtown = 56% of profit" a location effect, or just "29 of the 50 stores"?
--- =====================================================================
+-- 04 stores and location types
+-- downtown has the most profit but it also has 29 of the 50 stores, so look at profit per store
 
--- Profit per store by location type (normalises for how many stores each type has)
-SELECT s.location_type,
-       COUNT(DISTINCT s.store_id)                                         AS stores,
-       ROUND(SUM(f.revenue), 0)                                           AS revenue,
-       ROUND(SUM(f.profit), 0)                                            AS profit,
-       ROUND(SUM(f.profit)  / COUNT(DISTINCT s.store_id), 0)              AS profit_per_store,
-       ROUND(SUM(f.revenue) / COUNT(DISTINCT s.store_id), 0)              AS revenue_per_store,
-       ROUND(100.0 * SUM(f.profit) / SUM(SUM(f.profit)) OVER (), 1)       AS profit_share_pct
-FROM fact_sales f
-JOIN dim_store s ON s.store_id = f.store_id
-GROUP BY s.location_type
-ORDER BY profit_per_store DESC;
+select s.location_type,
+  count(distinct s.store_id) as stores,
+  round(sum(f.revenue)) as revenue,
+  round(sum(f.profit)) as profit,
+  round(sum(f.profit) / count(distinct s.store_id)) as profit_per_store,
+  round(sum(f.revenue) / count(distinct s.store_id)) as revenue_per_store,
+  round(sum(f.profit) * 100.0 / (select sum(profit) from fact_sales), 1) as profit_share_pct
+from fact_sales f
+join dim_store s on s.store_id = f.store_id
+group by s.location_type
+order by profit_per_store desc;
 
--- Top and bottom 5 stores by profit
-WITH store_profit AS (
-    SELECT s.store_name, s.city, s.location_type,
-           ROUND(SUM(f.revenue), 0) AS revenue, ROUND(SUM(f.profit), 0) AS profit,
-           ROW_NUMBER() OVER (ORDER BY SUM(f.profit) DESC) AS rank_desc,
-           ROW_NUMBER() OVER (ORDER BY SUM(f.profit) ASC)  AS rank_asc
-    FROM fact_sales f JOIN dim_store s ON s.store_id = f.store_id
-    GROUP BY s.store_id, s.store_name, s.city, s.location_type
-)
-SELECT store_name, city, location_type, revenue, profit
-FROM store_profit
-WHERE rank_desc <= 5 OR rank_asc <= 5
-ORDER BY profit DESC;
+-- top 5 stores
+select s.store_name, s.city, s.location_type, round(sum(f.profit)) as profit
+from fact_sales f
+join dim_store s on s.store_id = f.store_id
+group by s.store_id, s.store_name, s.city, s.location_type
+order by profit desc
+limit 5;
 
--- Weekday pattern (0 = Sunday in SQLite's strftime('%w'); use DAYOFWEEK() in MySQL, EXTRACT(DOW ...) in PostgreSQL)
-SELECT CASE CAST(strftime('%w', sale_date) AS INTEGER)
-            WHEN 0 THEN 'Sun' WHEN 1 THEN 'Mon' WHEN 2 THEN 'Tue' WHEN 3 THEN 'Wed'
-            WHEN 4 THEN 'Thu' WHEN 5 THEN 'Fri' ELSE 'Sat' END      AS weekday,
-       ROUND(SUM(revenue), 0)                                       AS revenue
-FROM fact_sales
-GROUP BY strftime('%w', sale_date)
-ORDER BY strftime('%w', sale_date);
+-- bottom 5 stores
+select s.store_name, s.city, s.location_type, round(sum(f.profit)) as profit
+from fact_sales f
+join dim_store s on s.store_id = f.store_id
+group by s.store_id, s.store_name, s.city, s.location_type
+order by profit asc
+limit 5;
+
+-- revenue by weekday (strftime is sqlite, in mysql use dayofweek())
+select case cast(strftime('%w', sale_date) as integer)
+    when 0 then 'Sun' when 1 then 'Mon' when 2 then 'Tue' when 3 then 'Wed'
+    when 4 then 'Thu' when 5 then 'Fri' else 'Sat' end as weekday,
+  round(sum(revenue)) as revenue
+from fact_sales
+group by strftime('%w', sale_date)
+order by strftime('%w', sale_date);
