@@ -1,3 +1,5 @@
 .vercel
 .DS_Store
 node_modules
+# raw dataset is a public download (21 MB); see projects/maven-toys/README.md
+projects/maven-toys/data/raw/

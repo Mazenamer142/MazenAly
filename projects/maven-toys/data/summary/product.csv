@@ -1,0 +1,36 @@
+product_id,product_name,category,revenue,profit,margin_pct,profit_share_pct,cumulative_profit_pct
+6,Colorbuds,Electronics,1564476.0,834944.0,53.4,20.8,20.8
+1,Action Figure,Toys,926748.0,347748.0,37.5,8.7,29.5
+18,Lego Bricks,Toys,2388883.0,298685.0,12.5,7.4,36.9
+8,Deck Of Cards,Games,587398.0,252102.0,42.9,6.3,43.2
+14,Glass Marbles,Games,412323.0,187590.0,45.5,4.7,47.9
+3,Barrel O' Slime,Art & Crafts,365735.0,183326.0,50.1,4.6,52.4
+17,Kids Makeup Kit,Art & Crafts,488416.0,146598.0,30.0,3.7,56.1
+24,Nerf Gun,Sports & Outdoors,530595.0,132715.0,25.0,3.3,59.4
+7,Dart Gun,Sports & Outdoors,505092.0,126352.0,25.0,3.1,62.5
+11,Etch A Sketch,Art & Crafts,255406.0,121680.0,47.6,3.0,65.6
+19,Magic Sand,Art & Crafts,968962.0,121196.0,12.5,3.0,68.6
+2,Animal Figures,Toys,507766.0,117267.0,23.1,2.9,71.5
+10,Dinosaur Figures,Toys,434890.0,116048.0,26.7,2.9,74.4
+13,Gamer Headphones,Electronics,376938.0,107748.0,28.6,2.7,77.1
+25,PlayDoh Can,Art & Crafts,308353.0,103128.0,33.4,2.6,79.6
+21,Mini Ping Pong Set,Sports & Outdoors,335704.0,100812.0,30.0,2.5,82.2
+16,Jenga,Games,130409.0,91378.0,70.1,2.3,84.4
+30,Rubik's Cube,Games,912983.0,91344.0,10.0,2.3,86.7
+29,Plush Pony,Toys,109705.0,60368.0,55.0,1.5,88.2
+31,Splash Balls,Sports & Outdoors,541630.0,60248.0,11.1,1.5,89.7
+34,Toy Robot,Electronics,305357.0,58745.0,19.2,1.5,91.2
+15,Hot Wheels 5-Pack,Toys,135727.0,45318.0,33.4,1.1,92.3
+23,Mr. Potatohead,Toys,85964.0,43025.0,50.1,1.1,93.4
+20,Mini Basketball Hoop,Sports & Outdoors,66149.0,42352.0,64.0,1.1,94.4
+9,Dino Egg,Toys,420214.0,38236.0,9.1,1.0,95.4
+28,Playfoam,Art & Crafts,45696.0,29106.0,63.7,0.7,96.1
+26,PlayDoh Playset,Art & Crafts,157387.0,25192.0,16.0,0.6,96.7
+27,PlayDoh Toolkit,Art & Crafts,115409.0,23128.0,20.0,0.6,97.3
+12,Foam Disk Launcher,Sports & Outdoors,91364.0,22860.0,25.0,0.6,97.9
+32,Supersoaker Water Gun,Sports & Outdoors,101827.0,20379.0,20.0,0.5,98.4
+22,Monopoly,Games,67666.0,20310.0,30.0,0.5,98.9
+33,Teddy Bear,Toys,83344.0,12832.0,15.4,0.3,99.2
+4,Chutes & Ladders,Games,49739.0,11487.0,23.1,0.3,99.5
+35,Uno Card Game,Games,21653.0,10840.0,50.1,0.3,99.8
+5,Classic Dominoes,Games,44665.0,8942.0,20.0,0.2,100.0

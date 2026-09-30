@@ -1,0 +1,453 @@
+{
+ "overview": {
+  "sale_lines": 829262,
+  "first_day": "2022-01-01",
+  "last_day": "2023-09-30",
+  "stores": 50,
+  "products": 35,
+  "revenue": 14444572,
+  "cost": 10430543,
+  "profit": 4014029,
+  "units": 1090565,
+  "margin_pct": 27.8
+ },
+ "growth": {
+  "revenue_growth_pct": 30.9,
+  "profit_growth_pct": 16.0,
+  "margin_2022": 29.5,
+  "margin_2023": 26.2,
+  "revenue_2022": 5320116,
+  "revenue_2023": 6962074,
+  "profit_2022": 1572037,
+  "profit_2023": 1824242
+ },
+ "data_quality": {
+  "sale_lines": 829262,
+  "duplicate_sale_id": 0,
+  "null_cells_in_sales": 0,
+  "orphan_product_id": 0,
+  "orphan_store_id": 0,
+  "inventory_rows": 1593,
+  "inventory_rows_possible": 1750
+ },
+ "inventory": {
+  "stock_value_at_cost": 300210,
+  "stockout_pairs": 77,
+  "store_product_pairs": 1593,
+  "stockout_rate_pct": 4.8,
+  "est_profit_at_risk_per_30d": 9685,
+  "slow_pairs": 50,
+  "capital_tied_up": 15177,
+  "pairs_missing_from_inventory": 157,
+  "missing_pairs_with_sales": 41
+ },
+ "fri_sun_share_pct": 51.0,
+ "monthly": [
+  {
+   "m": "2022-01",
+   "revenue": 542555,
+   "margin": 30.8
+  },
+  {
+   "m": "2022-02",
+   "revenue": 541352,
+   "margin": 29.9
+  },
+  {
+   "m": "2022-03",
+   "revenue": 589485,
+   "margin": 29.5
+  },
+  {
+   "m": "2022-04",
+   "revenue": 681073,
+   "margin": 27.9
+  },
+  {
+   "m": "2022-05",
+   "revenue": 672370,
+   "margin": 27.8
+  },
+  {
+   "m": "2022-06",
+   "revenue": 661980,
+   "margin": 28.7
+  },
+  {
+   "m": "2022-07",
+   "revenue": 556034,
+   "margin": 31.8
+  },
+  {
+   "m": "2022-08",
+   "revenue": 489423,
+   "margin": 32.5
+  },
+  {
+   "m": "2022-09",
+   "revenue": 585844,
+   "margin": 28.4
+  },
+  {
+   "m": "2022-10",
+   "revenue": 623874,
+   "margin": 28.7
+  },
+  {
+   "m": "2022-11",
+   "revenue": 661304,
+   "margin": 29.2
+  },
+  {
+   "m": "2022-12",
+   "revenue": 877204,
+   "margin": 28.1
+  },
+  {
+   "m": "2023-01",
+   "revenue": 747196,
+   "margin": 27.4
+  },
+  {
+   "m": "2023-02",
+   "revenue": 722632,
+   "margin": 26.2
+  },
+  {
+   "m": "2023-03",
+   "revenue": 883516,
+   "margin": 26.2
+  },
+  {
+   "m": "2023-04",
+   "revenue": 827691,
+   "margin": 26.0
+  },
+  {
+   "m": "2023-05",
+   "revenue": 825319,
+   "margin": 25.5
+  },
+  {
+   "m": "2023-06",
+   "revenue": 808299,
+   "margin": 25.6
+  },
+  {
+   "m": "2023-07",
+   "revenue": 828349,
+   "margin": 25.3
+  },
+  {
+   "m": "2023-08",
+   "revenue": 660877,
+   "margin": 26.5
+  },
+  {
+   "m": "2023-09",
+   "revenue": 658194,
+   "margin": 27.4
+  }
+ ],
+ "category": [
+  {
+   "name": "Toys",
+   "rev_share": 35.3,
+   "profit_share": 26.9,
+   "margin": 21.2,
+   "profit_change_pct": 6.0
+  },
+  {
+   "name": "Electronics",
+   "rev_share": 15.6,
+   "profit_share": 24.9,
+   "margin": 44.6,
+   "profit_change_pct": -39.0
+  },
+  {
+   "name": "Art & Crafts",
+   "rev_share": 18.7,
+   "profit_share": 18.8,
+   "margin": 27.8,
+   "profit_change_pct": 232.0
+  },
+  {
+   "name": "Games",
+   "rev_share": 15.4,
+   "profit_share": 16.8,
+   "margin": 30.3,
+   "profit_change_pct": 13.0
+  },
+  {
+   "name": "Sports & Outdoors",
+   "rev_share": 15.0,
+   "profit_share": 12.6,
+   "margin": 23.3,
+   "profit_change_pct": 36.0
+  }
+ ],
+ "product_top": [
+  {
+   "name": "Colorbuds",
+   "profit": 834944,
+   "margin": 53.4,
+   "profit_share": 20.8,
+   "revenue": 1564476
+  },
+  {
+   "name": "Action Figure",
+   "profit": 347748,
+   "margin": 37.5,
+   "profit_share": 8.7,
+   "revenue": 926748
+  },
+  {
+   "name": "Lego Bricks",
+   "profit": 298685,
+   "margin": 12.5,
+   "profit_share": 7.4,
+   "revenue": 2388883
+  },
+  {
+   "name": "Deck Of Cards",
+   "profit": 252102,
+   "margin": 42.9,
+   "profit_share": 6.3,
+   "revenue": 587398
+  },
+  {
+   "name": "Glass Marbles",
+   "profit": 187590,
+   "margin": 45.5,
+   "profit_share": 4.7,
+   "revenue": 412323
+  },
+  {
+   "name": "Barrel O' Slime",
+   "profit": 183326,
+   "margin": 50.1,
+   "profit_share": 4.6,
+   "revenue": 365735
+  },
+  {
+   "name": "Kids Makeup Kit",
+   "profit": 146598,
+   "margin": 30.0,
+   "profit_share": 3.7,
+   "revenue": 488416
+  },
+  {
+   "name": "Nerf Gun",
+   "profit": 132715,
+   "margin": 25.0,
+   "profit_share": 3.3,
+   "revenue": 530595
+  }
+ ],
+ "pareto": {
+  "top5_profit_share_pct": 47.9,
+  "top10_profit_share_pct": 65.6
+ },
+ "profit_change": [
+  {
+   "name": "Colorbuds",
+   "change": -263848
+  },
+  {
+   "name": "Action Figure",
+   "change": -51438
+  },
+  {
+   "name": "Kids Makeup Kit",
+   "change": -26520
+  },
+  {
+   "name": "Dart Gun",
+   "change": -23516
+  },
+  {
+   "name": "Mr. Potatohead",
+   "change": 31475
+  },
+  {
+   "name": "Nerf Gun",
+   "change": 52205
+  },
+  {
+   "name": "Gamer Headphones",
+   "change": 56088
+  },
+  {
+   "name": "Etch A Sketch",
+   "change": 96270
+  },
+  {
+   "name": "Magic Sand",
+   "change": 108238
+  },
+  {
+   "name": "Barrel O' Slime",
+   "change": 111802
+  }
+ ],
+ "bridge": [
+  {
+   "name": "Colorbuds",
+   "pp": -2.68
+  },
+  {
+   "name": "Magic Sand",
+   "pp": -2.12
+  },
+  {
+   "name": "Dino Egg",
+   "pp": -0.42
+  },
+  {
+   "name": "Action Figure",
+   "pp": -0.32
+  },
+  {
+   "name": "Lego Bricks",
+   "pp": 0.31
+  },
+  {
+   "name": "Splash Balls",
+   "pp": 0.43
+  },
+  {
+   "name": "Etch A Sketch",
+   "pp": 0.53
+  },
+  {
+   "name": "Barrel O' Slime",
+   "pp": 0.64
+  }
+ ],
+ "location": [
+  {
+   "type": "Airport",
+   "stores": 3,
+   "profit_per_store": 126016,
+   "profit_share": 9.4
+  },
+  {
+   "type": "Downtown",
+   "stores": 29,
+   "profit_per_store": 77542,
+   "profit_share": 56.0
+  },
+  {
+   "type": "Commercial",
+   "stores": 12,
+   "profit_per_store": 77239,
+   "profit_share": 23.1
+  },
+  {
+   "type": "Residential",
+   "stores": 6,
+   "profit_per_store": 76731,
+   "profit_share": 11.5
+  }
+ ],
+ "top_stores": [
+  {
+   "name": "Maven Toys Ciudad de Mexico 2",
+   "type": "Airport",
+   "profit": 169856
+  },
+  {
+   "name": "Maven Toys Guadalajara 3",
+   "type": "Airport",
+   "profit": 121571
+  },
+  {
+   "name": "Maven Toys Ciudad de Mexico 1",
+   "type": "Downtown",
+   "profit": 111296
+  },
+  {
+   "name": "Maven Toys Monterrey 2",
+   "type": "Downtown",
+   "profit": 106783
+  },
+  {
+   "name": "Maven Toys Toluca 1",
+   "type": "Downtown",
+   "profit": 104612
+  }
+ ],
+ "weekday": [
+  {
+   "d": "Mon",
+   "revenue": 1531130
+  },
+  {
+   "d": "Tue",
+   "revenue": 1637492
+  },
+  {
+   "d": "Wed",
+   "revenue": 1732069
+  },
+  {
+   "d": "Thu",
+   "revenue": 2183642
+  },
+  {
+   "d": "Fri",
+   "revenue": 2750302
+  },
+  {
+   "d": "Sat",
+   "revenue": 2860194
+  },
+  {
+   "d": "Sun",
+   "revenue": 1749744
+  }
+ ],
+ "stockouts": [
+  {
+   "name": "Playfoam",
+   "stores": 13,
+   "risk30": 2830,
+   "margin": 64
+  },
+  {
+   "name": "Action Figure",
+   "stores": 5,
+   "risk30": 1130,
+   "margin": 38
+  },
+  {
+   "name": "Etch A Sketch",
+   "stores": 7,
+   "risk30": 1130,
+   "margin": 48
+  },
+  {
+   "name": "Mini Ping Pong Set",
+   "stores": 6,
+   "risk30": 987,
+   "margin": 30
+  },
+  {
+   "name": "Hot Wheels 5-Pack",
+   "stores": 12,
+   "risk30": 709,
+   "margin": 33
+  },
+  {
+   "name": "Animal Figures",
+   "stores": 3,
+   "risk30": 669,
+   "margin": 23
+  }
+ ],
+ "lego": {
+  "revenue": 2388883,
+  "margin": 12.5,
+  "profit_share": 7.4
+ }
+}

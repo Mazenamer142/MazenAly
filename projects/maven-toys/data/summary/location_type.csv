@@ -1,0 +1,5 @@
+location_type,revenue,profit,stores,profit_per_store,revenue_per_store,profit_share_pct
+Airport,1289723.0,378049.0,3,126016.0,429908.0,9.4
+Downtown,8219596.0,2248728.0,29,77542.0,283434.0,56.0
+Commercial,3279140.0,926864.0,12,77239.0,273262.0,23.1
+Residential,1656114.0,460388.0,6,76731.0,276019.0,11.5
