@@ -438,6 +438,130 @@ footer .container { display: flex; flex-wrap: wrap; justify-content: space-betwe
 }
 
 /* ==================== REDUCED MOTION ==================== */
+/* project card extras */
+button.link-arrow { background: none; border: 0; border-bottom: 3px solid var(--accent); padding: 0 0 1px; cursor: pointer; font-family: inherit; color: inherit; }
+.mini-stats { display: flex; flex-wrap: wrap; gap: 8px 10px; }
+.mini-stats span { flex: 1 1 88px; padding: 8px 12px; border: 2px solid var(--ink); border-radius: 10px; background: var(--bg); font-family: var(--font-mono); font-size: .68rem; font-weight: 700; color: var(--ink-2); text-transform: uppercase; letter-spacing: .05em; }
+.mini-stats b { display: block; font-family: var(--font-sans); font-size: 1.25rem; letter-spacing: -.02em; color: var(--ink); text-transform: none; }
+.mini-stats .bad b { color: #b8420f; }
+
+/* ==================== CASE STUDY OVERLAYS (Maven Toys) ==================== */
+html.modal-open { overflow: hidden; }
+.case { position: fixed; inset: 0; z-index: 1200; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; background-color: var(--bg); background-image: radial-gradient(rgba(12, 35, 64, .08) 1px, transparent 1px); background-size: 22px 22px; opacity: 0; transform: translateY(44px); transition: transform .38s cubic-bezier(.2, .8, .2, 1), opacity .3s ease; }
+.case.open { opacity: 1; transform: none; }
+.case-bar { position: sticky; top: 0; z-index: 6; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px clamp(16px, 4vw, 36px); background: rgba(234, 243, 252, .93); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: var(--line); }
+.case-crumb { font-family: var(--font-mono); font-size: .76rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-text); }
+.case-close { padding: 9px 16px; font-size: .85rem; }
+.case-body { max-width: 1040px; margin: 0 auto; padding: clamp(28px, 5vw, 56px) clamp(16px, 4vw, 36px) 96px; }
+.case-head .kicker, .cs .kicker { font-family: var(--font-mono); font-size: .76rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-text); }
+.case-head h2 { margin-top: 12px; font-size: clamp(2.1rem, 6vw, 3.8rem); line-height: 1.04; letter-spacing: -.04em; font-weight: 850; }
+.case-head .lead { margin-top: 16px; max-width: 34em; font-size: clamp(1.05rem, 2vw, 1.3rem); color: var(--ink-2); }
+.case-head .tags { margin-top: 18px; }
+.case-facts { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px 20px; font-family: var(--font-mono); font-size: .78rem; color: var(--ink-2); font-weight: 700; }
+.case-facts span::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 8px; background: var(--accent); border: 1.5px solid var(--ink); }
+.case-actions { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 12px; }
+.case-note { margin-top: 18px; padding: 12px 16px; border: var(--line); border-radius: 10px; background: rgba(255, 200, 61, .22); font-size: .9rem; max-width: 46em; }
+.cs { margin-top: clamp(44px, 7vw, 80px); }
+.cs h3 { margin-top: 8px; font-size: clamp(1.5rem, 3.6vw, 2.2rem); line-height: 1.12; letter-spacing: -.03em; }
+.cs > p, .cs .txt { margin-top: 12px; max-width: 44em; color: var(--ink-2); font-size: 1.02rem; }
+.cs .txt strong, .cs > p strong { color: var(--ink); }
+.cr { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s cubic-bezier(.2, .8, .2, 1); }
+.cr.in { opacity: 1; transform: none; }
+.kpis { margin-top: 22px; display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); }
+.kpi { background: var(--surface); border: var(--line); border-radius: var(--radius); box-shadow: var(--hard); padding: 18px 20px; }
+.kpi .l { font-size: .8rem; color: var(--ink-2); font-weight: 600; }
+.kpi .v { margin-top: 4px; font-size: clamp(1.9rem, 4.5vw, 2.8rem); font-weight: 850; letter-spacing: -.035em; line-height: 1.05; }
+.kpi .d { margin-top: 6px; font-family: var(--font-mono); font-size: .74rem; color: var(--muted); font-weight: 700; }
+.kpi.bad .v { color: #b8420f; }
+.kpis.hero .kpi { padding: 22px; }
+.kpis.hero .kpi .v { font-size: clamp(2.4rem, 7vw, 4rem); }
+.kpis.small .kpi { box-shadow: 3px 3px 0 var(--ink); padding: 14px 16px; }
+.kpis.small .kpi .v { font-size: clamp(1.4rem, 3vw, 1.9rem); }
+.flow { margin-top: 22px; display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; border: var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--hard); overflow: hidden; }
+.flow div { padding: 14px 14px 16px; position: relative; }
+.flow div + div { border-left: 2px solid var(--ink); }
+.flow small { font-family: var(--font-mono); font-size: .68rem; font-weight: 800; color: var(--muted); }
+.flow b { display: block; font-size: .92rem; margin: 3px 0 2px; line-height: 1.25; }
+.flow span { font-size: .78rem; color: var(--ink-2); line-height: 1.4; display: block; }
+.flow .later { background: repeating-linear-gradient(135deg, transparent 0 8px, rgba(12, 35, 64, .05) 8px 16px); }
+.chart { margin: 24px 0 0; background: var(--surface); border: var(--line); border-radius: var(--radius); box-shadow: var(--hard); padding: clamp(14px, 2.5vw, 22px); }
+.chart figcaption { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; align-items: start; }
+.chart figcaption h4 { margin: 0; font-size: 1.02rem; letter-spacing: -.01em; line-height: 1.3; }
+.chart figcaption p { grid-column: 1; margin: 0; font-size: .84rem; color: var(--ink-2); }
+.tbl-toggle { grid-column: 2; grid-row: 1 / span 2; align-self: start; padding: 6px 12px; font-family: var(--font-mono); font-size: .7rem; font-weight: 800; background: var(--bg); border: 2px solid var(--ink); border-radius: 999px; cursor: pointer; white-space: nowrap; transition: background .2s; }
+.tbl-toggle:hover { background: var(--accent); }
+.clegend { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 12px 0 2px; font-size: .82rem; color: var(--ink-2); font-weight: 600; }
+.clegend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 7px; vertical-align: -1px; }
+.plot { margin-top: 8px; }
+.csvg { display: block; width: 100%; height: auto; overflow: visible; }
+.csvg .ax { font: 500 11px var(--font-sans); fill: #5d7391; }
+.csvg .rl { font: 500 12.5px var(--font-sans); fill: #3a5170; }
+.csvg .rl.strong { fill: #0c2340; font-weight: 700; }
+.csvg .dl { font: 700 12px var(--font-sans); fill: #0c2340; }
+.csvg .dl.light { fill: #3a5170; font-weight: 600; }
+.csvg .mk { transition: opacity .15s; }
+.csvg rect:focus-visible { outline: 2px solid var(--accent-text); outline-offset: -2px; }
+.chart2 { display: grid; gap: 22px; grid-template-columns: 1fr; }
+.ctip { position: fixed; z-index: 1400; pointer-events: none; background: var(--ink); color: #fff; padding: 9px 12px; border-radius: 8px; font-size: .82rem; box-shadow: 0 10px 24px -8px rgba(12, 35, 64, .5); max-width: 320px; }
+.ctip-t { font-weight: 700; margin-bottom: 4px; }
+.ctip-r { display: flex; align-items: center; gap: 8px; }
+.ctip-r i { display: inline-block; width: 14px; height: 3px; border-radius: 2px; flex: none; }
+.ctip-r b { font-size: .95rem; white-space: nowrap; }
+.ctip-r span { color: #b8c7dc; white-space: nowrap; }
+.cs .tw, .doc .tw { margin-top: 16px; overflow-x: auto; border: var(--line); border-radius: 10px; background: var(--surface); }
+.chart .tw { margin-top: 12px; }
+.cs table, .doc table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.cs th, .cs td, .doc th, .doc td { padding: 10px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid rgba(12, 35, 64, .12); }
+.cs tr:last-child td, .doc tr:last-child td { border-bottom: 0; }
+.cs th, .doc th { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; font-weight: 800; background: var(--bg-2); white-space: nowrap; }
+.cs td.strong { font-weight: 700; }
+.recs { margin: 22px 0 0; display: grid; gap: 14px; counter-reset: rec; }
+.recs li { counter-increment: rec; position: relative; padding: 16px 18px 16px 62px; background: var(--surface); border: var(--line); border-radius: var(--radius); box-shadow: 3px 3px 0 var(--ink); }
+.recs li::before { content: counter(rec); position: absolute; left: 16px; top: 14px; width: 32px; height: 32px; display: grid; place-items: center; background: var(--yel); border: var(--line); border-radius: 8px; font-weight: 850; }
+.recs b { display: block; margin-bottom: 2px; }
+.recs span { color: var(--ink-2); font-size: .95rem; }
+.checks { margin: 18px 0 0; display: grid; gap: 10px; max-width: 46em; }
+.checks li { padding-left: 26px; position: relative; color: var(--ink-2); }
+.checks li::before { content: ""; position: absolute; left: 0; top: .5em; width: 12px; height: 12px; background: var(--tea); border: 2px solid var(--ink); }
+.checks li.warn::before { background: var(--yel); }
+.slot-box { margin-top: 20px; padding: clamp(24px, 5vw, 44px); text-align: center; border: 2px dashed var(--ink); border-radius: var(--radius); background: rgba(255, 255, 255, .55); }
+.slot-box b { display: block; font-size: 1.15rem; }
+.slot-box p { margin: 6px auto 0; max-width: 34em; color: var(--ink-2); font-size: .95rem; }
+.slot-box .pill-st { display: inline-block; margin-bottom: 10px; padding: 4px 12px; border: 2px solid var(--ink); border-radius: 999px; font-family: var(--font-mono); font-size: .7rem; font-weight: 800; background: var(--yel); }
+.files { margin-top: 16px; display: grid; gap: 6px; font-family: var(--font-mono); font-size: .8rem; }
+.files li { padding: 8px 12px; background: var(--surface); border: 1px solid rgba(12, 35, 64, .18); border-radius: 8px; word-break: break-all; }
+.files li b { color: var(--accent-text); }
+.case-nav { position: sticky; top: 55px; z-index: 5; display: flex; gap: 8px; overflow-x: auto; padding: 10px clamp(16px, 4vw, 36px); margin: 0 calc(-1 * clamp(16px, 4vw, 36px)); background: rgba(234, 243, 252, .93); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid rgba(12, 35, 64, .2); scrollbar-width: thin; }
+.cchip { flex: none; padding: 7px 14px; border: 2px solid var(--ink); border-radius: 999px; background: var(--surface); font-size: .8rem; font-weight: 700; cursor: pointer; transition: background .2s, transform .15s; }
+.cchip:hover { transform: translateY(-1px); background: var(--accent); }
+.cchip.on { background: var(--accent); }
+.doc { margin-top: clamp(40px, 6vw, 64px); scroll-margin-top: 110px; }
+.doc h3 { font-size: clamp(1.5rem, 3.4vw, 2.1rem); line-height: 1.12; letter-spacing: -.03em; margin-bottom: 8px; }
+.doc h4 { margin: 26px 0 8px; font-size: 1.15rem; letter-spacing: -.01em; }
+.doc h5 { margin: 18px 0 6px; font-size: 1rem; }
+.doc p { margin: 10px 0; color: var(--ink-2); max-width: 48em; }
+.doc ul, .doc ol { margin: 10px 0; padding-left: 22px; max-width: 48em; color: var(--ink-2); list-style: disc; }
+.doc ol { list-style: decimal; }
+.doc li { margin: 5px 0; }
+.doc strong { color: var(--ink); }
+.doc blockquote { margin: 14px 0; padding: 12px 16px; border-left: 5px solid var(--yel); background: rgba(255, 200, 61, .2); border-radius: 0 10px 10px 0; font-size: .92rem; max-width: 48em; }
+.doc code { font-family: var(--font-mono); font-size: .84em; padding: 1px 6px; background: rgba(12, 35, 64, .08); border-radius: 4px; }
+.doc pre { margin: 14px 0; padding: 16px; background: var(--ink); color: #e6f0ff; border-radius: 10px; overflow-x: auto; font-size: .8rem; line-height: 1.6; }
+.doc pre code { background: none; padding: 0; color: inherit; font-size: inherit; }
+@media (max-width: 720px) {
+  .doc td { min-width: 128px; } .doc th { min-width: 96px; }
+  .flow { grid-template-columns: 1fr 1fr; }
+  .flow div { border-left: 0 !important; border-top: 2px solid var(--ink); }
+  .flow div:nth-child(-n+2) { border-top: 0; }
+  .flow div:nth-child(2n) { border-left: 2px solid var(--ink) !important; }
+  .chart figcaption { grid-template-columns: 1fr; }
+  .tbl-toggle { grid-column: 1; grid-row: auto; justify-self: start; margin-top: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .case { transform: none; }
+  .cr { opacity: 1 !important; transform: none !important; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; transition-delay: 0s !important; }
@@ -642,11 +766,11 @@ footer .container { display: flex; flex-wrap: wrap; justify-content: space-betwe
               </a>
               <button class="snap rv" data-a="zoom" type="button" data-tab="2">
                 <span class="thumb"><span class="spr" data-sprite="bars"></span></span>
-                <span class="meta"><b>Data Analysis</b><span>SQL, Python and BI dashboards</span><em>Open section →</em></span>
+                <span class="meta"><b>Data Analysis</b><span>Maven Toys: growth without profit</span><em>Open section →</em></span>
               </button>
               <button class="snap rv" data-a="zoom" type="button" data-tab="3">
                 <span class="thumb"><span class="spr" data-sprite="flow"></span></span>
-                <span class="meta"><b>Business Analysis</b><span>Requirements and process work</span><em>Open section →</em></span>
+                <span class="meta"><b>Business Analysis</b><span>Maven Toys: profit dashboard requirements</span><em>Open section →</em></span>
               </button>
             </div>
           </div>
@@ -794,40 +918,43 @@ footer .container { display: flex; flex-wrap: wrap; justify-content: space-betwe
         -->
         <div class="grid grid-2" id="da-projects">
 
-          <!-- DATA ANALYSIS PROJECT 1 (flagship project: replace all placeholder text) -->
-          <article class="card project rv" data-a="up">
-            <div class="card-visual">
-              <!-- EDIT PROJECT IMAGE PATH HERE: e.g. assets/images/flagship-project.png (delete the src to show the placeholder) -->
-              <img src="" alt="Dashboard screenshot for the flagship data analysis project" loading="lazy" onerror="this.remove()">
-              <span class="spr" data-sprite="bars"></span><span class="ph-label">Dashboard preview</span>
-            </div>
-            <div class="card-body">
-              <p class="card-label">Flagship project</p>
-              <h3>Flagship Data Analysis Project <span class="pending-note">[title to be added]</span></h3>
-              <p><strong style="color:var(--ink)">Business problem:</strong> Describe the business question this project set out to answer in one sentence.</p>
-              <div class="tags">
-                <!-- EDIT PROJECT TOOL TAGS HERE -->
-                <span class="tag tool">SQL</span><span class="tag tool">Python</span><span class="tag tool">Power BI</span>
-              </div>
-              <p>Short description of the dataset, the approach and the outcome. To be added once the project is finalised.</p>
-              <div class="questions">
-                <p class="card-label">Key analytical questions</p>
-                <ul class="focus-list">
-                  <li>Question 1 to be added</li>
-                  <li>Question 2 to be added</li>
-                  <li>Question 3 to be added</li>
-                </ul>
-              </div>
-              <div class="card-actions">
-                <!-- EDIT PROJECT LIVE LINK HERE (replace href="#" with the live dashboard URL) -->
-                <a class="link-arrow" href="#" aria-disabled="true" tabindex="-1">View Project <span aria-hidden="true">→</span></a>
-                <!-- EDIT PROJECT GITHUB LINK HERE (replace href="#" with the repository URL) -->
-                <a class="link-arrow ghost" href="#" aria-disabled="true" tabindex="-1">GitHub <span aria-hidden="true">→</span></a>
-              </div>
-            </div>
-          </article>
+          <!-- DATA ANALYSIS PROJECT 1: MAVEN TOYS (flagship). Case study opens from the "View Project" button; content lives in #case-da -->
+      <article class="card project rv" data-a="up">
+        <div class="card-visual">
+          <!-- EDIT PROJECT IMAGE PATH HERE: e.g. assets/images/maven-toys.png (a Power BI screenshot once the dashboard is built) -->
+          <img src="" alt="Maven Toys Power BI dashboard screenshot" loading="lazy" onerror="this.remove()">
+          <span class="spr" data-sprite="bars"></span><span class="ph-label">Dashboard screenshot coming</span>
+        </div>
+        <div class="card-body">
+          <p class="card-label">Flagship project</p>
+          <h3>Maven Toys: growth without profit</h3>
+          <p><strong style="color:var(--ink)">Business problem:</strong> Sales grew 31% year on year but profit only 16%. Where did the margin go?</p>
+          <div class="mini-stats" aria-label="Headline result, Jan to Sep 2023 vs 2022"><span><b>+30.9%</b>revenue</span><span><b>+16.0%</b>profit</span><span class="bad"><b>&minus;3.3 pts</b>margin</span></div>
+          <div class="tags">
+            <!-- EDIT PROJECT TOOL TAGS HERE -->
+            <span class="tag tool">SQL</span><span class="tag tool">Python</span><span class="tag tool">pandas</span><span class="tag tool">Power BI · in progress</span>
+          </div>
+          <p>Modelled 829,262 sale lines in SQL, cross-checked every figure in Python, and traced the margin fall to a mix shift between two products. Built on the public Maven Analytics dataset, not client work.</p>
+          <div class="questions">
+            <p class="card-label">Key analytical questions</p>
+            <ul class="focus-list">
+              <li>Is profit growing as fast as sales?</li>
+              <li>Which products and mix shifts explain the margin change?</li>
+              <li>Do some store types earn more per store?</li>
+              <li>Where is stock running out, and what could it cost?</li>
+            </ul>
+          </div>
+          <div class="card-actions">
+            <button class="link-arrow" type="button" data-case="case-da">View Project <span aria-hidden="true">→</span></button>
+            <!-- EDIT POWER BI LINK HERE (replace href="#" with the published dashboard URL and remove aria-disabled) -->
+            <a class="link-arrow ghost" href="#" aria-disabled="true" tabindex="-1">Live dashboard <span aria-hidden="true">→</span></a>
+            <!-- EDIT PROJECT GITHUB LINK HERE (files are in projects/maven-toys/ in this repo) -->
+            <a class="link-arrow ghost" href="#" aria-disabled="true" tabindex="-1">GitHub <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </article>
 
-          <!-- DATA ANALYSIS PROJECT 2 (second project: replace all placeholder text) -->
+      <!-- DATA ANALYSIS PROJECT 2 (second project: replace all placeholder text) -->
           <article class="card project rv" data-a="up">
             <div class="card-visual">
               <!-- EDIT PROJECT IMAGE PATH HERE: e.g. assets/images/second-project.png -->
@@ -918,32 +1045,34 @@ footer .container { display: flex; flex-wrap: wrap; justify-content: space-betwe
         -->
         <div class="grid grid-2" id="ba-projects">
 
-          <!-- BUSINESS ANALYSIS PROJECT 1 -->
+          <!-- BUSINESS ANALYSIS PROJECT 1: MAVEN TOYS. Case study opens from the "View Project" button; content lives in #case-ba -->
           <article class="card project rv" data-a="up">
             <div class="card-visual">
-              <!-- EDIT PROJECT IMAGE PATH HERE: e.g. assets/images/ba-project-1.png -->
-              <img src="" alt="Process map or requirements document preview for business analysis project 1" loading="lazy" onerror="this.remove()">
+              <!-- EDIT PROJECT IMAGE PATH HERE: e.g. assets/images/ba-maven-toys.png -->
+              <img src="" alt="Requirements and process map preview for the Maven Toys business analysis project" loading="lazy" onerror="this.remove()">
               <span class="spr" data-sprite="flow"></span><span class="ph-label">Requirements / process map</span>
             </div>
             <div class="card-body">
-              <p class="card-label">Project 1</p>
-              <h3>Business Analysis Project 1 <span class="pending-note">[title to be added]</span></h3>
-              <p>Short description of the business problem, the stakeholders involved and the deliverables produced. To be added.</p>
+              <p class="card-label">Project 1 · scenario on a public dataset</p>
+              <h3>Maven Toys: requirements for a profit dashboard</h3>
+              <p>Turned the business problem "sales are up, profit is not" into scope, stakeholders, an AS-IS / TO-BE, a KPI dictionary, business rules, requirements with acceptance criteria, and a Power BI build specification.</p>
               <div class="tags">
                 <!-- EDIT PROJECT TAGS HERE -->
-                <span class="tag tool">Requirements</span><span class="tag tool">Process Mapping</span><span class="tag">User Stories</span>
+                <span class="tag tool">Requirements</span><span class="tag tool">Stakeholder analysis</span><span class="tag tool">KPI definition</span><span class="tag">User stories</span><span class="tag">AS-IS / TO-BE</span>
               </div>
               <div class="questions">
                 <p class="card-label">Key focus</p>
                 <ul class="focus-list">
-                  <li>Focus area 1 to be added</li>
-                  <li>Focus area 2 to be added</li>
+                  <li>10 business rules and 13 KPIs, each defined once</li>
+                  <li>11 functional and 7 non-functional requirements, 7 user stories, 3 use cases</li>
+                  <li>A dashboard spec with a reconciliation table as the acceptance test</li>
                 </ul>
               </div>
               <div class="card-actions">
-                <!-- EDIT PROJECT LIVE LINK HERE (e.g. link to the document or case study) -->
-                <a class="link-arrow" href="#" aria-disabled="true" tabindex="-1">View Project <span aria-hidden="true">→</span></a>
-                <!-- EDIT PROJECT GITHUB LINK HERE -->
+                <button class="link-arrow" type="button" data-case="case-ba">View Project <span aria-hidden="true">→</span></button>
+                <!-- EDIT POWER BI LINK HERE -->
+                <a class="link-arrow ghost" href="#" aria-disabled="true" tabindex="-1">Live dashboard <span aria-hidden="true">→</span></a>
+                <!-- EDIT PROJECT GITHUB LINK HERE (documents are in projects/maven-toys/docs/) -->
                 <a class="link-arrow ghost" href="#" aria-disabled="true" tabindex="-1">GitHub <span aria-hidden="true">→</span></a>
               </div>
             </div>
@@ -1044,6 +1173,523 @@ footer .container { display: flex; flex-wrap: wrap; justify-content: space-betwe
     <span>Business Intelligence &amp; Data Analyst · Cairo, Egypt</span>
   </div>
 </footer>
+
+<!-- ==================== CASE STUDY: DATA ANALYSIS (Maven Toys) ==================== -->
+<div class="case" id="case-da" role="dialog" aria-modal="true" aria-labelledby="case-da-title" hidden>
+  <div class="case-bar">
+    <span class="case-crumb">Data Analysis · Case study</span>
+    <button class="btn case-close" type="button" data-close>Close ✕</button>
+  </div>
+  <div class="case-body">
+
+    <header class="case-head cr">
+      <p class="kicker">Public dataset · Maven Analytics</p>
+      <h2 id="case-da-title">Maven Toys: growth without profit</h2>
+      <p class="lead">Sales grew 31% but profit only 16%. This project finds out where the margin went, and what to do about it.</p>
+      <div class="tags"><span class="tag tool">SQL</span><span class="tag tool">Python</span><span class="tag tool">pandas</span><span class="tag tool">Power BI · in progress</span></div>
+      <div class="case-facts"><span><b data-k="overview.sale_lines" data-f="int">829,262</b> sale lines</span><span>50 stores</span><span>35 products</span><span>Jan 2022 to Sep 2023</span></div>
+      <p class="case-note"><strong>Case study on a public dataset.</strong> This is not client work. The data comes from Maven Analytics' free "Maven Toys" (Mexico toy stores) dataset.</p>
+      <div class="case-actions">
+        <button class="btn btn-primary" type="button" data-case="case-ba">See the business analysis side →</button>
+        <!-- EDIT GITHUB LINK HERE: the files live in this repo under projects/maven-toys/ -->
+        <a class="btn" href="#" aria-disabled="true" tabindex="-1">Code on GitHub →</a>
+      </div>
+    </header>
+
+    <section class="cs cr">
+      <p class="kicker">The answer</p>
+      <h3>Revenue is up 31%. Profit is up 16%. Margin fell 3.3 points.</h3>
+      <p>Comparing the same nine months (Jan to Sep) of 2022 and 2023, because the data ends on 30 September 2023.</p>
+      <div class="kpis hero">
+        <div class="kpi"><div class="l">Revenue growth</div><div class="v" data-k="growth.revenue_growth_pct" data-f="spct">+30.9%</div><div class="d">Jan-Sep 2023 vs 2022</div></div>
+        <div class="kpi"><div class="l">Profit growth</div><div class="v" data-k="growth.profit_growth_pct" data-f="spct">+16.0%</div><div class="d">Jan-Sep 2023 vs 2022</div></div>
+        <div class="kpi bad"><div class="l">Margin</div><div class="v"><span data-k="growth.margin_2022" data-f="pct">29.5%</span> → <span data-k="growth.margin_2023" data-f="pct">26.2%</span></div><div class="d">down 3.3 points</div></div>
+      </div>
+      <div class="kpis small">
+        <div class="kpi"><div class="l">Revenue, all data</div><div class="v" data-k="overview.revenue" data-f="M">$14.4M</div></div>
+        <div class="kpi"><div class="l">Profit, all data</div><div class="v" data-k="overview.profit" data-f="M">$4.0M</div></div>
+        <div class="kpi"><div class="l">Margin, all data</div><div class="v" data-k="overview.margin_pct" data-f="pct">27.8%</div></div>
+        <div class="kpi"><div class="l">Units sold</div><div class="v" data-k="overview.units" data-f="mill">1.09M</div></div>
+      </div>
+    </section>
+
+    <section class="cs cr">
+      <p class="kicker">How I worked</p>
+      <h3>From raw files to a checked answer</h3>
+      <div class="flow">
+        <div><small>01</small><b>Raw CSVs</b><span>Sales, products, stores, inventory</span></div>
+        <div><small>02</small><b>SQL clean + model</b><span>Fix text prices, one spelling, star schema</span></div>
+        <div><small>03</small><b>Python checks</b><span>Same numbers in pandas; the script fails if SQL differs</span></div>
+        <div><small>04</small><b>Analysis</b><span>Mix, growth, stores, stock</span></div>
+        <div class="later"><small>05</small><b>Power BI</b><span>Dashboard in progress</span></div>
+        <div><small>06</small><b>Recommendations</b><span>What to do next</span></div>
+      </div>
+    </section>
+
+    <section class="cs cr">
+      <p class="kicker">Finding 1</p>
+      <h3>Revenue climbs while margin slips</h3>
+      <p class="txt">Monthly revenue peaked at <strong>$884k</strong> in March 2023 and stayed well above 2022 levels. Monthly margin moved the other way: it was <strong>30.8%</strong> in January 2022 and fell to a low of <strong>25.3%</strong> in July 2023, recovering to 27.4% by September. Two charts, not one dual-axis chart, so neither scale can mislead.</p>
+      <div class="chart2">
+        <figure class="chart" id="ch-rev"></figure>
+        <figure class="chart" id="ch-margin"></figure>
+      </div>
+    </section>
+
+    <section class="cs cr">
+      <p class="kicker">Finding 2</p>
+      <h3>It is a mix problem, not a price problem</h3>
+      <p class="txt">Every product has one fixed price and one fixed cost in this data, so the blended margin can <strong>only</strong> move when the sales mix moves. Two products explain most of it. <strong>Colorbuds</strong> (53% margin) fell from 17.5% to 6.3% of revenue: <strong>&minus;2.7 points</strong>. <strong>Magic Sand</strong> (12.5% margin) rose from 0.1% to 12.5% of revenue: <strong>&minus;2.1 points</strong>. Magic Sand added $108k of profit, so it is a good product with a diluting margin, not a bad one.</p>
+      <figure class="chart" id="ch-bridge"></figure>
+      <p class="txt">Across all 35 products the contributions add up to &minus;3.4 points, matching the actual change. The chart shows the 4 biggest drags and 4 biggest lifts.</p>
+    </section>
+
+    <section class="cs cr">
+      <p class="kicker">Finding 3</p>
+      <h3>Ranking by revenue points at the wrong products</h3>
+      <p class="txt"><strong>Lego Bricks</strong> is the biggest product by revenue ($2.39M) but earns a 12.5% margin, so only <strong>7.4%</strong> of profit. <strong>Colorbuds</strong> alone earns <strong>20.8%</strong> of all profit, and the top 5 products earn 47.9%. By category, Toys are 35% of revenue but 27% of profit, while Electronics are 16% of revenue but 25% of profit. Electronics profit fell 39% year on year, which is the Colorbuds story again.</p>
+      <figure class="chart" id="ch-cat"></figure>
+    </section>
+
+    <section class="cs cr">
+      <p class="kicker">Finding 4</p>
+      <h3>Airport stores earn more each. Downtown is just bigger.</h3>
+      <p class="txt">Downtown makes 56% of profit only because it has 29 of the 50 stores. Per store, the <strong>3 airport stores earn about $126k each</strong>, roughly 63% more than the other location types (about $77k). Two of them are the most profitable stores in the chain. Friday to Sunday is also 51% of all revenue.</p>
+      <figure class="chart" id="ch-loc"></figure>
+    </section>
+
+    <section class="cs cr">
+      <p class="kicker">Finding 5</p>
+      <h3>Stock is running out where it costs the most</h3>
+      <p class="txt"><strong data-k="inventory.stockout_pairs" data-f="int">77</strong> of 1,593 store-and-product pairs (<span data-k="inventory.stockout_rate_pct" data-f="pct">4.8%</span>) are out of stock. The most exposed product is <strong>Playfoam</strong>, a 64%-margin line that is out of stock in 13 stores. Ranking restocks by money at risk, not by count, puts it first.</p>
+      <div class="kpis small">
+        <div class="kpi"><div class="l">Stock value at cost</div><div class="v" data-k="inventory.stock_value_at_cost" data-f="K">$300k</div></div>
+        <div class="kpi"><div class="l">Out-of-stock pairs</div><div class="v"><span data-k="inventory.stockout_pairs" data-f="int">77</span> <small style="font-size:.5em;font-weight:700">of 1,593</small></div></div>
+        <div class="kpi"><div class="l">Est. profit at risk / 30 days</div><div class="v" data-k="inventory.est_profit_at_risk_per_30d" data-f="money">$9,685</div><div class="d">an estimate, see below</div></div>
+      </div>
+      <div class="tw" id="tb-stock"></div>
+      <p class="case-note">The stock data is a single snapshot with no history. "Profit at risk" assumes each out-of-stock product keeps selling at that store's average daily profit over the last 90 days of data. It is an estimate, not a measured loss.</p>
+    </section>
+
+    <section class="cs cr">
+      <p class="kicker">Recommendations</p>
+      <h3>What I would do next</h3>
+      <ol class="recs">
+        <li><b>Investigate Colorbuds first.</b><span>Units fell 53%, worth about $264k of profit. The data cannot say why, so check availability, supplier and competitor factors before assuming demand fell.</span></li>
+        <li><b>Rank products by profit and margin, not revenue.</b><span>Review supplier terms or pricing on the 12.5%-margin volume lines (Lego Bricks, Magic Sand). Pair Magic Sand with high-margin lines such as Barrel O' Slime (50%) and Etch A Sketch (48%).</span></li>
+        <li><b>Restock by money at risk.</b><span>Playfoam first, then Action Figure and Etch A Sketch.</span></li>
+        <li><b>Test more airport-type locations.</b><span>The per-store gap is large, but the data has no market information, so treat it as a hypothesis to test.</span></li>
+        <li><b>Collect better data.</b><span>Daily stock history, price and cost history, promotions, and customer or basket data would turn several estimates into measurements.</span></li>
+      </ol>
+    </section>
+
+    <section class="cs cr">
+      <p class="kicker">How much to trust it</p>
+      <h3>Checks and limits</h3>
+      <ul class="checks">
+        <li>Every figure was calculated twice, in SQL and in pandas. The Python script stops with an error if they ever disagree.</li>
+        <li>The data is clean: no nulls, no duplicate sale IDs, no orphan store or product IDs. Cost and price were stored as text (<code>"$9.99 "</code>) and were converted; Mexico City was spelled two ways and was standardised.</li>
+        <li class="warn">Prices and costs never change in the data, so price effects cannot be separated from mix effects.</li>
+        <li class="warn">157 of the 1,750 store-and-product pairs are missing from the inventory table (41 of them still sell). I flag them as a data gap, not as zero stock.</li>
+        <li class="warn">No customer, basket, promotion or competitor data, so there is no customer or pricing analysis.</li>
+      </ul>
+      <ul class="files">
+        <!-- EDIT FILE PATHS if you move the project folder -->
+        <li><b>sql/</b> 00_clean_and_model, 01_kpi_overview, 02_category_and_product_mix, 03_growth_and_margin_bridge, 04_store_and_location, 05_inventory_and_stockouts</li>
+        <li><b>python/analysis.py</b> computes everything, runs the SQL, asserts they agree</li>
+        <li><b>data/summary/</b> small aggregate CSVs used by this page</li>
+      </ul>
+    </section>
+
+    <section class="cs cr">
+      <p class="kicker">Dashboard</p>
+      <h3>Power BI dashboard</h3>
+      <div class="slot-box">
+        <!-- EDIT POWER BI EMBED HERE: replace this box with your published report, e.g.
+             <iframe title="Maven Toys dashboard" src="YOUR_POWER_BI_PUBLISH_TO_WEB_URL" style="width:100%;height:600px;border:0" allowfullscreen></iframe>
+             (the page's security header must allow it: add app.powerbi.com to frame-src in vercel.json) -->
+        <span class="pill-st">IN PROGRESS</span>
+        <b>The interactive dashboard will be embedded here</b>
+        <p>It is being built from the specification in the business analysis package, and must reproduce the reconciliation numbers exactly.</p>
+        <div class="case-actions" style="justify-content:center"><button class="btn" type="button" data-case="case-ba">Read the dashboard specification →</button></div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<!-- ==================== CASE STUDY: BUSINESS ANALYSIS (Maven Toys) ==================== -->
+<div class="case" id="case-ba" role="dialog" aria-modal="true" aria-labelledby="case-ba-title" hidden>
+  <div class="case-bar">
+    <span class="case-crumb">Business Analysis · Case study</span>
+    <button class="btn case-close" type="button" data-close>Close ✕</button>
+  </div>
+  <div class="case-body">
+
+    <header class="case-head cr">
+      <p class="kicker">Scenario on a public dataset</p>
+      <h2 id="case-ba-title">Maven Toys: requirements for a profit dashboard</h2>
+      <p class="lead">Understanding the problem before building the solution: scope, stakeholders, KPIs, rules, requirements and the dashboard specification.</p>
+      <div class="tags"><span class="tag tool">Requirements</span><span class="tag tool">Stakeholder analysis</span><span class="tag tool">KPI definition</span><span class="tag tool">User stories</span><span class="tag tool">AS-IS / TO-BE</span><span class="tag tool">Power BI spec</span></div>
+      <p class="case-note"><strong>This is a scenario, not client work.</strong> The stakeholders, objectives and current state are written for the public Maven Analytics dataset to show the business analysis process end to end. The numbers come from the real analysis.</p>
+      <div class="case-actions">
+        <button class="btn btn-primary" type="button" data-case="case-da">See the data analysis →</button>
+        <!-- EDIT GITHUB LINK HERE: the documents live in this repo under projects/maven-toys/docs/ -->
+        <a class="btn" href="#" aria-disabled="true" tabindex="-1">Documents on GitHub →</a>
+      </div>
+    </header>
+
+    <nav class="case-nav" aria-label="Sections of this case study">
+      <button class="cchip" type="button" data-jump="d-scope">Scope</button>
+      <button class="cchip" type="button" data-jump="d-stake">Stakeholders</button>
+      <button class="cchip" type="button" data-jump="d-asis">AS-IS / TO-BE</button>
+      <button class="cchip" type="button" data-jump="d-kpi">KPIs</button>
+      <button class="cchip" type="button" data-jump="d-rules">Business rules</button>
+      <button class="cchip" type="button" data-jump="d-req">Requirements</button>
+      <button class="cchip" type="button" data-jump="d-spec">Dashboard spec</button>
+    </nav>
+
+    <article class="doc cr" id="d-scope" data-md="md-scope"></article>
+    <article class="doc cr" id="d-stake" data-md="md-stake"></article>
+    <article class="doc cr" id="d-asis" data-md="md-asis"></article>
+    <article class="doc cr" id="d-kpi" data-md="md-kpi"></article>
+    <article class="doc cr" id="d-rules" data-md="md-rules"></article>
+    <article class="doc cr" id="d-req" data-md="md-req"></article>
+    <article class="doc cr" id="d-spec" data-md="md-spec"></article>
+
+    <section class="cs cr">
+      <p class="kicker">Dashboard</p>
+      <h3>Power BI dashboard</h3>
+      <div class="slot-box">
+        <!-- EDIT POWER BI EMBED HERE (same report as on the data analysis page; see the note there about frame-src in vercel.json) -->
+        <span class="pill-st">IN PROGRESS</span>
+        <b>The finished dashboard will be embedded here</b>
+        <p>Built from the specification above. Its totals must match the reconciliation table, which is the acceptance test for the build.</p>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<!-- ==================== CASE STUDY DATA (from projects/maven-toys/data/summary/site_data.json; re-run python/analysis.py to refresh) ==================== -->
+<script type="application/json" id="maven-data">{"overview":{"sale_lines":829262,"first_day":"2022-01-01","last_day":"2023-09-30","stores":50,"products":35,"revenue":14444572,"cost":10430543,"profit":4014029,"units":1090565,"margin_pct":27.8},"growth":{"revenue_growth_pct":30.9,"profit_growth_pct":16.0,"margin_2022":29.5,"margin_2023":26.2,"revenue_2022":5320116,"revenue_2023":6962074,"profit_2022":1572037,"profit_2023":1824242},"data_quality":{"sale_lines":829262,"duplicate_sale_id":0,"null_cells_in_sales":0,"orphan_product_id":0,"orphan_store_id":0,"inventory_rows":1593,"inventory_rows_possible":1750},"inventory":{"stock_value_at_cost":300210,"stockout_pairs":77,"store_product_pairs":1593,"stockout_rate_pct":4.8,"est_profit_at_risk_per_30d":9685,"slow_pairs":50,"capital_tied_up":15177,"pairs_missing_from_inventory":157,"missing_pairs_with_sales":41},"fri_sun_share_pct":51.0,"monthly":[{"m":"2022-01","revenue":542555,"margin":30.8},{"m":"2022-02","revenue":541352,"margin":29.9},{"m":"2022-03","revenue":589485,"margin":29.5},{"m":"2022-04","revenue":681073,"margin":27.9},{"m":"2022-05","revenue":672370,"margin":27.8},{"m":"2022-06","revenue":661980,"margin":28.7},{"m":"2022-07","revenue":556034,"margin":31.8},{"m":"2022-08","revenue":489423,"margin":32.5},{"m":"2022-09","revenue":585844,"margin":28.4},{"m":"2022-10","revenue":623874,"margin":28.7},{"m":"2022-11","revenue":661304,"margin":29.2},{"m":"2022-12","revenue":877204,"margin":28.1},{"m":"2023-01","revenue":747196,"margin":27.4},{"m":"2023-02","revenue":722632,"margin":26.2},{"m":"2023-03","revenue":883516,"margin":26.2},{"m":"2023-04","revenue":827691,"margin":26.0},{"m":"2023-05","revenue":825319,"margin":25.5},{"m":"2023-06","revenue":808299,"margin":25.6},{"m":"2023-07","revenue":828349,"margin":25.3},{"m":"2023-08","revenue":660877,"margin":26.5},{"m":"2023-09","revenue":658194,"margin":27.4}],"category":[{"name":"Toys","rev_share":35.3,"profit_share":26.9,"margin":21.2,"profit_change_pct":6.0},{"name":"Electronics","rev_share":15.6,"profit_share":24.9,"margin":44.6,"profit_change_pct":-39.0},{"name":"Art & Crafts","rev_share":18.7,"profit_share":18.8,"margin":27.8,"profit_change_pct":232.0},{"name":"Games","rev_share":15.4,"profit_share":16.8,"margin":30.3,"profit_change_pct":13.0},{"name":"Sports & Outdoors","rev_share":15.0,"profit_share":12.6,"margin":23.3,"profit_change_pct":36.0}],"product_top":[{"name":"Colorbuds","profit":834944,"margin":53.4,"profit_share":20.8,"revenue":1564476},{"name":"Action Figure","profit":347748,"margin":37.5,"profit_share":8.7,"revenue":926748},{"name":"Lego Bricks","profit":298685,"margin":12.5,"profit_share":7.4,"revenue":2388883},{"name":"Deck Of Cards","profit":252102,"margin":42.9,"profit_share":6.3,"revenue":587398},{"name":"Glass Marbles","profit":187590,"margin":45.5,"profit_share":4.7,"revenue":412323},{"name":"Barrel O' Slime","profit":183326,"margin":50.1,"profit_share":4.6,"revenue":365735},{"name":"Kids Makeup Kit","profit":146598,"margin":30.0,"profit_share":3.7,"revenue":488416},{"name":"Nerf Gun","profit":132715,"margin":25.0,"profit_share":3.3,"revenue":530595}],"pareto":{"top5_profit_share_pct":47.9,"top10_profit_share_pct":65.6},"profit_change":[{"name":"Colorbuds","change":-263848},{"name":"Action Figure","change":-51438},{"name":"Kids Makeup Kit","change":-26520},{"name":"Dart Gun","change":-23516},{"name":"Mr. Potatohead","change":31475},{"name":"Nerf Gun","change":52205},{"name":"Gamer Headphones","change":56088},{"name":"Etch A Sketch","change":96270},{"name":"Magic Sand","change":108238},{"name":"Barrel O' Slime","change":111802}],"bridge":[{"name":"Colorbuds","pp":-2.68},{"name":"Magic Sand","pp":-2.12},{"name":"Dino Egg","pp":-0.42},{"name":"Action Figure","pp":-0.32},{"name":"Lego Bricks","pp":0.31},{"name":"Splash Balls","pp":0.43},{"name":"Etch A Sketch","pp":0.53},{"name":"Barrel O' Slime","pp":0.64}],"location":[{"type":"Airport","stores":3,"profit_per_store":126016,"profit_share":9.4},{"type":"Downtown","stores":29,"profit_per_store":77542,"profit_share":56.0},{"type":"Commercial","stores":12,"profit_per_store":77239,"profit_share":23.1},{"type":"Residential","stores":6,"profit_per_store":76731,"profit_share":11.5}],"top_stores":[{"name":"Maven Toys Ciudad de Mexico 2","type":"Airport","profit":169856},{"name":"Maven Toys Guadalajara 3","type":"Airport","profit":121571},{"name":"Maven Toys Ciudad de Mexico 1","type":"Downtown","profit":111296},{"name":"Maven Toys Monterrey 2","type":"Downtown","profit":106783},{"name":"Maven Toys Toluca 1","type":"Downtown","profit":104612}],"weekday":[{"d":"Mon","revenue":1531130},{"d":"Tue","revenue":1637492},{"d":"Wed","revenue":1732069},{"d":"Thu","revenue":2183642},{"d":"Fri","revenue":2750302},{"d":"Sat","revenue":2860194},{"d":"Sun","revenue":1749744}],"stockouts":[{"name":"Playfoam","stores":13,"risk30":2830,"margin":64},{"name":"Action Figure","stores":5,"risk30":1130,"margin":38},{"name":"Etch A Sketch","stores":7,"risk30":1130,"margin":48},{"name":"Mini Ping Pong Set","stores":6,"risk30":987,"margin":30},{"name":"Hot Wheels 5-Pack","stores":12,"risk30":709,"margin":33},{"name":"Animal Figures","stores":3,"risk30":669,"margin":23}],"lego":{"revenue":2388883,"margin":12.5,"profit_share":7.4}}</script>
+<!-- Business analysis documents: plain markdown, rendered on the page. Source files live in projects/maven-toys/docs/. Edit here or there. -->
+<script type="text/plain" id="md-scope">
+# 01 | Business case and scope
+
+> **Case-study scenario.** This uses the public Maven Analytics "Maven Toys" dataset. There is no real client: the business problem, stakeholders and objectives below are a realistic scenario written to show the business analysis process end to end.
+
+## Background
+Maven Toys is a chain of 50 toy stores across Mexican cities (29 downtown, 12 commercial, 6 residential, 3 airport). The data covers 829,262 sale lines from 1 Jan 2022 to 30 Sep 2023 across 35 products in 5 categories.
+
+## Business problem
+Sales are growing fast, but profit is not keeping pace. Comparing Jan-Sep 2023 with Jan-Sep 2022, revenue grew **30.9%** but profit only **16.0%**, and the blended margin fell from **29.5% to 26.2%**. Leadership can see revenue in a report but has no single view that shows *why* margin is moving, which products and stores drive it, or where stock is going out.
+
+## Objectives (what a good outcome looks like)
+| # | Objective | How we would know |
+|---|---|---|
+| O1 | Explain the margin change in terms managers can act on | A margin bridge by product is available and refreshed with each data load |
+| O2 | Track profit, not just revenue, by product, category, store and location | Profit and margin sit beside revenue in every view |
+| O3 | Spot stockouts and slow stock early | Stockout rate and estimated profit at risk are visible per store and product |
+| O4 | Give one agreed definition of every KPI | KPI dictionary signed off by Finance and Merchandising |
+
+*Numeric targets (for example "stockout rate below X%") are deliberately left for the stakeholders to set: the data alone cannot justify them.*
+
+## In scope
+- Sales, product, store and inventory data supplied in the dataset
+- Profit, margin, growth, mix, location and inventory analysis
+- A Power BI dashboard specification and data model (build handled separately)
+- KPI dictionary, business rules, requirements, user stories, AS-IS / TO-BE
+
+## Out of scope
+- Pricing and promotion analysis (no price history or promotion data exists)
+- Customer and basket analysis (each sale line is a single product, with no customer key)
+- Forecasting and replenishment automation (proposed as a later phase)
+
+## Assumptions
+- Each product has one fixed price and one fixed cost for the whole period, so product margin does not change over time.
+- Cost and price are in USD as stated in the data dictionary.
+- The inventory table is a single snapshot of stock on hand, not a history.
+- The last 90 days of the data (3 Jul to 30 Sep 2023) represent the current selling rate.
+
+## Constraints and risks
+| Risk | Effect | Mitigation |
+|---|---|---|
+| No stock history | Cannot measure past stockouts; "profit at risk" is an estimate | State the estimate method; request daily stock snapshots |
+| Fixed price/cost only | Cannot separate price effects from mix effects | Document as a data request; note that today all margin movement is mix |
+| 157 of 1,750 store x product pairs missing from inventory | Some stores' stock is invisible; 41 of those pairs still sell | Confirm with Operations whether the pairs are unranged or a data gap |
+| Store city spelled two ways in the source | Reports would split Mexico City into two groups | Standardised in the model (BR-08) |
+</script>
+<script type="text/plain" id="md-stake">
+# 02 | Stakeholder analysis
+
+> **Case-study scenario.** These are roles I assumed for the scenario; they are not real people.
+
+## Stakeholders
+| Stakeholder (role) | Interest | Influence | What they need from the solution | How to engage |
+|---|---|---|---|---|
+| Executive sponsor (COO / MD) | Profit growth, not just sales growth | High | One page that says whether growth is healthy, and why | Monthly summary, agree KPI definitions early |
+| Head of Merchandising | Product mix, range decisions | High | Which products to push, promote or drop, ranked by profit and margin | Working sessions on the margin bridge |
+| Finance manager | Margin accuracy, one version of the truth | High | Profit and margin that reconcile to the ledger | Sign off the KPI dictionary and business rules |
+| Regional / store operations manager | Store performance, location strategy | Medium | Profit per store, by location type, top and bottom stores | Review store and location views |
+| Inventory / supply planner | Availability and stock cost | Medium | Stockouts, days of cover, slow stock, ranked by money at risk | Co-design the inventory view; validate the estimate method |
+| Store managers | Their own store's results | Low | A simple view of their store vs peers | Later phase; read-only access |
+| BI / data team | Maintainable model | Medium | Clear model, refresh rules, measure definitions | Hand over the model spec and DAX |
+
+## Influence / interest grid
+| | Low interest | High interest |
+|---|---|---|
+| **High influence** | Finance manager (keep satisfied on definitions) | Executive sponsor, Head of Merchandising (manage closely) |
+| **Low influence** | Store managers (keep informed) | Store operations, inventory planner, BI team (involve in design) |
+
+## Key tensions to manage
+- Merchandising may want to grow revenue with volume products, while Finance is asking about margin. The dashboard has to show both without picking a side.
+- Inventory wants to avoid stockouts, which can conflict with keeping stock cost low.
+</script>
+<script type="text/plain" id="md-asis">
+# 03 | AS-IS and TO-BE
+
+> **Case-study scenario.** The AS-IS is *inferred* from what the dataset contains and lacks, not observed at a real company. It is labelled as an assumption on purpose.
+
+## AS-IS (assumed current state)
+1. Sales are exported and reported as **revenue and units** by store and product.
+2. Profit and margin are calculated separately, on request, in spreadsheets.
+3. Stock levels are a **single snapshot**: there is no daily stock history, so past stockouts cannot be measured.
+4. Product decisions are made by looking at **revenue rank**, which puts Lego Bricks (largest revenue) first even though its margin is 12.5%.
+5. Store comparisons use **total** profit, which favours location types with more stores.
+
+**Pain points**
+| # | Pain point | Evidence in the data |
+|---|---|---|
+| P1 | Revenue rank hides low-margin products | Lego Bricks: largest revenue ($2.39M), only 7.4% of profit |
+| P2 | Margin decline is not visible until someone builds it | Margin fell 29.5% to 26.2% while revenue grew 30.9% |
+| P3 | Location comparisons are distorted by store count | Downtown is 56% of profit but has 29 of 50 stores |
+| P4 | Stockouts are invisible in time | No stock history; 77 of 1,593 store x product pairs are out of stock right now |
+| P5 | The same KPI can mean different things | Store city spelled two ways; cost and price stored as text |
+
+## TO-BE (proposed)
+1. One **model** with cleaned dimensions and a single fact table; every KPI defined once (see the KPI dictionary).
+2. A **dashboard** with profit and margin beside revenue, the margin bridge, profit per store, and an inventory view ranked by money at risk.
+3. A **weekly review**: Merchandising reads the bridge, Inventory works the stockout list, Finance confirms the numbers against the reconciliation table.
+4. A **data request** to start storing daily stock and price history, so estimates can become measurements.
+
+## Process map (TO-BE)
+```
+Source files -> Clean + model -> Validate against reconciliation table -> Refresh dashboard
+                                                                            |
+      Weekly review  <---------------- Alerts / insights <-----------------+
+          |
+          +-> Merchandising: mix and range decisions
+          +-> Inventory:     restock the top stockouts
+          +-> Finance:       confirm numbers, sign off definitions
+```
+
+## What changes
+| Area | AS-IS | TO-BE |
+|---|---|---|
+| Ranking of products | By revenue | By profit and margin, with revenue shown for context |
+| Margin | On request | Always visible, with a bridge that explains the change |
+| Store comparison | Total profit | Profit per store, by location type |
+| Inventory | Snapshot, no priority | Ranked by estimated profit at risk |
+| KPI definitions | Informal | One dictionary, one model |
+</script>
+<script type="text/plain" id="md-kpi">
+# 04 | KPI dictionary
+
+One agreed definition per KPI. "Grain" is the level at which it is calculated; a KPI is always re-aggregated from the base columns, never averaged from an average.
+
+| KPI | Definition | Formula | Grain | Source | Good direction |
+|---|---|---|---|---|---|
+| Revenue | Sales value at retail price | SUM(units x unit_price) | sale line | sales, products | Up |
+| Cost of goods | Cost of units sold | SUM(units x unit_cost) | sale line | sales, products | Context |
+| Profit | Revenue minus cost of goods | Revenue - Cost | sale line | sales, products | Up |
+| Margin % | Share of revenue kept as profit | Profit / Revenue | any slice | derived | Up |
+| Units | Items sold | SUM(units) | sale line | sales | Up |
+| Like-for-like growth % | Change vs the same months a year earlier | (Current period / Same months last year) - 1 | period | derived | Up |
+| Revenue mix % | A product's or category's share of revenue | Slice revenue / Total revenue | product, category | derived | Context |
+| Margin contribution (pp) | Effect of a product's mix shift on blended margin | (Share now - Share before) x (Product margin - Blended margin before) | product | derived | Context |
+| Profit per store | Profit divided by number of stores in the group | Profit / distinct stores | location type | sales, stores | Up |
+| Stockout rate % | Share of store x product pairs with no stock | Pairs with stock_on_hand = 0 / All pairs | snapshot | inventory | Down |
+| Estimated profit at risk (30 days) | Profit likely lost while a pair is out of stock | Avg daily profit (last 90 days) x 30, for pairs with stock = 0 | store x product | inventory, sales | Down |
+| Days of cover | How long current stock lasts at the recent rate | Stock on hand / Avg daily units (last 90 days) | store x product | inventory, sales | Target range |
+| Slow-stock capital | Money tied up in stock with far too much cover | SUM(stock x unit_cost) where days of cover > 180 | store x product | inventory, sales | Down |
+
+## Reading notes
+- **Profit and margin are the headline KPIs.** Revenue alone hides the margin change the business problem is about.
+- **Estimates are labelled.** "Profit at risk" is an estimate because stock is a single snapshot with no history.
+</script>
+<script type="text/plain" id="md-rules">
+# 05 | Business rules
+
+| ID | Rule | Reason / effect |
+|---|---|---|
+| BR-01 | Profit for a sale line = units x (unit price - unit cost) | One consistent definition across every view |
+| BR-02 | Cost and price are cleaned from text (e.g. `"$9.99 "`) to numbers before use | The source stores them as text with a $ sign and trailing space |
+| BR-03 | Margin % is always Profit / Revenue on the selected slice, never an average of margins | Averages of percentages give the wrong answer |
+| BR-04 | Like-for-like comparisons use the same calendar months in both years (Jan-Sep) | The data ends 30 Sep 2023, so full-year vs part-year would mislead |
+| BR-05 | A store x product pair is **out of stock** when stock on hand = 0 | Simple, testable definition |
+| BR-06 | Estimated profit at risk uses the pair's average daily profit over the last 90 days of data (3 Jul - 30 Sep 2023) | Recent rate is the best available proxy |
+| BR-07 | A pair is **slow stock** when stock on hand covers more than 180 days at the recent rate | Threshold is a proposal for Inventory to confirm |
+| BR-08 | The store city "Cuidad de Mexico" is standardised to "Ciudad de Mexico" | Source spells it two ways; otherwise Mexico City splits into two groups |
+| BR-09 | Store x product pairs missing from inventory are reported as a data gap, not as zero stock | Missing is not the same as out of stock |
+| BR-10 | Profit per store divides by the number of stores in the group (not by active days) | Fair comparison between location types with different store counts |
+</script>
+<script type="text/plain" id="md-req">
+# 06 | Requirements, user stories and use cases
+
+> **Case-study scenario.** Requirement IDs, priorities (MoSCoW) and acceptance criteria are written for the scenario in `01_business_case_and_scope.md`.
+
+## Functional requirements
+| ID | Requirement | Priority |
+|---|---|---|
+| FR-01 | The overview page shows Revenue, Profit, Margin %, Units and like-for-like growth as headline tiles | Must |
+| FR-02 | Revenue and margin trends over time are shown on **separate** charts, never on one dual-axis chart | Must |
+| FR-03 | A category and product view shows revenue share beside profit share and margin % | Must |
+| FR-04 | A margin bridge shows each product's contribution (in percentage points) to the like-for-like margin change | Must |
+| FR-05 | A location view shows profit per store by location type, plus the top and bottom stores | Must |
+| FR-06 | An inventory view shows stock value, stockout rate, estimated profit at risk and slow-stock capital | Must |
+| FR-07 | Global filters (date range, category, location type, city, store) apply to every page; the inventory page ignores the date filter because stock is a snapshot | Must |
+| FR-08 | Users can drill from category to product to store | Should |
+| FR-09 | A definitions page shows each KPI's formula and the data-quality notes (for example missing inventory pairs) | Should |
+| FR-10 | Users can export the data behind any table | Could |
+| FR-11 | Store managers see only their own store (row-level security) | Won't (this phase) |
+
+## Non-functional requirements
+| ID | Requirement | Category |
+|---|---|---|
+| NFR-01 | KPI values match the reconciliation table in `07_dashboard_specification.md` exactly | Accuracy |
+| NFR-02 | Interactions (filter, drill) respond within 3 seconds on the full dataset (proposed target) | Performance |
+| NFR-03 | Data refresh runs on a schedule agreed with the data owner (proposed: daily) | Availability |
+| NFR-04 | Chart colours are colour-blind safe and every chart has a table view or data labels | Accessibility |
+| NFR-05 | Each page answers one question and states that question in its title | Usability |
+| NFR-06 | Every KPI has one definition, held in the model and shown on the definitions page | Consistency |
+| NFR-07 | The report needs no manual steps between a data refresh and the numbers updating | Maintainability |
+
+## User stories and acceptance criteria
+**US-01 (Executive sponsor).** As an executive sponsor, I want to see profit and margin next to revenue, so that I can tell whether growth is healthy.
+- *Given* the overview page is open, *when* it loads, *then* Revenue, Profit, Margin % and like-for-like growth are shown for the selected period.
+- *Given* margin has fallen versus the same months last year, *then* the tile shows the change in percentage points.
+
+**US-02 (Head of Merchandising).** As Head of Merchandising, I want to see which products moved the margin, so that I can decide what to promote or drop.
+- *Given* the margin bridge, *when* I select Jan-Sep, *then* each product's contribution in pp is listed, biggest negative first, and the contributions add up to the total margin change.
+- *Given* I click a product, *then* the other visuals filter to that product.
+
+**US-03 (Finance manager).** As the finance manager, I want every KPI defined once, so that numbers agree across reports.
+- *Given* the definitions page, *then* each KPI shows its formula, grain and source.
+- *Given* the reconciliation table, *then* the report's totals match it to the dollar.
+
+**US-04 (Store operations manager).** As a store operations manager, I want profit per store by location type, so that I can compare like with like.
+- *Given* the location view, *then* profit per store is shown for Airport, Downtown, Commercial and Residential, with the number of stores in each.
+- *Given* I click a location type, *then* the store table filters to that type.
+
+**US-05 (Inventory planner).** As an inventory planner, I want out-of-stock products ranked by money at risk, so that I can restock the ones that matter first.
+- *Given* the inventory view, *then* out-of-stock products are ranked by estimated profit at risk per 30 days, with the number of stores affected.
+- *Given* I hover the estimate, *then* a tooltip explains how it is calculated.
+
+**US-06 (Inventory planner).** As an inventory planner, I want to see slow stock, so that I do not tie up money in overstock.
+- *Given* the inventory view, *then* pairs with more than 180 days of cover are counted and their stock cost is totalled.
+
+**US-07 (BI / data team).** As the BI team, I want a documented model and measure definitions, so that I can maintain the report.
+- *Given* the specification, *then* the tables, relationships, cleaning steps and measures are all listed.
+
+## Use cases
+**UC-01 Review margin performance** (Actor: executive sponsor)
+- *Precondition:* data is loaded.
+- *Main flow:* 1. Open overview. 2. Read the headline tiles. 3. Open the margin and mix page. 4. Read the margin bridge. 5. Note the two biggest drags.
+- *Alternate flow:* margin is up, so the bridge shows the biggest positive drivers instead.
+- *Postcondition:* the sponsor knows which products explain the margin change.
+
+**UC-02 Investigate a product's profit change** (Actor: Head of Merchandising)
+- *Main flow:* 1. Select a product from the bridge. 2. See its profit and units by month. 3. See which stores and locations changed most. 4. Check stock status for the product.
+- *Alternate flow:* the product is out of stock in many stores, so the cause may be availability, not demand.
+- *Postcondition:* a hypothesis is recorded (demand, availability or range change) and is either tested or handed to the right owner.
+
+**UC-03 Find and act on stockouts** (Actor: inventory planner)
+- *Main flow:* 1. Open the inventory page. 2. Sort out-of-stock products by profit at risk. 3. Open the store list for the top product. 4. Raise replenishment for those stores.
+- *Alternate flow:* a pair is missing from inventory, so it is flagged as a data gap and sent to Operations.
+- *Postcondition:* the highest-value stockouts have an owner and an action.
+</script>
+<script type="text/plain" id="md-spec">
+# 07 | Power BI dashboard specification and model
+
+> Build guide for the dashboard. The DAX below is a **reference draft**: it was not executed here. Check every measure against the reconciliation table at the bottom, which comes from the SQL in `../sql` (verified against a separate pandas calculation).
+
+## Data model (star schema)
+| Table | Grain | Key columns |
+|---|---|---|
+| FactSales | one row per sale line (829,262) | Sale_ID, Date, Store_ID, Product_ID, Units |
+| FactInventory | one row per store x product (1,593) | Store_ID, Product_ID, Stock_On_Hand |
+| DimProduct | product (35) | Product_ID, Product_Name, Product_Category, Unit_Cost, Unit_Price |
+| DimStore | store (50) | Store_ID, Store_Name, City, Location, Open_Date |
+| DimDate | day (638) | Date (from calendar.csv), Year, Month, Month_Num |
+| StoreProduct *(built in Power Query)* | store x product | Store_ID, Product_ID, Stock_On_Hand, Daily_Profit_90d, Daily_Units_90d |
+
+Relationships (all one-to-many, single direction): DimDate[Date] -> FactSales[Date]; DimStore[Store_ID] -> FactSales, FactInventory; DimProduct[Product_ID] -> FactSales, FactInventory.
+
+## Power Query cleaning steps
+1. **Products:** strip `$` and spaces from Product_Cost and Product_Price, change type to Decimal.
+2. **Stores:** replace `Cuidad de Mexico` with `Ciudad de Mexico` in Store_City (BR-08).
+3. **Calendar:** the file starts with a hidden BOM character, so rename the first column to `Date`; the dates are `M/D/YYYY`, so set the locale to English (United States) when converting the type.
+4. **Sales:** set Date to Date, remove no rows (there are no nulls or duplicates).
+5. **StoreProduct:** group FactSales rows from 2023-07-03 onward by Store_ID and Product_ID (sum of Units x price minus cost, and sum of Units), divide by 90, then left-merge onto FactInventory.
+
+## Reference measures (DAX)
+```dax
+Revenue      = SUMX ( FactSales, FactSales[Units] * RELATED ( DimProduct[Unit_Price] ) )
+Cost         = SUMX ( FactSales, FactSales[Units] * RELATED ( DimProduct[Unit_Cost] ) )
+Profit       = [Revenue] - [Cost]
+Margin %     = DIVIDE ( [Profit], [Revenue] )
+Units        = SUM ( FactSales[Units] )
+
+Revenue SPLY = CALCULATE ( [Revenue], SAMEPERIODLASTYEAR ( DimDate[Date] ) )
+Profit SPLY  = CALCULATE ( [Profit],  SAMEPERIODLASTYEAR ( DimDate[Date] ) )
+Revenue LFL % = DIVIDE ( [Revenue] - [Revenue SPLY], [Revenue SPLY] )
+Profit LFL %  = DIVIDE ( [Profit]  - [Profit SPLY],  [Profit SPLY] )
+
+Stores in slice   = DISTINCTCOUNT ( FactSales[Store_ID] )
+Profit per store  = DIVIDE ( [Profit], [Stores in slice] )
+
+Stock value      = SUMX ( FactInventory, FactInventory[Stock_On_Hand] * RELATED ( DimProduct[Unit_Cost] ) )
+Stockout pairs   = COUNTROWS ( FILTER ( FactInventory, FactInventory[Stock_On_Hand] = 0 ) )
+Stockout rate %  = DIVIDE ( [Stockout pairs], COUNTROWS ( FactInventory ) )
+Profit at risk 30d = SUMX ( FILTER ( StoreProduct, StoreProduct[Stock_On_Hand] = 0 ), StoreProduct[Daily_Profit_90d] * 30 )
+Slow stock capital = SUMX ( FILTER ( StoreProduct, StoreProduct[Daily_Units_90d] > 0
+                        && DIVIDE ( StoreProduct[Stock_On_Hand], StoreProduct[Daily_Units_90d] ) > 180 ),
+                        StoreProduct[Stock_On_Hand] * RELATED ( DimProduct[Unit_Cost] ) )
+```
+**Margin bridge:** the contribution of a product is `(revenue share now - revenue share before) x (product margin - blended margin before)`. Build it as a small calculated table over the two like-for-like periods, or reuse the values in `../data/summary/margin_bridge_jan_sep.csv`, and check that the contributions add up to the total margin change.
+
+## Pages
+| # | Page title (the question it answers) | Visuals | Notes |
+|---|---|---|---|
+| 1 | Is growth healthy? | Tiles: Revenue, Profit, Margin %, LFL revenue %, LFL profit %; monthly revenue columns; monthly margin line (separate chart) | Show margin change in pp |
+| 2 | What moved the margin? | Margin bridge (diverging bars, orange = drag, blue = lift); category revenue share vs profit share; product table (profit, margin, share) | Emphasise Colorbuds and Magic Sand |
+| 3 | Which stores and locations earn the most? | Profit per store by location type; top and bottom 5 stores; map optional | Show store count next to each bar |
+| 4 | Where are we out of stock? | Tiles: stock value, stockout rate, profit at risk; table of out-of-stock products by profit at risk; slow-stock count | Label the estimate; page ignores date filter |
+| 5 | How is everything defined? | KPI dictionary table; data-quality notes | Link from every page |
+
+**Global filters (one row, top):** date range, category, location type, city, store.
+**Colours:** blue `#1f6fd0` for the main series, orange `#d1571a` for the comparison or drag, grey for context. This pair passed a colour-blind and contrast check.
+**Chart rules:** no dual axes; thin marks; direct labels only on the story (for example Colorbuds and Magic Sand); a table view for every chart.
+
+## Reconciliation table (your measures must return these)
+| Check | Expected value |
+|---|---|
+| Revenue, all data | $14,444,572 |
+| Profit, all data | $4,014,029 |
+| Margin %, all data | 27.8% |
+| Units, all data | 1,090,565 |
+| Jan-Sep 2022 revenue / profit | $5,320,116 / $1,572,037 |
+| Jan-Sep 2023 revenue / profit | $6,962,074 / $1,824,242 |
+| Like-for-like revenue / profit growth | +30.9% / +16.0% |
+| Like-for-like margin | 29.5% (2022) to 26.2% (2023) |
+| Profit per store: Airport / Downtown / Commercial / Residential | $126,016 / $77,542 / $77,239 / $76,731 |
+| Stock value at cost | $300,210 |
+| Out-of-stock store x product pairs | 77 of 1,593 (4.8%) |
+| Estimated profit at risk, 30 days | $9,685 |
+| Slow-stock pairs / capital | 50 / $15,177 |
+| Store x product pairs missing from inventory | 157 (41 of them have sales) |
+</script>
 
 <script>
 (function () {
@@ -1580,6 +2226,381 @@ footer .container { display: flex; flex-wrap: wrap; justify-content: space-betwe
   /* cycle the highlighted summary card */
   var taskEls = $$('.task'), ti = 0;
   setInterval(function () { taskEls[ti].classList.remove('on'); ti = (ti + 1) % taskEls.length; taskEls[ti].classList.add('on'); }, 2600);
+})();
+</script>
+
+<script>
+(function () {
+  'use strict';
+  /* ==================== CASE STUDIES: overlays, charts, markdown docs ==================== */
+  var $ = function (s, c) { return (c || document).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var D = JSON.parse($('#maven-data').textContent);
+
+  /* palette (validated for colour-blind safety and contrast on a white surface) */
+  var BLUE = '#1f6fd0', ORANGE = '#d1571a', GREY = '#aebbcd', GRID = 'rgba(12,35,64,.12)', INK = '#0c2340', INK2 = '#3a5170', MUTED = '#5d7391', SURFACE = '#ffffff';
+  var NS = 'http://www.w3.org/2000/svg';
+  function el(tag, attrs, parent, text) {
+    var e = document.createElementNS(NS, tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    if (text != null) e.textContent = text;
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  var money = function (n) { return '$' + Math.round(n).toLocaleString('en-US'); };
+  var moneyK = function (n) { return '$' + Math.round(n / 1000) + 'k'; };
+  var MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var monthLabel = function (ym) { return MON[+ym.slice(5, 7) - 1] + ' ' + ym.slice(2, 4); };
+
+  /* ---------- one shared tooltip (textContent only) ---------- */
+  var tip = document.createElement('div'); tip.className = 'ctip'; tip.setAttribute('role', 'status'); tip.hidden = true; document.body.appendChild(tip);
+  function showTip(evt, title, rows) {
+    tip.textContent = '';
+    var t = document.createElement('div'); t.className = 'ctip-t'; t.textContent = title; tip.appendChild(t);
+    rows.forEach(function (r) {
+      var row = document.createElement('div'); row.className = 'ctip-r';
+      var key = document.createElement('i'); key.style.background = r[2] || BLUE; row.appendChild(key);
+      var v = document.createElement('b'); v.textContent = r[1]; row.appendChild(v);
+      var n = document.createElement('span'); n.textContent = r[0]; row.appendChild(n);
+      tip.appendChild(row);
+    });
+    tip.hidden = false;
+    var x = evt.clientX + 14, y = evt.clientY + 14, w = tip.offsetWidth, h = tip.offsetHeight;
+    if (x + w > innerWidth - 8) x = evt.clientX - w - 14;
+    if (y + h > innerHeight - 8) y = evt.clientY - h - 14;
+    tip.style.left = Math.max(8, x) + 'px'; tip.style.top = Math.max(8, y) + 'px';
+  }
+  function hideTip() { tip.hidden = true; }
+
+  /* ---------- chart shell: title, optional legend, plot, and a table twin ---------- */
+  function shell(id, opts) {
+    var fig = $('#' + id);
+    fig.textContent = '';
+    var cap = document.createElement('figcaption');
+    var h = document.createElement('h4'); h.textContent = opts.title; cap.appendChild(h);
+    if (opts.sub) { var p = document.createElement('p'); p.textContent = opts.sub; cap.appendChild(p); }
+    var btn = document.createElement('button'); btn.type = 'button'; btn.className = 'tbl-toggle'; btn.textContent = 'View as table'; btn.setAttribute('aria-pressed', 'false');
+    cap.appendChild(btn); fig.appendChild(cap);
+    if (opts.legend) {
+      var lg = document.createElement('div'); lg.className = 'clegend';
+      opts.legend.forEach(function (l) {
+        var s = document.createElement('span'); var k = document.createElement('i'); k.style.background = l[1]; s.appendChild(k); s.appendChild(document.createTextNode(l[0])); lg.appendChild(s);
+      });
+      fig.appendChild(lg);
+    }
+    var plot = document.createElement('div'); plot.className = 'plot'; fig.appendChild(plot);
+    var tw = document.createElement('div'); tw.className = 'tw'; tw.hidden = true;
+    var table = document.createElement('table');
+    var thead = document.createElement('thead'), tr = document.createElement('tr');
+    opts.tableHead.forEach(function (c) { var th = document.createElement('th'); th.textContent = c; tr.appendChild(th); }); thead.appendChild(tr); table.appendChild(thead);
+    var tb = document.createElement('tbody');
+    opts.tableRows.forEach(function (r) { var row = document.createElement('tr'); r.forEach(function (c) { var td = document.createElement('td'); td.textContent = c; row.appendChild(td); }); tb.appendChild(row); });
+    table.appendChild(tb); tw.appendChild(table); fig.appendChild(tw);
+    btn.addEventListener('click', function () {
+      var on = tw.hidden; tw.hidden = !on; plot.hidden = on; if (opts.legend) fig.querySelector('.clegend').hidden = on;
+      btn.textContent = on ? 'View as chart' : 'View as table'; btn.setAttribute('aria-pressed', String(on));
+    });
+    return plot;
+  }
+  function svgRoot(plot, W, H, label) {
+    var s = el('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img', 'aria-label': label, class: 'csvg' });
+    plot.appendChild(s); return s;
+  }
+  function roundedTop(x, base, w, h, r) {
+    r = Math.min(r, w / 2, h);
+    if (h <= 0) return '';
+    return 'M' + x + ',' + base + ' V' + (base - h + r) + ' a' + r + ',' + r + ' 0 0 1 ' + r + ',' + (-r) + ' H' + (x + w - r) + ' a' + r + ',' + r + ' 0 0 1 ' + r + ',' + r + ' V' + base + ' Z';
+  }
+  function roundedRight(x0, y, len, h, r) {  /* bar growing right from x0, rounded at its end */
+    r = Math.min(r, h / 2, len);
+    if (len <= 0) return '';
+    return 'M' + x0 + ',' + y + ' H' + (x0 + len - r) + ' a' + r + ',' + r + ' 0 0 1 ' + r + ',' + r + ' V' + (y + h - r) + ' a' + r + ',' + r + ' 0 0 1 ' + (-r) + ',' + r + ' H' + x0 + ' Z';
+  }
+  function roundedLeft(x0, y, len, h, r) {   /* bar growing left from x0 */
+    r = Math.min(r, h / 2, len);
+    if (len <= 0) return '';
+    return 'M' + x0 + ',' + y + ' H' + (x0 - len + r) + ' a' + r + ',' + r + ' 0 0 0 ' + (-r) + ',' + r + ' V' + (y + h - r) + ' a' + r + ',' + r + ' 0 0 0 ' + r + ',' + r + ' H' + x0 + ' Z';
+  }
+
+  function width(plot) { return Math.max(300, Math.floor(plot.getBoundingClientRect().width)); }
+
+  /* ---------- 1. monthly revenue (columns) ---------- */
+  function monthlyRevenue() {
+    var data = D.monthly, W = 640, H = 230, m = { l: 46, r: 10, t: 22, b: 28 };
+    var plot = shell('ch-rev', {
+      title: 'Monthly revenue', sub: 'Jan 2022 to Sep 2023, USD',
+      tableHead: ['Month', 'Revenue'], tableRows: data.map(function (d) { return [monthLabel(d.m), money(d.revenue)]; })
+    });
+    W = width(plot);
+    var s = svgRoot(plot, W, H, 'Column chart of monthly revenue from January 2022 to September 2023. Peak is March 2023 at about $884 thousand.');
+    var max = 1000000, ph = H - m.t - m.b, base = H - m.b;
+    [0, 250000, 500000, 750000, 1000000].forEach(function (t) {
+      var y = base - t / max * ph; el('line', { x1: m.l, x2: W - m.r, y1: y, y2: y, stroke: GRID, 'stroke-width': 1 }, s);
+      el('text', { x: m.l - 8, y: y + 4, 'text-anchor': 'end', class: 'ax' }, s, t === 0 ? '$0' : t >= 1000000 ? '$' + (t / 1e6) + 'M' : moneyK(t));
+    });
+    var n = data.length, slot = (W - m.l - m.r) / n, bw = Math.min(24, slot * .62);
+    var peak = data.reduce(function (a, d, i) { return d.revenue > data[a].revenue ? i : a; }, 0);
+    data.forEach(function (d, i) {
+      var x = m.l + i * slot + (slot - bw) / 2, h = d.revenue / max * ph;
+      var bar = el('path', { d: roundedTop(x, base, bw, h, 4), fill: BLUE, class: 'mk' }, s);
+      if (i % (W < 520 ? 4 : 3) === 0) el('text', { x: x + bw / 2, y: base + 17, 'text-anchor': 'middle', class: 'ax' }, s, monthLabel(d.m));
+      if (i === peak || i === n - 1) el('text', { x: x + bw / 2, y: base - h - 6, 'text-anchor': 'middle', class: 'dl' }, s, moneyK(d.revenue));
+      var hit = el('rect', { x: m.l + i * slot, y: m.t, width: slot, height: ph + 4, fill: 'transparent', tabindex: 0, 'aria-label': monthLabel(d.m) + ': ' + money(d.revenue) }, s);
+      var on = function (e) { bar.setAttribute('opacity', '.78'); var r = hit.getBoundingClientRect(); showTip(e.clientX !== undefined && e.type !== 'focus' ? e : { clientX: r.left + r.width / 2, clientY: r.top }, monthLabel(d.m), [['Revenue', money(d.revenue), BLUE]]); };
+      var off = function () { bar.removeAttribute('opacity'); hideTip(); };
+      hit.addEventListener('pointermove', on); hit.addEventListener('pointerleave', off); hit.addEventListener('focus', on); hit.addEventListener('blur', off);
+    });
+  }
+
+  /* ---------- 2. monthly margin (line) ---------- */
+  function monthlyMargin() {
+    var data = D.monthly, W = 640, H = 200, m = { l: 46, r: 40, t: 18, b: 28 };
+    var plot = shell('ch-margin', {
+      title: 'Monthly profit margin', sub: 'Profit as a share of revenue. Its own chart, so the scale is honest.',
+      tableHead: ['Month', 'Margin'], tableRows: data.map(function (d) { return [monthLabel(d.m), d.margin.toFixed(1) + '%']; })
+    });
+    W = width(plot);
+    var s = svgRoot(plot, W, H, 'Line chart of monthly profit margin. It was 30.8 percent in January 2022, reached a low of 25.3 percent in July 2023, and was 27.4 percent in September 2023.');
+    var lo = 24, hi = 34, ph = H - m.t - m.b, base = H - m.b, n = data.length, step = (W - m.l - m.r) / (n - 1);
+    var X = function (i) { return m.l + i * step; }, Y = function (v) { return m.t + (hi - v) / (hi - lo) * ph; };
+    [24, 26, 28, 30, 32, 34].forEach(function (t) {
+      el('line', { x1: m.l, x2: W - m.r, y1: Y(t), y2: Y(t), stroke: GRID, 'stroke-width': 1 }, s);
+      el('text', { x: m.l - 8, y: Y(t) + 4, 'text-anchor': 'end', class: 'ax' }, s, t + '%');
+    });
+    data.forEach(function (d, i) { if (i % (W < 520 ? 4 : 3) === 0) el('text', { x: X(i), y: base + 17, 'text-anchor': 'middle', class: 'ax' }, s, monthLabel(d.m)); });
+    var pts = data.map(function (d, i) { return X(i) + ',' + Y(d.margin); }).join(' ');
+    el('polyline', { points: pts, fill: 'none', stroke: BLUE, 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }, s);
+    var low = data.reduce(function (a, d, i) { return d.margin < data[a].margin ? i : a; }, 0);
+    [[0, 'above'], [low, 'below'], [n - 1, 'above']].forEach(function (p) {
+      var i = p[0]; el('circle', { cx: X(i), cy: Y(data[i].margin), r: 5, fill: BLUE, stroke: SURFACE, 'stroke-width': 2 }, s);
+      var first = i === 0, last = i === n - 1;
+      el('text', { x: X(i) + (last ? 8 : first ? 9 : 0), y: Y(data[i].margin) + (last ? 4 : first ? -9 : (p[1] === 'above' ? -11 : 20)), 'text-anchor': last || first ? 'start' : 'middle', class: 'dl' }, s, data[i].margin.toFixed(1) + '%');
+    });
+    var cross = el('line', { y1: m.t, y2: base, stroke: MUTED, 'stroke-width': 1, opacity: 0 }, s);
+    var dot = el('circle', { r: 5, fill: BLUE, stroke: SURFACE, 'stroke-width': 2, opacity: 0 }, s);
+    var hit = el('rect', { x: m.l - 10, y: m.t, width: W - m.l - m.r + 20, height: ph + 6, fill: 'transparent', tabindex: 0, 'aria-label': 'Monthly margin values; use the table view for every value' }, s);
+    function at(evt) {
+      var r = s.getBoundingClientRect(), px = (evt.clientX - r.left) / r.width * W, i = Math.max(0, Math.min(n - 1, Math.round((px - m.l) / step)));
+      cross.setAttribute('x1', X(i)); cross.setAttribute('x2', X(i)); cross.setAttribute('opacity', 1);
+      dot.setAttribute('cx', X(i)); dot.setAttribute('cy', Y(data[i].margin)); dot.setAttribute('opacity', 1);
+      showTip(evt, monthLabel(data[i].m), [['Margin', data[i].margin.toFixed(1) + '%', BLUE]]);
+    }
+    hit.addEventListener('pointermove', at);
+    hit.addEventListener('pointerleave', function () { cross.setAttribute('opacity', 0); dot.setAttribute('opacity', 0); hideTip(); });
+  }
+
+  /* ---------- 3. margin bridge (diverging bars) ---------- */
+  function bridge() {
+    var rows = D.bridge.slice(), W = 640, rowH = 34, m = { l: 128, r: 46, t: 8, b: 26 }, H = m.t + m.b + rows.length * rowH;
+    var plot = shell('ch-bridge', {
+      title: 'What moved the margin (Jan-Sep 2023 vs Jan-Sep 2022)', sub: 'Contribution of each product, in percentage points. The 4 biggest drags and 4 biggest lifts.',
+      legend: [['Pulls margin down', ORANGE], ['Lifts margin', BLUE]],
+      tableHead: ['Product', 'Contribution (points)'], tableRows: rows.map(function (r) { return [r.name, (r.pp > 0 ? '+' : '') + r.pp.toFixed(2)]; })
+    });
+    W = width(plot);
+    var s = svgRoot(plot, W, H, 'Diverging bar chart. Colorbuds pulls the margin down by 2.68 points and Magic Sand by 2.12 points. Barrel O Slime lifts it by 0.64 points.');
+    var min = W < 520 ? -4.7 : -3.7, max = 1, plotW = W - m.l - m.r, X = function (v) { return m.l + (v - min) / (max - min) * plotW; }, x0 = X(0);
+    [-3, -2, -1, 0, 1].forEach(function (t) {
+      el('line', { x1: X(t), x2: X(t), y1: m.t, y2: H - m.b, stroke: t === 0 ? MUTED : GRID, 'stroke-width': 1 }, s);
+      el('text', { x: X(t), y: H - 8, 'text-anchor': 'middle', class: 'ax' }, s, (t > 0 ? '+' : t < 0 ? '−' : '') + Math.abs(t));
+    });
+    rows.forEach(function (r, i) {
+      var y = m.t + i * rowH + 8, bh = 16, neg = r.pp < 0, len = Math.abs(r.pp) / (max - min) * plotW, big = Math.abs(r.pp) > 1;
+      el('text', { x: m.l - 12, y: y + 12, 'text-anchor': 'end', class: big ? 'rl strong' : 'rl' }, s, r.name);
+      var d = neg ? roundedLeft(x0, y, len, bh, 4) : roundedRight(x0, y, len, bh, 4);
+      var bar = el('path', { d: d, fill: neg ? ORANGE : BLUE, class: 'mk' }, s);
+      var lab = (r.pp > 0 ? '+' : '−') + Math.abs(r.pp).toFixed(2);
+      el('text', { x: neg ? x0 - len - 6 : x0 + len + 6, y: y + 12, 'text-anchor': neg ? 'end' : 'start', class: big ? 'dl' : 'dl light' }, s, lab);
+      var hit = el('rect', { x: 0, y: y - 8, width: W, height: rowH, fill: 'transparent', tabindex: 0, 'aria-label': r.name + ': ' + lab + ' points' }, s);
+      var on = function (e) { bar.setAttribute('opacity', '.78'); var rc = hit.getBoundingClientRect(); showTip(e.type === 'focus' ? { clientX: rc.left + 200, clientY: rc.top } : e, r.name, [['Margin contribution', lab + ' pts', neg ? ORANGE : BLUE]]); };
+      var off = function () { bar.removeAttribute('opacity'); hideTip(); };
+      hit.addEventListener('pointermove', on); hit.addEventListener('pointerleave', off); hit.addEventListener('focus', on); hit.addEventListener('blur', off);
+    });
+  }
+
+  /* ---------- 4. category: revenue share vs profit share (grouped bars) ---------- */
+  function categories() {
+    var rows = D.category, W = 640, m = { l: 128, r: 60, t: 8, b: 26 }, group = 2 * 14 + 2, rowH = group + 20, H = m.t + m.b + rows.length * rowH;
+    var plot = shell('ch-cat', {
+      title: 'Share of revenue vs share of profit, by category', sub: 'All data. A category that earns more of the profit than of the revenue has a high margin.',
+      legend: [['Share of revenue', BLUE], ['Share of profit', ORANGE]],
+      tableHead: ['Category', 'Revenue share', 'Profit share', 'Margin'], tableRows: rows.map(function (r) { return [r.name, r.rev_share + '%', r.profit_share + '%', r.margin + '%']; })
+    });
+    W = width(plot);
+    var s = svgRoot(plot, W, H, 'Grouped bar chart. Toys are 35 percent of revenue but 27 percent of profit. Electronics are 16 percent of revenue but 25 percent of profit.');
+    var max = 40, plotW = W - m.l - m.r, X = function (v) { return m.l + v / max * plotW; };
+    [0, 10, 20, 30, 40].forEach(function (t) {
+      el('line', { x1: X(t), x2: X(t), y1: m.t, y2: H - m.b, stroke: t === 0 ? MUTED : GRID, 'stroke-width': 1 }, s);
+      el('text', { x: X(t), y: H - 8, 'text-anchor': 'middle', class: 'ax' }, s, t + '%');
+    });
+    rows.forEach(function (r, i) {
+      var y = m.t + i * rowH + 8, story = r.name === 'Toys' || r.name === 'Electronics';
+      el('text', { x: m.l - 12, y: y + group / 2 + 4, 'text-anchor': 'end', class: story ? 'rl strong' : 'rl' }, s, r.name);
+      [[r.rev_share, BLUE, 'Share of revenue'], [r.profit_share, ORANGE, 'Share of profit']].forEach(function (b, k) {
+        var by = y + k * 16, len = b[0] / max * plotW;
+        var bar = el('path', { d: roundedRight(m.l, by, len, 14, 4), fill: b[1], class: 'mk' }, s);
+        if (story) el('text', { x: m.l + len + 6, y: by + 11, class: 'dl' }, s, b[0] + '%');
+      });
+      var hit = el('rect', { x: 0, y: y - 6, width: W, height: rowH - 4, fill: 'transparent', tabindex: 0, 'aria-label': r.name + ': ' + r.rev_share + ' percent of revenue, ' + r.profit_share + ' percent of profit' }, s);
+      var on = function (e) { var rc = hit.getBoundingClientRect(); showTip(e.type === 'focus' ? { clientX: rc.left + 200, clientY: rc.top } : e, r.name, [['Share of revenue', r.rev_share + '%', BLUE], ['Share of profit', r.profit_share + '%', ORANGE], ['Margin', r.margin + '%', MUTED]]); };
+      hit.addEventListener('pointermove', on); hit.addEventListener('pointerleave', hideTip); hit.addEventListener('focus', on); hit.addEventListener('blur', hideTip);
+    });
+  }
+
+  /* ---------- 5. location: profit per store (emphasis) ---------- */
+  function locations() {
+    var rows = D.location, W = 640, m = { l: 128, r: 110, t: 8, b: 26 }, rowH = 40, H = m.t + m.b + rows.length * rowH;
+    var plot = shell('ch-loc', {
+      title: 'Profit per store, by location type', sub: 'All data. Profit divided by the number of stores of that type.',
+      tableHead: ['Location type', 'Stores', 'Profit per store', 'Share of total profit'], tableRows: rows.map(function (r) { return [r.type, String(r.stores), money(r.profit_per_store), r.profit_share + '%']; })
+    });
+    W = width(plot);
+    var s = svgRoot(plot, W, H, 'Bar chart of profit per store. Airport stores earn about 126 thousand dollars each, versus about 77 thousand for Downtown, Commercial and Residential.');
+    var max = 140000, plotW = W - m.l - m.r, X = function (v) { return m.l + v / max * plotW; };
+    [0, 35000, 70000, 105000, 140000].forEach(function (t) {
+      el('line', { x1: X(t), x2: X(t), y1: m.t, y2: H - m.b, stroke: t === 0 ? MUTED : GRID, 'stroke-width': 1 }, s);
+      el('text', { x: X(t), y: H - 8, 'text-anchor': 'middle', class: 'ax' }, s, t === 0 ? '$0' : moneyK(t));
+    });
+    rows.forEach(function (r, i) {
+      var y = m.t + i * rowH + 8, hot = r.type === 'Airport', len = r.profit_per_store / max * plotW;
+      el('text', { x: m.l - 12, y: y + 13, 'text-anchor': 'end', class: hot ? 'rl strong' : 'rl' }, s, r.type);
+      var bar = el('path', { d: roundedRight(m.l, y, len, 18, 4), fill: hot ? BLUE : GREY, class: 'mk' }, s);
+      el('text', { x: m.l + len + 8, y: y + 13, class: hot ? 'dl' : 'dl light' }, s, moneyK(r.profit_per_store) + ' · ' + r.stores + ' stores');
+      var hit = el('rect', { x: 0, y: y - 8, width: W, height: rowH, fill: 'transparent', tabindex: 0, 'aria-label': r.type + ': ' + money(r.profit_per_store) + ' profit per store across ' + r.stores + ' stores' }, s);
+      var on = function (e) { bar.setAttribute('opacity', '.8'); var rc = hit.getBoundingClientRect(); showTip(e.type === 'focus' ? { clientX: rc.left + 200, clientY: rc.top } : e, r.type, [['Profit per store', money(r.profit_per_store), BLUE], ['Stores', String(r.stores), MUTED], ['Share of profit', r.profit_share + '%', MUTED]]); };
+      var off = function () { bar.removeAttribute('opacity'); hideTip(); };
+      hit.addEventListener('pointermove', on); hit.addEventListener('pointerleave', off); hit.addEventListener('focus', on); hit.addEventListener('blur', off);
+    });
+  }
+
+  /* ---------- 6. stockouts table ---------- */
+  function stockTable() {
+    var box = $('#tb-stock'); box.textContent = '';
+    var table = document.createElement('table'), thead = document.createElement('thead'), tr = document.createElement('tr');
+    ['Product', 'Stores out of stock', 'Est. profit at risk / 30 days', 'Margin'].forEach(function (c) { var th = document.createElement('th'); th.textContent = c; tr.appendChild(th); });
+    thead.appendChild(tr); table.appendChild(thead);
+    var tb = document.createElement('tbody');
+    D.stockouts.forEach(function (r) {
+      var row = document.createElement('tr');
+      [r.name, String(r.stores), money(r.risk30), r.margin + '%'].forEach(function (c, i) { var td = document.createElement('td'); td.textContent = c; if (i === 0) td.className = 'strong'; row.appendChild(td); });
+      tb.appendChild(row);
+    });
+    table.appendChild(tb); box.appendChild(table);
+  }
+
+  /* ---------- bind numbers to tiles ---------- */
+  function bind() {
+    var fmt = {
+      money: function (v) { return money(v); }, M: function (v) { return '$' + (v / 1e6).toFixed(1) + 'M'; }, M2: function (v) { return '$' + (v / 1e6).toFixed(2) + 'M'; },
+      K: function (v) { return '$' + Math.round(v / 1000) + 'k'; }, pct: function (v) { return v.toFixed(1) + '%'; }, spct: function (v) { return (v > 0 ? '+' : '') + v.toFixed(1) + '%'; },
+      int: function (v) { return Math.round(v).toLocaleString('en-US'); }, mill: function (v) { return (v / 1e6).toFixed(2) + 'M'; }
+    };
+    $$('[data-k]').forEach(function (n) {
+      var v = n.getAttribute('data-k').split('.').reduce(function (o, k) { return o[k]; }, D);
+      n.textContent = fmt[n.getAttribute('data-f') || 'int'](v);
+    });
+  }
+
+  /* ---------- tiny markdown renderer for the business analysis docs ---------- */
+  function esc(t) { return t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  function inline(t) {
+    t = esc(t);
+    t = t.replace(/`([^`]+)`/g, '<code>$1</code>').replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>').replace(/(^|[^*\w])\*([^*\n]+)\*/g, '$1<em>$2</em>');
+    return t;
+  }
+  function cells(line) { return line.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map(function (c) { return c.trim(); }); }
+  function md(src) {
+    var L = src.replace(/\r/g, '').split('\n'), out = [], i = 0, m, buf;
+    while (i < L.length) {
+      var l = L[i];
+      if (/^```/.test(l)) { buf = []; i++; while (i < L.length && !/^```/.test(L[i])) { buf.push(L[i]); i++; } i++; out.push('<pre tabindex="0"><code>' + esc(buf.join('\n')) + '</code></pre>'); continue; }
+      if (/^\s*$/.test(l)) { i++; continue; }
+      if ((m = /^(#{1,3})\s+(.*)/.exec(l))) { var lv = m[1].length + 2; out.push('<h' + lv + '>' + inline(m[2]) + '</h' + lv + '>'); i++; continue; }
+      if (/^>/.test(l)) { buf = []; while (i < L.length && /^>/.test(L[i])) { buf.push(L[i].replace(/^>\s?/, '')); i++; } out.push('<blockquote>' + inline(buf.join(' ')) + '</blockquote>'); continue; }
+      if (/^\|/.test(l)) {
+        buf = []; while (i < L.length && /^\|/.test(L[i])) { buf.push(L[i]); i++; }
+        var head = cells(buf[0]), html = '<div class="tw"><table><thead><tr>' + head.map(function (c) { return '<th>' + inline(c) + '</th>'; }).join('') + '</tr></thead><tbody>';
+        buf.slice(2).forEach(function (r) { html += '<tr>' + cells(r).map(function (c) { return '<td>' + inline(c) + '</td>'; }).join('') + '</tr>'; });
+        out.push(html + '</tbody></table></div>'); continue;
+      }
+      if (/^\s*[-*]\s+/.test(l)) { buf = []; while (i < L.length && /^\s*[-*]\s+/.test(L[i])) { buf.push(L[i].replace(/^\s*[-*]\s+/, '')); i++; } out.push('<ul>' + buf.map(function (b) { return '<li>' + inline(b) + '</li>'; }).join('') + '</ul>'); continue; }
+      if (/^\d+\.\s+/.test(l)) { buf = []; while (i < L.length && /^\d+\.\s+/.test(L[i])) { buf.push(L[i].replace(/^\d+\.\s+/, '')); i++; } out.push('<ol>' + buf.map(function (b) { return '<li>' + inline(b) + '</li>'; }).join('') + '</ol>'); continue; }
+      buf = [l]; i++;
+      while (i < L.length && !/^\s*$/.test(L[i]) && !/^(#{1,3}\s|>|\||```|\s*[-*]\s|\d+\.\s)/.test(L[i])) { buf.push(L[i]); i++; }
+      out.push('<p>' + inline(buf.join(' ')) + '</p>');
+    }
+    return out.join('\n');
+  }
+  function renderDocs() {
+    $$('[data-md]').forEach(function (host) {
+      var src = document.getElementById(host.getAttribute('data-md'));
+      host.innerHTML = md(src.textContent.trim());        /* source is this page's own text; every value is escaped in md() */
+      var h = host.querySelector('h3'); if (h) h.id = host.getAttribute('data-md') + '-h';
+    });
+  }
+
+  /* ---------- overlays ---------- */
+  var current = null, lastFocus = null, io = null;
+  function observe(scope) {
+    var list = $$('.cr', scope);
+    list.forEach(function (n) { n.classList.remove('in'); });
+    if (!('IntersectionObserver' in window) || reduce) { list.forEach(function (n) { n.classList.add('in'); }); return; }
+    if (io) io.disconnect();
+    io = new IntersectionObserver(function (es) {
+      var k = 0; es.forEach(function (e) { if (e.isIntersecting) { e.target.style.transitionDelay = Math.min(k++ * 70, 280) + 'ms'; e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+    list.forEach(function (n) { io.observe(n); });
+  }
+  function openCase(id, opener) {
+    var c = document.getElementById(id); if (!c) return;
+    if (current && current !== c) closeCase(true);
+    lastFocus = opener || document.activeElement; current = c;
+    c.hidden = false; document.documentElement.classList.add('modal-open');
+    if (id === 'case-da') renderCharts(false);
+    c.scrollTop = 0; observe(c);
+    requestAnimationFrame(function () { requestAnimationFrame(function () { c.classList.add('open'); }); });
+    var x = c.querySelector('.case-close'); if (x) setTimeout(function () { x.focus({ preventScroll: true }); }, 60);
+  }
+  function closeCase(instant) {
+    var c = current; if (!c) return; current = null; hideTip();
+    c.classList.remove('open');
+    var done = function () { c.hidden = true; if (!current) document.documentElement.classList.remove('modal-open'); };
+    if (instant || reduce) done(); else setTimeout(done, 380);
+    if (!instant && lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
+  }
+  document.addEventListener('click', function (e) {
+    var o = e.target.closest('[data-case]'); if (o) { e.preventDefault(); openCase(o.getAttribute('data-case'), o); return; }
+    if (e.target.closest('[data-close]')) { e.preventDefault(); closeCase(); return; }
+    var j = e.target.closest('[data-jump]');
+    if (j) { e.preventDefault(); var t = document.getElementById(j.getAttribute('data-jump')); if (t && current) { current.scrollTo({ top: t.offsetTop - 70, behavior: reduce ? 'auto' : 'smooth' }); } }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && current) { e.stopPropagation(); closeCase(); return; }
+    if (e.key === 'Tab' && current) {   /* keep focus inside the open overlay */
+      var f = $$('a[href], button:not([disabled]), [tabindex="0"]', current).filter(function (n) { return n.offsetParent !== null; });
+      if (!f.length) return; var a = f[0], z = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); }
+      else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); }
+    }
+  }, true);
+  /* jump chips: highlight the section in view */
+  $$('.case').forEach(function (c) {
+    var chips = $$('[data-jump]', c); if (!chips.length) return;
+    c.addEventListener('scroll', function () {
+      var best = null; chips.forEach(function (ch) { var t = document.getElementById(ch.getAttribute('data-jump')); if (t && t.offsetTop - 120 <= c.scrollTop) best = ch; });
+      chips.forEach(function (ch) { ch.classList.toggle('on', ch === best); });
+    }, { passive: true });
+  });
+
+  var renderedW = 0;
+  function renderCharts(force) {
+    var host = document.getElementById('case-da'); if (host.hidden) return;
+    var w = host.clientWidth; if (!force && w === renderedW) return; renderedW = w;
+    monthlyRevenue(); monthlyMargin(); bridge(); categories(); locations();
+  }
+  var rzT; window.addEventListener('resize', function () { clearTimeout(rzT); rzT = setTimeout(function () { renderCharts(false); }, 150); });
+  stockTable(); bind(); renderDocs();
 })();
 </script>
 </body>
