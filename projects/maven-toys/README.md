@@ -50,4 +50,4 @@ Comparing the same nine months (Jan-Sep) of each year:
 The SQL is written for SQLite. Notes in the scripts show what to change for MySQL, PostgreSQL or SQL Server.
 
 ## Status
-The Power BI dashboard is being built from the specification in `docs/07_dashboard_specification.md` and will be linked here.
+The Power BI dashboard is the centrepiece of the **business analysis** side of this project. It is being built from the specification in `docs/07_dashboard_specification.md`, and must reproduce the reconciliation table exactly. It will be linked here when published.
