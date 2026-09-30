@@ -473,8 +473,8 @@ html.modal-open { overflow: hidden; }
 .kpi .v { margin-top: 4px; font-size: clamp(1.9rem, 4.5vw, 2.8rem); font-weight: 850; letter-spacing: -.035em; line-height: 1.05; }
 .kpi .d { margin-top: 6px; font-family: var(--font-mono); font-size: .74rem; color: var(--muted); font-weight: 700; }
 .kpi.bad .v { color: #b8420f; }
-.kpis.hero .kpi { padding: 22px; }
-.kpis.hero .kpi .v { font-size: clamp(2.4rem, 7vw, 4rem); }
+.kpis.big .kpi { padding: 22px; }
+.kpis.big .kpi .v { font-size: clamp(2.4rem, 7vw, 4rem); }
 .kpis.small .kpi { box-shadow: 3px 3px 0 var(--ink); padding: 14px 16px; }
 .kpis.small .kpi .v { font-size: clamp(1.4rem, 3vw, 1.9rem); }
 .flow { margin-top: 22px; display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; border: var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--hard); overflow: hidden; }
@@ -1200,7 +1200,7 @@ html.modal-open { overflow: hidden; }
       <p class="kicker">The answer</p>
       <h3>Revenue is up 31%. Profit is up 16%. Margin fell 3.3 points.</h3>
       <p>Comparing the same nine months (Jan to Sep) of 2022 and 2023, because the data ends on 30 September 2023.</p>
-      <div class="kpis hero">
+      <div class="kpis big">
         <div class="kpi"><div class="l">Revenue growth</div><div class="v" data-k="growth.revenue_growth_pct" data-f="spct">+30.9%</div><div class="d">Jan-Sep 2023 vs 2022</div></div>
         <div class="kpi"><div class="l">Profit growth</div><div class="v" data-k="growth.profit_growth_pct" data-f="spct">+16.0%</div><div class="d">Jan-Sep 2023 vs 2022</div></div>
         <div class="kpi bad"><div class="l">Margin</div><div class="v"><span data-k="growth.margin_2022" data-f="pct">29.5%</span> → <span data-k="growth.margin_2023" data-f="pct">26.2%</span></div><div class="d">down 3.3 points</div></div>
