@@ -1,0 +1,473 @@
+{
+ "overview": {
+  "sale_lines": 149116,
+  "units": 214470,
+  "revenue": 698812,
+  "first_day": "2023-01-01",
+  "last_day": "2023-06-30",
+  "stores": 3,
+  "revenue_per_day": 3861,
+  "revenue_per_line": 4.69,
+  "lines_one_unit_pct": 58.5
+ },
+ "data_quality": {
+  "sale_lines": 149116,
+  "duplicate_ids": 0,
+  "null_cells": 0,
+  "products": 80,
+  "products_with_2_prices": 15,
+  "lines_with_odd_price": 1262,
+  "days": 181
+ },
+ "monthly": [
+  {
+   "m": "Jan",
+   "per_day": 2635,
+   "revenue": 81678,
+   "per_line": 4.72
+  },
+  {
+   "m": "Feb",
+   "per_day": 2719,
+   "revenue": 76145,
+   "per_line": 4.65
+  },
+  {
+   "m": "Mar",
+   "per_day": 3188,
+   "revenue": 98835,
+   "per_line": 4.66
+  },
+  {
+   "m": "Apr",
+   "per_day": 3965,
+   "revenue": 118941,
+   "per_line": 4.69
+  },
+  {
+   "m": "May",
+   "per_day": 5056,
+   "revenue": 156728,
+   "per_line": 4.67
+  },
+  {
+   "m": "Jun",
+   "per_day": 5550,
+   "revenue": 166486,
+   "per_line": 4.71
+  }
+ ],
+ "hours": [
+  {
+   "h": 6,
+   "stores": {
+    "Astoria": 0.0,
+    "Hell's Kitchen": 41.6,
+    "Lower Manhattan": 79.4
+   }
+  },
+  {
+   "h": 7,
+   "stores": {
+    "Astoria": 105.1,
+    "Hell's Kitchen": 88.2,
+    "Lower Manhattan": 157.7
+   }
+  },
+  {
+   "h": 8,
+   "stores": {
+    "Astoria": 126.0,
+    "Hell's Kitchen": 174.3,
+    "Lower Manhattan": 156.6
+   }
+  },
+  {
+   "h": 9,
+   "stores": {
+    "Astoria": 128.1,
+    "Hell's Kitchen": 181.6,
+    "Lower Manhattan": 160.8
+   }
+  },
+  {
+   "h": 10,
+   "stores": {
+    "Astoria": 135.0,
+    "Hell's Kitchen": 185.7,
+    "Lower Manhattan": 169.3
+   }
+  },
+  {
+   "h": 11,
+   "stores": {
+    "Astoria": 85.6,
+    "Hell's Kitchen": 99.0,
+    "Lower Manhattan": 71.2
+   }
+  },
+  {
+   "h": 12,
+   "stores": {
+    "Astoria": 86.6,
+    "Hell's Kitchen": 62.7,
+    "Lower Manhattan": 72.8
+   }
+  },
+  {
+   "h": 13,
+   "stores": {
+    "Astoria": 88.1,
+    "Hell's Kitchen": 66.7,
+    "Lower Manhattan": 68.2
+   }
+  },
+  {
+   "h": 14,
+   "stores": {
+    "Astoria": 83.8,
+    "Hell's Kitchen": 67.9,
+    "Lower Manhattan": 76.4
+   }
+  },
+  {
+   "h": 15,
+   "stores": {
+    "Astoria": 86.5,
+    "Hell's Kitchen": 62.5,
+    "Lower Manhattan": 81.6
+   }
+  },
+  {
+   "h": 16,
+   "stores": {
+    "Astoria": 89.0,
+    "Hell's Kitchen": 66.2,
+    "Lower Manhattan": 71.9
+   }
+  },
+  {
+   "h": 17,
+   "stores": {
+    "Astoria": 87.5,
+    "Hell's Kitchen": 70.7,
+    "Lower Manhattan": 63.6
+   }
+  },
+  {
+   "h": 18,
+   "stores": {
+    "Astoria": 88.1,
+    "Hell's Kitchen": 65.5,
+    "Lower Manhattan": 35.8
+   }
+  },
+  {
+   "h": 19,
+   "stores": {
+    "Astoria": 93.6,
+    "Hell's Kitchen": 59.5,
+    "Lower Manhattan": 4.1
+   }
+  },
+  {
+   "h": 20,
+   "stores": {
+    "Astoria": 0.0,
+    "Hell's Kitchen": 14.6,
+    "Lower Manhattan": 1.7
+   }
+  }
+ ],
+ "rush": [
+  {
+   "store": "Astoria",
+   "morning_rush_pct": 38.5,
+   "evening_pct": 21.0,
+   "first": 7,
+   "last": 19
+  },
+  {
+   "store": "Hell's Kitchen",
+   "morning_rush_pct": 48.2,
+   "evening_pct": 16.1,
+   "first": 6,
+   "last": 20
+  },
+  {
+   "store": "Lower Manhattan",
+   "morning_rush_pct": 50.7,
+   "evening_pct": 8.3,
+   "first": 6,
+   "last": 20
+  }
+ ],
+ "blocks": {
+  "cols": [
+   "6am",
+   "7 to 10am",
+   "11am to 1pm",
+   "2 to 4pm",
+   "5 to 6pm",
+   "7 to 8pm"
+  ],
+  "stores": {
+   "Astoria": [
+    0.0,
+    38.5,
+    20.3,
+    20.2,
+    13.7,
+    7.3
+   ],
+   "Hell's Kitchen": [
+    3.2,
+    48.2,
+    17.5,
+    15.1,
+    10.4,
+    5.7
+   ],
+   "Lower Manhattan": [
+    6.2,
+    50.7,
+    16.7,
+    18.1,
+    7.8,
+    0.5
+   ]
+  }
+ },
+ "rush_all_pct": 45.8,
+ "weekday": [
+  {
+   "d": "Mon",
+   "revenue": 101677
+  },
+  {
+   "d": "Tue",
+   "revenue": 99456
+  },
+  {
+   "d": "Wed",
+   "revenue": 100314
+  },
+  {
+   "d": "Thu",
+   "revenue": 100768
+  },
+  {
+   "d": "Fri",
+   "revenue": 101373
+  },
+  {
+   "d": "Sat",
+   "revenue": 96894
+  },
+  {
+   "d": "Sun",
+   "revenue": 98330
+  }
+ ],
+ "category": [
+  {
+   "name": "Coffee",
+   "revenue": 269952,
+   "share": 38.6
+  },
+  {
+   "name": "Tea",
+   "revenue": 196406,
+   "share": 28.1
+  },
+  {
+   "name": "Bakery",
+   "revenue": 82316,
+   "share": 11.8
+  },
+  {
+   "name": "Drinking Chocolate",
+   "revenue": 72416,
+   "share": 10.4
+  },
+  {
+   "name": "Coffee beans",
+   "revenue": 40085,
+   "share": 5.7
+  },
+  {
+   "name": "Branded",
+   "revenue": 13607,
+   "share": 1.9
+  },
+  {
+   "name": "Loose Tea",
+   "revenue": 11214,
+   "share": 1.6
+  },
+  {
+   "name": "Flavours",
+   "revenue": 8409,
+   "share": 1.2
+  },
+  {
+   "name": "Packaged Chocolate",
+   "revenue": 4408,
+   "share": 0.6
+  }
+ ],
+ "drink_share_pct": 77.1,
+ "product_type": [
+  {
+   "name": "Barista Espresso",
+   "revenue": 91406
+  },
+  {
+   "name": "Brewed Chai tea",
+   "revenue": 77082
+  },
+  {
+   "name": "Hot chocolate",
+   "revenue": 72416
+  },
+  {
+   "name": "Gourmet brewed coffee",
+   "revenue": 70035
+  },
+  {
+   "name": "Brewed Black tea",
+   "revenue": 47932
+  },
+  {
+   "name": "Brewed herbal tea",
+   "revenue": 47540
+  },
+  {
+   "name": "Premium brewed coffee",
+   "revenue": 38781
+  },
+  {
+   "name": "Organic brewed coffee",
+   "revenue": 37746
+  }
+ ],
+ "top_products": [
+  {
+   "name": "Sustainably Grown Organic Lg",
+   "revenue": 21152,
+   "units": 4453
+  },
+  {
+   "name": "Dark chocolate Lg",
+   "revenue": 21006,
+   "units": 4668
+  },
+  {
+   "name": "Latte Rg",
+   "revenue": 19112,
+   "units": 4497
+  },
+  {
+   "name": "Cappuccino Lg",
+   "revenue": 17642,
+   "units": 4151
+  },
+  {
+   "name": "Morning Sunrise Chai Lg",
+   "revenue": 17384,
+   "units": 4346
+  },
+  {
+   "name": "Latte",
+   "revenue": 17258,
+   "units": 4602
+  }
+ ],
+ "size": [
+  {
+   "size": "Regular",
+   "share": 43.8
+  },
+  {
+   "size": "Large",
+   "share": 42.9
+  },
+  {
+   "size": "Small",
+   "share": 13.3
+  }
+ ],
+ "cat_growth": [
+  {
+   "name": "Coffee",
+   "jan": 1008,
+   "jun": 2160,
+   "growth": 114
+  },
+  {
+   "name": "Tea",
+   "jan": 730,
+   "jun": 1541,
+   "growth": 111
+  },
+  {
+   "name": "Bakery",
+   "jan": 308,
+   "jun": 642,
+   "growth": 109
+  },
+  {
+   "name": "Drinking Chocolate",
+   "jan": 269,
+   "jun": 570,
+   "growth": 112
+  },
+  {
+   "name": "Coffee beans",
+   "jan": 169,
+   "jun": 330,
+   "growth": 95
+  },
+  {
+   "name": "Branded",
+   "jan": 61,
+   "jun": 114,
+   "growth": 87
+  },
+  {
+   "name": "Loose Tea",
+   "jan": 42,
+   "jun": 92,
+   "growth": 121
+  },
+  {
+   "name": "Flavours",
+   "jan": 31,
+   "jun": 67,
+   "growth": 113
+  },
+  {
+   "name": "Packaged Chocolate",
+   "jan": 17,
+   "jun": 33,
+   "growth": 96
+  }
+ ],
+ "stores": [
+  {
+   "name": "Hell's Kitchen",
+   "revenue": 236511,
+   "per_day": 1307
+  },
+  {
+   "name": "Astoria",
+   "revenue": 232244,
+   "per_day": 1283
+  },
+  {
+   "name": "Lower Manhattan",
+   "revenue": 230057,
+   "per_day": 1271
+  }
+ ]
+}

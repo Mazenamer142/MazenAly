@@ -16,3 +16,12 @@ Open `index.html` in a browser, or run `npx serve .`
 4. Deploy. Every push to the production branch redeploys automatically.
 
 Or from the CLI: `npx vercel --prod`.
+
+## Case studies
+Three data analysis + business analysis projects live in `projects/` (`maven-toys`, `coffee-shop`, `video-games`). Each has SQL, a Python check, summary data, and a documents package. The coffee shop and video game pages are built in the browser from the JSON blocks `#proj-coffee` and `#proj-games` in `index.html`.
+
+## Adding a Power BI dashboard
+1. Publish the report (Power BI: File, Embed report, Publish to web) or a Tableau Public view.
+2. Paste the link into `window.PB_EMBEDS` near the bottom of `index.html` (`maven`, `coffee` or `games`).
+3. Only `app.powerbi.com` and `public.tableau.com` links are used, and `vercel.json` already allows them in `frame-src`.
+4. Also set the "Live dashboard" link on the business analysis card (search `EDIT POWER BI LINK HERE`).

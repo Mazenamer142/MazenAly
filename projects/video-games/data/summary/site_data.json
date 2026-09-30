@@ -1,0 +1,565 @@
+{
+ "overview": {
+  "games": 18922,
+  "unique_titles": 12992,
+  "total_sales_m": 6605.9,
+  "median_m": 0.12
+ },
+ "data_quality": {
+  "rows_in_file": 64016,
+  "rows_with_sales": 18922,
+  "pct_with_sales": 29.6,
+  "regions_dont_add_up": 0,
+  "repeated_title_console": 61,
+  "sales_rows_without_date": 90,
+  "rows_with_score": 4126,
+  "publisher_names_merged": 13
+ },
+ "concentration": {
+  "top_10_pct": 2.4,
+  "top_100_pct": 12.0,
+  "top_1000_pct": 42.2
+ },
+ "hits": {
+  "million_sellers": 1505,
+  "under_100k": 8498,
+  "all_games": 18922
+ },
+ "critic_corr": 0.34,
+ "years": [
+  {
+   "y": 1995,
+   "sales": 53.0,
+   "games": 175
+  },
+  {
+   "y": 1996,
+   "sales": 101.4,
+   "games": 270
+  },
+  {
+   "y": 1997,
+   "sales": 105.9,
+   "games": 238
+  },
+  {
+   "y": 1998,
+   "sales": 132.2,
+   "games": 304
+  },
+  {
+   "y": 1999,
+   "sales": 169.6,
+   "games": 335
+  },
+  {
+   "y": 2000,
+   "sales": 171.1,
+   "games": 397
+  },
+  {
+   "y": 2001,
+   "sales": 226.8,
+   "games": 508
+  },
+  {
+   "y": 2002,
+   "sales": 314.5,
+   "games": 850
+  },
+  {
+   "y": 2003,
+   "sales": 300.9,
+   "games": 820
+  },
+  {
+   "y": 2004,
+   "sales": 284.7,
+   "games": 782
+  },
+  {
+   "y": 2005,
+   "sales": 313.5,
+   "games": 979
+  },
+  {
+   "y": 2006,
+   "sales": 244.4,
+   "games": 1047
+  },
+  {
+   "y": 2007,
+   "sales": 436.4,
+   "games": 1268
+  },
+  {
+   "y": 2008,
+   "sales": 538.1,
+   "games": 1626
+  },
+  {
+   "y": 2009,
+   "sales": 495.4,
+   "games": 1753
+  },
+  {
+   "y": 2010,
+   "sales": 454.0,
+   "games": 1381
+  },
+  {
+   "y": 2011,
+   "sales": 440.3,
+   "games": 1252
+  },
+  {
+   "y": 2012,
+   "sales": 285.5,
+   "games": 694
+  },
+  {
+   "y": 2013,
+   "sales": 266.0,
+   "games": 514
+  },
+  {
+   "y": 2014,
+   "sales": 292.1,
+   "games": 630
+  },
+  {
+   "y": 2015,
+   "sales": 230.4,
+   "games": 640
+  },
+  {
+   "y": 2016,
+   "sales": 208.0,
+   "games": 612
+  },
+  {
+   "y": 2017,
+   "sales": 192.0,
+   "games": 689
+  },
+  {
+   "y": 2018,
+   "sales": 148.0,
+   "games": 660
+  },
+  {
+   "y": 2019,
+   "sales": 2.6,
+   "games": 35
+  },
+  {
+   "y": 2020,
+   "sales": 3.4,
+   "games": 28
+  }
+ ],
+ "coverage": [
+  {
+   "y": 2012,
+   "pct": 44,
+   "with_sales": 694,
+   "all": 1584
+  },
+  {
+   "y": 2013,
+   "pct": 30,
+   "with_sales": 514,
+   "all": 1740
+  },
+  {
+   "y": 2014,
+   "pct": 22,
+   "with_sales": 630,
+   "all": 2896
+  },
+  {
+   "y": 2015,
+   "pct": 38,
+   "with_sales": 640,
+   "all": 1680
+  },
+  {
+   "y": 2016,
+   "pct": 45,
+   "with_sales": 612,
+   "all": 1352
+  },
+  {
+   "y": 2017,
+   "pct": 44,
+   "with_sales": 689,
+   "all": 1558
+  },
+  {
+   "y": 2018,
+   "pct": 43,
+   "with_sales": 660,
+   "all": 1538
+  },
+  {
+   "y": 2019,
+   "pct": 3,
+   "with_sales": 35,
+   "all": 1290
+  },
+  {
+   "y": 2020,
+   "pct": 2,
+   "with_sales": 28,
+   "all": 1452
+  },
+  {
+   "y": 2021,
+   "pct": 0,
+   "with_sales": 0,
+   "all": 422
+  },
+  {
+   "y": 2022,
+   "pct": 0,
+   "with_sales": 0,
+   "all": 168
+  },
+  {
+   "y": 2023,
+   "pct": 0,
+   "with_sales": 0,
+   "all": 108
+  },
+  {
+   "y": 2024,
+   "pct": 0,
+   "with_sales": 0,
+   "all": 22
+  }
+ ],
+ "genre": [
+  {
+   "name": "Sports",
+   "sales": 1187.5,
+   "games": 2597,
+   "avg": 0.46,
+   "share": 18.0
+  },
+  {
+   "name": "Action",
+   "sales": 1125.9,
+   "games": 2839,
+   "avg": 0.4,
+   "share": 17.0
+  },
+  {
+   "name": "Shooter",
+   "sales": 995.5,
+   "games": 1485,
+   "avg": 0.67,
+   "share": 15.1
+  },
+  {
+   "name": "Misc",
+   "sales": 557.8,
+   "games": 2004,
+   "avg": 0.28,
+   "share": 8.4
+  },
+  {
+   "name": "Racing",
+   "sales": 525.8,
+   "games": 1431,
+   "avg": 0.37,
+   "share": 8.0
+  },
+  {
+   "name": "Role-Playing",
+   "sales": 426.8,
+   "games": 1491,
+   "avg": 0.29,
+   "share": 6.5
+  },
+  {
+   "name": "Platform",
+   "sales": 349.2,
+   "games": 951,
+   "avg": 0.37,
+   "share": 5.3
+  },
+  {
+   "name": "Fighting",
+   "sales": 341.1,
+   "games": 871,
+   "avg": 0.39,
+   "share": 5.2
+  },
+  {
+   "name": "Adventure",
+   "sales": 325.4,
+   "games": 1893,
+   "avg": 0.17,
+   "share": 4.9
+  },
+  {
+   "name": "Simulation",
+   "sales": 300.6,
+   "games": 1121,
+   "avg": 0.27,
+   "share": 4.6
+  }
+ ],
+ "genre_region": {
+  "cols": [
+   "North America",
+   "Europe & Africa",
+   "Japan",
+   "Other"
+  ],
+  "rows": [
+   {
+    "name": "Sports",
+    "v": [
+     18.2,
+     17.8,
+     15.9,
+     19.7
+    ]
+   },
+   {
+    "name": "Action",
+    "v": [
+     17.6,
+     17.9,
+     11.7,
+     17.3
+    ]
+   },
+   {
+    "name": "Shooter",
+    "v": [
+     15.8,
+     16.9,
+     4.9,
+     16.7
+    ]
+   },
+   {
+    "name": "Misc",
+    "v": [
+     8.8,
+     7.7,
+     8.2,
+     9.0
+    ]
+   },
+   {
+    "name": "Racing",
+    "v": [
+     8.1,
+     9.3,
+     2.9,
+     8.7
+    ]
+   },
+   {
+    "name": "Role-Playing",
+    "v": [
+     5.1,
+     4.7,
+     19.0,
+     5.2
+    ]
+   },
+   {
+    "name": "Platform",
+    "v": [
+     5.6,
+     5.2,
+     4.5,
+     4.7
+    ]
+   },
+   {
+    "name": "Fighting",
+    "v": [
+     5.2,
+     4.2,
+     8.5,
+     4.4
+    ]
+   }
+  ]
+ },
+ "region_total": {
+  "north_america": 3346,
+  "europe_africa": 1917,
+  "japan": 688,
+  "other": 651
+ },
+ "critic": [
+  {
+   "band": "6 or less",
+   "games": 874,
+   "avg": 0.32
+  },
+  {
+   "band": "6 to 7",
+   "games": 925,
+   "avg": 0.47
+  },
+  {
+   "band": "7 to 8",
+   "games": 1183,
+   "avg": 0.61
+  },
+  {
+   "band": "8 to 9",
+   "games": 950,
+   "avg": 1.18
+  },
+  {
+   "band": "over 9",
+   "games": 194,
+   "avg": 2.48
+  }
+ ],
+ "console": [
+  {
+   "name": "PS2",
+   "sales": 1027.8,
+   "games": 2126
+  },
+  {
+   "name": "X360",
+   "sales": 859.8,
+   "games": 1302
+  },
+  {
+   "name": "PS3",
+   "sales": 839.7,
+   "games": 1348
+  },
+  {
+   "name": "PS",
+   "sales": 546.2,
+   "games": 1130
+  },
+  {
+   "name": "PS4",
+   "sales": 539.9,
+   "games": 908
+  },
+  {
+   "name": "Wii",
+   "sales": 459.4,
+   "games": 1357
+  },
+  {
+   "name": "DS",
+   "sales": 458.2,
+   "games": 2396
+  },
+  {
+   "name": "XOne",
+   "sales": 269.0,
+   "games": 524
+  },
+  {
+   "name": "PSP",
+   "sales": 245.3,
+   "games": 1340
+  },
+  {
+   "name": "XB",
+   "sales": 232.0,
+   "games": 836
+  }
+ ],
+ "family": [
+  {
+   "name": "PlayStation",
+   "sales": 3265.8,
+   "share": 49.4
+  },
+  {
+   "name": "Nintendo",
+   "sales": 1664.7,
+   "share": 25.2
+  },
+  {
+   "name": "Xbox",
+   "sales": 1361.0,
+   "share": 20.6
+  },
+  {
+   "name": "PC",
+   "sales": 169.0,
+   "share": 2.6
+  },
+  {
+   "name": "Other",
+   "sales": 79.2,
+   "share": 1.2
+  },
+  {
+   "name": "Sega",
+   "sales": 66.2,
+   "share": 1.0
+  }
+ ],
+ "publisher": [
+  {
+   "name": "Electronic Arts",
+   "sales": 1157.3,
+   "games": 1430
+  },
+  {
+   "name": "Activision",
+   "sales": 722.8,
+   "games": 1044
+  },
+  {
+   "name": "Ubisoft",
+   "sales": 462.6,
+   "games": 1012
+  },
+  {
+   "name": "THQ",
+   "sales": 320.9,
+   "games": 726
+  },
+  {
+   "name": "Sony Computer Entertainment",
+   "sales": 311.1,
+   "games": 568
+  },
+  {
+   "name": "Konami",
+   "sales": 241.3,
+   "games": 876
+  },
+  {
+   "name": "Rockstar Games",
+   "sales": 239.7,
+   "games": 93
+  },
+  {
+   "name": "Bandai Namco",
+   "sales": 231.7,
+   "games": 986
+  },
+  {
+   "name": "Sega",
+   "sales": 206.4,
+   "games": 641
+  },
+  {
+   "name": "Warner Bros",
+   "sales": 181.6,
+   "games": 292
+  }
+ ],
+ "top10_publisher_pct": 61.7
+}
