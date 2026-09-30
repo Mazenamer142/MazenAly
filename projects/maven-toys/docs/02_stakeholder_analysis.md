@@ -1,6 +1,6 @@
 # 02 | Stakeholder analysis
 
-> **Case-study scenario.** These are roles I assumed for the scenario; they are not real people.
+> **Scenario.** These roles are my own assumptions, not real people.
 
 ## Stakeholders
 | Stakeholder (role) | Interest | Influence | What they need from the solution | How to engage |

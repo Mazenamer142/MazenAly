@@ -1665,13 +1665,13 @@ where not exists (select 1 from fact_inventory i where i.store_id = st.store_id 
 <script type="text/plain" id="md-scope">
 # 01 | Business case and scope
 
-> **Case-study scenario.** This uses the public Maven Analytics "Maven Toys" dataset. There is no real client: the business problem, stakeholders and objectives below are a realistic scenario written to show the business analysis process end to end.
+> **Scenario.** This is a public Maven Analytics dataset, not a real client. I made up the business problem and stakeholders to practise the business analysis process.
 
 ## Background
 Maven Toys is a chain of 50 toy stores across Mexican cities (29 downtown, 12 commercial, 6 residential, 3 airport). The data covers 829,262 sale lines from 1 Jan 2022 to 30 Sep 2023 across 35 products in 5 categories.
 
 ## Business problem
-Sales are growing fast, but profit is not keeping pace. Comparing Jan-Sep 2023 with Jan-Sep 2022, revenue grew **30.9%** but profit only **16.0%**, and the blended margin fell from **29.5% to 26.2%**. Leadership can see revenue in a report but has no single view that shows *why* margin is moving, which products and stores drive it, or where stock is going out.
+Sales are growing fast, but profit is not keeping pace. Comparing Jan-Sep 2023 with Jan-Sep 2022, revenue grew **30.9%** but profit only **16.0%**, and the blended margin fell from **29.5% to 26.2%**. Leadership sees revenue but has no one view of why margin is moving, which products and stores drive it, or where stock is running out.
 
 ## Objectives (what a good outcome looks like)
 | # | Objective | How we would know |
@@ -1681,7 +1681,7 @@ Sales are growing fast, but profit is not keeping pace. Comparing Jan-Sep 2023 w
 | O3 | Spot stockouts and slow stock early | Stockout rate and estimated profit at risk are visible per store and product |
 | O4 | Give one agreed definition of every KPI | KPI dictionary signed off by Finance and Merchandising |
 
-*Numeric targets (for example "stockout rate below X%") are deliberately left for the stakeholders to set: the data alone cannot justify them.*
+*I left numeric targets (like a stockout rate goal) for the stakeholders to set. The data alone cannot justify them.*
 
 ## In scope
 - Sales, product, store and inventory data supplied in the dataset
@@ -1711,7 +1711,7 @@ Sales are growing fast, but profit is not keeping pace. Comparing Jan-Sep 2023 w
 <script type="text/plain" id="md-stake">
 # 02 | Stakeholder analysis
 
-> **Case-study scenario.** These are roles I assumed for the scenario; they are not real people.
+> **Scenario.** These roles are my own assumptions, not real people.
 
 ## Stakeholders
 | Stakeholder (role) | Interest | Influence | What they need from the solution | How to engage |

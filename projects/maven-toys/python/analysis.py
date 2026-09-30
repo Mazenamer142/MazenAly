@@ -1,15 +1,11 @@
 """
-Maven Toys - analysis pipeline
-================================
-1. Loads and cleans the raw CSVs (public Maven Analytics "Maven Toys" dataset).
-2. Computes every metric in pandas.
-3. Runs the SQL scripts in ../sql on the same data (SQLite) and ASSERTS the SQL and pandas answers agree.
-4. Writes small summary CSVs (../data/summary) and site_data.json (used by the portfolio page).
+maven toys analysis
+loads the csvs, works out the numbers in pandas, then runs the sql scripts
+on the same data and checks they give the same answers.
+writes small summary csvs and site_data.json (used by the portfolio page).
 
-Usage:
-    python analysis.py --data "path/to/Maven Toys Data"
-
-Needs: pandas, numpy (SQLite ships with Python).
+run:  python analysis.py --data "path/to/Maven Toys Data"
+needs pandas and numpy
 """
 import argparse, json, re, sqlite3
 from pathlib import Path
@@ -22,7 +18,7 @@ OUT_DIR = HERE.parent / "data" / "summary"
 
 
 def money(s: pd.Series) -> pd.Series:
-    """'$9.99 ' -> 9.99  (the source stores cost/price as text with a $ and a trailing space)."""
+    """turn '$9.99 ' into 9.99 (price and cost come as text)"""
     return s.astype(str).str.replace(r"[\$,\s]", "", regex=True).astype(float)
 
 
@@ -35,8 +31,8 @@ def load(data_dir: Path):
 
 
 def run_sql_file(con, name):
-    """Run a .sql file statement by statement; return the result of every SELECT."""
-    text = re.sub(r"--[^\n]*", "", (SQL_DIR / name).read_text())   # strip comments (some contain ';')
+    """run a sql file one statement at a time, return every select result"""
+    text = re.sub(r"--[^\n]*", "", (SQL_DIR / name).read_text())   # drop comments first, some have a ;
     results = []
     for body in [s.strip() for s in text.split(";") if s.strip()]:
         cur = con.execute(body)
@@ -49,7 +45,7 @@ def run_sql_file(con, name):
 def main(data_dir: Path):
     products_raw, stores_raw, inventory_raw, sales_raw = load(data_dir)
 
-    # ------------------------------------------------------------------ pandas: clean + model
+    # pandas: clean and build the tables
     prod = products_raw.rename(columns={"Product_ID": "product_id", "Product_Name": "product_name", "Product_Category": "category"})
     prod["unit_cost"] = money(products_raw.Product_Cost)
     prod["unit_price"] = money(products_raw.Product_Price)
@@ -82,7 +78,7 @@ def main(data_dir: Path):
         "inventory_rows_possible": int(len(st) * len(prod)),
     }
 
-    # ------------------------------------------------------------------ pandas: metrics
+    # pandas: the metrics
     tot = f[["revenue", "cost", "profit", "units"]].sum()
     overview = {
         "sale_lines": int(len(f)), "first_day": str(f.date.min().date()), "last_day": str(f.date.max().date()),
@@ -118,7 +114,7 @@ def main(data_dir: Path):
     pr = pr.sort_values("profit", ascending=False)
     pr["cumulative_profit_pct"] = (pr.profit.cumsum() / pr.profit.sum() * 100).round(1)
 
-    # product change in profit, Jan-Sep 2022 -> 2023, and the margin bridge (mix effect)
+    # profit change per product (jan-sep) and the margin bridge
     lf = f[f.month_num <= 9]
     pp = lf.pivot_table(index=["product_name", "category"], columns="year", values=["revenue", "profit", "units"], aggfunc="sum").fillna(0)
     prodchg = pd.DataFrame({
@@ -174,7 +170,7 @@ def main(data_dir: Path):
         "pairs_missing_from_inventory": len(allp - have), "missing_pairs_with_sales": len((allp - have) & sold),
     }
 
-    # ------------------------------------------------------------------ SQL: run the scripts, assert they agree with pandas
+    # sql: run the scripts and check they match pandas
     con = sqlite3.connect(":memory:")
     products_raw.to_sql("products", con, index=False)
     stores_raw.to_sql("stores", con, index=False)
@@ -186,7 +182,7 @@ def main(data_dir: Path):
     s01 = run_sql_file(con, "01_kpi_overview.sql")
     assert int(s01[0].revenue[0]) == overview["revenue"] and int(s01[0].profit[0]) == overview["profit"], "SQL vs pandas: headline totals"
     assert float(s01[0].margin_pct[0]) == overview["margin_pct"]
-    assert len(s01[1]) == len(monthly) and abs(s01[1].revenue.sum() - monthly.revenue.sum()) < 25  # SQL rounds each month to whole dollars
+    assert len(s01[1]) == len(monthly) and abs(s01[1].revenue.sum() - monthly.revenue.sum()) < 25  # sql rounds each month
 
     s02 = run_sql_file(con, "02_category_and_product_mix.sql")
     assert list(s02[0].category) == list(cat.category) and abs(s02[0].profit.sum() - cat.profit.sum()) < 5, "SQL vs pandas: category"
@@ -210,7 +206,7 @@ def main(data_dir: Path):
     assert int(s05[2].slow_pairs[0]) == inventory_kpis["slow_pairs"] and abs(float(s05[2].capital_tied_up[0]) - inventory_kpis["capital_tied_up"]) < 5, "SQL vs pandas: slow stock"
     print("OK: SQL results match pandas on totals, mix, growth, bridge, locations and inventory.")
 
-    # ------------------------------------------------------------------ write outputs
+    # write the outputs
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     r0 = lambda d, cols: d.assign(**{c: d[c].round(0) for c in cols})
     r0(monthly, ["revenue", "profit"]).to_csv(OUT_DIR / "monthly.csv", index=False)
@@ -244,5 +240,5 @@ def main(data_dir: Path):
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--data", default=str(HERE.parent / "data" / "raw"), help="folder containing sales.csv, products.csv, stores.csv, inventory.csv")
+    ap.add_argument("--data", default=str(HERE.parent / "data" / "raw"), help="folder with the 4 csv files")
     main(Path(ap.parse_args().data))
