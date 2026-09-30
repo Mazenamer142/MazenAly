@@ -1,0 +1,172 @@
+{
+ "pandas": "3.0.6",
+ "tables": [
+  {
+   "name": "names",
+   "file": "names.csv",
+   "rows": 2212361,
+   "cols": 5,
+   "head": {
+    "cols": [
+     "State",
+     "Gender",
+     "Year",
+     "Name",
+     "Births"
+    ],
+    "rows": [
+     [
+      "AK",
+      "F",
+      "1980",
+      "Jessica",
+      "116"
+     ],
+     [
+      "AK",
+      "F",
+      "1980",
+      "Jennifer",
+      "114"
+     ],
+     [
+      "AK",
+      "F",
+      "1980",
+      "Sarah",
+      "82"
+     ],
+     [
+      "AK",
+      "F",
+      "1980",
+      "Amanda",
+      "71"
+     ],
+     [
+      "AK",
+      "F",
+      "1980",
+      "Melissa",
+      "65"
+     ],
+     [
+      "AK",
+      "F",
+      "1980",
+      "Michelle",
+      "61"
+     ],
+     [
+      "AK",
+      "F",
+      "1980",
+      "Heather",
+      "60"
+     ],
+     [
+      "AK",
+      "F",
+      "1980",
+      "Amber",
+      "59"
+     ]
+    ]
+   },
+   "info": "<class 'pandas.DataFrame'>\nRangeIndex: 2212361 entries, 0 to 2212360\nData columns (total 5 columns):\n #   Column  Dtype\n---  ------  -----\n 0   State   str  \n 1   Gender  str  \n 2   Year    int64\n 3   Name    str  \n 4   Births  int64\ndtypes: int64(2), str(3)\nmemory usage: 84.4 MB\n",
+   "numbers": "               Year        Births\ncount  2.212361e+06  2.212361e+06\nmean   1.995836e+03  4.462692e+01\nstd    8.644557e+00  1.443715e+02\nmin    1.980000e+03  5.000000e+00\n25%    1.989000e+03  7.000000e+00\n50%    1.996000e+03  1.100000e+01\n75%    2.003000e+03  2.900000e+01\nmax    2.009000e+03  8.240000e+03",
+   "text": "          State   Gender     Name\ncount   2212361  2212361  2212361\nunique       51        2    22240\ntop          CA        F   Jordan\nfreq     178427  1245104     2935"
+  },
+  {
+   "name": "regions",
+   "file": "regions.csv",
+   "rows": 50,
+   "cols": 2,
+   "head": {
+    "cols": [
+     "State",
+     "Region"
+    ],
+    "rows": [
+     [
+      "AL",
+      "South"
+     ],
+     [
+      "AK",
+      "Pacific"
+     ],
+     [
+      "AZ",
+      "Mountain"
+     ],
+     [
+      "AR",
+      "South"
+     ],
+     [
+      "CA",
+      "Pacific"
+     ],
+     [
+      "CO",
+      "Mountain"
+     ],
+     [
+      "CT",
+      "New_England"
+     ],
+     [
+      "DC",
+      "Mid_Atlantic"
+     ]
+    ]
+   },
+   "info": "<class 'pandas.DataFrame'>\nRangeIndex: 50 entries, 0 to 49\nData columns (total 2 columns):\n #   Column  Non-Null Count  Dtype\n---  ------  --------------  -----\n 0   State   50 non-null     str  \n 1   Region  50 non-null     str  \ndtypes: str(2)\nmemory usage: 932.0 bytes\n",
+   "numbers": "       State Region\ncount     50     50\nunique    50      7\ntop       AL  South\nfreq       1     16",
+   "text": "       State Region\ncount     50     50\nunique    50      7\ntop       AL  South\nfreq       1     16"
+  }
+ ],
+ "steps": [
+  {
+   "title": "how many different values in each column?",
+   "code": "names.nunique()",
+   "out": "State        51\nGender        2\nYear         30\nName      22240\nBirths     3201"
+  },
+  {
+   "title": "babies by gender",
+   "code": "names.groupby(\"Gender\")[\"Births\"].sum()",
+   "out": "Gender\nF    45856778\nM    52874085"
+  },
+  {
+   "title": "most used names of all time, top 5",
+   "code": "names.groupby(\"Name\")[\"Births\"].sum().sort_values(ascending=False).head(5)",
+   "out": "Name\nMichael        1382856\nChristopher    1122213\nMatthew        1034494\nJoshua          960170\nJessica         865046"
+  },
+  {
+   "title": "babies in the first and last year",
+   "code": "names.groupby(\"Year\")[\"Births\"].sum().iloc[[0, -1]]",
+   "out": "Year\n1980    3130607\n2009    3234208"
+  },
+  {
+   "title": "states in names that are missing from regions",
+   "code": "sorted(set(names[\"State\"]) - set(regions[\"State\"]))",
+   "out": "['MI']"
+  },
+  {
+   "title": "region labels (look closely)",
+   "code": "regions[\"Region\"].value_counts()",
+   "out": "Region\nSouth           16\nMidwest         11\nMountain         8\nPacific          5\nNew_England      5\nMid_Atlantic     4\nNew England      1"
+  },
+  {
+   "title": "two names over time with a pivot table",
+   "code": "names[names[\"Name\"].isin([\"Jennifer\", \"Emma\"])].pivot_table(index=\"Year\", columns=\"Name\", values=\"Births\", aggfunc=\"sum\").iloc[[0, 15, -1]]",
+   "out": "Name   Emma  Jennifer\nYear                 \n1980    480     58527\n1995   5044     12719\n2009  17889      2972"
+  },
+  {
+   "title": "share of rows with fewer than 10 babies",
+   "code": "(names[\"Births\"] < 10).mean().round(3)",
+   "out": "0.425"
+  }
+ ]
+}

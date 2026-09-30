@@ -35,3 +35,6 @@ The raw file is a public download and is not stored in this repo (`data/raw/` is
 The Power BI market explorer is the centrepiece of the business analysis side and is still to be built. When it is published, paste its link into `window.PB_EMBEDS` at the bottom of `index.html`.
 
 AI note: I used AI to help brainstorm and to polish the writing and code in this project.
+
+## The raw data
+The raw files are in `assets/data/raw/video-games-data.zip` at the root of this repo, and can be downloaded from the case study page. `python/explore.py` prints the first rows, `info()`, `describe()` and a few pandas checks for every table: `python python/explore.py --data "path/to/unzipped/folder"`.

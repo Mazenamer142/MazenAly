@@ -51,3 +51,6 @@ The SQL is written for SQLite. Notes in the scripts show what to change for MySQ
 
 ## Status
 The Power BI dashboard is the centrepiece of the **business analysis** side of this project. It is being built from the specification in `docs/07_dashboard_specification.md`, and must reproduce the reconciliation table exactly. It will be linked here when published.
+
+## The raw data
+The raw files are in `assets/data/raw/maven-toys-data.zip` at the root of this repo, and can be downloaded from the case study page. `python/explore.py` prints the first rows, `info()`, `describe()` and a few pandas checks for every table: `python python/explore.py --data "path/to/unzipped/folder"`.

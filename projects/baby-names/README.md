@@ -37,3 +37,6 @@ python python/analysis.py --data "path/to/folder with names.csv and regions.csv"
 The raw files are a public download and are not stored in this repo (`data/raw/` is git-ignored). The script needs a few minutes because of the 2.2 million rows.
 
 AI note: I used AI to help brainstorm and to polish the writing and code in this project.
+
+## The raw data
+The raw files are in `assets/data/raw/baby-names-data.zip` at the root of this repo, and can be downloaded from the case study page. `python/explore.py` prints the first rows, `info()`, `describe()` and a few pandas checks for every table: `python python/explore.py --data "path/to/unzipped/folder"`.

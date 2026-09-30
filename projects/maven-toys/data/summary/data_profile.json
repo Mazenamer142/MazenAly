@@ -1,0 +1,333 @@
+{
+ "pandas": "3.0.6",
+ "tables": [
+  {
+   "name": "sales",
+   "file": "sales.csv",
+   "rows": 829262,
+   "cols": 5,
+   "head": {
+    "cols": [
+     "Sale_ID",
+     "Date",
+     "Store_ID",
+     "Product_ID",
+     "Units"
+    ],
+    "rows": [
+     [
+      "1",
+      "2022-01-01",
+      "24",
+      "4",
+      "1"
+     ],
+     [
+      "2",
+      "2022-01-01",
+      "28",
+      "1",
+      "1"
+     ],
+     [
+      "3",
+      "2022-01-01",
+      "6",
+      "8",
+      "1"
+     ],
+     [
+      "4",
+      "2022-01-01",
+      "48",
+      "7",
+      "1"
+     ],
+     [
+      "5",
+      "2022-01-01",
+      "44",
+      "18",
+      "1"
+     ],
+     [
+      "6",
+      "2022-01-01",
+      "1",
+      "31",
+      "1"
+     ],
+     [
+      "7",
+      "2022-01-01",
+      "40",
+      "7",
+      "1"
+     ],
+     [
+      "8",
+      "2022-01-01",
+      "19",
+      "2",
+      "1"
+     ]
+    ]
+   },
+   "info": "<class 'pandas.DataFrame'>\nRangeIndex: 829262 entries, 0 to 829261\nData columns (total 5 columns):\n #   Column      Non-Null Count   Dtype\n---  ------      --------------   -----\n 0   Sale_ID     829262 non-null  int64\n 1   Date        829262 non-null  str  \n 2   Store_ID    829262 non-null  int64\n 3   Product_ID  829262 non-null  int64\n 4   Units       829262 non-null  int64\ndtypes: int64(4), str(1)\nmemory usage: 31.6 MB\n",
+   "numbers": "             Sale_ID       Store_ID     Product_ID          Units\ncount  829262.000000  829262.000000  829262.000000  829262.000000\nmean   414631.500000      25.277034      15.014149       1.315103\nstd    239387.463802      14.352573       9.869417       0.830701\nmin         1.000000       1.000000       1.000000       1.000000\n25%    207316.250000      13.000000       6.000000       1.000000\n50%    414631.500000      26.000000      14.000000       1.000000\n75%    621946.750000      38.000000      24.000000       1.000000\nmax    829262.000000      50.000000      35.000000      30.000000",
+   "text": "              Date\ncount       829262\nunique         638\ntop     2023-04-30\nfreq          3101"
+  },
+  {
+   "name": "products",
+   "file": "products.csv",
+   "rows": 35,
+   "cols": 5,
+   "head": {
+    "cols": [
+     "Product_ID",
+     "Product_Name",
+     "Product_Category",
+     "Product_Cost",
+     "Product_Price"
+    ],
+    "rows": [
+     [
+      "1",
+      "Action Figure",
+      "Toys",
+      "$9.99 ",
+      "$15.99 "
+     ],
+     [
+      "2",
+      "Animal Figures",
+      "Toys",
+      "$9.99 ",
+      "$12.99 "
+     ],
+     [
+      "3",
+      "Barrel O' Slime",
+      "Art & Crafts",
+      "$1.99 ",
+      "$3.99 "
+     ],
+     [
+      "4",
+      "Chutes & Ladders",
+      "Games",
+      "$9.99 ",
+      "$12.99 "
+     ],
+     [
+      "5",
+      "Classic Dominoes",
+      "Games",
+      "$7.99 ",
+      "$9.99 "
+     ],
+     [
+      "6",
+      "Colorbuds",
+      "Electronics",
+      "$6.99 ",
+      "$14.99 "
+     ],
+     [
+      "7",
+      "Dart Gun",
+      "Sports & Outdoors",
+      "$11.99 ",
+      "$15.99 "
+     ],
+     [
+      "8",
+      "Deck Of Cards",
+      "Games",
+      "$3.99 ",
+      "$6.99 "
+     ]
+    ]
+   },
+   "info": "<class 'pandas.DataFrame'>\nRangeIndex: 35 entries, 0 to 34\nData columns (total 5 columns):\n #   Column            Non-Null Count  Dtype\n---  ------            --------------  -----\n 0   Product_ID        35 non-null     int64\n 1   Product_Name      35 non-null     str  \n 2   Product_Category  35 non-null     str  \n 3   Product_Cost      35 non-null     str  \n 4   Product_Price     35 non-null     str  \ndtypes: int64(1), str(4)\nmemory usage: 1.5 KB\n",
+   "numbers": "       Product_ID\ncount   35.000000\nmean    18.000000\nstd     10.246951\nmin      1.000000\n25%      9.500000\n50%     18.000000\n75%     26.500000\nmax     35.000000",
+   "text": "         Product_Name Product_Category Product_Cost Product_Price\ncount              35               35           35            35\nunique             35                5           16            18\ntop     Action Figure             Toys       $3.99        $19.99 \nfreq                1                9            5             5"
+  },
+  {
+   "name": "stores",
+   "file": "stores.csv",
+   "rows": 50,
+   "cols": 5,
+   "head": {
+    "cols": [
+     "Store_ID",
+     "Store_Name",
+     "Store_City",
+     "Store_Location",
+     "Store_Open_Date"
+    ],
+    "rows": [
+     [
+      "1",
+      "Maven Toys Guadalajara 1",
+      "Guadalajara",
+      "Residential",
+      "1992-09-18"
+     ],
+     [
+      "2",
+      "Maven Toys Monterrey 1",
+      "Monterrey",
+      "Residential",
+      "1995-04-27"
+     ],
+     [
+      "3",
+      "Maven Toys Guadalajara 2",
+      "Guadalajara",
+      "Commercial",
+      "1999-12-27"
+     ],
+     [
+      "4",
+      "Maven Toys Saltillo 1",
+      "Saltillo",
+      "Downtown",
+      "2000-01-01"
+     ],
+     [
+      "5",
+      "Maven Toys La Paz 1",
+      "La Paz",
+      "Downtown",
+      "2001-05-31"
+     ],
+     [
+      "6",
+      "Maven Toys Mexicali 1",
+      "Mexicali",
+      "Commercial",
+      "2003-12-13"
+     ],
+     [
+      "7",
+      "Maven Toys Monterrey 2",
+      "Monterrey",
+      "Downtown",
+      "2003-12-25"
+     ],
+     [
+      "8",
+      "Maven Toys Pachuca 1",
+      "Pachuca",
+      "Downtown",
+      "2004-10-14"
+     ]
+    ]
+   },
+   "info": "<class 'pandas.DataFrame'>\nRangeIndex: 50 entries, 0 to 49\nData columns (total 5 columns):\n #   Column           Non-Null Count  Dtype\n---  ------           --------------  -----\n 0   Store_ID         50 non-null     int64\n 1   Store_Name       50 non-null     str  \n 2   Store_City       50 non-null     str  \n 3   Store_Location   50 non-null     str  \n 4   Store_Open_Date  50 non-null     str  \ndtypes: int64(1), str(4)\nmemory usage: 2.1 KB\n",
+   "numbers": "       Store_ID\ncount  50.00000\nmean   25.50000\nstd    14.57738\nmin     1.00000\n25%    13.25000\n50%    25.50000\n75%    37.75000\nmax    50.00000",
+   "text": "                      Store_Name   Store_City Store_Location Store_Open_Date\ncount                         50           50             50              50\nunique                        50           29              4              50\ntop     Maven Toys Guadalajara 1  Guadalajara       Downtown      1992-09-18\nfreq                           1            4             29               1"
+  },
+  {
+   "name": "inventory",
+   "file": "inventory.csv",
+   "rows": 1593,
+   "cols": 3,
+   "head": {
+    "cols": [
+     "Store_ID",
+     "Product_ID",
+     "Stock_On_Hand"
+    ],
+    "rows": [
+     [
+      "1",
+      "1",
+      "27"
+     ],
+     [
+      "1",
+      "2",
+      "0"
+     ],
+     [
+      "1",
+      "3",
+      "32"
+     ],
+     [
+      "1",
+      "4",
+      "6"
+     ],
+     [
+      "1",
+      "5",
+      "0"
+     ],
+     [
+      "1",
+      "6",
+      "79"
+     ],
+     [
+      "1",
+      "7",
+      "5"
+     ],
+     [
+      "1",
+      "8",
+      "63"
+     ]
+    ]
+   },
+   "info": "<class 'pandas.DataFrame'>\nRangeIndex: 1593 entries, 0 to 1592\nData columns (total 3 columns):\n #   Column         Non-Null Count  Dtype\n---  ------         --------------  -----\n 0   Store_ID       1593 non-null   int64\n 1   Product_ID     1593 non-null   int64\n 2   Stock_On_Hand  1593 non-null   int64\ndtypes: int64(3)\nmemory usage: 37.5 KB\n",
+   "numbers": "          Store_ID   Product_ID  Stock_On_Hand\ncount  1593.000000  1593.000000    1593.000000\nmean     25.326428    18.073446      18.670433\nstd      14.477592    10.064254      18.997652\nmin       1.000000     1.000000       0.000000\n25%      13.000000     9.000000       6.000000\n50%      25.000000    18.000000      13.000000\n75%      38.000000    27.000000      24.000000\nmax      50.000000    35.000000     139.000000",
+   "text": "no text columns"
+  }
+ ],
+ "steps": [
+  {
+   "title": "price and cost are text with a $ sign and a trailing space",
+   "code": "products[[\"Product_Name\", \"Product_Cost\", \"Product_Price\"]].head(3)",
+   "out": "      Product_Name Product_Cost Product_Price\n0    Action Figure       $9.99        $15.99 \n1   Animal Figures       $9.99        $12.99 \n2  Barrel O' Slime       $1.99         $3.99 "
+  },
+  {
+   "title": "turn the price into a number",
+   "code": "products[\"Product_Price\"].str.replace(\"$\", \"\", regex=False).str.strip().astype(float).describe()",
+   "out": "count    35.000000\nmean     14.761429\nstd       7.491508\nmin       2.990000\n25%       9.990000\n50%      12.990000\n75%      19.990000\nmax      39.990000"
+  },
+  {
+   "title": "which dates are in the sales?",
+   "code": "pd.to_datetime(sales[\"Date\"]).agg([\"min\", \"max\"])",
+   "out": "min   2022-01-01\nmax   2023-09-30"
+  },
+  {
+   "title": "units per sale line, first 6 values",
+   "code": "sales[\"Units\"].value_counts().sort_index().head(6)",
+   "out": "Units\n1    689023\n2     54576\n3     65638\n4     13117\n5      2628\n6      2808"
+  },
+  {
+   "title": "stores by location type",
+   "code": "stores[\"Store_Location\"].value_counts()",
+   "out": "Store_Location\nDowntown       29\nCommercial     12\nResidential     6\nAirport         3"
+  },
+  {
+   "title": "sale lines per product, top 5 (merged with the product names)",
+   "code": "sales.merge(products, on=\"Product_ID\").groupby(\"Product_Name\").size().sort_values(ascending=False).head(5)",
+   "out": "Product_Name\nColorbuds          72988\nDeck Of Cards      68083\nPlayDoh Can        64834\nBarrel O' Slime    54078\nAction Figure      48497"
+  },
+  {
+   "title": "does every sale have a matching product and store?",
+   "code": "(sales[\"Product_ID\"].isin(products[\"Product_ID\"]).all(), sales[\"Store_ID\"].isin(stores[\"Store_ID\"]).all())",
+   "out": "(np.True_, np.True_)"
+  },
+  {
+   "title": "memory used by the big table, in MB",
+   "code": "(sales.memory_usage(deep=True).sum() / 1e6).round(1)",
+   "out": "82.1"
+  }
+ ]
+}
