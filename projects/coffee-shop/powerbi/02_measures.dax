@@ -1,0 +1,45 @@
+// Create these in a table of their own (Home > Enter data > empty table named "_Measures") or on fact_sales.
+// Right-click the table > New measure, and paste one at a time.
+
+Revenue = SUM ( fact_sales[revenue] )
+
+Units = SUM ( fact_sales[transaction_qty] )
+
+Sale lines = COUNTROWS ( fact_sales )
+
+// dim_date only follows the date slicers, so the hour or store on a visual does not shrink the day count
+Days in period = COUNTROWS ( dim_date )
+
+Revenue per day = DIVIDE ( [Revenue], [Days in period] )
+
+Revenue per line = DIVIDE ( [Revenue], [Sale lines] )
+
+Morning rush share =
+DIVIDE (
+    CALCULATE ( [Revenue], dim_hour[hour] >= 7, dim_hour[hour] <= 10 ),
+    CALCULATE ( [Revenue], ALL ( dim_hour ) )
+)
+
+Evening share (after 5pm) =
+DIVIDE (
+    CALCULATE ( [Revenue], dim_hour[hour] >= 17 ),
+    CALCULATE ( [Revenue], ALL ( dim_hour ) )
+)
+
+Drinks share =
+DIVIDE (
+    CALCULATE ( [Revenue], fact_sales[product_category] IN { "Coffee", "Tea", "Drinking Chocolate" } ),
+    CALCULATE ( [Revenue], ALL ( fact_sales[product_category] ) )
+)
+
+Small drinks share =
+DIVIDE (
+    CALCULATE ( [Sale lines], fact_sales[size] = "Small" ),
+    CALCULATE ( [Sale lines], fact_sales[size] <> "No size" )
+)
+
+Revenue per day, last month =
+CALCULATE ( [Revenue per day], DATEADD ( dim_date[date], -1, MONTH ) )
+
+Revenue per day, change vs last month =
+DIVIDE ( [Revenue per day] - [Revenue per day, last month], [Revenue per day, last month] )

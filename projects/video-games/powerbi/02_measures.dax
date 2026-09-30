@@ -1,0 +1,36 @@
+// Right-click the fact_games table > New measure. Paste one at a time.
+
+Total sales (M) = SUM ( fact_games[total_sales] )
+
+Games = COUNTROWS ( fact_games )
+
+Avg per game (M) = DIVIDE ( [Total sales (M)], [Games] )
+
+Million sellers = CALCULATE ( [Games], fact_games[total_sales] >= 1 )
+
+Million seller rate = DIVIDE ( [Million sellers], [Games] )
+
+Share of all sales = DIVIDE ( [Total sales (M)], CALCULATE ( [Total sales (M)], ALL ( fact_games ) ) )
+
+// on the heat map: region sales in the selected genre, as a share of that region's sales in all genres
+Region sales (M) = SUM ( fact_region[sales] )
+
+Genre share of region =
+DIVIDE (
+    [Region sales (M)],
+    CALCULATE ( [Region sales (M)], REMOVEFILTERS ( fact_games[genre] ) )
+)
+
+Games with a score = CALCULATE ( [Games], fact_games[critic_score] <> BLANK () )
+
+Avg per scored game (M) = CALCULATE ( [Avg per game (M)], fact_games[critic_score] <> BLANK () )
+
+// how much of the market the top 10 publishers hold
+Top 10 publisher share =
+VAR t =
+    TOPN ( 10, VALUES ( fact_games[publisher_clean] ), [Total sales (M)], DESC )
+RETURN
+    DIVIDE (
+        CALCULATE ( [Total sales (M)], t ),
+        CALCULATE ( [Total sales (M)], REMOVEFILTERS ( fact_games[publisher_clean] ) )
+    )

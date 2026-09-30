@@ -38,3 +38,6 @@ AI note: I used AI to help brainstorm and to polish the writing and code in this
 
 ## The raw data
 The raw files are in `assets/data/raw/coffee-shop-data.zip` at the root of this repo, and can be downloaded from the case study page. `python/explore.py` prints the first rows, `info()`, `describe()` and a few pandas checks for every table: `python python/explore.py --data "path/to/unzipped/folder"`.
+
+## Power BI build kit
+`powerbi/` has everything needed to build the dashboard in Power BI Desktop: `theme.json`, `01_power_query.md` (M code), `02_measures.dax` (draft measures, not yet tested in Power BI) and `03_build_guide.md` (page by page, with the numbers each visual must show).

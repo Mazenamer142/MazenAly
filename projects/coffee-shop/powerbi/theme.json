@@ -1,0 +1,19 @@
+{
+  "name": "Portfolio blue",
+  "dataColors": ["#1f6fd0", "#d1571a", "#7a4fc4", "#0f8f7a", "#5d7391", "#aebbcd"],
+  "background": "#ffffff",
+  "foreground": "#0c2340",
+  "tableAccent": "#1f6fd0",
+  "good": "#0f8f7a",
+  "bad": "#d1571a",
+  "neutral": "#5d7391",
+  "textClasses": {
+    "title": { "fontSize": 14, "fontFace": "Segoe UI Semibold", "color": "#0c2340" },
+    "label": { "fontSize": 11, "fontFace": "Segoe UI", "color": "#3a5170" },
+    "callout": { "fontSize": 28, "fontFace": "Segoe UI Semibold", "color": "#0c2340" }
+  },
+  "visualStyles": {
+    "*": { "*": { "background": [{ "color": { "solid": { "color": "#ffffff" } } }], "border": [{ "show": true, "color": { "solid": { "color": "#0c2340" } }, "radius": 8 }] } },
+    "page": { "*": { "background": [{ "color": { "solid": { "color": "#eaf3fc" } }, "transparency": 0 }] } }
+  }
+}
