@@ -528,9 +528,11 @@ html.modal-open { overflow: hidden; }
 .slot-box b { display: block; font-size: 1.15rem; }
 .slot-box p { margin: 6px auto 0; max-width: 34em; color: var(--ink-2); font-size: .95rem; }
 .slot-box .pill-st { display: inline-block; margin-bottom: 10px; padding: 4px 12px; border: 2px solid var(--ink); border-radius: 999px; font-family: var(--font-mono); font-size: .7rem; font-weight: 800; background: var(--yel); }
-.files { margin-top: 16px; display: grid; gap: 6px; font-family: var(--font-mono); font-size: .8rem; }
-.files li { padding: 8px 12px; background: var(--surface); border: 1px solid rgba(12, 35, 64, .18); border-radius: 8px; word-break: break-all; }
-.files li b { color: var(--accent-text); }
+.files { margin-top: 14px; display: grid; gap: 10px; }
+.files li { padding: 14px 16px; background: var(--surface); border: 2px solid var(--ink); border-radius: 10px; box-shadow: 3px 3px 0 var(--ink); }
+.files li b { display: block; font-size: 1rem; }
+.files li span { display: block; margin-top: 3px; color: var(--ink-2); font-size: .92rem; }
+.files li code { display: inline-block; margin-top: 8px; padding: 2px 8px; border-radius: 5px; background: rgba(12, 35, 64, .08); font-family: var(--font-mono); font-size: .78rem; overflow-wrap: anywhere; }
 .case-nav { position: sticky; top: 55px; z-index: 5; display: flex; gap: 8px; overflow-x: auto; padding: 10px clamp(16px, 4vw, 36px); margin: 0 calc(-1 * clamp(16px, 4vw, 36px)); background: rgba(234, 243, 252, .93); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid rgba(12, 35, 64, .2); scrollbar-width: thin; }
 .cchip { flex: none; padding: 7px 14px; border: 2px solid var(--ink); border-radius: 999px; background: var(--surface); font-size: .8rem; font-weight: 700; cursor: pointer; transition: background .2s, transform .15s; }
 .cchip:hover { transform: translateY(-1px); background: var(--accent); }
@@ -1293,11 +1295,12 @@ html.modal-open { overflow: hidden; }
         <li class="warn">157 of the 1,750 store-and-product pairs are missing from the inventory table (41 of them still sell). I flag them as a data gap, not as zero stock.</li>
         <li class="warn">No customer, basket, promotion or competitor data, so there is no customer or pricing analysis.</li>
       </ul>
+      <p class="txt" style="margin-top:22px"><strong>The project files.</strong> Everything above comes from three parts, all in the project folder on GitHub:</p>
       <ul class="files">
-        <!-- EDIT FILE PATHS if you move the project folder -->
-        <li><b>sql/</b> 00_clean_and_model, 01_kpi_overview, 02_category_and_product_mix, 03_growth_and_margin_bridge, 04_store_and_location, 05_inventory_and_stockouts</li>
-        <li><b>python/analysis.py</b> computes everything, runs the SQL, asserts they agree</li>
-        <li><b>data/summary/</b> small aggregate CSVs used by this page</li>
+        <!-- EDIT FILE PATHS if you move the project folder; link each item once the GitHub URL is known -->
+        <li><b>SQL scripts</b><span>Six scripts that clean the raw data, build the tables, and answer each question in turn: overall numbers, product mix, growth and the margin bridge, stores, and inventory.</span><code>sql/</code></li>
+        <li><b>Python analysis</b><span>Repeats the whole analysis in pandas, then runs the SQL and stops with an error if the two ever give different numbers.</span><code>python/analysis.py</code></li>
+        <li><b>Summary data</b><span>The small result tables that the charts on this page are drawn from.</span><code>data/summary/</code></li>
       </ul>
     </section>
 
