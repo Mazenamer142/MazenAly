@@ -1,19 +1,43 @@
 {
-  "name": "Portfolio blue",
-  "dataColors": ["#1f6fd0", "#d1571a", "#7a4fc4", "#0f8f7a", "#5d7391", "#aebbcd"],
+  "name": "Portfolio sky",
+  "dataColors": ["#1f6fd0", "#d1571a", "#7a4fc4", "#0f8f7a", "#5d7391", "#aebbcd", "#ffc83d", "#3f9d3a"],
   "background": "#ffffff",
   "foreground": "#0c2340",
+  "foregroundNeutralSecondary": "#3a5170",
+  "foregroundNeutralTertiary": "#6b83a1",
+  "backgroundLight": "#d6e8f9",
+  "backgroundNeutral": "#eaf3fc",
   "tableAccent": "#1f6fd0",
   "good": "#0f8f7a",
+  "neutral": "#ffc83d",
   "bad": "#d1571a",
-  "neutral": "#5d7391",
+  "maximum": "#1f6fd0",
+  "center": "#aebbcd",
+  "minimum": "#eaf3fc",
+  "null": "#d6e8f9",
+  "hyperlink": "#0b63c4",
   "textClasses": {
+    "callout": { "fontSize": 28, "fontFace": "Segoe UI Semibold", "color": "#0c2340" },
     "title": { "fontSize": 14, "fontFace": "Segoe UI Semibold", "color": "#0c2340" },
-    "label": { "fontSize": 11, "fontFace": "Segoe UI", "color": "#3a5170" },
-    "callout": { "fontSize": 28, "fontFace": "Segoe UI Semibold", "color": "#0c2340" }
+    "header": { "fontSize": 12, "fontFace": "Segoe UI Semibold", "color": "#0c2340" },
+    "label": { "fontSize": 11, "fontFace": "Segoe UI", "color": "#3a5170" }
   },
   "visualStyles": {
-    "*": { "*": { "background": [{ "color": { "solid": { "color": "#ffffff" } } }], "border": [{ "show": true, "color": { "solid": { "color": "#0c2340" } }, "radius": 8 }] } },
-    "page": { "*": { "background": [{ "color": { "solid": { "color": "#eaf3fc" } }, "transparency": 0 }] } }
+    "*": {
+      "*": {
+        "background": [{ "show": true, "color": { "solid": { "color": "#ffffff" } }, "transparency": 0 }],
+        "border": [{ "show": true, "color": { "solid": { "color": "#0c2340" } }, "radius": 12 }],
+        "title": [{ "show": true, "fontColor": { "solid": { "color": "#0c2340" } }, "fontSize": 13, "fontFamily": "Segoe UI Semibold" }],
+        "subTitle": [{ "fontColor": { "solid": { "color": "#3a5170" } }, "fontSize": 10 }],
+        "valueAxis": [{ "gridlineColor": { "solid": { "color": "#d6e8f9" } }, "labelColor": { "solid": { "color": "#3a5170" } } }],
+        "categoryAxis": [{ "labelColor": { "solid": { "color": "#3a5170" } } }],
+        "legend": [{ "labelColor": { "solid": { "color": "#3a5170" } } }]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [{ "color": { "solid": { "color": "#eaf3fc" } }, "transparency": 0 }]
+      }
+    }
   }
 }
