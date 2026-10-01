@@ -10,7 +10,7 @@ Sales doubled in six months. When do people buy, and what do they buy?
 - **Daily revenue doubled**, from $2,635 in January to $5,550 in June (+111%). The value of a sale line stayed at about $4.70, so the growth is more customers, not bigger orders.
 - **46% of revenue is made between 7 and 11am.**
 - **Same total, three different shapes.** The stores are within 3% of each other in revenue. Lower Manhattan is the most morning-heavy (51% between 7 and 11am, 8% after 5pm). Astoria opens later and has the biggest evening share (21%).
-- **The weekday hardly matters.** All seven days are within 5% of each other.
+- **The weekday hardly matters.** All seven days are within 4% of each other (revenue per day, Sunday lowest, Monday highest).
 - **Drinks are 77% of sales.** Only 13% of sized drinks are small.
 
 ## Limits
