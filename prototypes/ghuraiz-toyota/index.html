@@ -5,300 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>تويوتا الغريز | Toyota Al-Ghuraiz</title>
 <meta name="description" content="مركز صيانة وقطع غيار تويوتا — Toyota service &amp; parts center.">
-<style>
-/* ---------- tokens ---------- */
-:root{
-  --red:#d7232b; --red-d:#a91820; --ink:#0d0f12; --ink-2:#161a1f; --ink-3:#20262d;
-  --paper:#f5f3ef; --card:#ffffff; --line:#e4e0d9; --muted:#6b7078; --on-dark:#e9e9ea;
-  --dir:1; --ease:cubic-bezier(.2,.8,.2,1);
-  --font: "Segoe UI", "Noto Sans Arabic", "Noto Kufi Arabic", Tahoma, system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
-}
-html[dir=rtl]{--dir:-1}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip}
-body{font-family:var(--font);background:var(--paper);color:var(--ink);line-height:1.7;overflow-x:clip}
-body.intro-on{overflow:hidden}
-img,svg{display:block;max-width:100%}
-a{color:inherit;text-decoration:none}
-button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
-.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
-section{position:relative}
-h1,h2,h3{line-height:1.2;letter-spacing:0}
-html[lang=en] h1,html[lang=en] h2{letter-spacing:-.02em}
-
-/* ---------- reveal ---------- */
-.js [data-reveal]{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
-.js [data-reveal=start]{transform:translateX(calc(var(--dir) * -48px))}
-.js [data-reveal=end]{transform:translateX(calc(var(--dir) * 48px))}
-.js [data-reveal=zoom]{transform:scale(.92)}
-.js [data-reveal].in{opacity:1;transform:none}
-
-/* ---------- progress + nav ---------- */
-.progress{position:fixed;inset:0 0 auto 0;height:3px;z-index:60;background:transparent}
-.progress i{display:block;height:100%;width:100%;background:var(--red);transform-origin:left center;transform:scaleX(var(--sp,0))}
-html[dir=rtl] .progress i{transform-origin:right center}
-.nav{position:fixed;inset:0 0 auto 0;z-index:50;padding:18px 0;transition:background .35s,padding .35s,box-shadow .35s}
-.nav.solid{background:rgba(13,15,18,.86);backdrop-filter:blur(14px);padding:10px 0;box-shadow:0 8px 30px rgba(0,0,0,.25)}
-.nav .wrap{display:flex;align-items:center;gap:28px}
-.logo{display:flex;align-items:center;gap:12px;color:#fff}
-.logo-mark{width:44px;height:44px;border-radius:50%;border:2px solid var(--red);display:grid;place-items:center;flex:none}
-.logo-mark svg{width:26px}
-.logo b{display:block;font-size:1.15rem;line-height:1.1}
-.logo small{display:block;font-size:.7rem;color:#aab0b8;font-weight:500;line-height:1.3}
-.links{display:flex;gap:26px;margin-inline-start:auto;color:#d7d9dc;font-weight:600;font-size:.95rem}
-.links a{position:relative;padding:4px 0}
-.links a::after{content:"";position:absolute;inset:auto 0 -2px 0;height:2px;background:var(--red);transform:scaleX(0);transition:transform .3s var(--ease)}
-.links a:hover::after{transform:scaleX(1)}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 26px;border-radius:999px;font-weight:700;transition:transform .25s var(--ease),background .25s,box-shadow .25s,border-color .25s}
-.btn-red{background:var(--red);color:#fff;box-shadow:0 10px 26px -8px rgba(215,35,43,.7)}
-.btn-red:hover{background:var(--red-d);transform:translateY(-2px)}
-.btn-ghost{border:1.5px solid rgba(255,255,255,.35);color:#fff}
-.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
-.btn svg{width:18px;transition:transform .25s}
-.btn:hover svg{transform:translateX(calc(var(--dir) * 4px))}
-html[dir=rtl] .btn svg{transform:scaleX(-1)}
-html[dir=rtl] .btn:hover svg{transform:scaleX(-1) translateX(4px)}
-.lang{border:1.5px solid rgba(255,255,255,.35);color:#fff;border-radius:999px;padding:7px 16px;font-weight:700;font-size:.85rem;transition:.25s}
-.lang:hover{background:#fff;color:var(--ink)}
-.burger{display:none;width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(255,255,255,.35);color:#fff;place-items:center}
-.burger span,.burger span::before,.burger span::after{display:block;width:18px;height:2px;background:#fff;position:relative;transition:.3s}
-.burger span::before,.burger span::after{content:"";position:absolute;inset-inline-start:0}
-.burger span::before{top:-6px}.burger span::after{top:6px}
-
-/* ---------- car ---------- */
-.lc{position:relative;direction:ltr}
-.lc svg{width:100%;height:auto;overflow:visible}
-.lc .wheel-spin{transform-box:fill-box;transform-origin:center;animation:spin var(--spin,.7s) linear infinite}
-.lc .beam{opacity:0;transition:opacity .6s}
-.lc.lights-on .beam{opacity:1}
-.lc .lamp{fill:#8e8a78;transition:fill .4s}
-.lc.lights-on .lamp{fill:#fff6c8;filter:drop-shadow(0 0 8px #ffe9a0)}
-@keyframes spin{to{transform:rotate(360deg)}}
-
-/* ---------- intro ---------- */
-.intro{position:fixed;inset:0;z-index:100;display:grid;place-items:center;pointer-events:all}
-.intro .half{position:absolute;inset-inline:0;height:50.5%;background:var(--ink);transition:transform 1s var(--ease)}
-.intro .top{top:0}.intro .bot{bottom:0}
-.intro.open .top{transform:translateY(-101%)}
-.intro.open .bot{transform:translateY(101%)}
-.intro-stage{position:relative;z-index:2;width:min(920px,92vw);text-align:center;transition:opacity .5s}
-.intro.open .intro-stage,.intro.open .skip{opacity:0}
-.intro-glow{position:absolute;inset:0;z-index:1;background:radial-gradient(60% 45% at 50% 58%,rgba(215,35,43,.28),transparent 70%)}
-.intro-car{width:min(640px,88vw);margin:0 auto;transform:translateX(-120vw);transition:transform 2.1s cubic-bezier(.15,.7,.2,1)}
-.intro.drive .intro-car{transform:none}
-.intro.drive.park .intro-car{--spin:0s}
-.road{height:2px;margin-top:-14px;background:linear-gradient(90deg,transparent,#444 20%,#444 80%,transparent);position:relative}
-.road::after{content:"";position:absolute;inset:8px 0 auto 0;height:2px;background:repeating-linear-gradient(90deg,#555 0 26px,transparent 26px 52px);opacity:.6;animation:dash .5s linear infinite}
-.intro.park .road::after{animation:none;opacity:.25}
-@keyframes dash{to{background-position:52px 0}}
-.intro-brand{margin-top:34px;color:#fff;opacity:0;transform:translateY(18px);transition:opacity .8s .1s,transform .8s .1s var(--ease)}
-.intro.park .intro-brand{opacity:1;transform:none}
-.intro-brand h2{font-size:clamp(2.2rem,6vw,3.8rem);font-weight:800}
-.intro-brand h2 span{color:var(--red)}
-.intro-brand p{color:#aab0b8;margin-top:6px;letter-spacing:.04em}
-.skip{position:absolute;z-index:3;inset-block-end:28px;inset-inline-end:28px;color:#aab0b8;font-size:.85rem;border:1px solid #333;border-radius:999px;padding:6px 16px;transition:.25s,opacity .5s}
-.skip:hover{color:#fff;border-color:#888}
-.intro-bar{position:absolute;z-index:3;inset:auto 0 0 0;height:3px;background:#1d2127}
-.intro-bar i{display:block;height:100%;background:var(--red);transform-origin:left;transform:scaleX(0);transition:transform 3.4s linear}
-html[dir=rtl] .intro-bar i{transform-origin:right}
-.intro.drive .intro-bar i{transform:scaleX(1)}
-
-/* ---------- hero ---------- */
-.hero{min-height:100svh;background:var(--ink);color:#fff;overflow:hidden;display:flex;align-items:center;padding:120px 0 150px}
-.hero::before{content:"";position:absolute;inset:0;background:
-  radial-gradient(60% 55% at 78% 70%,rgba(215,35,43,.32),transparent 70%),
-  radial-gradient(40% 40% at 10% 10%,rgba(255,255,255,.06),transparent 70%);}
-.hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(70% 70% at 50% 40%,#000,transparent);-webkit-mask-image:radial-gradient(70% 70% at 50% 40%,#000,transparent)}
-.hero .wrap{position:relative;z-index:2}
-.kicker{display:inline-flex;align-items:center;gap:10px;color:var(--red);font-weight:800;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase}
-html[lang=ar] .kicker{letter-spacing:0;font-size:.95rem}
-.kicker::before{content:"";width:34px;height:2px;background:currentColor}
-.hero h1{font-size:clamp(2.6rem,6.4vw,5.2rem);font-weight:800;margin:18px 0 20px;max-width:15ch}
-.hero h1 em{font-style:normal;color:var(--red);display:block}
-.hero p.lead{max-width:46ch;color:#c4c8cd;font-size:1.12rem}
-.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
-.hero-car{position:absolute;z-index:1;inset-block-end:55px;width:min(760px,62vw)}
-html[dir=rtl] .hero-car{left:1%}
-html[dir=ltr] .hero-car{right:1%}
-html[dir=ltr] .hero-car .lc svg{transform:scaleX(-1)}
-.hero-car .lc{transform:translateX(calc(var(--dir) * var(--px,0px))) translateY(var(--py,0px))}
-.hero-car .bob{animation:bob 3.2s ease-in-out infinite}
-@keyframes bob{50%{transform:translateY(-4px)}}
-.hero-ground{position:absolute;z-index:1;inset:auto 0 70px 0;height:2px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent)}
-.hero-car .lc svg{filter:drop-shadow(0 30px 40px rgba(0,0,0,.55))}
-.js .hero [data-hero]{opacity:0;transform:translateY(30px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:var(--d,0s)}
-.js .hero-car{opacity:0;transform:translateX(calc(var(--dir) * -160px));transition:opacity 1.2s .2s,transform 1.4s .2s var(--ease)}
-.ready .hero [data-hero]{opacity:1;transform:none}
-.ready .hero-car{opacity:1;transform:none}
-.scroll-cue{position:absolute;z-index:2;inset-block-end:26px;inset-inline-start:50%;translate:-50% 0;color:#8c929a;font-size:.8rem;display:flex;flex-direction:column;align-items:center;gap:8px}
-html[dir=rtl] .scroll-cue{translate:50% 0}
-.scroll-cue i{width:22px;height:36px;border:2px solid #555;border-radius:12px;position:relative}
-.scroll-cue i::after{content:"";position:absolute;top:6px;inset-inline-start:50%;width:4px;height:8px;margin-inline-start:-2px;border-radius:2px;background:var(--red);animation:wheel 1.6s infinite}
-@keyframes wheel{0%{opacity:0;transform:translateY(0)}30%{opacity:1}100%{opacity:0;transform:translateY(14px)}}
-
-/* ---------- stats ---------- */
-.stats{background:var(--ink-2);color:#fff;padding:46px 0}
-.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.stat{text-align:center;padding:6px 10px;border-inline-start:1px solid #2a3037}
-.stat:first-child{border:0}
-.stat b{display:block;font-size:clamp(2rem,4vw,3rem);font-weight:800;color:#fff;line-height:1.1}
-.stat b sup{color:var(--red);font-size:.55em;vertical-align:top;margin-inline-start:2px}
-.stat span{color:#9aa0a8;font-size:.92rem}
-
-/* ---------- section basics ---------- */
-.sec{padding:clamp(70px,10vw,120px) 0}
-.sec-head{max-width:640px;margin-bottom:54px}
-.sec-head h2{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:800;margin:12px 0 12px}
-.sec-head p{color:var(--muted);font-size:1.06rem}
-
-/* ---------- services ---------- */
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px 28px;position:relative;overflow:hidden;transition:transform .4s var(--ease),box-shadow .4s,border-color .4s}
-.card::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
-html[dir=rtl] .card::before{transform-origin:right}
-.card:hover{transform:translateY(-8px);box-shadow:0 28px 50px -24px rgba(13,15,18,.3);border-color:transparent}
-.card:hover::before{transform:scaleX(1)}
-.ico{width:58px;height:58px;border-radius:16px;background:#fbe9ea;color:var(--red);display:grid;place-items:center;margin-bottom:20px;transition:.4s var(--ease)}
-.ico svg{width:28px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.card:hover .ico{background:var(--red);color:#fff;transform:rotate(-8deg) scale(1.06)}
-.card h3{font-size:1.25rem;margin-bottom:8px}
-.card p{color:var(--muted);font-size:.98rem}
-.card .num{position:absolute;inset-block-start:18px;inset-inline-end:22px;font-size:3rem;font-weight:800;color:#f0ece6;line-height:1;transition:color .4s}
-.card:hover .num{color:#fbe0e2}
-
-/* ---------- journey (scroll-driven car) ---------- */
-.journey{background:var(--ink);color:#fff;overflow:hidden}
-.journey .sec-head p{color:#9aa0a8}
-.track{position:relative;direction:ltr;height:130px;margin:10px 0 40px}
-.track .lc{position:absolute;inset-block-end:14px;width:190px;inset-inline-start:calc((100% - 190px) * var(--jp,0));transition:inset-inline-start .15s linear}
-html[dir=rtl] .track .lc{inset-inline-start:auto;left:calc((100% - 190px) * var(--jp,0))}
-.track .line{position:absolute;inset:auto 0 12px 0;height:2px;background:#2d343c}
-.track .line i{position:absolute;inset:0 auto 0 0;width:calc(var(--jp,0) * 100%);background:var(--red)}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-.step{padding-top:22px;border-top:2px solid #2d343c;opacity:.45;transition:opacity .5s,border-color .5s}
-.step .n{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:50%;border:2px solid #3a424b;font-weight:800;margin-bottom:14px;transition:.5s var(--ease)}
-.step.on{opacity:1;border-color:var(--red)}
-.step.on .n{background:var(--red);border-color:var(--red);transform:scale(1.1)}
-.step h3{font-size:1.15rem;margin-bottom:6px}
-.step p{color:#aab0b8;font-size:.95rem}
-
-/* ---------- models marquee ---------- */
-.models{background:var(--paper);padding:34px 0;overflow:hidden;border-block:1px solid var(--line)}
-.marquee{display:flex;width:max-content;animation:mq 30s linear infinite;direction:ltr}
-html[dir=rtl] .marquee{animation-direction:reverse}
-.models:hover .marquee{animation-play-state:paused}
-.marquee span{font-size:clamp(1.8rem,4vw,3rem);font-weight:800;color:transparent;-webkit-text-stroke:1.5px #b9b4ab;padding-inline:30px;display:flex;align-items:center;gap:60px;white-space:nowrap;transition:color .3s}
-.marquee span::after{content:"";width:12px;height:12px;border-radius:50%;background:var(--red)}
-.marquee span:hover{color:var(--ink);-webkit-text-stroke-color:var(--ink)}
-@keyframes mq{to{transform:translateX(-50%)}}
-
-/* ---------- why ---------- */
-.why>*,.book .wrap>*{min-width:0}
-.why{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:center}
-.why-list{display:grid;gap:18px}
-.why-item{display:flex;gap:18px;padding:22px;border-radius:18px;background:var(--card);border:1px solid var(--line);transition:transform .35s var(--ease),box-shadow .35s}
-.why-item:hover{transform:translateX(calc(var(--dir) * -6px));box-shadow:0 20px 40px -26px rgba(0,0,0,.35)}
-.why-item .ico{margin:0;flex:none;width:50px;height:50px}
-.why-item h3{font-size:1.08rem;margin-bottom:2px}
-.why-item p{color:var(--muted);font-size:.94rem}
-.badge{position:relative;aspect-ratio:1;max-width:460px;margin-inline:auto;width:100%}
-.badge .ring{position:absolute;inset:0;border-radius:50%;border:2px dashed #cfc9bf;animation:rot 40s linear infinite}
-.badge .ring.r2{inset:12%;border-style:solid;border-color:var(--red);opacity:.2;animation-direction:reverse;animation-duration:60s}
-.badge .core{position:absolute;inset:24%;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;text-align:center;padding:20px;box-shadow:0 30px 60px -20px rgba(13,15,18,.6)}
-.badge .core b{font-size:clamp(2.6rem,6vw,4rem);color:var(--red);line-height:1}
-.badge .core span{font-size:.95rem;color:#c4c8cd}
-@keyframes rot{to{transform:rotate(360deg)}}
-
-/* ---------- testimonials ---------- */
-.tst{background:#ece8e1}
-.quote{background:var(--card);border-radius:20px;padding:30px;border:1px solid var(--line);position:relative}
-.quote::before{content:"”";position:absolute;inset-block-start:6px;inset-inline-end:22px;font-size:5rem;line-height:1;color:#f3d3d5;font-family:Georgia,serif}
-.quote .stars{color:#f0a500;letter-spacing:3px;margin-bottom:10px}
-.quote p{margin-bottom:18px}
-.quote footer{display:flex;align-items:center;gap:12px}
-.av{width:42px;height:42px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:800}
-.quote footer b{display:block;line-height:1.2}
-.quote footer small{color:var(--muted)}
-
-/* ---------- booking ---------- */
-.book{background:var(--ink);color:#fff;overflow:hidden}
-.book::before{content:"";position:absolute;inset:-20% -10% auto auto;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(215,35,43,.35),transparent 65%)}
-.book .wrap{position:relative;display:grid;grid-template-columns:1fr 1.15fr;gap:60px;align-items:center}
-.book h2{font-size:clamp(2rem,4.4vw,3.2rem);font-weight:800;margin:12px 0}
-.book .sub{color:#aab0b8;margin-bottom:28px}
-.info{display:grid;gap:14px}
-.info div{display:flex;gap:14px;align-items:flex-start}
-.info svg{width:22px;flex:none;color:var(--red);fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-top:4px}
-.info small{display:block;color:#8c929a}
-.info b{font-weight:600;direction:ltr;unicode-bidi:plaintext}
-form{background:var(--ink-2);border:1px solid #2a3037;border-radius:24px;padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.field{display:grid;gap:6px}
-.field.full{grid-column:1/-1}
-label{font-size:.85rem;color:#aab0b8;font-weight:600}
-input,select,textarea{width:100%;background:var(--ink);border:1.5px solid #2f363e;border-radius:12px;padding:13px 14px;color:#fff;font:inherit;transition:border-color .25s,box-shadow .25s}
-input:focus,select:focus,textarea:focus{outline:0;border-color:var(--red);box-shadow:0 0 0 4px rgba(215,35,43,.18)}
-textarea{min-height:96px;resize:vertical}
-form .btn{grid-column:1/-1;justify-content:center;padding:15px}
-.toast{position:fixed;inset-inline:0;inset-block-end:28px;margin-inline:auto;width:max-content;max-width:90vw;background:#fff;color:var(--ink);padding:14px 24px;border-radius:999px;font-weight:700;box-shadow:0 20px 50px rgba(0,0,0,.35);transform:translateY(160%);visibility:hidden;transition:transform .5s var(--ease),visibility .5s;z-index:70;border-inline-start:6px solid var(--red)}
-.toast.show{transform:none;visibility:visible}
-
-/* ---------- map + footer ---------- */
-.map{background:linear-gradient(135deg,#e8e4dc,#dcd6cb);min-height:280px;display:grid;place-items:center;text-align:center;color:var(--muted);position:relative;overflow:hidden}
-.map::before{content:"";position:absolute;inset:0;background-image:linear-gradient(#cfc9be 1px,transparent 1px),linear-gradient(90deg,#cfc9be 1px,transparent 1px);background-size:44px 44px;opacity:.6}
-.map div{position:relative;display:grid;gap:10px;justify-items:center}
-.pin{width:46px;height:46px;border-radius:50% 50% 50% 0;background:var(--red);transform:rotate(-45deg);display:grid;place-items:center;animation:drop 2s ease-in-out infinite}
-.pin::after{content:"";width:16px;height:16px;border-radius:50%;background:#fff}
-@keyframes drop{50%{transform:rotate(-45deg) translate(-6px,6px)}}
-footer.site{background:#08090b;color:#8c929a;padding:30px 0;font-size:.9rem}
-footer.site .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
-footer.site button{color:#aab0b8;text-decoration:underline}
-
-/* ---------- responsive ---------- */
-@media (max-width:960px){
-  .grid3{grid-template-columns:1fr 1fr}
-  .why,.book .wrap{grid-template-columns:1fr;gap:40px}
-  .steps{grid-template-columns:1fr 1fr}
-  .stats .wrap{grid-template-columns:1fr 1fr;row-gap:26px}
-  .stat:nth-child(3){border:0}
-  .hero-car{width:min(600px,92vw);inset-block-end:60px}
-}
-@media (max-width:760px){
-  .links{position:fixed;inset:64px 0 auto 0;background:rgba(13,15,18,.97);flex-direction:column;gap:0;padding:8px 20px 20px;transform:translateY(-130%);transition:transform .45s var(--ease);margin:0}
-  .links.open{transform:none}
-  .links a{padding:14px 0;border-bottom:1px solid #20262d}
-  .burger{display:grid;margin-inline-start:auto}
-  .nav .btn-red{display:none}
-  .nav .wrap{gap:12px}
-  .lang{margin-inline-start:0}
-  .hero{align-items:flex-start;padding-top:110px}
-  .hero-car{inset-block-end:45px;width:108vw}
-  html[dir=rtl] .hero-car{left:-4%}
-  html[dir=ltr] .hero-car{right:-4%}
-  .hero-ground{inset-block-end:60px}
-  .scroll-cue{display:none}
-  form{grid-template-columns:1fr;padding:24px}
-}
-@media (max-width:560px){.grid3,.steps{grid-template-columns:1fr}.logo small{display:none}}
-
-@media (prefers-reduced-motion:reduce){
-  *{animation:none!important;transition-duration:.01s!important;scroll-behavior:auto!important}
-  .js [data-reveal],.js .hero [data-hero],.js .hero-car{opacity:1!important;transform:none!important}
-}
-</style>
+<meta name="theme-color" content="#9cc3ee">
+<link rel="stylesheet" href="style.css">
 </head>
 <body class="intro-on">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="cloudf" x="-30%" y="-60%" width="160%" height="220%"><feTurbulence type="fractalNoise" baseFrequency=".012" numOctaves="5" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="110" xChannelSelector="R" yChannelSelector="G"/><feGaussianBlur stdDeviation="7"/></filter></svg>
 
 <!-- ================= INTRO ================= -->
 <div class="intro" id="intro" aria-hidden="true">
   <div class="half top"></div><div class="half bot"></div>
-  <div class="intro-glow"></div>
-  <div class="intro-stage">
-    <div class="intro-car lc" data-car data-fast></div>
-    <div class="road"></div>
-    <div class="intro-brand">
-      <h2 data-i18n-html="intro_name">تويوتا <span>الغريز</span></h2>
-      <p data-i18n="intro_tag">مركز صيانة وقطع غيار</p>
-    </div>
+  <div class="intro-sky"><div class="sky" data-sky></div></div>
+  <div class="intro-stage" id="introStage"></div>
+  <div class="intro-brand">
+    <div class="plaque big"><b data-i18n="intro_name">تويوتا الغريز</b></div>
+    <p data-i18n="intro_tag">مركز صيانة وقطع غيار</p>
   </div>
   <button class="skip" id="skip" data-i18n="skip">تخطي ›</button>
   <div class="intro-bar"><i></i></div>
@@ -310,11 +31,10 @@ footer.site button{color:#aab0b8;text-decoration:underline}
 <header class="nav" id="nav">
   <div class="wrap">
     <a href="#top" class="logo" aria-label="Home">
-      <span class="logo-mark">
-        <!-- placeholder emblem: replace with the center's own logo -->
-        <svg viewBox="0 0 40 28" fill="none" stroke="#d7232b" stroke-width="3"><ellipse cx="20" cy="14" rx="18" ry="12"/><ellipse cx="20" cy="14" rx="7" ry="12"/><ellipse cx="20" cy="9" rx="18" ry="0.1"/></svg>
+      <span class="plaque">
+        <svg viewBox="0 0 40 28" fill="none" stroke="#d7232b" stroke-width="3"><ellipse cx="20" cy="14" rx="18" ry="12"/><ellipse cx="20" cy="14" rx="7" ry="12"/></svg>
+        <span><b data-i18n="brand">تويوتا الغريز</b><small data-i18n="brand_sub">مركز صيانة وقطع غيار</small></span>
       </span>
-      <span><b data-i18n="brand">تويوتا الغريز</b><small data-i18n="brand_sub">مركز صيانة وقطع غيار</small></span>
     </a>
     <nav class="links" id="links">
       <a href="#services" data-i18n="nav_services">الخدمات</a>
@@ -330,7 +50,8 @@ footer.site button{color:#aab0b8;text-decoration:underline}
 
 <main id="top">
 <!-- ================= HERO ================= -->
-<section class="hero">
+<section class="hero" id="hero">
+  <div class="sky" data-sky aria-hidden="true"></div>
   <div class="wrap">
     <span class="kicker" data-hero style="--d:.1s" data-i18n="hero_kicker">متخصصون في تويوتا</span>
     <h1 data-hero style="--d:.25s"><span data-i18n="hero_t1">عناية تليق</span><em data-i18n="hero_t2">بسيارتك</em></h1>
@@ -340,9 +61,10 @@ footer.site button{color:#aab0b8;text-decoration:underline}
       <a href="#services" class="btn btn-ghost"><span data-i18n="hero_cta2">استعرض الخدمات</span></a>
     </div>
   </div>
-  <div class="hero-ground"></div>
-  <div class="hero-car" id="heroCar"><div class="lc bob" data-car data-lights></div></div>
-  <div class="scroll-cue"><i></i><span data-i18n="scroll">اسحب للأسفل</span></div>
+  <div class="hero-wall" aria-hidden="true"></div>
+  <div class="hero-ground" aria-hidden="true"></div>
+  <div class="hero-stage" id="heroStage" aria-label="3D Land Cruiser"></div>
+  <div class="hint" data-i18n="hint">اسحب لتدوير السيارة</div>
 </section>
 
 <!-- ================= STATS ================= -->
@@ -394,8 +116,8 @@ footer.site button{color:#aab0b8;text-decoration:underline}
       <h2 data-i18n="pr_title">من الاستقبال إلى التسليم</h2>
     </div>
     <div class="track" id="track">
-      <div class="line"><i></i></div>
-      <div class="lc" data-car data-lights data-fast></div>
+      <div class="road" aria-hidden="true"></div>
+      <div class="track-stage" id="trackStage" aria-label="3D Land Cruiser"></div>
     </div>
     <div class="steps">
       <div class="step" data-at=".05"><span class="n">1</span><h3 data-i18n="p1t">استقبال وفحص</h3><p data-i18n="p1d">نستمع لمشكلتك ونفحص السيارة بالكمبيوتر.</p></div>
@@ -407,7 +129,7 @@ footer.site button{color:#aab0b8;text-decoration:underline}
 </section>
 
 <!-- ================= MODELS ================= -->
-<div class="models" aria-label="models">
+<div class="models" aria-label="models"><div class="beam-top"></div>
   <div class="marquee" id="mq"></div>
 </div>
 
@@ -486,242 +208,8 @@ footer.site button{color:#aab0b8;text-decoration:underline}
 
 <div class="toast" id="toast" role="status"></div>
 
-<script>
-(() => {
-  document.documentElement.classList.add('js');
-  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- translations ---------- */
-  const T = {
-    ar: {
-      title:"تويوتا الغريز | مركز صيانة وقطع غيار", btn:"EN",
-      brand:"تويوتا الغريز", brand_sub:"مركز صيانة وقطع غيار",
-      nav_services:"الخدمات", nav_process:"كيف نعمل", nav_why:"لماذا نحن", nav_contact:"تواصل معنا", nav_book:"احجز موعد",
-      intro_name:'تويوتا <span>الغريز</span>', intro_tag:"مركز صيانة وقطع غيار", skip:"تخطي ›",
-      hero_kicker:"متخصصون في تويوتا", hero_t1:"عناية تليق", hero_t2:"بسيارتك",
-      hero_sub:"صيانة دورية، ميكانيكا وكهرباء، سمكرة ودهان، وقطع غيار — بأيدي فنيين متخصصين في سيارات تويوتا.",
-      hero_cta1:"احجز موعد الآن", hero_cta2:"استعرض الخدمات", scroll:"اسحب للأسفل",
-      st1:"سنة خبرة", st2:"سيارة تمت صيانتها", st3:"أقسام متخصصة", st4:"عملاء راضون",
-      svc_kicker:"خدماتنا", svc_title:"كل ما تحتاجه سيارتك في مكان واحد", svc_sub:"من الصيانة الدورية إلى الإصلاحات الدقيقة، نتعامل مع كل التفاصيل بخبرة وشفافية.",
-      s1t:"صيانة دورية", s1d:"تغيير زيوت وفلاتر وفحص شامل حسب جدول الصيانة الرسمي لكل موديل.",
-      s2t:"ميكانيكا ومحركات", s2d:"تشخيص وإصلاح المحرك والجيربوكس وناقل الحركة بأحدث الأدوات.",
-      s3t:"كهرباء وكمبيوتر", s3d:"فحص بالكمبيوتر وإصلاح الأعطال الكهربائية وأنظمة الإضاءة والتكييف.",
-      s4t:"سمكرة ودهان", s4d:"إصلاح الحوادث ودهان بالفرن بمطابقة دقيقة للون الأصلي.",
-      s5t:"فرامل وتعليق", s5d:"فحص وتغيير الفرامل والمساعدين والمقصات لقيادة آمنة ومريحة.",
-      s6t:"قطع غيار", s6d:"قطع أصلية وبديلة عالية الجودة لكل موديلات تويوتا مع ضمان.",
-      pr_kicker:"رحلة سيارتك معنا", pr_title:"من الاستقبال إلى التسليم",
-      p1t:"استقبال وفحص", p1d:"نستمع لمشكلتك ونفحص السيارة بالكمبيوتر.",
-      p2t:"تقدير واضح", p2d:"تكلفة ومدة محددتان قبل أي عمل — بلا مفاجآت.",
-      p3t:"إصلاح متقن", p3d:"فنيون متخصصون وقطع مضمونة.",
-      p4t:"تسليم وضمان", p4d:"اختبار قيادة نهائي وضمان على الشغل.",
-      why_kicker:"لماذا الغريز؟", why_title:"خبرة تويوتا في كل تفصيلة", why_badge:"سنة من الثقة",
-      w1t:"ضمان على الشغل", w1d:"نضمن الإصلاح وقطع الغيار المستبدلة.",
-      w2t:"فنيون متخصصون", w2d:"فريق يعمل على تويوتا فقط منذ سنوات.",
-      w3t:"أسعار شفافة", w3d:"تقدير مكتوب قبل البدء، بدون بنود مخفية.",
-      w4t:"التزام بالمواعيد", w4d:"نحترم وقتك ونسلّم السيارة في الموعد.",
-      t_kicker:"آراء العملاء", t_title:"عملاؤنا يتكلمون",
-      q1:"شغل نضيف وأمانة في التعامل. السيارة رجعت زي الجديدة.", a1:"أحمد س.", a1i:"أ", a1c:"لاند كروزر",
-      q2:"حددوا العطل بسرعة وبسعر واضح من أول مرة.", a2:"محمود ع.", a2i:"م", a2c:"فورتشنر",
-      q3:"سمكرة ودهان بمستوى الوكالة وبدون تأخير.", a3:"كريم ه.", a3i:"ك", a3c:"كورولا",
-      b_kicker:"احجز الآن", b_title:"احجز موعد صيانة", b_sub:"اترك بياناتك وسنتواصل معك لتأكيد الموعد.",
-      c_addr:"العنوان", c_addr_v:"[ العنوان هنا ]", c_phone:"الهاتف", c_hours:"مواعيد العمل", c_hours_v:"السبت – الخميس، ٩ ص – ٦ م",
-      f_name:"الاسم", f_phone:"رقم الهاتف", f_car:"الموديل", f_srv:"الخدمة", f_msg:"ملاحظات", f_submit:"أرسل الطلب",
-      m1:"لاند كروزر", m2:"فورتشنر", m3:"هايلكس", m4:"كورولا", m5:"كامري", m6:"يارس", m7:"أخرى",
-      ok:"تم استلام طلبك ✓ سنتواصل معك قريباً", need:"من فضلك أدخل الاسم ورقم الهاتف",
-      map:"مكان الخريطة — أضف Google Maps هنا", foot:"© ٢٠٢٦ تويوتا الغريز — نموذج أولي", replay:"إعادة تشغيل المقدمة"
-    },
-    en: {
-      title:"Toyota Al-Ghuraiz | Service & Parts Center", btn:"عربي",
-      brand:"Toyota Al-Ghuraiz", brand_sub:"Service & Parts Center",
-      nav_services:"Services", nav_process:"How we work", nav_why:"Why us", nav_contact:"Contact", nav_book:"Book a visit",
-      intro_name:'Toyota <span>Al-Ghuraiz</span>', intro_tag:"SERVICE & PARTS CENTER", skip:"Skip ›",
-      hero_kicker:"Toyota specialists", hero_t1:"The care your", hero_t2:"Toyota deserves",
-      hero_sub:"Periodic maintenance, mechanical & electrical repair, body & paint, and genuine parts — by technicians who live and breathe Toyota.",
-      hero_cta1:"Book a visit now", hero_cta2:"View services", scroll:"Scroll",
-      st1:"Years of experience", st2:"Cars serviced", st3:"Specialist departments", st4:"Happy customers",
-      svc_kicker:"Our services", svc_title:"Everything your car needs, under one roof", svc_sub:"From routine servicing to precision repairs, we handle every detail with expertise and transparency.",
-      s1t:"Periodic maintenance", s1d:"Oil, filters and a full inspection following the official schedule for your model.",
-      s2t:"Engine & mechanical", s2d:"Diagnosis and repair of engines, gearboxes and drivetrains with modern tools.",
-      s3t:"Electrical & diagnostics", s3d:"Computer scan and repair of electrical faults, lighting and A/C systems.",
-      s4t:"Body & paint", s4d:"Collision repair and oven-baked paint with an exact colour match.",
-      s5t:"Brakes & suspension", s5d:"Brakes, shocks and control arms checked or replaced for a safe, smooth ride.",
-      s6t:"Spare parts", s6d:"Genuine and high-quality alternative parts for all Toyota models, warrantied.",
-      pr_kicker:"Your car's journey", pr_title:"From drop-off to hand-over",
-      p1t:"Reception & scan", p1d:"We listen to your concern and scan the car.",
-      p2t:"Clear estimate", p2d:"Fixed cost and timing before any work — no surprises.",
-      p3t:"Quality repair", p3d:"Specialist technicians and guaranteed parts.",
-      p4t:"Hand-over & warranty", p4d:"Final road test and a warranty on the work.",
-      why_kicker:"Why Al-Ghuraiz?", why_title:"Toyota know-how in every detail", why_badge:"years of trust",
-      w1t:"Warranty on work", w1d:"Repairs and replaced parts are guaranteed.",
-      w2t:"Specialist technicians", w2d:"A team that has worked on Toyotas for years.",
-      w3t:"Transparent pricing", w3d:"A written estimate up front, no hidden items.",
-      w4t:"On-time delivery", w4d:"We respect your time and deliver as promised.",
-      t_kicker:"Testimonials", t_title:"What our customers say",
-      q1:"Clean work and honest dealing. The car came back like new.", a1:"Ahmed S.", a1i:"A", a1c:"Land Cruiser",
-      q2:"They found the fault fast and gave a clear price from the start.", a2:"Mahmoud A.", a2i:"M", a2c:"Fortuner",
-      q3:"Dealership-level body and paint, with no delays.", a3:"Karim H.", a3i:"K", a3c:"Corolla",
-      b_kicker:"Book now", b_title:"Book a service visit", b_sub:"Leave your details and we'll call to confirm your slot.",
-      c_addr:"Address", c_addr_v:"[ Address here ]", c_phone:"Phone", c_hours:"Opening hours", c_hours_v:"Sat – Thu, 9 AM – 6 PM",
-      f_name:"Name", f_phone:"Phone number", f_car:"Model", f_srv:"Service", f_msg:"Notes", f_submit:"Send request",
-      m1:"Land Cruiser", m2:"Fortuner", m3:"Hilux", m4:"Corolla", m5:"Camry", m6:"Yaris", m7:"Other",
-      ok:"Request received ✓ We'll contact you soon", need:"Please enter your name and phone number",
-      map:"Map placeholder — embed Google Maps here", foot:"© 2026 Toyota Al-Ghuraiz — prototype", replay:"Replay intro"
-    }
-  };
-  const MODELS = ['m1','m2','m3','m4','m5','m6'];
-  let lang = 'ar';
-
-  const nf = () => new Intl.NumberFormat(lang === 'ar' ? 'ar-EG' : 'en-US');
-  function renderCounts(){ $$('[data-count]').forEach(el => { if (el.dataset.done) el.textContent = nf().format(+el.dataset.count); }); }
-
-  function setLang(l){
-    lang = l; const d = T[l];
-    const h = document.documentElement; h.lang = l; h.dir = l === 'ar' ? 'rtl' : 'ltr';
-    document.title = d.title;
-    $$('[data-i18n]').forEach(el => { if (d[el.dataset.i18n] != null) el.textContent = d[el.dataset.i18n]; });
-    $$('[data-i18n-html]').forEach(el => { el.innerHTML = d[el.dataset.i18nHtml]; });
-    $('#lang').textContent = d.btn;
-    $('#mq').innerHTML = [...MODELS, ...MODELS, ...MODELS, ...MODELS].map(k => `<span>${d[k]}</span>`).join('');
-    renderCounts();
-    try { localStorage.setItem('lang', l); } catch (e) {}
-  }
-
-  /* ---------- Land Cruiser (side profile, original vector) ---------- */
-  let uid = 0;
-  const wheel = cx => `
-    <g transform="translate(${cx} 244)">
-      <circle r="49" fill="#14161a"/><circle r="43" fill="#1d2025"/>
-      <g class="wheel-spin"><circle r="31" fill="url(#rim__)"/>
-        ${[0,72,144,216,288].map(a => `<rect x="-3.5" y="-27" width="7" height="21" rx="3" fill="#6d737b" transform="rotate(${a})"/>`).join('')}
-        <circle r="7" fill="#2b2f35"/></g>
-    </g>`;
-  const carSVG = () => `
-  <svg viewBox="0 0 840 310" role="img" aria-label="Land Cruiser">
-    <defs>
-      <linearGradient id="body__" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#e4e6e9"/><stop offset="1" stop-color="#b8bdc4"/></linearGradient>
-      <linearGradient id="glass__" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a4654"/><stop offset="1" stop-color="#10151b"/></linearGradient>
-      <radialGradient id="rim__"><stop offset="0" stop-color="#e5e7ea"/><stop offset="1" stop-color="#8d939b"/></radialGradient>
-      <linearGradient id="beam__" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff3b8" stop-opacity=".75"/><stop offset="1" stop-color="#fff3b8" stop-opacity="0"/></linearGradient>
-    </defs>
-    <ellipse cx="435" cy="294" rx="360" ry="9" fill="#000" opacity=".35"/>
-    <path class="beam" d="M780 150 L1120 70 L1120 270 L780 172 Z" fill="url(#beam__)"/>
-    <!-- roof rack -->
-    <g stroke="#8a9098" stroke-width="3" stroke-linecap="round"><path d="M205 31 H512"/><path d="M230 31v9M310 31v9M390 31v9M470 31v9"/></g>
-    <!-- body -->
-    <path d="M90 232 L90 118 Q90 100 108 98 L170 92 L178 52 Q180 40 194 40 L520 40 Q534 40 540 50 L584 118 L742 128 Q774 132 780 160 L786 222 Q786 244 766 244 L683 244 A58 58 0 0 0 567 244 L293 244 A58 58 0 0 0 177 244 L110 244 Q90 244 90 232 Z" fill="url(#body__)" stroke="#aeb3ba" stroke-width="1.5"/>
-    <!-- glass -->
-    <path d="M470 54 L522 54 Q530 54 534 60 L572 118 L470 118 Z" fill="url(#glass__)"/>
-    <path d="M334 54 L460 54 L460 118 L334 118 Z" fill="url(#glass__)"/>
-    <path d="M198 54 L324 54 L324 118 L186 118 L189 62 Q190 54 198 54 Z" fill="url(#glass__)"/>
-    <!-- panel lines + handles -->
-    <g stroke="#a9aeb5" stroke-width="2"><path d="M329 54V232M465 54V232"/><path d="M96 124 H588" opacity=".7"/></g>
-    <g fill="#8d939b"><rect x="292" y="138" width="26" height="6" rx="3"/><rect x="428" y="138" width="26" height="6" rx="3"/></g>
-    <!-- mirror -->
-    <path d="M552 108 q24 -4 28 9 l-4 9 h-26z" fill="#cfd3d8" stroke="#aeb3ba"/>
-    <!-- lower cladding -->
-    <path d="M100 222 H770 Q784 222 784 232 Q782 242 770 242 H683 A58 58 0 0 0 567 242 H293 A58 58 0 0 0 177 242 H108 Q96 242 96 232 Q96 222 100 222 Z" fill="#2a2e34"/>
-    <!-- front: grille, lamp, bumper -->
-    <rect x="750" y="162" width="34" height="30" rx="3" fill="#cfd3d8" stroke="#aeb3ba"/>
-    <g stroke="#7b8189" stroke-width="2"><path d="M754 170H780M754 177H780M754 184H780"/></g>
-    <path d="M752 136 L778 140 Q782 152 780 160 L752 158 Z" class="lamp"/>
-    <path d="M748 196 H786 L788 222 H746 Z" fill="#2a2e34"/>
-    <!-- tail light -->
-    <rect x="90" y="106" width="9" height="46" rx="3" fill="#d7232b"/>
-    <!-- wheels -->
-    ${wheel(235)}${wheel(625)}
-  </svg>`;
-  $$('[data-car]').forEach(el => {
-    const id = 'c' + (uid++);
-    el.innerHTML = carSVG().replace(/__/g, id);
-    if (el.hasAttribute('data-lights')) el.classList.add('lights-on');
-    if (el.hasAttribute('data-fast')) el.style.setProperty('--spin', '.45s');
-  });
-
-  /* ---------- intro ---------- */
-  const intro = $('#intro'), introCar = $('.intro-car');
-  let timers = [];
-  function finishIntro(){
-    timers.forEach(clearTimeout); timers = [];
-    intro.classList.add('open'); document.body.classList.remove('intro-on');
-    setTimeout(() => document.body.classList.add('ready'), 250);
-    setTimeout(() => { intro.style.display = 'none'; }, 1100);
-  }
-  function playIntro(){
-    timers.forEach(clearTimeout);
-    intro.style.display = ''; intro.className = 'intro';
-    document.body.classList.add('intro-on'); document.body.classList.remove('ready');
-    introCar.classList.remove('lights-on');
-    window.scrollTo(0, 0);
-    if (reduce) { finishIntro(); return; }
-    requestAnimationFrame(() => requestAnimationFrame(() => intro.classList.add('drive')));
-    timers.push(setTimeout(() => { intro.classList.add('park'); introCar.classList.add('lights-on'); }, 2000));
-    timers.push(setTimeout(finishIntro, 3700));
-  }
-  $('#skip').onclick = finishIntro;
-  $('#replay').onclick = playIntro;
-
-  /* ---------- reveal + counters ---------- */
-  function countUp(el){
-    if (el.dataset.done) return;
-    const to = +el.dataset.count, t0 = performance.now(), dur = 1600;
-    const tick = now => {
-      const p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 3);
-      el.textContent = nf().format(Math.round(to * e));
-      if (p < 1) requestAnimationFrame(tick); else el.dataset.done = 1;
-    };
-    requestAnimationFrame(tick);
-  }
-  const io = new IntersectionObserver(es => es.forEach(e => {
-    if (!e.isIntersecting) return;
-    e.target.classList.add('in'); io.unobserve(e.target);
-    $$('[data-count]', e.target).forEach(countUp);
-    if (e.target.matches('[data-count]')) countUp(e.target);
-  }), { threshold: .18 });
-  $$('[data-reveal]').forEach(el => io.observe(el));
-
-  /* ---------- scroll effects ---------- */
-  const nav = $('#nav'), prog = $('.progress i'), hc = $('#heroCar .lc'), track = $('#track'), steps = $$('.step');
-  let ticking = false;
-  function onScroll(){
-    ticking = false;
-    const y = scrollY, max = document.documentElement.scrollHeight - innerHeight;
-    prog.style.setProperty('--sp', max > 0 ? y / max : 0); prog.style.transform = `scaleX(${max > 0 ? y / max : 0})`;
-    nav.classList.toggle('solid', y > 40);
-    if (y < innerHeight * 1.2) {
-      hc.style.setProperty('--px', (y * .35) + 'px');
-      hc.style.setProperty('--py', (y * .08) + 'px');
-      hc.parentElement.style.opacity = document.body.classList.contains('ready') ? Math.max(0, 1 - y / (innerHeight * .9)) : '';
-    }
-    const r = track.getBoundingClientRect(), vh = innerHeight;
-    const jp = Math.min(1, Math.max(0, (vh * .85 - r.top) / (vh * .6)));
-    track.style.setProperty('--jp', jp.toFixed(3));
-    steps.forEach(s => s.classList.toggle('on', jp >= +s.dataset.at));
-  }
-  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
-  addEventListener('resize', onScroll);
-
-  /* ---------- nav / lang / form ---------- */
-  $('#lang').onclick = () => setLang(lang === 'ar' ? 'en' : 'ar');
-  $('#burger').onclick = () => $('#links').classList.toggle('open');
-  $$('#links a').forEach(a => a.addEventListener('click', () => $('#links').classList.remove('open')));
-  const toast = $('#toast');
-  $('#form').addEventListener('submit', e => {
-    e.preventDefault();
-    const ok = $('#f_name').value.trim() && $('#f_phone').value.trim();
-    toast.textContent = T[lang][ok ? 'ok' : 'need'];
-    toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 3200);
-    if (ok) e.target.reset();
-  });
-
-  /* ---------- boot ---------- */
-  let saved = 'ar'; try { saved = localStorage.getItem('lang') || 'ar'; } catch (e) {}
-  const q = new URLSearchParams(location.search).get('lang'); if (q) saved = q;
-  setLang(T[saved] ? saved : 'ar');
-  if (new URLSearchParams(location.search).has('nointro')) { intro.style.display = 'none'; document.body.classList.remove('intro-on'); document.body.classList.add('ready'); }
-  else playIntro();
-  onScroll();
-})();
-</script>
+<script src="car3d.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
